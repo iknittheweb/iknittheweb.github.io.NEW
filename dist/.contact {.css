@@ -1,0 +1,57 @@
+.contact {
+  padding-block: 2rem;
+}
+.contact-form {
+  max-width: 400px;
+  margin-inline: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(68, 15, 72, 0.08);
+  padding: 2rem;
+}
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.contact-form .form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color-mid, #9c22a5);
+}
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #f9f6fa;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  border-color: var(--primary-color, #440f48);
+  outline: none;
+}
+.contact-form .form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.contact-form__submit {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary-color, #440f48);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.contact-form__submit:hover, .contact-form__submit:focus {
+  background: var(--primary-color-mid, #9c22a5);
+}/*# sourceMappingURL=.contact {.css.map */

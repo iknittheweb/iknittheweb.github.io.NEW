@@ -1,0 +1,48 @@
+@use '../abstracts' as a;
+.about {
+  &__heading {
+  }
+
+  // Profile section
+  .profile {
+    &__figure {
+      // Styles for profile figure if needed
+    }
+
+    &__pic {
+      display: block;
+      background-color: var(--secondary-bg);
+      width: 80%;
+      height: auto;
+      margin-inline: auto;
+      border: 10px solid var(--primary-color);
+    }
+
+    &__caption,
+    figcaption {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 50px;
+      padding-left: 15px;
+      border-left: 3px solid #ccc;
+
+      p {
+        font-size: a.rem(6);
+        font-family: var(--font-2);
+        width: 90%;
+
+        .nowrap {
+          white-space: nowrap;
+        }
+      }
+
+      @include a.breakpoint-down(small) {
+        margin-left: a.rem(24);
+        padding-left: a.rem(10);
+      }
+    }
+  }
+
+  .bio {
+  }
+}

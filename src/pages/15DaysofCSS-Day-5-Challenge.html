@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>#15 Days of CSS - Day 5 Challenge: Nested Lists</title>
+  <link rel="stylesheet" href="/css/#15DaysofCSS-Day-5-Challenge.css">
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="header-flex">
+    <div class="header-center flex-row-start">
+      <img class="logo" src="/img/logo.png" alt="I Knit The Web logo: a ball of yarn with knitting needles forming a web">
+      <div class="heading-subheading">
+        <h1>#15 Days of CSS - Day 5 Challenge</h1>
+        <p class="subheading">Nested List Accessibility & Styling</p>
+      </div>
+    </div>
+    <nav class="header-nav flex-row-end" aria-label="Main navigation">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/portfolio.html">Portfolio</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/#15DaysofCSS-Day-5-Challenge.html" aria-current="page">Day 5 Challenge</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <h2>Sea Creature Classification</h2>
+    <nav aria-label="Sea creature classification">
+      <ul>
+        <li>Cephalopods
+          <ul>
+            <li>Octopus</li>
+            <li>Squid</li>
+            <li>Cuttlefish</li>
+          </ul>
+        </li>
+        <li>Gastropods
+          <ul>
+            <li>Snails</li>
+            <li>Slugs</li>
+          </ul>
+        </li>
+        <li>Bivalvia
+          <ul>
+            <li>Clams</li>
+            <li>Oysters</li>
+            <li>Mussels</li>
+            <li>Scallops</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </main>
+
+</body>
+
+</html>

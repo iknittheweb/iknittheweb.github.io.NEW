@@ -1,0 +1,29 @@
+@use '../abstracts' as a;
+
+.dropdown {
+  margin: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+
+  &__title {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+
+  &__content {
+    display: none; /* Initially hide the content */
+    padding: 10px;
+    border-top: 1px solid #eee;
+
+    li {
+      border-bottom: 1px solid #ddd;
+      padding: 8px 0;
+    }
+  }
+
+  &__content.show {
+    display: block; /* Show content when 'show' class is added */
+  }
+}

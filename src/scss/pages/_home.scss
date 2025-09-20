@@ -1,0 +1,79 @@
+@use '../abstracts' as a;
+
+.home {
+  &__wrapper {
+    padding-block: a.rem(60);
+  }
+
+  &__title {
+    font-size: clamp(a.rem(44), calc(34.909px + 2.424vw), a.rem(64));
+  }
+
+  &__subheading {
+    font-size: clamp(26px, calc(21.455px + 1.212vw), 36px);
+  }
+
+  &__img {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+    padding: a.rem(20);
+    background-color: var(--primary-bg);
+    color: var(--text-color-2);
+  }
+
+  &__intro {
+    // Section styles (if needed)
+    // padding, margin, etc.
+
+    &-text {
+      // Styles for intro text paragraph
+    }
+
+    &-links {
+      // Styles for links paragraph
+    }
+
+    &-link {
+      text-decoration: none;
+      color: var(--primary-color-mid);
+      border-bottom: 2px solid var(--primary-color-mid);
+      transition: border-color 200ms ease-in-out;
+
+      &:hover,
+      &:focus {
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+      }
+    }
+
+    &-link--portfolio {
+      // Modifier for portfolio link
+    }
+    &-link--about {
+      // Modifier for about link
+    }
+    &-link--contact {
+      // Modifier for contact link
+    }
+
+    &-closing {
+      // Styles for closing paragraph
+    }
+  }
+}
+
+// Horizontal rule styling
+hr {
+  border: none;
+  border-top: 1px solid var(--text-color-1);
+  margin: a.rem(40) 0;
+}
+
+#main-content,
+#about,
+#portfolio,
+#contact {
+  scroll-margin-top: a.rem(200); // Set to your header height
+}
