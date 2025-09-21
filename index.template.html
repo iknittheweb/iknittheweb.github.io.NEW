@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<!--
+  🚨 IMPORTANT: This is a TEMPLATE file!
+  
+  After editing this file, you MUST run:
+  - npm run dev        (for development/testing)
+  - npm run deploy     (before pushing to production)
+  
+  DO NOT edit index.html directly - it gets overwritten!
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="I Knit The Web - Handcrafted websites for small budgets and big dreams. Professional web development services with HTML, CSS, and JavaScript."
+    />
+    <meta
+      name="keywords"
+      content="web development, web design, HTML, CSS, JavaScript, responsive design, small business websites"
+    />
+    <meta name="author" content="I Knit The Web" />
+
+    <!-- Open Graph Meta Tags -->
+    <!-- URLs automatically updated by build process -->
+    <meta
+      property="og:title"
+      content="I Knit The Web - Custom Web Development"
+    />
+    <meta
+      property="og:description"
+      content="Handcrafted websites for small budgets and big dreams"
+    />
+    <meta property="og:image" content="{{ASSET_URL}}/logo.png" />
+    <meta property="og:url" content="{{BASE_URL}}" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <!-- URLs automatically updated by build process -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="I Knit The Web - Custom Web Development"
+    />
+    <meta
+      name="twitter:description"
+      content="Handcrafted websites for small budgets and big dreams"
+    />
+    <meta name="twitter:image" content="{{ASSET_URL}}/logo.png" />
+
+    <!-- Title -->
+    <title>I Knit The Web!</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/src/img/favicon_io/favicon.ico"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="dist/styles.css" />
+
+    <!-- Structured Data -->
+    <!-- URLs automatically updated by build process -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "I Knit The Web",
+        "jobTitle": "Web Developer",
+        "description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams",
+        "url": "{{BASE_URL}}",
+        "sameAs": [],
+        "knowsAbout": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "SCSS",
+          "Web Design",
+          "Responsive Design"
+        ]
+      }
+    </script>
+
+    <!-- JavaScript -->
+    <script defer src="/src/js/bodyScrollLock.min.js"></script>
+    <script defer type="module" src="/src/js/script.js"></script>
+  </head>
+
+  <body class="home">
+    <!-- Skip Link for Screen Readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="topnav">
+      <!-- For Screen Readers to simplify navigation -->
+      <h1 class="visually-hidden">I Knit The Web Header</h1>
+      <div class="wrapper topnav__wrapper">
+        <!-- Main Header content including navigation -->
+        <!-- Logo/Brand Home Link -->
+        <a href="/" class="topnav__homelink hover-fade">
+          <img
+            alt="I Knit The Web Homepage"
+            class="topnav__logo"
+            src="/src/img/logo.png"
+            width="250"
+            height="250"
+          />
+        </a>
+        <!-- Navigation Menu, mobile menu buttons, and overlay -->
+        <!-- nav aria-label for accessibility -->
+        <nav class="topnav__nav" aria-label="Main navigation">
+          <!-- For Screen Readers to simplify navigation -->
+          <span id="nav-label" hidden> Navigation </span>
+          <!-- Overlay to obscure body while mobile menu is open -->
+          <div id="overlay" class="topnav__overlay"></div>
+          <!-- Button to open Mobile Menu -->
+          <!-- aria information for accessibility -->
+          <button
+            id="btnOpen"
+            class="topnav__open"
+            aria-expanded="false"
+            aria-labelledby="nav-label"
+          >
+            <img
+              alt="Open menu"
+              src="/src/img/hamburger.svg"
+              width="30"
+              height="23"
+            />
+          </button>
+          <!-- Mobile Menu -->
+          <div
+            id="menuTopNav"
+            class="topnav__menu"
+            role="dialog"
+            aria-labelledby="nav-label"
+          >
+            <!-- Button to close Mobile Menu -->
+            <button id="btnClose" class="topnav__close">
+              <img
+                alt="Close menu"
+                src="/src/img/close-button.svg"
+                width="26"
+                height="26"
+              />
+            </button>
+            <ul class="topnav__links">
+              <li class="topnav__item">
+                <a class="topnav__link" href="#main-content">Home</a>
+              </li>
+              <li class="topnav__item">
+                <a class="topnav__link" href="#about">About</a>
+              </li>
+              <li class="topnav__item">
+                <a class="topnav__link" href="#portfolio">Portfolio</a>
+              </li>
+              <li class="topnav__item">
+                <a class="topnav__link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="home">
+      <div class="wrapper home__wrapper">
+        <h1 class="home__title">I Knit The Web</h1>
+        <section class="home__intro">
+          <img
+            alt="woman knitting a web"
+            src="/src/img/Woman_knitting_web_small.png"
+            class="home__img"
+            width="540"
+            height="540"
+          />
+          <h2 class="home__subheading">
+            Handcrafted Websites for Small Budgets and Big Dreams
+          </h2>
+          <p class="home__intro-text">
+            I am dedicated to providing high-quality web design services
+            tailored to your needs.
+          </p>
+          <p class="home__intro-links">
+            <a
+              class="home__intro-link home__intro-link--portfolio"
+              href="#portfolio"
+              >Explore my portfolio</a
+            >
+            to see examples of my work,
+            <a class="home__intro-link home__intro-link--about" href="#about"
+              >learn more about me</a
+            >, or
+            <a
+              class="home__intro-link home__intro-link--contact"
+              href="#contact"
+              >contact me</a
+            >
+            to discuss your project.
+          </p>
+          <p class="home__intro-closing">
+            I look forward to helping you get the website that best fits your
+            needs!
+          </p>
+        </section>
+        <hr />
+        <section id="about" class="about">
+          <h2 class="home__subheading about__heading">About Me</h2>
+          <aside class="profile">
+            <figure class="profile__figure">
+              <img
+                alt="Profile picture: smiling person with glasses and short hair"
+                src="/src/img/Profile.png"
+                class="profile__pic"
+                width="371"
+                height="373"
+              />
+              <figcaption class="profile__caption">
+                <p>
+                  I knit the web like a handmade sweater — structured with HTML,
+                  styled with CSS, and sprinkled with JavaScript magic for that
+                  <span class="nowrap">✨perfect fit✨</span>
+                </p>
+              </figcaption>
+            </figure>
+          </aside>
+          <section class="bio">
+            <p>
+              Creativity and problem-solving go hand in hand—and that’s the
+              mindset I bring to my work as a web developer.
+            </p>
+            <p>
+              I’m building a strong foundation in HTML and CSS, while continuing
+              to grow my skills in JavaScript. Along the way, I’ve explored
+              Bootstrap 5, SASS, and other frameworks, applying what I’ve
+              learned to design and develop my own personal templates.
+            </p>
+            <div class="dropdown">
+              <p class="dropdown__title">My learning journey includes:</p>
+              <ul class="dropdown__content">
+                <li>
+                  Level 1 certifications in
+                  <a
+                    href="/src/pdfs/CCA-Certificate-HTML-Level-1.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    >HTML</a
+                  >,
+                  <a
+                    href="/src/pdfs/CCA-Certificate-CSS-Level-1.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    >CSS</a
+                  >, and
+                  <a
+                    href="/src/pdfs/CCA-Certificate-JavaScript-Level-1.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    >JavaScript</a
+                  >
+                  from the Cambridge Certification Authority
+                </li>
+                <li>
+                  Completion of SoloLearn courses in HTML, CSS, and Web
+                  Development Fundamentals
+                </li>
+                <li>Kevin Powell's Conquering Responsive Layouts course</li>
+                <li>
+                  Developer certification in Responsive Web Design at
+                  freeCodeCamp
+                </li>
+                <li>Frontend Masters Bootcamp</li>
+              </ul>
+            </div>
+            <p>
+              When I’m not coding, you’ll probably find me 🧶 knitting something
+              cozy or diving into a great book. 📖
+            </p>
+            <p>
+              Take a look at my
+              <a href="/src/pages/portfolio.html">portfolio</a> and if you’d
+              like to collaborate,
+              <a href="/src/pages/contact.html">let’s connect</a> —I’d love to
+              help bring your ideas to life!
+            </p>
+          </section>
+        </section>
+        <hr />
+        <section id="portfolio" class="portfolio">
+          <h2 class="home__subheading portfolio__heading">Portfolio</h2>
+          <p class="portfolio__intro">
+            Step inside my world of web development! These projects are where
+            ideas turn into clean, responsive, and interactive websites using
+            HTML, CSS, SCSS, and a dash of JavaScript magic.
+          </p>
+          <div class="portfolio__row">
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card__title">Alien Abduction Order Form</h3>
+              </div>
+              <div class="card-body">
+                <figure class="card-figure">
+                  <img
+                    alt="Thumbnail preview of Alien Abduction Order Form project"
+                    src="/src/img/Alien-abduction-form-thumb.jpg"
+                    class="card-image"
+                    width="345"
+                    height="259"
+                  />
+                  <figcaption class="card__caption">
+                    <p>
+                      When you want an alien abduction, you want it your way.
+                      Fill out this form to get started.
+                    </p>
+                  </figcaption>
+                </figure>
+                <a
+                  href="/src/pages/alien-abduction-form.html"
+                  class="card-button card__button--primary card-link"
+                >
+                  see page
+                </a>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card__title">Calculator</h3>
+              </div>
+              <div class="card-body">
+                <figure class="card-figure">
+                  <img
+                    alt="Thumbnail preview of Calculator project"
+                    src="/src/img/Calculator-thumb.jpg"
+                    class="card-image"
+                    width="356"
+                    height="268"
+                  />
+                  <figcaption class="card__caption">
+                    <p>
+                      A simple calculator built with HTML, CSS, and JavaScript.
+                    </p>
+                  </figcaption>
+                </figure>
+                <a
+                  href="/src/pages/calculator.html"
+                  class="card-button card__button--primary card-link"
+                >
+                  see page
+                </a>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card__title">CSS Position Cheat Sheet</h3>
+              </div>
+              <div class="card-body">
+                <figure class="card-figure">
+                  <img
+                    alt="Thumbnail preview of CSS Position Cheat Sheet project"
+                    src="/src/img/css-position-cheat-sheet-thumb.png"
+                    class="card-image"
+                    width="1868"
+                    height="1401"
+                  />
+                  <figcaption class="card__caption">
+                    <p>
+                      I created this cheat sheet as an assignment on
+                      <a
+                        href="https://www.codecademy.com/learn/paths/front-end-engineer-career-path"
+                        target="_blank"
+                        rel="noopener"
+                        >Codecademy's Front-End Engineer Career Path</a
+                      >.
+                    </p>
+                  </figcaption>
+                </figure>
+                <a
+                  href="/src/pages/css-position-cheat-sheet.html"
+                  class="card-button card__button--primary card-link"
+                >
+                  see page
+                </a>
+              </div>
+            </article>
+            <!-- Add more projects here as needed -->
+          </div>
+        </section>
+        <hr />
+        <section id="contact" class="contact">
+          <h2 class="home__subheading contact__heading">Contact Me</h2>
+          <form
+            class="contact__form"
+            action="#"
+            method="post"
+            autocomplete="on"
+            novalidate
+          >
+            <div class="contact__group">
+              <label class="contact__label" for="name"
+                >Name<span aria-hidden="true">*</span></label
+              >
+              <input
+                class="contact__input"
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                aria-describedby="name-error"
+              />
+              <div
+                id="name-error"
+                class="contact__error"
+                aria-live="polite"
+              ></div>
+            </div>
+            <div class="contact__group">
+              <label class="contact__label" for="email"
+                >Email<span aria-hidden="true">*</span></label
+              >
+              <input
+                class="contact__input"
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                aria-describedby="email-error"
+              />
+              <div
+                id="email-error"
+                class="contact__error"
+                aria-live="polite"
+              ></div>
+            </div>
+            <div class="contact__group">
+              <label class="contact__label" for="message"
+                >Message<span aria-hidden="true">*</span></label
+              >
+              <textarea
+                class="contact__input"
+                id="message"
+                name="message"
+                rows="5"
+                required
+                aria-describedby="message-error"
+              ></textarea>
+              <div
+                id="message-error"
+                class="contact__error"
+                aria-live="polite"
+              ></div>
+            </div>
+            <button type="submit" class="contact__submit">Send Message</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="home__footer">
+      <p class="home__footer-content">
+        &copy; 2025 I Knit The Web<br />All rights reserved
+      </p>
+    </footer>
+  </body>
+</html>
