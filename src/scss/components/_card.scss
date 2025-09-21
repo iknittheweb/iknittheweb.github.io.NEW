@@ -9,7 +9,9 @@ $card-padding: 20px;
   border: 1px solid $card-border-color;
   border-radius: $card-border-radius;
   box-shadow: $card-box-shadow;
-  max-width: 100%; // Responsive width instead of fixed
+  max-width: 400px; // Set maximum width to 400px
+  width: 100%; // Ensure card takes available width up to max-width
+  margin: 0 auto; // Center the card if it's smaller than container
   overflow: hidden; // Ensures content doesn't spill out of rounded corners
 
   &-header {

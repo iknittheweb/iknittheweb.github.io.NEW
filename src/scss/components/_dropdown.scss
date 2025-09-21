@@ -14,6 +14,7 @@
 
   &__content {
     display: none; /* Initially hide the content */
+    font-size: a.rem(14);
     padding: 10px;
     border-top: 1px solid var(--dropdown-border);
 

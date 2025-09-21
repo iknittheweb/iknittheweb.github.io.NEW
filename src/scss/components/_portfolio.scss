@@ -17,20 +17,29 @@
 
   &__row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(a.rem(280), 1fr));
     gap: a.rem(20);
     padding: 0 a.rem(10);
+    justify-items: center;
+
+    // Default: single column for screens up to 650px
+    grid-template-columns: 1fr;
+
+    // Two columns for medium screens (650px+) - this avoids the 575-600px issue
+    @media (min-width: 650px) {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    // Three columns for large screens (900px+)
+    @include a.breakpoint(large) {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+    }
 
     // Fix for very small screens
     @include a.breakpoint-down(xxsmall) {
-      grid-template-columns: 1fr; // Single column on very small screens
-      padding: 0; // Remove extra padding
-      justify-items: center; // Center cards
-    }
-
-    // Better handling for small screens
-    @include a.breakpoint-down(xsmall) {
-      grid-template-columns: repeat(auto-fit, minmax(a.rem(250), 1fr));
+      padding: 0;
       gap: a.rem(15);
     }
   }
