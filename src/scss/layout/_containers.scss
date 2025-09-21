@@ -2,4 +2,17 @@
 .wrapper {
   width: min(100% - a.rem(48), a.rem(1200));
   margin-inline: auto;
+
+  // More aggressive margin reduction for very small screens
+  @include a.breakpoint-down(xxsmall) {
+    width: min(100% - a.rem(16), a.rem(1200)); // Reduce to 16px margins
+  }
+
+  // Additional fix for extremely narrow screens
+  @media (max-width: 360px) {
+    width: min(
+      100% - a.rem(8),
+      a.rem(1200)
+    ); // Minimal margins for very narrow screens
+  }
 }

@@ -5,6 +5,10 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  width: 100vw; /* Use viewport width to ensure full coverage */
+  margin-left: calc(
+    -50vw + 50%
+  ); /* Center the header while ensuring full width */
 
   &,
   &__menu {

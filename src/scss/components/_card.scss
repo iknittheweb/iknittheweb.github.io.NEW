@@ -9,8 +9,7 @@ $card-padding: 20px;
   border: 1px solid $card-border-color;
   border-radius: $card-border-radius;
   box-shadow: $card-box-shadow;
-  margin: 20px; // Example margin for spacing
-  width: 300px; // Example fixed width, or use max-width for responsiveness
+  max-width: 100%; // Responsive width instead of fixed
   overflow: hidden; // Ensures content doesn't spill out of rounded corners
 
   &-header {

@@ -2,12 +2,12 @@
 
 .dropdown {
   margin: 20px;
-  border: 1px solid #ccc;
+  border: 2px solid var(--dropdown-border);
   padding: 10px;
 
   &__title {
     cursor: pointer;
-    background-color: #f0f0f0;
+    background-color: var(--secondary-bg);
     padding: 10px;
     margin-bottom: 0;
   }
@@ -15,10 +15,10 @@
   &__content {
     display: none; /* Initially hide the content */
     padding: 10px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--dropdown-border);
 
     li {
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid var(--dropdown-border);
       padding: 8px 0;
     }
   }

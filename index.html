@@ -1,8 +1,55 @@
 <!DOCTYPE html>
+<!--
+  🚨 IMPORTANT: This is a TEMPLATE file!
+  
+  After editing this file, you MUST run:
+  - npm run dev        (for development/testing)
+  - npm run deploy     (before pushing to production)
+  
+  DO NOT edit index.html directly - it gets overwritten!
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="I Knit The Web - Handcrafted websites for small budgets and big dreams. Professional web development services with HTML, CSS, and JavaScript."
+    />
+    <meta
+      name="keywords"
+      content="web development, web design, HTML, CSS, JavaScript, responsive design, small business websites"
+    />
+    <meta name="author" content="I Knit The Web" />
+
+    <!-- Open Graph Meta Tags -->
+    <!-- URLs automatically updated by build process -->
+    <meta
+      property="og:title"
+      content="I Knit The Web - Custom Web Development"
+    />
+    <meta
+      property="og:description"
+      content="Handcrafted websites for small budgets and big dreams"
+    />
+    <meta property="og:image" content="/src/img/logo.png" />
+    <meta property="og:url" content="https://iknittheweb.github.io" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <!-- URLs automatically updated by build process -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="I Knit The Web - Custom Web Development"
+    />
+    <meta
+      name="twitter:description"
+      content="Handcrafted websites for small budgets and big dreams"
+    />
+    <meta name="twitter:image" content="/src/img/logo.png" />
 
     <!-- Title -->
     <title>I Knit The Web!</title>
@@ -23,6 +70,28 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="dist/styles.css" />
+
+    <!-- Structured Data -->
+    <!-- URLs automatically updated by build process -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "I Knit The Web",
+        "jobTitle": "Web Developer",
+        "description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams",
+        "url": "https://iknittheweb.github.io",
+        "sameAs": [],
+        "knowsAbout": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "SCSS",
+          "Web Design",
+          "Responsive Design"
+        ]
+      }
+    </script>
 
     <!-- JavaScript -->
     <script defer src="/src/js/bodyScrollLock.min.js"></script>
@@ -335,6 +404,7 @@
             action="#"
             method="post"
             autocomplete="on"
+            novalidate
           >
             <div class="contact__group">
               <label class="contact__label" for="name"
@@ -347,7 +417,13 @@
                 name="name"
                 required
                 autocomplete="name"
+                aria-describedby="name-error"
               />
+              <div
+                id="name-error"
+                class="contact__error"
+                aria-live="polite"
+              ></div>
             </div>
             <div class="contact__group">
               <label class="contact__label" for="email"
@@ -360,7 +436,13 @@
                 name="email"
                 required
                 autocomplete="email"
+                aria-describedby="email-error"
               />
+              <div
+                id="email-error"
+                class="contact__error"
+                aria-live="polite"
+              ></div>
             </div>
             <div class="contact__group">
               <label class="contact__label" for="message"
@@ -372,7 +454,13 @@
                 name="message"
                 rows="5"
                 required
+                aria-describedby="message-error"
               ></textarea>
+              <div
+                id="message-error"
+                class="contact__error"
+                aria-live="polite"
+              ></div>
             </div>
             <button type="submit" class="contact__submit">Send Message</button>
           </form>
