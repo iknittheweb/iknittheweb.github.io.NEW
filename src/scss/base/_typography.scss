@@ -85,6 +85,30 @@ p > a {
   color: var(--text-link);
 }
 
+.link-cert {
+  color: var(--primary-color-mid);
+
+  &:hover {
+    color: var(--primary-color-light);
+  }
+
+  &::after {
+    background: var(--link-underline-gradient1);
+  }
+}
+
+.link-site {
+  color: var(--secondary-color-mid);
+
+  &:hover {
+    color: var(--secondary-color-light);
+  }
+
+  &::after {
+    background: var(--link-underline-gradient2);
+  }
+}
+
 .nowrap {
   white-space: nowrap;
 }

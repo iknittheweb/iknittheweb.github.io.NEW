@@ -165,8 +165,8 @@
       margin-top: 3px;
       background: linear-gradient(
         to right,
-        var(--link-gradient1),
-        var(--link-gradient2) 80%
+        var(--link-underline-gradient1),
+        var(--link-underline-gradient2) 80%
       );
       opacity: 0;
       transition: opacity 250ms ease-in-out;

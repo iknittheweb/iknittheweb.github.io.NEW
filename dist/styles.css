@@ -10,8 +10,8 @@
   --dropdown-border: #440f48;
   --text-color-1: #333;
   --text-color-2: #e1dede;
-  --link-gradient1: #d049d9;
-  --link-gradient2: #52d949;
+  --link-underline-gradient1: #d049d9;
+  --link-underline-gradient2: #52d949;
   --background-color: #1f1f1f;
   --font-1: "Georgia", serif;
   --font-2: "Verdana", sans-serif;
@@ -435,6 +435,26 @@ p > a {
   color: var(--text-link);
 }
 
+.link-cert {
+  color: var(--primary-color-mid);
+}
+.link-cert:hover {
+  color: var(--primary-color-light);
+}
+.link-cert::after {
+  background: var(--link-underline-gradient1);
+}
+
+.link-site {
+  color: var(--secondary-color-mid);
+}
+.link-site:hover {
+  color: var(--secondary-color-light);
+}
+.link-site::after {
+  background: var(--link-underline-gradient2);
+}
+
 .nowrap {
   white-space: nowrap;
 }
@@ -839,7 +859,7 @@ p > a {
   display: block;
   height: 3px;
   margin-top: 3px;
-  background: linear-gradient(to right, var(--link-gradient1), var(--link-gradient2) 80%);
+  background: linear-gradient(to right, var(--link-underline-gradient1), var(--link-underline-gradient2) 80%);
   opacity: 0;
   transition: opacity 250ms ease-in-out;
 }
