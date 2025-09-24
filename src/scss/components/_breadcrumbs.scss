@@ -1,0 +1,88 @@
+@use '../abstracts' as a;
+
+.breadcrumbs {
+  background-color: var(--secondary-bg);
+  border-bottom: 1px solid var(--nav-border-bottom);
+  padding-block: a.rem(12);
+
+  .wrapper {
+    padding-block: 0; // Override any wrapper padding for breadcrumbs
+  }
+}
+
+.breadcrumb-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: a.rem(8);
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  font-size: a.rem(14);
+
+  @include a.breakpoint(small) {
+    font-size: a.rem(16);
+  }
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+
+  &:not(:last-child)::after {
+    content: '›';
+    color: var(--text-color-1);
+    margin-left: a.rem(8);
+    margin-right: a.rem(4);
+    font-size: a.rem(16);
+    font-weight: 300;
+    opacity: 0.6;
+  }
+}
+.breadcrumb-link {
+  color: var(--primary-color-mid);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+
+  // Reduce touch target on mobile to save space
+  @include a.breakpoint-down(small) {
+    padding: a.rem(4);
+  }
+}
+
+.breadcrumb-current {
+  .breadcrumb-text {
+    color: var(--text-color-2);
+    font-weight: 600;
+  }
+}
+
+// Mobile optimization
+@include a.breakpoint-down(xxsmall) {
+  .breadcrumb-item:first-child {
+    // On very small screens, hide "Home" and start with "Portfolio" to save space
+    display: none;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// Accessibility improvements
+.breadcrumbs {
+  // Ensure breadcrumbs work with screen readers
+  [aria-current='page'] {
+    .breadcrumb-text {
+      // Screen readers will announce this as current page
+      position: relative;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@use '../abstracts' as a;
+
+/* =====================================
+   Calculator Display Component
+   ===================================== */
+.calc-display {
+  text-align: right;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px 5px;
+  font-size: 40px;
+  border-radius: 4px;
+
+  @include a.breakpoint-down(xsmall) {
+    font-size: 24px;
+    padding: 10px 2px;
+  }
+}
+
+/* =====================================
+   Calculator Keypad Component
+   ===================================== */
+.calc-keypad__row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  margin-bottom: 0.5%;
+}
+
+.calc-keypad__button {
+  background-color: var(--calc-button-bg);
+  color: var(--calc-text-dark);
+  border: none;
+  font-size: 40px;
+  height: 100px;
+  flex-basis: 24.5%;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s, outline 0.2s;
+
+  @include a.breakpoint-down(xsmall) {
+    font-size: 24px;
+    height: 60px;
+  }
+}
+
+.calc-keypad__button:hover,
+.calc-keypad__button:focus {
+  background-color: var(--calc-button-hover);
+  outline: 2px solid var(--color-gray-dark);
+  outline-offset: 2px;
+}
+
+.calc-keypad__button:active {
+  background-color: var(--calc-button-active);
+}
+
+.calc-keypad__button--double {
+  flex-basis: 49.7%;
+}
+
+.calc-keypad__button--triple {
+  flex-basis: 74.8%;
+}
+
+/* Operator button styling (divide, multiply, subtract, add, equals) */
+.calc-keypad__button--operator,
+.calc-keypad__button--equals {
+  background-color: var(--calc-operator-bg);
+  color: var(--calc-text-light);
+}
+
+.calc-keypad__button--operator:hover,
+.calc-keypad__button--operator:focus,
+.calc-keypad__button--equals:hover,
+.calc-keypad__button--equals:focus {
+  background-color: var(--calc-operator-hover);
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+  color: var(--color-gray-dark);
+}
+
+.calc-keypad__button--operator:active,
+.calc-keypad__button--equals:active {
+  background-color: var(--calc-operator-active);
+}

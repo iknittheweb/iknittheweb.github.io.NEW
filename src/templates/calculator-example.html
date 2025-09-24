@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/src/img/favicon_io/favicon.ico">
+  <title>Calculator - I Knit The Web</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/dist/styles.css">
+  
+  <!-- Page-specific data for component injection -->
+  <div id="page-data" 
+       data-page-title="Calculator" 
+       data-page-subtitle="A simple calculator built with HTML, CSS, and JavaScript"
+       data-nav-config="project"
+       style="display: none;"></div>
+</head>
+<body class="project-page calculator-page">
+  <!-- Header will be injected here -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main Content -->
+  <main id="main-content" class="calculator-main">
+    <div class="wrapper">
+      <section class="calculator-section">
+        <div class="calculator-container">
+          <div class="calculator">
+            <div class="calc-display" id="display">0</div>
+            <div class="calc-keypad">
+              <div class="calc-keypad__row">
+                <button class="calc-keypad__button" onclick="clearDisplay()">AC</button>
+                <button class="calc-keypad__button" onclick="deleteLast()">DEL</button>
+                <button class="calc-keypad__button calc-keypad__button--operator" onclick="appendToDisplay('/')">&divide;</button>
+                <button class="calc-keypad__button calc-keypad__button--operator" onclick="appendToDisplay('*')">&times;</button>
+              </div>
+              <!-- Additional calculator rows... -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- Footer will be injected here -->
+  <div id="footer-placeholder"></div>
+  
+  <!-- JavaScript -->
+  <script defer src="/src/js/bodyScrollLock.min.js"></script>
+  <script defer src="/src/js/components.js"></script>
+  <script defer type="module" src="/src/js/script.js"></script>
+  <script defer src="/src/js/calculator.js"></script>
+</body>
+</html>

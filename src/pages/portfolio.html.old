@@ -28,6 +28,24 @@
       type="image/x-icon"
       href="/src/img/favicon_io/favicon.ico"
     />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/src/img/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/src/img/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/src/img/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/src/img/favicon_io/site.webmanifest" />
 
     <!-- Title -->
     <title>Full Portfolio | I Knit The Web - I Knit The Web</title>
@@ -43,17 +61,12 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/dist/styles.css" />
 
-    <!-- Page-specific styles -->
-    {{PAGE_STYLES}}
-
     <!-- Page-specific data for component injection -->
     <div
       id="page-data"
       data-page-title="Full Portfolio | I Knit The Web"
       data-page-subtitle="Complete collection of web development projects"
       data-nav-config="portfolio"
-      data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
       style="display: none"
     ></div>
   </head>

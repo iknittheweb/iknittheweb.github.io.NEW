@@ -1,0 +1,86 @@
+@use '../abstracts' as a;
+
+.portfolio-page {
+  &__title {
+    font-size: clamp(a.rem(36), calc(28.364px + 2.424vw), a.rem(56));
+    text-align: center;
+    margin-bottom: a.rem(30);
+    margin-top: a.rem(60); // Add top margin to replace wrapper padding
+
+    @include a.breakpoint-down(small) {
+      margin-top: a.rem(40); // Smaller top margin on mobile
+    }
+  }
+
+  &__intro {
+    text-align: center;
+    font-size: a.rem(18);
+    margin-bottom: a.rem(50);
+    color: var(--text-color-1);
+    max-width: a.rem(700);
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+}
+
+.portfolio-section {
+  margin-bottom: a.rem(60);
+
+  &__heading {
+    font-size: clamp(a.rem(28), calc(22.182px + 1.212vw), a.rem(36));
+    text-align: center;
+    margin-bottom: a.rem(20);
+    color: var(--primary-color);
+  }
+
+  &__intro {
+    text-align: center;
+    font-size: a.rem(16);
+    margin-bottom: a.rem(30);
+    color: var(--text-color-1);
+    max-width: a.rem(600);
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+}
+
+.portfolio-back {
+  text-align: center;
+  margin: a.rem(40) 0 a.rem(60) 0; // Added bottom margin to replace wrapper padding
+  padding: a.rem(30);
+  background: var(--secondary-bg);
+  border-radius: 8px;
+
+  @include a.breakpoint-down(small) {
+    margin-bottom: a.rem(40); // Smaller bottom margin on mobile
+  }
+
+  &__text {
+    font-size: a.rem(18);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  &__link {
+    color: var(--primary-color-mid);
+    text-decoration: none !important;
+    border-bottom: 2px solid var(--primary-color-mid);
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+      text-decoration: none !important;
+    }
+  }
+}
+
+// Horizontal rules on portfolio page
+.portfolio-page hr {
+  border: none;
+  border-top: 1px solid var(--text-color-1);
+  margin: a.rem(50) 0;
+}

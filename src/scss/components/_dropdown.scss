@@ -10,6 +10,13 @@
     background-color: var(--secondary-bg);
     padding: 10px;
     margin-bottom: 0;
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: var(--primary-bg);
+      color: var(--text-color-2);
+    }
   }
 
   &__content {

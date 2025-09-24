@@ -14,8 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
-    <meta
-      name="description"
+    <me                <a
+                  href="/src/pages/portfolio-pages/calculator.html"
+                  class="card__button card__button--primary"
+                >      name="description"
       content="I Knit The Web - Handcrafted websites for small budgets and big dreams. Professional web development services with HTML, CSS, and JavaScript."
     />
     <meta
@@ -34,8 +36,8 @@
       property="og:description"
       content="Handcrafted websites for small budgets and big dreams"
     />
-    <meta property="og:image" content="/src/img/logo.png" />
-    <meta property="og:url" content="https://iknittheweb.github.io" />
+    <meta property="og:image" content="/src/img/branding/logo.png" />
+    <meta property="og:url" content="{{BASE_URL}}" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card Meta Tags -->
@@ -49,7 +51,7 @@
       name="twitter:description"
       content="Handcrafted websites for small budgets and big dreams"
     />
-    <meta name="twitter:image" content="/src/img/logo.png" />
+    <meta name="twitter:image" content="/src/img/branding/logo.png" />
 
     <!-- Title -->
     <title>I Knit The Web!</title>
@@ -80,7 +82,7 @@
         "name": "I Knit The Web",
         "jobTitle": "Web Developer",
         "description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams",
-        "url": "https://iknittheweb.github.io",
+        "url": "{{BASE_URL}}",
         "sameAs": [],
         "knowsAbout": [
           "HTML",
@@ -112,7 +114,7 @@
           <img
             alt="I Knit The Web Homepage"
             class="topnav__logo"
-            src="/src/img/logo.png"
+            src="/src/img/branding/logo.png"
             width="250"
             height="250"
           />
@@ -134,7 +136,7 @@
           >
             <img
               alt="Open menu"
-              src="/src/img/hamburger.svg"
+              src="/src/img/icons/hamburger.svg"
               width="30"
               height="23"
             />
@@ -150,7 +152,7 @@
             <button id="btnClose" class="topnav__close">
               <img
                 alt="Close menu"
-                src="/src/img/close-button.svg"
+                src="/src/img/icons/close-button.svg"
                 width="26"
                 height="26"
               />
@@ -163,7 +165,11 @@
                 <a class="topnav__link" href="#about">About</a>
               </li>
               <li class="topnav__item">
-                <a class="topnav__link" href="#portfolio">Portfolio</a>
+                <a
+                  class="topnav__link"
+                  href="/src/pages/project-pages/portfolio.html"
+                  >Full Portfolio</a
+                >
               </li>
               <li class="topnav__item">
                 <a class="topnav__link" href="#contact">Contact</a>
@@ -178,14 +184,7 @@
       <div class="wrapper home__wrapper">
         <h1 class="home__title">I Knit The Web</h1>
         <section class="home__intro">
-          <img
-            alt="woman knitting a web"
-            src="/src/img/Woman_knitting_web_small.png"
-            class="home__img"
-            width="540"
-            height="540"
-          />
-          <div class="home__intro-text-group">
+          <div class="home__text-content">
             <h2 class="home__subheading">
               Handcrafted Websites for Small Budgets and Big Dreams
             </h2>
@@ -215,181 +214,191 @@
               needs!
             </p>
           </div>
+          <img
+            alt="woman knitting a web"
+            src="/src/img/pages/Woman_knitting_web_small.png"
+            class="home__img"
+            width="540"
+            height="540"
+          />
         </section>
         <hr />
         <section id="about" class="about">
-          <h2 class="home__subheading about__heading">About Me</h2>
-          <aside class="profile">
-            <figure class="profile__figure">
-              <img
-                alt="Profile picture: smiling person with glasses and short hair"
-                src="/src/img/Profile.png"
-                class="profile__pic"
-                width="371"
-                height="373"
-              />
-              <figcaption class="profile__caption">
-                <p>
-                  I knit the web like a handmade sweater — structured with HTML,
-                  styled with CSS, and sprinkled with JavaScript magic for that
-                  <span class="nowrap">✨perfect fit✨</span>
-                </p>
-              </figcaption>
-            </figure>
-          </aside>
-          <section class="bio">
-            <p>
-              Creativity and problem-solving go hand in hand—and that’s the
-              mindset I bring to my work as a web developer.
-            </p>
-            <p>
-              I’m building a strong foundation in HTML and CSS, while continuing
-              to grow my skills in JavaScript. Along the way, I’ve explored
-              Bootstrap 5, SASS, and other frameworks, applying what I’ve
-              learned to design and develop my own personal templates.
-            </p>
-            <div class="dropdown">
-              <p class="dropdown__title">My learning journey includes:</p>
-              <ul class="dropdown__content">
-                <li>
-                  Level 1 certifications in
-                  <a
-                    href="/src/certificates/CCA-Certificate-HTML-Level-1.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >HTML</a
-                  >,
-                  <a
-                    href="/src/certificates/CCA-Certificate-CSS-Level-1.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >CSS</a
-                  >, and
-                  <a
-                    href="/src/certificates/CCA-Certificate-JavaScript-Level-1.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >JavaScript</a
-                  >
-                  from the Cambridge Certification Authority
-                </li>
-                <li>
-                  Completed
-                  <a
-                    href="https://www.sololearn.com/"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-site"
-                    >SoloLearn</a
-                  >
-                  courses in
-                  <a
-                    href="/src/certificates/Sololearn-HTML-Course.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >HTML</a
-                  >,
-                  <a
-                    href="/src/certificates/Sololearn-CSS-Course.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >CSS</a
-                  >, and
-                  <a
-                    href="/src/certificates/Sololearn-Web-Development-Fundamentals-Course.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >Web Development Fundamentals</a
-                  >
-                </li>
-                <li>
-                  Completed
-                  <a
-                    href="/src/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >Conquering Responsive Layouts</a
-                  >
-                  <a
-                    href="https://courses.kevinpowell.co/conquering-responsive-layouts"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-site"
-                    >course by Kevin Powell</a
-                  >
-                </li>
-                <li>
-                  Developer certification in
-                  <a
-                    href="/src/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >Responsive Web Design</a
-                  >
-                  at
-                  <a
-                    href="https://www.freecodecamp.org/"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-site"
-                    >freeCodeCamp</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://frontendmasters.com/bootcamp/"
-                    target="blank"
-                    rel="noopener"
-                    class="link-site"
-                    >Frontend Masters Bootcamp</a
-                  >
-                  certifications in
-                  <a
-                    href="/src/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >HTML Forms</a
-                  >,
-                  <a
-                    href="/src/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                    >Website Embeds and Github Pages</a
-                  >, and a
-                  <a
-                    href="/src/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg"
-                    target="_blank"
-                    rel="noopener"
-                    class="link-cert"
-                  >
-                    Calculator Project using HTML and CSS
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <p>
-              When I’m not coding, you’ll probably find me
-              <span class="nowrap">🧶 crafting</span> 🧵 or diving into a great
-              book. 📖
-            </p>
-            <p>
-              Take a look at my
-              <a href="/src/pages/portfolio.html">portfolio</a> and if you’d
-              like to collaborate,
-              <a href="/src/pages/contact.html">let’s connect</a> —I’d love to
-              help bring your ideas to life!
-            </p>
-          </section>
+          <h2 class="home__subheading about__title">About Me</h2>
+          <div class="about__wrapper">
+            <aside class="profile">
+              <figure class="profile__figure">
+                <img
+                  alt="Profile picture: smiling person with glasses and short hair"
+                  src="/src/img/pages/Profile.png"
+                  class="profile__pic"
+                  width="371"
+                  height="373"
+                />
+                <figcaption class="profile__caption">
+                  <p>
+                    I knit the web like a handmade sweater — structured with
+                    HTML, styled with CSS, and sprinkled with JavaScript magic
+                    for that
+                    <span class="nowrap">✨perfect fit✨</span>
+                  </p>
+                </figcaption>
+              </figure>
+            </aside>
+            <section class="bio">
+              <p>
+                Creativity and problem-solving go hand in hand—and that’s the
+                mindset I bring to my work as a web developer.
+              </p>
+              <p>
+                I’m building a strong foundation in HTML and CSS, while
+                continuing to grow my skills in JavaScript. Along the way, I’ve
+                explored Bootstrap 5, SASS, and other frameworks, applying what
+                I’ve learned to design and develop my own personal templates.
+              </p>
+              <div class="dropdown">
+                <h3 class="dropdown__title">Certifications & Achievements ▼</h3>
+                <ul class="dropdown__content">
+                  <li>
+                    Developer certification in
+                    <a
+                      href="/src/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >Responsive Web Design</a
+                    >
+                    at
+                    <a
+                      href="https://www.freecodecamp.org/"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-site"
+                      >freeCodeCamp</a
+                    >
+                  </li>
+                  <li>
+                    Level 1 certifications in
+                    <a
+                      href="/src/certificates/CCA-Certificate-HTML-Level-1.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >HTML</a
+                    >,
+                    <a
+                      href="/src/certificates/CCA-Certificate-CSS-Level-1.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >CSS</a
+                    >, and
+                    <a
+                      href="/src/certificates/CCA-Certificate-JavaScript-Level-1.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >JavaScript</a
+                    >
+                    from the Cambridge Certification Authority
+                  </li>
+                  <li>
+                    <a
+                      href="https://frontendmasters.com/bootcamp/"
+                      target="blank"
+                      rel="noopener"
+                      class="link-site"
+                      >Frontend Masters Bootcamp</a
+                    >
+                    certifications in
+                    <a
+                      href="/src/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >HTML Forms</a
+                    >,
+                    <a
+                      href="/src/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >Website Embeds and Github Pages</a
+                    >, and a
+                    <a
+                      href="/src/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                    >
+                      Calculator Project using HTML and CSS
+                    </a>
+                  </li>
+                  <li>
+                    Completed
+                    <a
+                      href="/src/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >Conquering Responsive Layouts</a
+                    >
+                    <a
+                      href="https://courses.kevinpowell.co/conquering-responsive-layouts"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-site"
+                      >course by Kevin Powell</a
+                    >
+                  </li>
+                  <li>
+                    Completed
+                    <a
+                      href="https://www.sololearn.com/"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-site"
+                      >SoloLearn</a
+                    >
+                    courses in
+                    <a
+                      href="/src/certificates/Sololearn-HTML-Course.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >HTML</a
+                    >,
+                    <a
+                      href="/src/certificates/Sololearn-CSS-Course.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >CSS</a
+                    >, and
+                    <a
+                      href="/src/certificates/Sololearn-Web-Development-Fundamentals-Course.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link-cert"
+                      >Web Development Fundamentals</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <p>
+                When I’m not coding, you’ll probably find me
+                <span class="nowrap">🧶 crafting</span> 🧵 or diving into a
+                great book. 📖
+              </p>
+              <p>
+                Take a look at my
+                <a href="/src/cards/portfolio.html">portfolio</a> and if you’d
+                like to collaborate,
+                <a href="/src/cards/contact.html">let’s connect</a> —I’d love to
+                help bring your ideas to life!
+              </p>
+            </section>
+          </div>
         </section>
         <hr />
         <section id="portfolio" class="portfolio">
@@ -408,7 +417,7 @@
                 <figure class="card-figure">
                   <img
                     alt="Thumbnail preview of Alien Abduction Order Form project"
-                    src="/src/img/Alien-abduction-form-thumb.jpg"
+                    src="/src/img/cards/Alien-abduction-form-thumb.jpg"
                     class="card-image"
                     width="345"
                     height="259"
@@ -421,7 +430,7 @@
                   </figcaption>
                 </figure>
                 <a
-                  href="/src/pages/alien-abduction-form.html"
+                  href="/src/pages/project-pages/alien-abduction-form.html"
                   class="card-button card__button--primary card-link"
                 >
                   see page
@@ -436,7 +445,7 @@
                 <figure class="card-figure">
                   <img
                     alt="Thumbnail preview of Calculator project"
-                    src="/src/img/Calculator-thumb.jpg"
+                    src="/src/img/cards/Calculator-thumb.jpg"
                     class="card-image"
                     width="356"
                     height="268"
@@ -448,7 +457,7 @@
                   </figcaption>
                 </figure>
                 <a
-                  href="/src/pages/calculator.html"
+                  href="/src/pages/project-pages/calculator.html"
                   class="card-button card__button--primary card-link"
                 >
                   see page
@@ -463,7 +472,7 @@
                 <figure class="card-figure">
                   <img
                     alt="Thumbnail preview of CSS Position Cheat Sheet project"
-                    src="/src/img/css-position-cheat-sheet-thumb.png"
+                    src="/src/img/cards/css-position-cheat-sheet-thumb.png"
                     class="card-image"
                     width="1868"
                     height="1401"
@@ -481,19 +490,63 @@
                   </figcaption>
                 </figure>
                 <a
-                  href="/src/pages/css-position-cheat-sheet.html"
+                  href="/src/pages/project-pages/css-position-cheat-sheet.html"
                   class="card-button card__button--primary card-link"
                 >
                   see page
                 </a>
               </div>
             </article>
-            <!-- Add more projects here as needed -->
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card__title">15 Days of CSS - Day 5 Challenge</h3>
+              </div>
+              <div class="card-body">
+                <figure class="card-figure">
+                  <img
+                    alt="Thumbnail preview of 15 Days of CSS Day 5 Challenge project"
+                    src="/src/img/pages/galaxy.jpg"
+                    class="card-image"
+                    width="400"
+                    height="300"
+                  />
+                  <figcaption class="card__caption">
+                    <p>
+                      CSS challenge focusing on advanced styling techniques and
+                      creative layouts.
+                    </p>
+                  </figcaption>
+                </figure>
+                <a
+                  href="/src/pages/project-pages/fifteenDaysofCSS-Day-5-Challenge.html"
+                  class="card-button card__button--primary card-link"
+                >
+                  see page
+                </a>
+              </div>
+            </article>
+            <!-- Featured portfolio preview - see full portfolio for complete collection -->
+          </div>
+          <div class="portfolio__cta">
+            <a
+              href="/src/pages/project-pages/portfolio.html"
+              class="portfolio__button"
+            >
+              View Full Portfolio
+            </a>
           </div>
         </section>
         <hr />
         <section id="contact" class="contact">
           <h2 class="home__subheading contact__heading">Contact Me</h2>
+          <p class="contact__intro">
+            Ready to weave something amazing together? Whether you have a
+            project idea that's been brewing, need a fresh perspective on your
+            current development challenges, or just want to chat about the
+            latest in web development, I'd love to hear from you! Drop me a
+            message below and let's start crafting your digital vision into
+            reality. ✨
+          </p>
           <form
             class="contact__form"
             action="#"
@@ -503,7 +556,7 @@
           >
             <div class="contact__group">
               <label class="contact__label" for="name"
-                >Name<span aria-hidden="true">*</span></label
+                >Name<span aria-hidden="true">* = required</span></label
               >
               <input
                 class="contact__input"
@@ -512,6 +565,7 @@
                 name="name"
                 required
                 autocomplete="name"
+                placeholder="Enter your full name"
                 aria-describedby="name-error"
               />
               <div
@@ -531,6 +585,7 @@
                 name="email"
                 required
                 autocomplete="email"
+                placeholder="your.email@example.com"
                 aria-describedby="email-error"
               />
               <div
@@ -549,6 +604,7 @@
                 name="message"
                 rows="5"
                 required
+                placeholder="Tell me about your project ideas, questions, or how I can help bring your vision to life..."
                 aria-describedby="message-error"
               ></textarea>
               <div

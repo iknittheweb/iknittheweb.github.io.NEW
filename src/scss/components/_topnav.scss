@@ -76,7 +76,7 @@
     right: a.rem(24);
     z-index: 101;
 
-    @include a.breakpoint(xsmall) {
+    @include a.breakpoint(medium) {
       display: none;
     }
 
@@ -90,7 +90,7 @@
   }
 
   &__menu {
-    @include a.breakpoint-down(xsmall) {
+    @include a.breakpoint-down(small) {
       position: fixed;
       inset: 0 0 auto 0;
       padding: 12px 24px 120px;
@@ -110,7 +110,7 @@
   &__close {
     display: none;
 
-    @include a.breakpoint-down(xsmall) {
+    @include a.breakpoint-down(small) {
       display: block;
       position: absolute;
       top: a.rem(12);
@@ -128,7 +128,7 @@
     gap: a.rem(40);
     margin-left: auto;
 
-    @include a.breakpoint-down(xsmall) {
+    @include a.breakpoint-down(small) {
       display: static;
       flex-direction: column;
       justify-content: center;
