@@ -1,19 +1,22 @@
 @use '../abstracts' as a;
 .about {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
   background-color: var(--primary-bg);
   color: var(--text-color-2);
   padding: a.rem(40);
   border-radius: a.rem(10);
   margin: a.rem(40) 0;
 
-  @include a.breakpoint-down(small) {
-    flex-direction: column;
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
-    padding: a.rem(20);
+    align-items: flex-start;
+
+    // @include a.breakpoint-down(small) {
+    //   flex-direction: column;
+    //   gap: 2rem;
+    //   padding: a.rem(20);
+    // }
   }
 
   // Profile section
