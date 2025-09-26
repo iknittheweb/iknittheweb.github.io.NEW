@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I Knit the Web 🧵</title>
+    <style>
+      /* --- BODY & BACKGROUND --- */
+      body {
+        background-color: #fffaf0;
+        font-family: "Arial Rounded MT", sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      /* --- HEADINGS --- */
+      h1,
+      h2,
+      h3 {
+        position: relative;
+        display: inline-block;
+      }
+      h1::after,
+      h2::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0;
+        height: 4px;
+        background: #f28c8c;
+        border-radius: 2px;
+        transition: width 0.5s;
+      }
+      h1:hover::after,
+      h2:hover::after {
+        width: 100%;
+      }
+
+      /* --- SECTIONS --- */
+      section {
+        position: relative;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+      #intro {
+        background: #fffaf0;
+      }
+      #about {
+        background: #fff9f0;
+      }
+      #portfolio-preview {
+        background: #fffaf0;
+      }
+      #contact {
+        background: #fff9f0;
+      }
+
+      /* --- PARAGRAPH FADE-UP --- */
+      section p {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeUp 1s forwards;
+      }
+      #intro p:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      #intro p:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      #about p:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      #about p:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      #about p:nth-child(4) {
+        animation-delay: 0.9s;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* --- FLOATING SKEINS --- */
+      .floating-skein {
+        position: absolute;
+        font-size: 1.5rem;
+        opacity: 0.7;
+        animation: floatSkein 4s ease-in-out infinite;
+      }
+      @keyframes floatSkein {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(10deg);
+        }
+      }
+
+      /* --- PORTFOLIO CARDS --- */
+      .portfolio-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .portfolio-card {
+        background: #fff9f0;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        flex: 1 1 280px;
+        max-width: 300px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .portfolio-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .portfolio-card h3 {
+        color: #f28c8c;
+        margin-bottom: 0.5rem;
+      }
+      .portfolio-card p {
+        color: #7a6a58;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+      .portfolio-card a {
+        color: #f28c8c;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .portfolio-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* --- CARD SPARKLES --- */
+      .card-sparkles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .card-sparkles .sparkle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #fff8b0;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(0.5);
+        animation: sparkleAnim 1s linear infinite;
+      }
+      @keyframes sparkleAnim {
+        0% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+      }
+
+      /* --- CONTACT FORM --- */
+      #knit-form {
+        max-width: 500px;
+        margin: 4rem auto 2rem;
+        background: #fffaf0;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+      .form-callout {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #7a6a58;
+      }
+      label {
+        display: block;
+        margin-bottom: 1rem;
+        position: relative;
+        transition: color 0.3s;
+      }
+      label:hover {
+        color: #f28c8c;
+      }
+      label::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 0;
+        height: 2px;
+        background: #f28c8c;
+        border-radius: 2px;
+        transition: width 0.3s;
+      }
+      label:hover::after {
+        width: 100%;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-top: 0.25rem;
+        border: 2px solid #e0d4c0;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        transition: border 0.3s, box-shadow 0.3s;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: #f28c8c;
+        box-shadow: 0 0 0 3px rgba(242, 140, 140, 0.3);
+      }
+      small {
+        display: block;
+        font-size: 0.8rem;
+        color: #7a6a58;
+        margin-top: 0.2rem;
+      }
+      #submit-btn {
+        margin-top: 1.5rem;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        background: #f28c8c;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        overflow: hidden;
+        position: relative;
+      }
+      #submit-btn .yarn-ball {
+        display: inline-block;
+        transform: translateX(0);
+        transition: transform 0.5s ease;
+      }
+      #submit-btn:hover .yarn-ball {
+        transform: translateX(5px) rotate(20deg);
+      }
+      #thank-you {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        color: #f28c8c;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.5s, transform 0.5s;
+      }
+      #thank-you.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- PORTFOLIO BUTTON --- */
+      .portfolio-btn {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.75rem 1.5rem;
+        background: #f28c8c;
+        color: #fff;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        section {
+          padding: 3rem 1rem;
+        }
+        #knit-form {
+          padding: 1.5rem;
+          margin: 3rem 1rem 2rem;
+        }
+        input,
+        textarea {
+          font-size: 0.95rem;
+          padding: 0.65rem;
+        }
+        #submit-btn {
+          font-size: 0.95rem;
+          padding: 0.65rem 0.8rem;
+          gap: 0.4rem;
+        }
+      }
+      @media (max-width: 480px) {
+        section {
+          padding: 2rem 0.5rem;
+        }
+        #knit-form {
+          padding: 1rem;
+          margin: 2rem 0.5rem 1rem;
+        }
+        input,
+        textarea {
+          font-size: 0.9rem;
+          padding: 0.55rem;
+        }
+        #submit-btn {
+          font-size: 0.9rem;
+          padding: 0.55rem 0.7rem;
+          gap: 0.3rem;
+        }
+      }
+
+      /* --- YARN TRAIL DOTS --- */
+      .yarn-dot {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #f28c8c;
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animated Yarn Background -->
+    <canvas
+      id="yarn-bg"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      "
+    ></canvas>
+
+    <!-- Floating skeins -->
+    <span class="floating-skein" style="top: 10%; left: 5%">🧶</span>
+    <span class="floating-skein" style="top: 25%; left: 80%">🧶</span>
+    <span class="floating-skein" style="top: 50%; left: 15%">🧶</span>
+
+    <!-- Intro Section from CHAT-GPT -->
+    <section id="intro">
+      <h1>Welcome to I Knit the Web 🧵</h1>
+      <p>
+        I build websites that are clean, functional, and visually appealing.
+        From simple HTML & CSS layouts to dynamic interactions with JavaScript,
+        I create sites that work beautifully on any device.
+      </p>
+      <p>
+        My goal is to understand your vision and bring it to life online.
+        Together, we’ll create a website that reflects your brand and engages
+        your audience.
+      </p>
+      <a
+        href="#contact"
+        style="
+          padding: 0.75rem 1.5rem;
+          background: #f28c8c;
+          color: #fff;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: bold;
+        "
+        >Start Your Project</a
+      >
+    </section>
+
+    <!-- About Section from CHAT-GPT -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m Marta! I believe that collaboration is the key to building great
+        websites. By listening to your ideas and combining them with my
+        development skills, we can create something truly effective and unique.
+      </p>
+      <p>
+        I work with HTML, CSS, JavaScript, and SCSS, using frameworks and design
+        techniques that make your site responsive, fast, and enjoyable to use.
+        My approach focuses on both creativity and usability.
+      </p>
+      <p>
+        Every project is a partnership. Your vision and my expertise come
+        together to produce websites that are not only beautiful but also
+        functional and easy to manage.
+      </p>
+    </section>
+
+    <!-- Portfolio Preview from CHAT-GPT -->
+    <section id="portfolio-preview">
+      <h2>Some Recent Work</h2>
+      <div class="portfolio-cards">
+        <div class="portfolio-card">
+          <h3>Cozy Boutique Site 🧶</h3>
+          <p>
+            A small business website designed to highlight products and engage
+            customers, with responsive layouts and subtle interactions using
+            HTML, CSS, and JavaScript.
+          </p>
+          <a href="portfolio.html#cozy-boutique">View Project →</a>
+          <div class="card-sparkles"></div>
+        </div>
+        <div class="portfolio-card">
+          <h3>Crafting Blog 🧶</h3>
+          <p>
+            A visually appealing blog layout for hobbyists, with responsive
+            design, clear typography, and interactive elements for a seamless
+            reading experience.
+          </p>
+          <a href="portfolio.html#crafting-blog">View Project →</a>
+          <div class="card-sparkles"></div>
+        </div>
+        <div class="portfolio-card">
+          <h3>Local Artist Portfolio 🧶</h3>
+          <p>
+            A clean and engaging portfolio site for a visual artist, focusing on
+            showcasing work with subtle animations and a responsive design.
+          </p>
+          <a href="portfolio.html#artist-portfolio">View Project →</a>
+          <div class="card-sparkles"></div>
+        </div>
+      </div>
+      <a href="portfolio.html" class="portfolio-btn">See Full Portfolio</a>
+    </section>
+
+    <!-- Contact Form from CHAT-GPT -->
+    <section id="contact">
+      <form id="knit-form">
+        <p class="form-callout">
+          I’d love to hear about your project! Share your ideas below, and we’ll
+          work together to create a website that fits your vision.
+        </p>
+        <label
+          >Name
+          <input type="text" placeholder="Your name" />
+          <small
+            >Knowing who I’m collaborating with helps me tailor the project to
+            you.</small
+          >
+        </label>
+        <label
+          >Email
+          <input type="email" placeholder="Your email" />
+          <small>So I can respond directly—no tangled threads here. 📫</small>
+        </label>
+        <label
+          >Message
+          <textarea
+            placeholder="Tell me about your project, goals, or any questions you have."
+          ></textarea>
+          <small
+            >This is the first step toward building something great
+            together.</small
+          >
+        </label>
+        <button type="submit" id="submit-btn">
+          <span class="yarn-ball">🧶</span> Send Message
+        </button>
+        <p id="thank-you" class="hidden">
+          ✨ Thanks! I’ll get back to you soon.
+        </p>
+      </form>
+    </section>
+
+    <!-- script from CHAT-GPT -->
+    <script>
+      // --- Yarn Threads with Sparkling Knots & Card Sync ---
+      const canvas = document.getElementById("yarn-bg");
+      const ctx = canvas.getContext("2d");
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+
+      class YarnThread {
+        constructor() {
+          this.reset();
+          this.knots = [];
+        }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.length = 100 + Math.random() * 200;
+          this.speed = 0.2 + Math.random() * 0.5;
+          this.angle = Math.random() * Math.PI * 2;
+          this.color = `rgba(242,140,140,${0.2 + Math.random() * 0.3})`;
+          this.knots = [];
+        }
+        update() {
+          this.x += Math.cos(this.angle) * this.speed;
+          this.y += Math.sin(this.angle) * this.speed;
+          this.knots.forEach((k) => (k.alpha -= 0.01));
+          this.knots = this.knots.filter((k) => k.alpha > 0);
+          if (
+            this.x > canvas.width + 50 ||
+            this.x < -50 ||
+            this.y > canvas.height + 50
+          )
+            this.reset();
+        }
+        draw(ctx) {
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(
+            this.x + Math.cos(this.angle) * this.length,
+            this.y + Math.sin(this.angle) * this.length
+          );
+          ctx.strokeStyle = this.color;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          this.knots.forEach((k) => {
+            ctx.beginPath();
+            ctx.arc(k.x, k.y, k.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,248,176,${k.alpha})`;
+            ctx.fill();
+          });
+        }
+      }
+
+      const threads = [];
+      for (let i = 0; i < 15; i++) threads.push(new YarnThread());
+      function animateThreads() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        threads.forEach((t) => {
+          t.update();
+          t.draw(ctx);
+        });
+        requestAnimationFrame(animateThreads);
+      }
+      animateThreads();
+
+      function triggerKnotsNearCard(card) {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        threads.forEach((t) => {
+          for (let i = 0; i < 5; i++) {
+            const ox = (Math.random() - 0.5) * rect.width;
+            const oy = (Math.random() - 0.5) * rect.height;
+            t.knots.push({
+              x: cx + ox,
+              y: cy + oy,
+              alpha: 1,
+              radius: 2 + Math.random() * 2,
+            });
+          }
+        });
+      }
+
+      // --- Portfolio card fade-in & sparkles ---
+      document.querySelectorAll(".portfolio-card").forEach((card) => {
+        const sparkles = card.querySelector(".card-sparkles");
+        for (let i = 0; i < 8; i++) {
+          const s = document.createElement("div");
+          s.classList.add("sparkle");
+          s.style.top = `${Math.random() * 100}%`;
+          s.style.left = `${Math.random() * 100}%`;
+          s.style.animationDelay = `${Math.random()}s`;
+          sparkles.appendChild(s);
+        }
+        card.addEventListener("mouseenter", () => {
+          sparkles
+            .querySelectorAll(".sparkle")
+            .forEach((s) => (s.style.opacity = "1"));
+        });
+        card.addEventListener("mouseleave", () => {
+          sparkles
+            .querySelectorAll(".sparkle")
+            .forEach((s) => (s.style.opacity = "0"));
+        });
+      });
+
+      const fadeElements = document.querySelectorAll(".portfolio-card");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              triggerKnotsNearCard(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      fadeElements.forEach((el) => observer.observe(el));
+
+      // --- Yarn ball submit ---
+      const form = document.getElementById("knit-form");
+      const thankYou = document.getElementById("thank-you");
+      const yarnBall = document.querySelector(".yarn-ball");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        yarnBall.style.transform = "translateX(50px) rotate(360deg)";
+        setTimeout(
+          () => (yarnBall.style.transform = "translateX(0) rotate(0deg)"),
+          600
+        );
+        thankYou.classList.add("show");
+        setTimeout(() => form.reset(), 800);
+      });
+
+      // --- Cursor yarn trail ---
+      const yarnTrail = [];
+      for (let i = 0; i < 10; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("yarn-dot");
+        document.body.appendChild(dot);
+        yarnTrail.push(dot);
+      }
+      let mouseX = 0,
+        mouseY = 0;
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      function animateTrail() {
+        let x = mouseX,
+          y = mouseY;
+        yarnTrail.forEach((dot, index) => {
+          dot.style.left = x + "px";
+          dot.style.top = y + "px";
+          dot.style.opacity = (10 - index) / 10;
+          const next = yarnTrail[index + 1];
+          if (next) {
+            x += (next.offsetLeft - x) * 0.3;
+            y += (next.offsetTop - y) * 0.3;
+          }
+        });
+        requestAnimationFrame(animateTrail);
+      }
+      animateTrail();
+    </script>
+  </body>
+</html>
