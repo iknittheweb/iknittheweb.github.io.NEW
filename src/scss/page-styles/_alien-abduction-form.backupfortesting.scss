@@ -1,0 +1,455 @@
+@use '../abstracts' as a;
+
+/* =====================================
+   Alien Abduction Form Page Styles
+   ===================================== */
+
+.alien-form-page__hero {
+  background: linear-gradient(
+    135deg,
+    var(--alien-primary-bg) 0%,
+    var(--alien-secondary-bg) 100%
+  );
+  color: var(--alien-text-light);
+  padding-block: a.rem(60);
+  text-align: center;
+  border-bottom: 3px solid var(--alien-accent);
+  position: relative;
+  overflow: hidden;
+  margin-top: 0; // Ensure no gap with fixed header
+
+  // Add subtle animated background pattern
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        circle at 20% 20%,
+        var(--alien-accent) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        var(--alien-accent-secondary) 1px,
+        transparent 1px
+      );
+    background-size: 50px 50px, 30px 30px;
+    opacity: 0.1;
+    -webkit-animation: starfield 20s linear infinite;
+    animation: starfield 20s linear infinite;
+  }
+
+  @include a.breakpoint(large) {
+    padding-block: a.rem(80);
+  }
+}
+
+@-webkit-keyframes starfield {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50px, -30px);
+  }
+}
+
+@keyframes starfield {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50px, -30px);
+  }
+}
+
+.alien-form-page__title {
+  font-family: var(--alien-font-family);
+  font-size: clamp(a.rem(32), calc(24px + 2vw), a.rem(48));
+  font-weight: 700;
+  margin: 0 0 a.rem(20);
+  text-shadow: 0 0 10px var(--alien-glow-color),
+    0 0 20px var(--alien-glow-color), 0 0 30px var(--alien-glow-color);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+
+  // Add subtle glow animation
+  -webkit-animation: titleGlow 3s ease-in-out infinite alternate;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 10px var(--alien-glow-color),
+      0 0 20px var(--alien-glow-color), 0 0 30px var(--alien-glow-color);
+  }
+  100% {
+    text-shadow: 0 0 15px var(--alien-glow-color),
+      0 0 25px var(--alien-glow-color), 0 0 35px var(--alien-glow-color),
+      0 0 45px var(--alien-glow-color);
+  }
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 10px var(--alien-glow-color),
+      0 0 20px var(--alien-glow-color), 0 0 30px var(--alien-glow-color);
+  }
+  100% {
+    text-shadow: 0 0 15px var(--alien-glow-color),
+      0 0 25px var(--alien-glow-color), 0 0 35px var(--alien-glow-color),
+      0 0 45px var(--alien-glow-color);
+  }
+}
+
+.alien-form-page__subtitle {
+  font-size: clamp(a.rem(16), calc(14px + 0.5vw), a.rem(20));
+  margin: 0;
+  color: var(--alien-text-dim);
+  max-width: min(a.rem(600), 90vw);
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+  word-spacing: 0.1em;
+
+  // Fallback for browsers that don't support text-wrap: balance
+  @supports not (text-wrap: balance) {
+    max-width: a.rem(500);
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+}
+
+/* =====================================
+   Main Form Page Layout
+   ===================================== */
+
+.alien-form-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    // 50% opacity overlay
+    url(/src/img/pages/galaxy.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        var(--alien-accent) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        var(--alien-accent-secondary) 0.5px,
+        transparent 0.5px
+      );
+    background-size: 80px 80px, 40px 40px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+}
+
+.alien-form-page__wrapper {
+  position: relative;
+  z-index: 1;
+  padding: a.rem(40) 0;
+}
+
+.alien-form-page__section {
+  max-width: a.rem(1000);
+  margin: 0 auto;
+  padding: 0 a.rem(20);
+}
+
+/* =====================================
+   Phase 3: Advanced Typography & Polish
+   ===================================== */
+
+/* Enhanced Page Typography */
+.alien-form-page__title {
+  -webkit-animation: alien-title-pulse 3s ease-in-out infinite alternate;
+  animation: alien-title-pulse 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes alien-title-pulse {
+  from {
+    text-shadow: 0 0 20px var(--alien-glow-color),
+      0 0 40px var(--alien-glow-color), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  to {
+    text-shadow: 0 0 30px var(--alien-glow-color),
+      0 0 60px var(--alien-glow-color), 0 0 80px var(--alien-accent-secondary),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes alien-title-pulse {
+  from {
+    text-shadow: 0 0 20px var(--alien-glow-color),
+      0 0 40px var(--alien-glow-color), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  to {
+    text-shadow: 0 0 30px var(--alien-glow-color),
+      0 0 60px var(--alien-glow-color), 0 0 80px var(--alien-accent-secondary),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Advanced Form Enhancements */
+.alien-form {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 255, 65, 0.015) 0%,
+      transparent 50%
+    );
+    -webkit-animation: alien-form-rotate 20s linear infinite;
+    animation: alien-form-rotate 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@-webkit-keyframes alien-form-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes alien-form-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced Input Focus States */
+.alien-form__input:focus,
+.alien-form__textarea:focus,
+.alien-form__select:focus {
+  transform: scale(1.02);
+}
+
+/* Advanced Button Hover Effects */
+.alien-form__submit {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  &:hover::after {
+    transform: translateX(100%);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+/* Particle Effect for Form Interaction */
+.alien-form__fieldset {
+  &:hover::before {
+    opacity: 1;
+    -webkit-animation: alien-particles 2s ease-in-out infinite;
+    animation: alien-particles 2s ease-in-out infinite;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        2px 2px at 20px 30px,
+        rgba(0, 255, 65, 0.3),
+        transparent
+      ),
+      radial-gradient(
+        1px 1px at 40px 70px,
+        rgba(255, 51, 102, 0.3),
+        transparent
+      ),
+      radial-gradient(1px 1px at 90px 40px, rgba(0, 255, 65, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+}
+
+@-webkit-keyframes alien-particles {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes alien-particles {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Selection Styling */
+.alien-form-page ::-moz-selection {
+  background: rgba(0, 255, 65, 0.8);
+  color: var(--alien-primary-bg);
+}
+.alien-form-page ::selection {
+  background: rgba(0, 255, 65, 0.8);
+  color: var(--alien-primary-bg);
+}
+
+/* Enhanced Selection for Form Inputs */
+.alien-form__input::-moz-selection,
+.alien-form__textarea::-moz-selection {
+  background: rgba(0, 255, 65, 0.9);
+  color: #000000;
+}
+.alien-form__input::-moz-selection, .alien-form__textarea::-moz-selection {
+  background: rgba(0, 255, 65, 0.9);
+  color: #000000;
+}
+.alien-form__input::selection,
+.alien-form__textarea::selection {
+  background: rgba(0, 255, 65, 0.9);
+  color: #000000;
+}
+
+/* Loading State Animation for Form */
+.alien-form.loading {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    border-radius: inherit;
+  }
+
+  &::after {
+    content: 'Processing...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--alien-accent);
+    font-family: var(--alien-font-family);
+    font-size: a.rem(18);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 1001;
+    -webkit-animation: alien-loading 1.5s ease-in-out infinite;
+    animation: alien-loading 1.5s ease-in-out infinite;
+  }
+}
+
+@-webkit-keyframes alien-loading {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes alien-loading {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =====================================
+   Responsive Enhancements
+   ===================================== */
+
+@include a.breakpoint-down(medium) {
+  .alien-form-page__hero {
+    padding: a.rem(40) 0;
+  }
+
+  .alien-form {
+    margin: a.rem(20) 0;
+  }
+}
+
+@include a.breakpoint-down(small) {
+  .alien-form-page__wrapper {
+    padding: 0 a.rem(12);
+  }
+
+  .alien-form__fieldset::before {
+    display: none; // Disable particle effects on mobile for performance
+  }
+
+  .alien-form::after {
+    display: none; // Disable rotating gradient on mobile
+  }
+}

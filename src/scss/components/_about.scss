@@ -1,0 +1,68 @@
+@use '../abstracts' as a;
+.about {
+  background-color: var(--primary-bg);
+  color: var(--text-color-2);
+  padding: a.rem(40);
+  border-radius: a.rem(10);
+  margin: a.rem(40) 0;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+
+    // @include a.breakpoint-down(small) {
+    //   flex-direction: column;
+    //   gap: 2rem;
+    //   padding: a.rem(20);
+    // }
+  }
+
+  // Profile section
+  .profile {
+    flex: 0 0 40%;
+    min-width: 250px;
+
+    @include a.breakpoint-down(small) {
+      flex: none;
+      width: 100%;
+    }
+
+    &__figure {
+      margin: 0;
+    }
+
+    &__pic {
+      display: block;
+      background-color: var(--secondary-bg);
+      width: min(100%, 300px);
+      height: auto;
+      margin-inline: auto;
+      border: 10px solid var(--primary-color);
+    }
+
+    &__caption {
+      width: 95%;
+      max-width: calc(min(100%, 300px) * 0.95);
+      margin: 10px auto;
+      padding-left: 15px;
+      border-left: 3px solid #ccc;
+
+      p {
+        font-size: a.rem(14) !important;
+        font-family: var(--font-2);
+        width: 100%;
+      }
+    }
+  }
+
+  .bio {
+    flex: 1;
+    min-width: 300px;
+
+    @include a.breakpoint-down(small) {
+      flex: none;
+    }
+  }
+}

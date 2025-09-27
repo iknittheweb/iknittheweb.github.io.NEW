@@ -1,0 +1,100 @@
+@use '../abstracts' as a;
+
+.home {
+  &__wrapper {
+    padding-block: a.rem(60);
+  }
+
+  &__title {
+    font-size: clamp(a.rem(44), calc(34.909px + 2.424vw), a.rem(64));
+  }
+
+  &__subheading {
+    font-size: clamp(26px, calc(21.455px + 1.212vw), 36px);
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+    padding: a.rem(20);
+    background-color: var(--primary-bg);
+    color: var(--text-color-2);
+    border-radius: a.rem(10);
+
+    @include a.breakpoint-down(small) {
+      max-width: 300px;
+    }
+  }
+
+  &__intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: a.rem(40);
+    align-items: start;
+    margin-bottom: a.rem(60);
+
+    // Mobile: Stack image on top, text below
+    @include a.breakpoint-down(small) {
+      grid-template-columns: 1fr;
+      gap: a.rem(20);
+      text-align: center;
+    }
+
+    // Text elements (everything except image)
+    .home__intro-text-group {
+      grid-column: 1;
+    }
+
+    // Image positioning
+    .home__img {
+      grid-column: 2;
+      grid-row: 1 / -1; // Span all rows in the text column
+
+      @include a.breakpoint-down(small) {
+        grid-column: 1;
+        grid-row: 1;
+        order: -1; // Put image first on mobile
+      }
+    }
+
+    &-text {
+      font-size: a.rem(18);
+      line-height: 1.6;
+      margin-bottom: a.rem(16);
+    }
+
+    &-links {
+      // font-size: a.rem(16);
+      margin: a.rem(20) 0;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: var(--primary-color-mid);
+      border-bottom: 2px solid var(--primary-color-mid);
+      transition: all 200ms ease-in-out;
+      font-weight: 500;
+
+      &:hover,
+      &:focus {
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+        background-color: rgba(var(--secondary-color-light), 0.1);
+      }
+    }
+  }
+}
+
+// Horizontal rule styling
+hr {
+  border: none;
+  border-top: 1px solid var(--text-color-1);
+  margin: a.rem(40) 0;
+}
+
+#main-content {
+  scroll-margin-top: a.rem(200); // Set to your header height
+}
