@@ -8,7 +8,7 @@
       /* --- BODY & BACKGROUND --- */
       body {
         background-color: #fffaf0;
-        font-family: "Arial Rounded MT", sans-serif;
+        font-family: 'Arial Rounded MT', sans-serif;
         margin: 0;
         padding: 0;
         overflow-x: hidden;
@@ -23,7 +23,7 @@
       }
       h1::after,
       h2::after {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         bottom: -5px;
@@ -206,7 +206,7 @@
         color: #f28c8c;
       }
       label::after {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         bottom: -2px;
@@ -343,18 +343,7 @@
   </head>
   <body>
     <!-- Animated Yarn Background -->
-    <canvas
-      id="yarn-bg"
-      style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-      "
-    ></canvas>
+    <canvas id="yarn-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1"></canvas>
 
     <!-- Floating skeins -->
     <span class="floating-skein" style="top: 10%; left: 5%">🧶</span>
@@ -364,48 +353,17 @@
     <!-- Intro Section from CHAT-GPT -->
     <section id="intro">
       <h1>Welcome to I Knit the Web 🧵</h1>
-      <p>
-        I build websites that are clean, functional, and visually appealing.
-        From simple HTML & CSS layouts to dynamic interactions with JavaScript,
-        I create sites that work beautifully on any device.
-      </p>
-      <p>
-        My goal is to understand your vision and bring it to life online.
-        Together, we’ll create a website that reflects your brand and engages
-        your audience.
-      </p>
-      <a
-        href="#contact"
-        style="
-          padding: 0.75rem 1.5rem;
-          background: #f28c8c;
-          color: #fff;
-          border-radius: 8px;
-          text-decoration: none;
-          font-weight: bold;
-        "
-        >Start Your Project</a
-      >
+      <p>I build websites that are clean, functional, and visually appealing. From simple HTML & CSS layouts to dynamic interactions with JavaScript, I create sites that work beautifully on any device.</p>
+      <p>My goal is to understand your vision and bring it to life online. Together, we’ll create a website that reflects your brand and engages your audience.</p>
+      <a href="#contact" style="padding: 0.75rem 1.5rem; background: #f28c8c; color: #fff; border-radius: 8px; text-decoration: none; font-weight: bold">Start Your Project</a>
     </section>
 
     <!-- About Section from CHAT-GPT -->
     <section id="about">
       <h2>About Me</h2>
-      <p>
-        Hi, I’m Marta! I believe that collaboration is the key to building great
-        websites. By listening to your ideas and combining them with my
-        development skills, we can create something truly effective and unique.
-      </p>
-      <p>
-        I work with HTML, CSS, JavaScript, and SCSS, using frameworks and design
-        techniques that make your site responsive, fast, and enjoyable to use.
-        My approach focuses on both creativity and usability.
-      </p>
-      <p>
-        Every project is a partnership. Your vision and my expertise come
-        together to produce websites that are not only beautiful but also
-        functional and easy to manage.
-      </p>
+      <p>Hi, I’m Marta! Collaboration is the key to building great websites; when we combine your ideas with my development skills, we can create something truly effective and unique.</p>
+      <p>I work with HTML, CSS, JavaScript, and SCSS, using frameworks and design techniques that make your site responsive, fast, and enjoyable to use. My approach focuses on both creativity and usability.</p>
+      <p>Every project is a partnership. Your vision and my expertise come together to produce websites that are not only beautiful but also functional and easy to manage.</p>
     </section>
 
     <!-- Portfolio Preview from CHAT-GPT -->
@@ -414,30 +372,19 @@
       <div class="portfolio-cards">
         <div class="portfolio-card">
           <h3>Cozy Boutique Site 🧶</h3>
-          <p>
-            A small business website designed to highlight products and engage
-            customers, with responsive layouts and subtle interactions using
-            HTML, CSS, and JavaScript.
-          </p>
+          <p>A small business website designed to highlight products and engage customers, with responsive layouts and subtle interactions using HTML, CSS, and JavaScript.</p>
           <a href="portfolio.html#cozy-boutique">View Project →</a>
           <div class="card-sparkles"></div>
         </div>
         <div class="portfolio-card">
           <h3>Crafting Blog 🧶</h3>
-          <p>
-            A visually appealing blog layout for hobbyists, with responsive
-            design, clear typography, and interactive elements for a seamless
-            reading experience.
-          </p>
+          <p>A visually appealing blog layout for hobbyists, with responsive design, clear typography, and interactive elements for a seamless reading experience.</p>
           <a href="portfolio.html#crafting-blog">View Project →</a>
           <div class="card-sparkles"></div>
         </div>
         <div class="portfolio-card">
           <h3>Local Artist Portfolio 🧶</h3>
-          <p>
-            A clean and engaging portfolio site for a visual artist, focusing on
-            showcasing work with subtle animations and a responsive design.
-          </p>
+          <p>A clean and engaging portfolio site for a visual artist, focusing on showcasing work with subtle animations and a responsive design.</p>
           <a href="portfolio.html#artist-portfolio">View Project →</a>
           <div class="card-sparkles"></div>
         </div>
@@ -448,17 +395,11 @@
     <!-- Contact Form from CHAT-GPT -->
     <section id="contact">
       <form id="knit-form">
-        <p class="form-callout">
-          I’d love to hear about your project! Share your ideas below, and we’ll
-          work together to create a website that fits your vision.
-        </p>
+        <p class="form-callout">I’d love to hear about your project! Share your ideas below, and we’ll work together to create a website that fits your vision.</p>
         <label
           >Name
           <input type="text" placeholder="Your name" />
-          <small
-            >Knowing who I’m collaborating with helps me tailor the project to
-            you.</small
-          >
+          <small>Knowing who I’m collaborating with helps me tailor the project to you.</small>
         </label>
         <label
           >Email
@@ -467,33 +408,24 @@
         </label>
         <label
           >Message
-          <textarea
-            placeholder="Tell me about your project, goals, or any questions you have."
-          ></textarea>
-          <small
-            >This is the first step toward building something great
-            together.</small
-          >
+          <textarea placeholder="Tell me about your project, goals, or any questions you have."></textarea>
+          <small>This is the first step toward building something great together.</small>
         </label>
-        <button type="submit" id="submit-btn">
-          <span class="yarn-ball">🧶</span> Send Message
-        </button>
-        <p id="thank-you" class="hidden">
-          ✨ Thanks! I’ll get back to you soon.
-        </p>
+        <button type="submit" id="submit-btn"><span class="yarn-ball">🧶</span> Send Message</button>
+        <p id="thank-you" class="hidden">✨ Thanks! I’ll get back to you soon.</p>
       </form>
     </section>
 
     <!-- script from CHAT-GPT -->
     <script>
       // --- Yarn Threads with Sparkling Knots & Card Sync ---
-      const canvas = document.getElementById("yarn-bg");
-      const ctx = canvas.getContext("2d");
+      const canvas = document.getElementById('yarn-bg');
+      const ctx = canvas.getContext('2d');
       function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
       }
-      window.addEventListener("resize", resizeCanvas);
+      window.addEventListener('resize', resizeCanvas);
       resizeCanvas();
 
       class YarnThread {
@@ -515,20 +447,12 @@
           this.y += Math.sin(this.angle) * this.speed;
           this.knots.forEach((k) => (k.alpha -= 0.01));
           this.knots = this.knots.filter((k) => k.alpha > 0);
-          if (
-            this.x > canvas.width + 50 ||
-            this.x < -50 ||
-            this.y > canvas.height + 50
-          )
-            this.reset();
+          if (this.x > canvas.width + 50 || this.x < -50 || this.y > canvas.height + 50) this.reset();
         }
         draw(ctx) {
           ctx.beginPath();
           ctx.moveTo(this.x, this.y);
-          ctx.lineTo(
-            this.x + Math.cos(this.angle) * this.length,
-            this.y + Math.sin(this.angle) * this.length
-          );
+          ctx.lineTo(this.x + Math.cos(this.angle) * this.length, this.y + Math.sin(this.angle) * this.length);
           ctx.strokeStyle = this.color;
           ctx.lineWidth = 2;
           ctx.stroke();
@@ -572,34 +496,30 @@
       }
 
       // --- Portfolio card fade-in & sparkles ---
-      document.querySelectorAll(".portfolio-card").forEach((card) => {
-        const sparkles = card.querySelector(".card-sparkles");
+      document.querySelectorAll('.portfolio-card').forEach((card) => {
+        const sparkles = card.querySelector('.card-sparkles');
         for (let i = 0; i < 8; i++) {
-          const s = document.createElement("div");
-          s.classList.add("sparkle");
+          const s = document.createElement('div');
+          s.classList.add('sparkle');
           s.style.top = `${Math.random() * 100}%`;
           s.style.left = `${Math.random() * 100}%`;
           s.style.animationDelay = `${Math.random()}s`;
           sparkles.appendChild(s);
         }
-        card.addEventListener("mouseenter", () => {
-          sparkles
-            .querySelectorAll(".sparkle")
-            .forEach((s) => (s.style.opacity = "1"));
+        card.addEventListener('mouseenter', () => {
+          sparkles.querySelectorAll('.sparkle').forEach((s) => (s.style.opacity = '1'));
         });
-        card.addEventListener("mouseleave", () => {
-          sparkles
-            .querySelectorAll(".sparkle")
-            .forEach((s) => (s.style.opacity = "0"));
+        card.addEventListener('mouseleave', () => {
+          sparkles.querySelectorAll('.sparkle').forEach((s) => (s.style.opacity = '0'));
         });
       });
 
-      const fadeElements = document.querySelectorAll(".portfolio-card");
+      const fadeElements = document.querySelectorAll('.portfolio-card');
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
+              entry.target.classList.add('visible');
               triggerKnotsNearCard(entry.target);
             }
           });
@@ -609,31 +529,28 @@
       fadeElements.forEach((el) => observer.observe(el));
 
       // --- Yarn ball submit ---
-      const form = document.getElementById("knit-form");
-      const thankYou = document.getElementById("thank-you");
-      const yarnBall = document.querySelector(".yarn-ball");
-      form.addEventListener("submit", (e) => {
+      const form = document.getElementById('knit-form');
+      const thankYou = document.getElementById('thank-you');
+      const yarnBall = document.querySelector('.yarn-ball');
+      form.addEventListener('submit', (e) => {
         e.preventDefault();
-        yarnBall.style.transform = "translateX(50px) rotate(360deg)";
-        setTimeout(
-          () => (yarnBall.style.transform = "translateX(0) rotate(0deg)"),
-          600
-        );
-        thankYou.classList.add("show");
+        yarnBall.style.transform = 'translateX(50px) rotate(360deg)';
+        setTimeout(() => (yarnBall.style.transform = 'translateX(0) rotate(0deg)'), 600);
+        thankYou.classList.add('show');
         setTimeout(() => form.reset(), 800);
       });
 
       // --- Cursor yarn trail ---
       const yarnTrail = [];
       for (let i = 0; i < 10; i++) {
-        const dot = document.createElement("div");
-        dot.classList.add("yarn-dot");
+        const dot = document.createElement('div');
+        dot.classList.add('yarn-dot');
         document.body.appendChild(dot);
         yarnTrail.push(dot);
       }
       let mouseX = 0,
         mouseY = 0;
-      document.addEventListener("mousemove", (e) => {
+      document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
       });
@@ -641,8 +558,8 @@
         let x = mouseX,
           y = mouseY;
         yarnTrail.forEach((dot, index) => {
-          dot.style.left = x + "px";
-          dot.style.top = y + "px";
+          dot.style.left = x + 'px';
+          dot.style.top = y + 'px';
           dot.style.opacity = (10 - index) / 10;
           const next = yarnTrail[index + 1];
           if (next) {

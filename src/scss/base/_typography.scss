@@ -1,5 +1,14 @@
 @use '../abstracts/functions' as a;
 
+:root {
+  // Font Families
+  --font-1: 'Georgia', serif;
+  --font-2: 'Verdana', sans-serif;
+  --font-3: 'Source Sans 3', sans-serif;
+  --font-4: 'Charm', cursive;
+  --alien-font-family: 'Orbitron', sans-serif;
+}
+
 h1,
 h2,
 h3 {
@@ -13,14 +22,6 @@ h1 {
   line-height: 1;
   -webkit-margin-after: a.rem(20);
   margin-block-end: a.rem(20);
-
-  // @include a.breakpoint(medium) {
-  //   font-size: a.rem(60);
-  // }
-
-  // @include a.breakpoint(large) {
-  //   font-size: a.rem(72);
-  // }
 }
 
 h2 {
@@ -53,10 +54,10 @@ h3 {
 }
 
 p {
+  font-family: var(--font-1);
   margin-top: 0;
   font-size: a.rem(18);
   line-height: 1.4;
-  font-family: var(--font-1);
 
   &.xsmall {
     font-size: a.rem(16);

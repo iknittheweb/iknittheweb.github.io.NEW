@@ -1,180 +1,163 @@
 @use '../abstracts' as a;
 
 .topnav {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  width: 100vw; /* Use viewport width to ensure full coverage */
-  margin-left: calc(
-    -50vw + 50%
-  ); /* Center the header while ensuring full width */
+  border-bottom: 2px solid var(--topnav-border);
+  position: -webkit-sticky; // from RDB Ultimate
+  position: sticky; // from RDB Ultimate
+  top: 0; // from RDB Ultimate
+  z-index: 100; // from RDB Ultimate
+  width: 100vw; // mine /* Use viewport width to ensure full coverage */
+  // margin-left: calc(-50vw + 50%); // mine /* Center the header while ensuring full width */
+
+  // @include a.breakpoint-down(small) {
+  //   margin-left: 0; // Remove negative margin // mine
+  // }
 
   &,
   &__menu {
-    background-color: var(--primary-bg);
+    background-color: var(--primary-bg); // from RDB Ultimate
 
     &,
     & a {
-      color: var(--text-color-2);
+      color: var(--text-color-2); // mine
     }
   }
 
   &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin-inline: auto;
-    padding-block: a.rem(24);
+    display: flex; // from RDB Ultimate
+    justify-content: space-between; // from RDB Ultimate
+    align-items: flex-start; // from RDB Ultimate
+    padding-block: a.rem(12); // from RDB Ultimate
+
+    margin-inline: auto; // mine
 
     @include a.breakpoint-down(small) {
-      position: relative;
+      position: relative; // mine
     }
 
     @include a.breakpoint(large) {
-      padding-block: 20px;
+      padding-block: 20px; // from RDB Ultimate
     }
   }
 
   &__homelink {
-    display: inline-block;
-    margin-left: a.rem(24);
+    margin-left: a.rem(24); // mine
   }
 
   &__logo {
-    width: a.rem(120);
-    height: a.rem(120);
-
-    @include a.breakpoint(large) {
-      width: calc(1.3 * #{a.rem(120)});
-      height: calc(1.3 * #{a.rem(120)});
-    }
+    width: a.rem(120); // from RDB Ultimate
+    height: a.rem(120); // mine
   }
 
   &__overlay {
     @include a.breakpoint-down(small) {
-      position: fixed;
-      inset: 0;
-      background-color: var(--menu-overlay);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 400ms ease-in-out;
+      position: fixed; // from RDB Ultimate
+      inset: 0; // from RDB Ultimate
+      background-color: var(--menu-overlay); // from RDB Ultimate
+      opacity: 0; // from RDB Ultimate
+      pointer-events: none; // from RDB Ultimate
+      transition: opacity 400ms ease-in-out; // from RDB Ultimate
 
       &:has(+ .topnav__open[aria-expanded='true']) {
-        opacity: 1;
-        pointer-events: all;
+        opacity: 1; // from RDB Ultimate
+        pointer-events: all; // from RDB Ultimate
       }
     }
   }
 
   &__open,
   &__close {
-    background: none;
-    border: 0;
+    background: none; // from RDB Ultimate
+    padding: 0; // from RDB Ultimate
+    border: 0; // from RDB Ultimate
   }
 
   &__open {
-    top: a.rem(12);
-    right: a.rem(24);
-    z-index: 101;
-
     @include a.breakpoint(medium) {
-      display: none;
+      display: none; // from RDB Ultimate
     }
 
     &[aria-expanded='true'] + .topnav__menu {
-      translate: 0 0;
+      translate: 0 0; // from RDB Ultimate
 
       @media (prefers-reduced-motion) {
-        opacity: 1;
+        opacity: 1; // from RDB Ultimate
       }
     }
   }
 
   &__menu {
     @include a.breakpoint-down(small) {
-      position: fixed;
-      inset: 0 0 auto 0;
-      padding: 12px 24px 120px;
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 12px 12px var(--menu-shadow);
-      translate: 0 -106%;
-      transition: translate ease-in-out;
+      width: 100vw; // mine
+      position: fixed; // from RDB Ultimate
+      inset: 0 0 auto 0; // from RDB Ultimate
+      padding: 12px 24px 120px; // from RDB Ultimate
+      border-radius: 0 0 20px 20px; // from RDB Ultimate
+      box-shadow: 0 12px 12px var(--menu-shadow); // from RDB Ultimate
+      translate: 0 -106%; // from RDB Ultimate
+      transition: translate ease-in-out; // from RDB Ultimate
 
       @media (prefers-reduced-motion) {
-        translate: 0;
-        opacity: 0;
-        transition-property: opacity;
+        translate: 0; // from RDB Ultimate
+        opacity: 0; // from RDB Ultimate
+        transition-property: opacity; // from RDB Ultimate
       }
     }
   }
 
   &__close {
-    display: none;
+    display: none; // from RDB Ultimate
 
     @include a.breakpoint-down(small) {
-      display: block;
-      position: absolute;
-      top: a.rem(12);
-      right: a.rem(24);
-      z-index: 101;
-      margin: 0;
-      width: a.rem(30);
+      display: block; // from RDB Ultimate
+      -webkit-margin-start: auto; // from RDB Ultimate
+      margin-inline-start: auto; // from RDB Ultimate
+      -webkit-margin-after: 84px; // from RDB Ultimate
+      margin-block-end: 84px; // from RDB Ultimate
     }
   }
   &__links {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    display: flex;
-    gap: a.rem(40);
-    margin-left: auto;
+    display: flex; // from RDB Ultimate
+    gap: a.rem(40); // from RDB Ultimate
 
     @include a.breakpoint-down(small) {
-      display: static;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-block: a.rem(10);
-      margin-inline: auto;
+      flex-direction: column; // from RDB Ultimate
+      align-items: center; // from RDB Ultimate
     }
   }
 
   &__item:first-child {
     @include a.breakpoint(small) {
-      display: none;
+      display: none; // from RDB Ultimate
     }
   }
 
   &__link {
-    display: block;
-    font-size: a.rem(22);
-    line-height: 2;
-    font-weight: 700;
-    color: var(--text-light);
-    cursor: pointer;
-
-    @include a.breakpoint(small) {
-      font-size: a.rem(20);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    display: block; // from RDB Ultimate
+    font-size: a.rem(20); // from RDB Ultimate
+    line-height: 2; // from RDB Ultimate
+    font-weight: 700; // from RDB Ultimate
+    color: var(--text-color-2); // from RDB Ultimate
+    cursor: pointer; // mine
 
     &::after {
-      content: '';
-      display: block;
-      height: 3px;
-      margin-top: 3px;
-      background: linear-gradient(
-        to right,
-        var(--link-underline-gradient1),
-        var(--link-underline-gradient2) 80%
-      );
-      opacity: 0;
-      transition: opacity 250ms ease-in-out;
+      content: ''; // from RDB Ultimate
+      display: block; // from RDB Ultimate
+      height: 3px; // from RDB Ultimate
+      margin-top: 3px; // from RDB Ultimate
+      background: linear-gradient(to right, var(--link-underline-gradient1), var(--link-underline-gradient2) 80%); // from RDB Ultimate
+      opacity: 0; // from RDB Ultimate
+      transition: opacity 250ms ease-in-out; // from RDB Ultimate
     }
 
     &:hover::after {
-      opacity: 1;
+      opacity: 1; // from RDB Ultimate
     }
+  }
+
+  @include a.breakpoint(small) {
+    font-size: a.rem(16); // from RDB Ultimate
+    text-transform: uppercase; // from RDB Ultimate
+    letter-spacing: 0.05em; // from RDB Ultimate
   }
 }
