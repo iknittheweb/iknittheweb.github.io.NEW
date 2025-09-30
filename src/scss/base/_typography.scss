@@ -93,7 +93,7 @@ p > a {
   }
 
   &::after {
-    background: var(--link-underline-gradient1);
+    background: var(--link-underline1);
   }
 }
 
@@ -105,7 +105,7 @@ p > a {
   }
 
   &::after {
-    background: var(--link-underline-gradient2);
+    background: var(--link-underline2);
   }
 }
 
