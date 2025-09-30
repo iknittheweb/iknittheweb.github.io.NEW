@@ -5,29 +5,44 @@
     padding-block: a.rem(60);
   }
 
-  &__title {
-    font-size: clamp(a.rem(44), calc(34.909px + 2.424vw), a.rem(64));
+  &__banner {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    position: relative;
   }
 
   &__intro {
     .home__subheading {
-      font-size: clamp(26px, calc(21.455px + 1.212vw), 36px);
+      font-size: clamp(16px, calc(16px + 2vw), 36px);
+      width: clamp(80%, calc(80% + 2vw), 90%);
+      margin-inline: auto;
+      text-wrap: balance;
+      text-align: center;
+      position: relative;
+      margin-top: clamp(-40px, calc(-40px + (-20px * ((100vw - 320px) / 448))), -60px);
+      // Smoothly scales from -40px at 320px to -60px at 768px and above
     }
 
     &-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
       gap: a.rem(40);
+      transition: gap 0.3s ease;
       align-items: center;
       width: 90%;
       margin-inline: auto;
       margin-bottom: a.rem(60);
 
-      // Mobile: Stack image on top, text below
-      @include a.breakpoint-down(small) {
-        grid-template-columns: 1fr;
-        gap: a.rem(20);
-        text-align: center;
+      // Smooth transitions for layout changes
+      transition: gap 0.3s ease, margin-bottom 0.3s ease;
+
+      .home__img,
+      .home__intro-text {
+        flex: 1 1 300px; // Grows/shrinks with 300px minimum
+        transition: flex-basis 0.3s ease;
       }
     }
   }
@@ -45,6 +60,9 @@
     background-color: var(--primary-bg);
     color: var(--text-color-2);
     border-radius: a.rem(10);
+
+    // Smooth transitions for image changes
+    transition: max-width 0.3s ease, padding 0.3s ease;
 
     @include a.breakpoint-down(small) {
       grid-column: 1;
@@ -64,4 +82,33 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+.home__subheading {
+  font-size: clamp(16px, calc(16px + 2vw), 36px);
+  width: clamp(80%, calc(80% + 2vw), 90%);
+  margin-inline: auto;
+  text-wrap: balance;
+  text-align: center;
+  position: relative;
+  margin-top: -10px; // default for smallest viewports
+  transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Mobile-first: smallest to largest
+  @include a.breakpoint('tiny') {
+    margin-top: -20px;
+  }
+  @include a.breakpoint('xsmall') {
+    margin-top: -30px;
+  }
+  @include a.breakpoint('small') {
+    margin-top: -40px;
+  }
+  @include a.breakpoint('medium') {
+    margin-top: -40px;
+  }
+  @include a.breakpoint('xl-xxl') {
+    margin-top: -20px;
+  }
+  // Smoothly scales from -10px at <400px up to -40px at 600-900px, then -20px at xl-xxl
 }
