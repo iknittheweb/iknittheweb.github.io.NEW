@@ -2,18 +2,18 @@
 
 .dropdown {
   margin: 20px;
-  background-color: var(--secondary-bg);
+  background-color: var(--bg-light);
   color: var(--text-color-1);
 
   &__title-group {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    gap: 5px;
+    gap: a.rem(16);
     cursor: pointer;
     outline: 5px solid var(--secondary-color);
-    background-color: var(--secondary-bg);
-    padding: a.rem(10);
+    background-color: var(--bg-light);
+    padding: a.rem(10) a.rem(32);
     transition: all 0.3s ease;
 
     &:hover,
@@ -25,7 +25,14 @@
 
   &__icon {
     width: a.rem(36);
-    height: a.rem(36);
+    color: inherit;
+  }
+
+  &__title {
+    margin: 0;
+    text-align: left;
+    text-wrap: balance;
+    flex-basis: 80%;
   }
 
   &__content {
