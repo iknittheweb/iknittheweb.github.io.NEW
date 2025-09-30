@@ -70,6 +70,7 @@
     background: none; // from RDB Ultimate
     padding: 0; // from RDB Ultimate
     border: 0; // from RDB Ultimate
+    margin-inline: a.rem(16); // move in from the side
   }
 
   &__open {
@@ -77,8 +78,19 @@
       display: none; // from RDB Ultimate
     }
 
+    @include a.breakpoint-down(small) {
+      // Fade-in animation for mobile hamburger menu
+      opacity: 0;
+      transform: translateY(-5px);
+      -webkit-animation: fadeInHamburger 400ms ease-out 150ms forwards;
+      animation: fadeInHamburger 400ms ease-out 150ms forwards;
+    }
+
     &[aria-expanded='true'] + .topnav__menu {
-      translate: 0 0; // from RDB Ultimate
+      @include a.breakpoint-down(small) {
+        display: block; // Show the mobile menu
+        transform: translateY(0); // Slide it into view
+      }
 
       @media (prefers-reduced-motion) {
         opacity: 1; // from RDB Ultimate
@@ -87,18 +99,33 @@
   }
 
   &__menu {
+    @include a.breakpoint(medium) {
+      // Desktop: Normal menu behavior
+      display: block;
+      position: static;
+      transform: none;
+      transition: none;
+      width: auto;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      inset: auto;
+    }
+
     @include a.breakpoint-down(small) {
+      // Mobile: Hidden by default, only shown when menu is opened
+      display: none;
       width: 100vw; // mine
       position: fixed; // from RDB Ultimate
       inset: 0 0 auto 0; // from RDB Ultimate
       padding: 12px 24px 120px; // from RDB Ultimate
       border-radius: 0 0 20px 20px; // from RDB Ultimate
       box-shadow: 0 12px 12px var(--menu-shadow); // from RDB Ultimate
-      translate: 0 -106%; // from RDB Ultimate
-      transition: translate ease-in-out; // from RDB Ultimate
+      transform: translateY(-100%); // Use transform instead of translate
+      transition: transform 350ms ease-in-out; // from RDB Ultimate
 
       @media (prefers-reduced-motion) {
-        translate: 0; // from RDB Ultimate
+        transform: translateY(0); // from RDB Ultimate
         opacity: 0; // from RDB Ultimate
         transition-property: opacity; // from RDB Ultimate
       }
@@ -120,9 +147,17 @@
     display: flex; // from RDB Ultimate
     gap: a.rem(40); // from RDB Ultimate
 
+    // Smooth transition for desktop appearance
+    @include a.breakpoint(medium) {
+      opacity: 0;
+      -webkit-animation: fadeInLinks 400ms ease-in-out 200ms forwards;
+      animation: fadeInLinks 400ms ease-in-out 200ms forwards;
+    }
+
     @include a.breakpoint-down(small) {
       flex-direction: column; // from RDB Ultimate
       align-items: center; // from RDB Ultimate
+      opacity: 1; // Ensure mobile links are always visible
     }
   }
 
@@ -139,6 +174,21 @@
     font-weight: 700; // from RDB Ultimate
     color: var(--text-color-2); // from RDB Ultimate
     cursor: pointer; // mine
+
+    // Smooth transitions for desktop
+    @include a.breakpoint(medium) {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 300ms ease-out, transform 300ms ease-out;
+
+      // Staggered animation delay for each link
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          -webkit-animation: fadeInLink 400ms ease-out #{100ms * $i} forwards;
+          animation: fadeInLink 400ms ease-out #{100ms * $i} forwards;
+        }
+      }
+    }
 
     &::after {
       content: ''; // from RDB Ultimate
@@ -159,5 +209,71 @@
     font-size: a.rem(16); // from RDB Ultimate
     text-transform: uppercase; // from RDB Ultimate
     letter-spacing: 0.05em; // from RDB Ultimate
+  }
+}
+
+// Keyframe animations for smooth desktop menu appearance
+@-webkit-keyframes fadeInLinks {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInLinks {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadeInLink {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLink {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Keyframe animation for hamburger menu fade-in
+@-webkit-keyframes fadeInHamburger {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInHamburger {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
