@@ -10,6 +10,19 @@
 -->
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+
+    <title>I Knit the Web</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/src/img/favicon_io/favicon.ico" />
+
     <!-- Google Fonts -->
     <link
       rel="preconnect"
@@ -26,11 +39,6 @@
     <link
       rel="stylesheet"
       href="dist/styles.css" />
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" />
-
     <!-- Structured Data -->
     <!-- URLs automatically updated by build process -->
     <script type="application/ld+json">
@@ -47,6 +55,9 @@
     </script>
 
     <!-- JavaScript -->
+    <script
+      src="https://kit.fontawesome.com/94262366bd.js"
+      crossorigin="anonymous"></script>
     <script
       defer
       src="/src/js/bodyScrollLock.min.js"></script>
@@ -163,8 +174,14 @@
       id="main-content"
       class="home">
       <div class="wrapper home__wrapper">
-        <h1 class="home__title">I Knit The Web</h1>
+        <h1 class="home__title visually-hidden">I Knit The Web</h1>
         <section class="home__intro">
+          <img
+            src="/src/img/heading-banner-dark.svg"
+            alt=""
+            class="home__banner"
+            width="1125"
+            height="375" />
           <h2 class="home__subheading">Handcrafted Websites for Small Budgets and Big Dreams</h2>
           <div class="home__intro-content">
             <img
@@ -173,7 +190,10 @@
               class="home__img"
               width="540"
               height="540" />
-            <p class="home__intro-text">Ready to cast on your next big project? I’ll help you stitch it together online!</p>
+            <p class="home__intro-text">
+              Time to turn your digital dreams into reality?<br />
+              I'll help you knit them into the perfect website!
+            </p>
           </div>
         </section>
         <section
@@ -200,10 +220,9 @@
 
               <div class="dropdown">
                 <div class="dropdown__title-group">
-                  <img
-                    src="/src/img/circle"
-                    class="dropdown__icon fa-solid fa-circle-caret-down"
-                    aria-hidden="true" />
+                  <span
+                    class="dropdown__icon fa-solid fa-circle-caret-down fa-2xl"
+                    aria-hidden="true"></span>
                   <p class="dropdown__title">My Secret Stash of Code Power-Ups!</p>
                 </div>
                 <ul class="dropdown__content">
@@ -338,7 +357,7 @@
               </p>
               <p>
                 Take a look at my
-                <a href="/src/pages/portfolio.html">portfolio</a> and if you’d like to collaborate, <a href="/src/pages/contact.html">let’s connect</a> —I’d love to help bring your ideas to life!
+                <a href="/src/pages/portfolio.html">portfolio</a> and if you’d like to collaborate, <a href="#contact">let’s connect</a> —I’d love to help bring your ideas to life!
               </p>
             </section>
           </div>
@@ -435,73 +454,80 @@
           id="contact"
           class="contact">
           <h2 class="home__subheading contact__heading">Contact Me</h2>
+          <p class="contact__intro">Got a web project that needs the personal touch? I specialize in handcrafted websites that fit your budget and exceed your expectations. Let's connect and start telling your digital story!</p>
           <form
             class="contact__form"
             action="#"
             method="post"
             autocomplete="on"
             novalidate>
-            <div class="contact__group">
-              <label
-                class="contact__label"
-                for="name"
-                >Name<span aria-hidden="true">*</span></label
-              >
-              <input
-                class="contact__input"
-                type="text"
-                id="name"
-                name="name"
-                required
-                autocomplete="name"
-                aria-describedby="name-error" />
-              <div
-                id="name-error"
-                class="contact__error"
-                aria-live="polite"></div>
-            </div>
-            <div class="contact__group">
-              <label
-                class="contact__label"
-                for="email"
-                >Email<span aria-hidden="true">*</span></label
-              >
-              <input
-                class="contact__input"
-                type="email"
-                id="email"
-                name="email"
-                required
-                autocomplete="email"
-                aria-describedby="email-error" />
-              <div
-                id="email-error"
-                class="contact__error"
-                aria-live="polite"></div>
-            </div>
-            <div class="contact__group">
-              <label
-                class="contact__label"
-                for="message"
-                >Message<span aria-hidden="true">*</span></label
-              >
-              <textarea
-                class="contact__input"
-                id="message"
-                name="message"
-                rows="5"
-                required
-                aria-describedby="message-error"></textarea>
-              <div
-                id="message-error"
-                class="contact__error"
-                aria-live="polite"></div>
-            </div>
-            <button
-              type="submit"
-              class="contact__submit">
-              Send Message
-            </button>
+            <fieldset class="contact__fieldset">
+              <legend class="contact__legend">Ready to Connect the Threads?</legend>
+              <div class="contact__group">
+                <label
+                  class="contact__label"
+                  for="name"
+                  >Let's start with introductions<span aria-hidden="true">*</span></label
+                >
+                <input
+                  class="contact__input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name here..."
+                  required
+                  autocomplete="name"
+                  aria-describedby="name-error" />
+                <div
+                  id="name-error"
+                  class="contact__error"
+                  aria-live="polite"></div>
+              </div>
+              <div class="contact__group">
+                <label
+                  class="contact__label"
+                  for="email"
+                  >Where can I reach you?<span aria-hidden="true">*</span></label
+                >
+                <input
+                  class="contact__input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your.email@example.com"
+                  required
+                  autocomplete="email"
+                  aria-describedby="email-error" />
+                <div
+                  id="email-error"
+                  class="contact__error"
+                  aria-live="polite"></div>
+              </div>
+              <div class="contact__group">
+                <label
+                  class="contact__label"
+                  for="message"
+                  >Share your vision<span aria-hidden="true">*</span></label
+                >
+                <textarea
+                  class="contact__input"
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your project ideas, goals, budget, timeline, or any questions you have. I'd love to hear what you're envisioning!"
+                  required
+                  aria-describedby="message-error"></textarea>
+                <div
+                  id="message-error"
+                  class="contact__error"
+                  aria-live="polite"></div>
+              </div>
+              <button
+                type="submit"
+                class="contact__submit">
+                Start the Conversation
+              </button>
+            </fieldset>
           </form>
         </section>
       </div>
