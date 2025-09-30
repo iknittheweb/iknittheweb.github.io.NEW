@@ -1,7 +1,7 @@
 @use '../abstracts' as a;
 
 .breadcrumbs {
-  background-color: var(--secondary-bg);
+  background-color: var(--bg-light);
   border-bottom: 1px solid var(--nav-border-bottom);
   padding-block: a.rem(12);
 
