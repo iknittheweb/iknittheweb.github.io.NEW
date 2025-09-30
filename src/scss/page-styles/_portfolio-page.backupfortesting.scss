@@ -50,7 +50,7 @@
   text-align: center;
   margin: a.rem(40) 0 a.rem(60) 0; // Added bottom margin to replace wrapper padding
   padding: a.rem(30);
-  background: var(--secondary-bg);
+  background: var(--bg-light);
   border-radius: 8px;
 
   @include a.breakpoint-down(small) {
