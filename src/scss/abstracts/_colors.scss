@@ -1,19 +1,39 @@
 :root {
   // Color Palette
-  --primary-bg: #440f48;
+
+  // Primary color and variations
   --primary-color: #440f48;
+  --primary-bg: #440f48;
+  --primary-border: #440f48;
   --primary-color-mid: #9c22a5;
   --primary-color-light: #d049d9;
-  --secondary-bg: #e1dede;
+
+  // Secondary color and variations
   --secondary-color: #13480f;
   --secondary-color-mid: #2ba522;
   --secondary-color-light: #52d949;
-  --menu-overlay: hsla(0, 0%, 42%, 0.5);
-  --topnav-border: #e1dede;
-  --dropdown-border: #440f48;
+
+  // Backgrounds
+  --bg-light: #e1dede;
+
+  // Text colors
   --text-color-1: #333;
   --text-color-2: #e1dede;
+  --text-color-muted: #888;
+
+  // Topnav
+  --menu-overlay: hsla(0, 0%, 42%, 0.5); // covers the body when the mobile menu is open
+  --topnav-border: #e1dede; // to keep a delineation between the header and body content as it scrolls
   --link-underline-gradient1: #d049d9;
   --link-underline-gradient2: #52d949;
-  --background-color: #1f1f1f;
+
+  // About
+  --dropdown-border: #440f48;
+  --link-underline1: #d049d9;
+  --link-underline2: #52d949;
+
+  // Contact
+  --contact-button-border: #e1dede;
+  --contact-input-focus-shadow: #440f481a;
+  --error-color: #de1616;
 }
