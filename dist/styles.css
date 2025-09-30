@@ -365,16 +365,15 @@ template,
 }
 
 :root {
-  --font-1: "Georgia", serif;
-  --font-2: "Verdana", sans-serif;
-  --font-3: "Source Sans 3", sans-serif;
-  --font-4: "Charm", cursive;
+  --font-1: "Merriweather", serif;
+  --font-2: "Merriweather Sans", sans-serif;
   --alien-font-family: "Orbitron", sans-serif;
 }
 
 h1,
 h2,
 h3 {
+  font-family: var(--font-1);
   font-weight: 700;
   margin-top: 0;
 }
@@ -411,7 +410,7 @@ h3.large span {
 }
 
 p {
-  font-family: var(--font-1);
+  font-family: var(--font-2);
   margin-top: 0;
   font-size: 1.125rem;
   line-height: 1.4;
@@ -511,11 +510,14 @@ p > a {
 }
 .about .bio {
   flex: 1;
-  min-width: 300px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 @media (max-width: 43.74875em) {
   .about .bio {
     flex: none;
+    min-width: 0;
   }
 }
 .about .bio p:not(.dropdown__title) {
@@ -705,16 +707,24 @@ p > a {
   background-color: var(--secondary-bg);
   color: var(--text-color-1);
 }
-.dropdown__title {
+.dropdown__title-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   cursor: pointer;
   outline: 5px solid var(--secondary-color);
   background-color: var(--secondary-bg);
   padding: 0.625rem;
   transition: all 0.3s ease;
 }
-.dropdown__title:hover, .dropdown__title:focus {
+.dropdown__title-group:hover, .dropdown__title-group:focus {
   background-color: var(--primary-bg);
   color: var(--text-color-2);
+}
+.dropdown__icon {
+  width: 2.25rem;
+  height: 2.25rem;
 }
 .dropdown__content {
   display: none; /* Initially hide the content */
@@ -993,7 +1003,6 @@ p > a {
 }
 .home__intro-text {
   grid-column: 1;
-  font-family: var(--font-3);
   font-size: 1.5rem;
   line-height: 1.6;
   margin-bottom: 1rem;

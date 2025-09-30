@@ -5,7 +5,11 @@
   background-color: var(--secondary-bg);
   color: var(--text-color-1);
 
-  &__title {
+  &__title-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
     cursor: pointer;
     outline: 5px solid var(--secondary-color);
     background-color: var(--secondary-bg);
@@ -17,6 +21,11 @@
       background-color: var(--primary-bg);
       color: var(--text-color-2);
     }
+  }
+
+  &__icon {
+    width: a.rem(36);
+    height: a.rem(36);
   }
 
   &__content {

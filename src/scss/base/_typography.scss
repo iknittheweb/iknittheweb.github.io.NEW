@@ -2,16 +2,15 @@
 
 :root {
   // Font Families
-  --font-1: 'Georgia', serif;
-  --font-2: 'Verdana', sans-serif;
-  --font-3: 'Source Sans 3', sans-serif;
-  --font-4: 'Charm', cursive;
+  --font-1: 'Merriweather', serif;
+  --font-2: 'Merriweather Sans', sans-serif;
   --alien-font-family: 'Orbitron', sans-serif;
 }
 
 h1,
 h2,
 h3 {
+  font-family: var(--font-1);
   font-weight: 700;
   margin-top: 0;
 }
@@ -54,7 +53,7 @@ h3 {
 }
 
 p {
-  font-family: var(--font-1);
+  font-family: var(--font-2);
   margin-top: 0;
   font-size: a.rem(18);
   line-height: 1.4;
