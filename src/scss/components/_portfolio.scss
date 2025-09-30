@@ -1,5 +1,7 @@
 @use '../abstracts' as a;
 .portfolio {
+  -webkit-margin-after: 4rem;
+  margin-block-end: 4rem;
   &__heading {
     text-align: center;
     margin-bottom: a.rem(30);
