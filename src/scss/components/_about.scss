@@ -35,7 +35,7 @@
 
     &__pic {
       display: block;
-      background-color: var(--secondary-bg);
+      background-color: var(--bg-light);
       width: min(100%, 300px);
       height: auto;
       margin-inline: auto;
@@ -66,6 +66,10 @@
     @include a.breakpoint-down(small) {
       flex: none;
       min-width: 0;
+    }
+
+    p a {
+      text-decoration: underline;
     }
 
     p:not(.dropdown__title) {
