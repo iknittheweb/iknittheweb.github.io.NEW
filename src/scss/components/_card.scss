@@ -14,17 +14,32 @@ $card-padding: 20px;
   margin: 0 auto; // Center the card if it's smaller than container
   overflow: hidden; // Ensures content doesn't spill out of rounded corners
 
+  // Make cards equal height with flexbox
+  display: flex;
+  flex-direction: column;
+  height: 100%; // Take full height of grid cell
+
   &-header {
     padding: $card-padding;
     border-bottom: 1px solid $card-border-color;
+    height: 4.5em; // Fixed height to accommodate 2 lines + padding
+    display: flex;
+    align-items: center; // Vertically center the title
+
     h3 {
       margin: 0;
       font-size: 1.2em;
+      line-height: 1.3; // Consistent line height for better spacing
+      width: 100%; // Ensure title takes full width for proper wrapping
     }
   }
 
   &-body {
     padding: $card-padding;
+    flex: 1; // Take up remaining space
+    display: flex;
+    flex-direction: column;
+
     p {
       margin: 0;
     }
@@ -32,6 +47,10 @@ $card-padding: 20px;
 
   &-figure {
     margin: 0;
+    flex: 1; // Allow figure to grow and take available space
+    display: flex;
+    flex-direction: column;
+
     img {
       width: 100%;
       height: auto;
@@ -41,6 +60,7 @@ $card-padding: 20px;
     figcaption {
       -webkit-margin-after: 0.75em;
       margin-block-end: 0.75em;
+      flex-grow: 1; // Push button to bottom
     }
   }
 
@@ -48,6 +68,7 @@ $card-padding: 20px;
     display: block;
     margin-left: auto;
     margin-right: 0;
+    margin-top: auto; // Push button to bottom of card
     text-align: center;
     padding: 0.5em 1em;
     border-radius: 4px;
