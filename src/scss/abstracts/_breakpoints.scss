@@ -2,22 +2,31 @@
 @use 'sass:map';
 // 700px, 900px, 1100px, 1440px
 $breakpoints-up: (
+  'tiny': f.em(300),
+  'xxsmall': f.em(400),
   'xsmall': f.em(500),
   'small': f.em(600),
   'medium': f.em(700),
+  'med-lg': f.em(800),
   'large': f.em(900),
+  'lg-xl': f.em(1000),
   'xlarge': f.em(1100),
+  'xl-xxl': f.em(1240),
   'xxlarge': f.em(1440),
 );
 
 // 451.98px, 699.98px, 899.98px, 1099.98px, 1439.98px
 $breakpoints-down: (
+  'tiny': f.em(399.98),
   'xxsmall': f.em(499.98),
   'xsmall': f.em(599.98),
   'small': f.em(699.98),
-  'medium': f.em(899.98),
-  'large': f.em(1099.98),
-  'xlarge': f.em(1439.98),
+  'medium': f.em(799.98),
+  'med-lg': f.em(899.98),
+  'large': f.em(999.98),
+  'xlarge': f.em(1099.98),
+  'xl-xxl': f.em(1239.98),
+  'xxlarge': f.em(1439.98),
 );
 
 @mixin breakpoint($size) {
