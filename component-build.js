@@ -18,17 +18,26 @@
 const fs = require('fs');
 const path = require('path');
 
-// Configuration
-const config = {
-  development: {
-    baseUrl: 'https://iknittheweb.github.io',
-    assetUrl: '/src/img',
-  },
-  production: {
-    baseUrl: 'https://yourdomain.com',
-    assetUrl: 'https://yourdomain.com/src/img',
-  },
-};
+// Load environment variables from .env or .env.production
+// Uses dotenv for easy environment management
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
+});
+
+/*
+  Environment variable usage:
+  - BASE_URL: The base URL for your site (e.g., https://iknittheweb.github.io or your custom domain)
+  - ASSET_URL: The base path or URL for your static assets (e.g., /src/img or https://yourdomain.com/src/img)
+  Set these in your .env (for development) and .env.production (for production) files.
+*/
+
+const baseUrl = process.env.BASE_URL;
+const assetUrl = process.env.ASSET_URL;
+
+if (!baseUrl || !assetUrl) {
+  console.error('❌ BASE_URL and ASSET_URL must be set in your .env or .env.production file.');
+  process.exit(1);
+}
 
 // Page configurations
 const pages = [
@@ -140,8 +149,7 @@ const pages = [
           </div>
         </section>
       `,
-      PAGE_SCRIPTS:
-        '<script defer src="/src/js/alien-abduction-form.js"></script>',
+      PAGE_SCRIPTS: '<script defer src="/src/js/alien-abduction-form.js"></script>',
     },
   },
   {
@@ -184,8 +192,7 @@ const pages = [
       PAGE_KEYWORDS:
         '15 days of CSS, CSS animations, CSS transitions, CSS challenges, web development practice',
       PAGE_IMAGE: '/src/img/branding/logo.png',
-      PAGE_URL:
-        'src/pages/portfolio-pages/fifteenDaysofCSS-Day-5-Challenge.html',
+      PAGE_URL: 'src/pages/portfolio-pages/fifteenDaysofCSS-Day-5-Challenge.html',
       PAGE_TYPE: 'article',
       BODY_CLASS: 'project-page css-challenge-page',
       MAIN_CLASS: 'css-challenge-main',
@@ -214,8 +221,7 @@ const pages = [
       PAGE_KEYWORDS:
         '15 days of CSS, vertical navigation, CSS navbar, responsive navigation, web development',
       PAGE_IMAGE: '/src/img/branding/logo.png',
-      PAGE_URL:
-        'src/pages/portfolio-pages/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.html',
+      PAGE_URL: 'src/pages/portfolio-pages/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.html',
       PAGE_TYPE: 'article',
       BODY_CLASS: 'project-page nav-challenge-page',
       MAIN_CLASS: 'nav-challenge-main',
@@ -244,8 +250,7 @@ const pages = [
       PAGE_KEYWORDS:
         '15 days of HTML, description lists, semantic HTML, HTML challenges, web accessibility',
       PAGE_IMAGE: '/src/img/branding/logo.png',
-      PAGE_URL:
-        'src/pages/portfolio-pages/fifteenDaysofHTML-Day5-Desc-List-Challenge.html',
+      PAGE_URL: 'src/pages/portfolio-pages/fifteenDaysofHTML-Day5-Desc-List-Challenge.html',
       PAGE_TYPE: 'article',
       BODY_CLASS: 'project-page html-challenge-page',
       MAIN_CLASS: 'html-challenge-main',
@@ -271,8 +276,7 @@ const pages = [
       PAGE_SUBTITLE: 'Advanced CSS navigation techniques',
       PAGE_DESCRIPTION:
         'Demonstration of advanced CSS techniques for creating navigation links that fill their list item containers with smooth hover effects.',
-      PAGE_KEYWORDS:
-        'CSS navigation, navbar techniques, hover effects, CSS links, web development',
+      PAGE_KEYWORDS: 'CSS navigation, navbar techniques, hover effects, CSS links, web development',
       PAGE_IMAGE: '/src/img/branding/logo.png',
       PAGE_URL: 'src/pages/portfolio-pages/navbar-link-filling-li.html',
       PAGE_TYPE: 'article',
@@ -587,18 +591,18 @@ function replaceTemplateVariables(content, data, envConfig) {
   });
 
   // Replace environment variables
-  result = result.replace(/{{BASE_URL}}/g, envConfig.baseUrl);
-  result = result.replace(/{{ASSET_URL}}/g, envConfig.assetUrl);
+  result = result.replace(/{{BASE_URL}}/g, baseUrl);
+  result = result.replace(/{{ASSET_URL}}/g, assetUrl);
 
   return result;
 }
 
 function buildPagesFromTemplates(env = 'development') {
-  const envConfig = config[env];
+  // env parameter is kept for compatibility, but environment is now determined by .env files
   const templatesDir = path.join(__dirname, 'src', 'templates');
   const outputDir = path.join(__dirname, 'src', 'pages');
 
-  console.log(`\n🧩 Building pages from templates for ${env} environment...`);
+  console.log('\n🧩 Building pages from templates with environment variables...');
 
   pages.forEach((page) => {
     try {
@@ -611,11 +615,7 @@ function buildPagesFromTemplates(env = 'development') {
       }
 
       const templateContent = fs.readFileSync(templatePath, 'utf8');
-      const processedContent = replaceTemplateVariables(
-        templateContent,
-        page.data,
-        envConfig
-      );
+      const processedContent = replaceTemplateVariables(templateContent, page.data);
 
       // Ensure output directory exists
       const outputDirPath = path.dirname(outputPath);
@@ -632,11 +632,11 @@ function buildPagesFromTemplates(env = 'development') {
 }
 
 function buildMainTemplate(env = 'development') {
-  const envConfig = config[env];
   const templatePath = path.join(__dirname, 'index.template.html');
   const outputPath = path.join(__dirname, 'index.html');
 
-  console.log(`\n🏠 Building main template for ${env} environment...`);
+  // env parameter is kept for compatibility, but environment is now determined by .env files
+  console.log('\n🏠 Building main template with environment variables...');
 
   try {
     if (!fs.existsSync(templatePath)) {
@@ -668,15 +668,15 @@ function buildMainTemplate(env = 'development') {
     content = content.replace(templateComment, generatedComment);
 
     // Replace environment variables
-    content = content.replace(/{{BASE_URL}}/g, envConfig.baseUrl);
-    content = content.replace(/{{ASSET_URL}}/g, envConfig.assetUrl);
+    content = content.replace(/{{BASE_URL}}/g, baseUrl);
+    content = content.replace(/{{ASSET_URL}}/g, assetUrl);
 
     fs.writeFileSync(outputPath, content, 'utf8');
     console.log(`✅ Built ${outputPath} for ${env}`);
 
     return true;
   } catch (error) {
-    console.error(`❌ Error building main template:`, error.message);
+    console.error('❌ Error building main template:', error.message);
     return false;
   }
 }
@@ -687,13 +687,8 @@ function main() {
   const command = args[0];
   const env = args[1] || 'development';
 
-  if (!config[env]) {
-    console.error(`❌ Unknown environment: ${env}`);
-    console.log('Available environments:', Object.keys(config).join(', '));
-    process.exit(1);
-  }
-
-  console.log(`🔧 Component-based build system starting...`);
+  // env parameter is kept for compatibility, but environment is now determined by .env files
+  console.log('🔧 Component-based build system starting...');
 
   switch (command) {
     case 'pages':
@@ -711,9 +706,9 @@ function main() {
       break;
   }
 
-  console.log(`\n🌐 Base URL: ${config[env].baseUrl}`);
-  console.log(`🖼️ Asset URL: ${config[env].assetUrl}`);
-  console.log(`✨ Build complete!`);
+  console.log(`\n🌐 Base URL: ${baseUrl}`);
+  console.log(`🖼️ Asset URL: ${assetUrl}`);
+  console.log('✨ Build complete!');
 }
 
 // Run if called directly
@@ -724,5 +719,4 @@ if (require.main === module) {
 module.exports = {
   buildPagesFromTemplates,
   buildMainTemplate,
-  config,
 };

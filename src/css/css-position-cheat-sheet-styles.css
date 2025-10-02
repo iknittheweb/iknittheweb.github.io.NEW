@@ -20,7 +20,8 @@ td:focus {
     font-size: 0.95rem;
     margin-block: 10px;
   }
-  th, td {
+  th,
+  td {
     padding: 8px;
     font-size: 0.95rem;
   }
@@ -62,7 +63,6 @@ body {
   color: #fff;
 }
 
-
 main {
   width: 85%;
   margin: 0 auto;
@@ -79,7 +79,7 @@ table {
   border: 5px solid #ff81ff;
   background-color: #2d0036;
   color: #fff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
 caption {
@@ -117,7 +117,8 @@ tr.property-row {
 /* =========================
    Table Cell Styles
    ========================= */
-th, td {
+th,
+td {
   border: 1px solid #ff81ff;
   padding: 12px;
   text-align: left;

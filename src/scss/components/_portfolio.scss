@@ -1,7 +1,9 @@
 @use '../abstracts' as a;
+
 .portfolio {
   -webkit-margin-after: 4rem;
   margin-block-end: 4rem;
+
   &__heading {
     text-align: center;
     margin-bottom: a.rem(30);
@@ -27,20 +29,20 @@
     grid-template-columns: 1fr;
 
     // Two columns for medium screens (650px+) - this avoids the 575-600px issue
-    @media (min-width: 650px) {
+    @media (width >= 650px) {
       grid-template-columns: repeat(2, 1fr);
       max-width: 900px;
       margin: 0 auto;
     }
 
     // Three columns for large screens (900px+)
-    @include a.breakpoint(large) {
+    @include a.breakpoint('999.98') {
       grid-template-columns: repeat(3, 1fr);
       max-width: 1200px;
     }
 
     // Fix for very small screens
-    @include a.breakpoint-down(xxsmall) {
+    @include a.breakpoint-down('499.98') {
       padding: 0;
       gap: a.rem(15);
     }

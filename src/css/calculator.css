@@ -2,47 +2,49 @@
    Calculator Theme Variables
    ===================================== */
 :root {
-    --screen-bg: #000000;
-    --btn-bg: #d8d9db;
-    --btn-hover: #ebebeb;
-    --btn-active: #bbbcbe;
-    --fn-btn-bg: #df974c;
-    --fn-btn-hover: #dfb07e;
-    --fn-btn-active: #dd8d37;
-    --borders: #000000;
-    --text-color-1: #000000;
-    --text-color-2: #ffffff;
+  --screen-bg: #000000;
+  --btn-bg: #d8d9db;
+  --btn-hover: #ebebeb;
+  --btn-active: #bbbcbe;
+  --fn-btn-bg: #df974c;
+  --fn-btn-hover: #dfb07e;
+  --fn-btn-active: #dd8d37;
+  --borders: #000000;
+  --text-color-1: #000000;
+  --text-color-2: #ffffff;
 }
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .wrapper-1,
 .wrapper-2 {
-    width: 400px;
+  width: 400px;
 }
 
 /* =====================================
    Table Version Styles
    ===================================== */
 table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 td {
-    padding: 0;
-    border: 2px solid var(--borders);
+  padding: 0;
+  border: 2px solid var(--borders);
 }
 
 /* =====================================
@@ -50,158 +52,164 @@ td {
    ===================================== */
 .btn,
 .fn-btn {
-    width: 100%;
-    height: 60px;
-    font-size: 18px;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    transition: background 0.2s, color 0.2s, outline 0.2s;
+  width: 100%;
+  height: 60px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    outline 0.2s;
 }
 
 .btn:hover,
 .btn:focus {
-    background-color: #e0e0e0;
-    outline: 2px solid #333;
-    outline-offset: 2px;
+  background-color: #e0e0e0;
+  outline: 2px solid #333;
+  outline-offset: 2px;
 }
 
 .btn {
-    background-color: var(--btn-bg);
-    color: var(--text-color-1);
+  background-color: var(--btn-bg);
+  color: var(--text-color-1);
 }
 
 .btn:hover,
 .btn:focus {
-    background-color: var(--btn-hover);
-    color: #000;
+  background-color: var(--btn-hover);
+  color: #000;
 }
 
 .btn:active {
-    background-color: var(--btn-active);
+  background-color: var(--btn-active);
 }
 
 .fn-btn {
-    background-color: var(--fn-btn-bg);
-    color: var(--text-color-2);
+  background-color: var(--fn-btn-bg);
+  color: var(--text-color-2);
 }
 
 .fn-btn:hover,
 .fn-btn:focus {
-    background-color: var(--fn-btn-hover);
-    outline: 2px solid #fff;
-    outline-offset: 2px;
-    color: #222;
+  background-color: var(--fn-btn-hover);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  color: #222;
 }
 
 .fn-btn:active {
-    background-color: var(--fn-btn-active);
+  background-color: var(--fn-btn-active);
 }
 
 /* =====================================
    Calculator Input Styles
    ===================================== */
 .calc-input {
-    width: 100%;
-    height: 60px;
-    font-size: 24px;
-    text-align: right;
-    padding: 0 10px;
-    border: none;
-    background-color: var(--screen-bg);
-    color: var(--text-color-2);
-    border-radius: 4px;
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  text-align: right;
+  padding: 0 10px;
+  border: none;
+  background-color: var(--screen-bg);
+  color: var(--text-color-2);
+  border-radius: 4px;
 }
 
 /* =====================================
    Class Solution Styles
    ===================================== */
 .wrapper-2 {
-    background-color: var(--screen-bg);
-    color: var(--text-color-2);
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 8px;
+  background-color: var(--screen-bg);
+  color: var(--text-color-2);
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .screen {
-    text-align: right;
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px 5px;
-    font-size: 40px;
-    border-radius: 4px;
+  text-align: right;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px 5px;
+  font-size: 40px;
+  border-radius: 4px;
 }
 
 .calc-button-row {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    margin-bottom: 0.5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  margin-bottom: 0.5%;
 }
 
 .calc-button {
-    background-color: var(--btn-bg);
-    color: var(--text-color-1);
-    border: none;
-    font-size: 40px;
-    height: 100px;
-    flex-basis: 24.5%;
-    border-radius: 4px;
-    transition: background 0.2s, color 0.2s, outline 0.2s;
+  background-color: var(--btn-bg);
+  color: var(--text-color-1);
+  border: none;
+  font-size: 40px;
+  height: 100px;
+  flex-basis: 24.5%;
+  border-radius: 4px;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    outline 0.2s;
 }
 
 .calc-button:hover,
 .calc-button:focus {
-    background-color: var(--btn-hover);
-    outline: 2px solid #333;
-    outline-offset: 2px;
+  background-color: var(--btn-hover);
+  outline: 2px solid #333;
+  outline-offset: 2px;
 }
 
 .calc-button:active {
-    background-color: var(--btn-active);
+  background-color: var(--btn-active);
 }
 
 .double {
-    flex-basis: 49.7%;
+  flex-basis: 49.7%;
 }
 
 .triple {
-    flex-basis: 74.8%;
+  flex-basis: 74.8%;
 }
 
 .calc-button:last-child {
-    background-color: var(--fn-btn-bg);
-    color: var(--text-color-2);
+  background-color: var(--fn-btn-bg);
+  color: var(--text-color-2);
 }
 
 .calc-button:last-child:hover,
 .calc-button:last-child:focus {
-    background-color: var(--fn-btn-hover);
-    outline: 2px solid #fff;
-    outline-offset: 2px;
-    color: #222;
+  background-color: var(--fn-btn-hover);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  color: #222;
 }
 
 .calc-button:last-child:active {
-    background-color: var(--fn-btn-active);
+  background-color: var(--fn-btn-active);
 }
 
 /* =====================================
    Responsive Design
    ===================================== */
 @media (max-width: 500px) {
-    .wrapper-1,
-    .wrapper-2 {
-        width: 98%;
-        min-width: 0;
-        padding: 5px;
-    }
-    .screen {
-        font-size: 24px;
-        padding: 10px 2px;
-    }
-    .calc-button {
-        font-size: 24px;
-        height: 60px;
-    }
+  .wrapper-1,
+  .wrapper-2 {
+    width: 98%;
+    min-width: 0;
+    padding: 5px;
+  }
+  .screen {
+    font-size: 24px;
+    padding: 10px 2px;
+  }
+  .calc-button {
+    font-size: 24px;
+    height: 60px;
+  }
 }

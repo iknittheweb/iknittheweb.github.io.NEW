@@ -58,16 +58,16 @@ p {
   font-size: a.rem(18);
   line-height: 1.4;
 
-  &.xsmall {
+  &.p--xsmall {
     font-size: a.rem(16);
   }
 
-  &.medium {
+  &.p--medium {
     font-size: a.rem(20);
     font-size: clamp(a.rem(20), 1.14rem + 0.48vw, a.rem(24));
   }
 
-  &.large {
+  &.p--large {
     font-size: a.rem(24);
     font-size: clamp(a.rem(24), 1.39rem + 0.48vw, a.rem(28));
     -webkit-margin-after: a.rem(40);
@@ -79,13 +79,14 @@ a,
 a:visited,
 a:active {
   text-decoration: none;
+  font-family: inherit;
 }
 
 p > a {
   color: var(--text-link);
 }
 
-.link-cert {
+.link__cert {
   color: var(--primary-color-mid);
 
   &:hover {
@@ -97,7 +98,7 @@ p > a {
   }
 }
 
-.link-site {
+.link__site {
   color: var(--secondary-color-mid);
 
   &:hover {
@@ -109,6 +110,10 @@ p > a {
   }
 }
 
-.nowrap {
+.text--nowrap {
   white-space: nowrap;
+}
+
+.topnav {
+  font-family: var(--font-1);
 }

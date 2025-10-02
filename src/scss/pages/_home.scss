@@ -1,14 +1,10 @@
 @use '../abstracts' as a;
 
 .home {
-  &__wrapper {
-    padding-block: a.rem(60);
-  }
-
   &__banner {
     max-width: 100%;
     height: auto;
-    margin: 0 auto;
+    margin: a.rem(10) auto;
     display: block;
     position: relative;
   }
@@ -21,23 +17,21 @@
       text-wrap: balance;
       text-align: center;
       position: relative;
-      margin-top: clamp(-40px, calc(-40px + (-20px * ((100vw - 320px) / 448))), -60px);
-      // Smoothly scales from -40px at 320px to -60px at 768px and above
     }
 
     &-content {
       display: flex;
-      flex-direction: row-reverse;
-      flex-wrap: wrap;
+      flex-flow: row-reverse wrap;
       gap: a.rem(40);
-      transition: gap 0.3s ease;
       align-items: center;
       width: 90%;
       margin-inline: auto;
       margin-bottom: a.rem(60);
 
       // Smooth transitions for layout changes
-      transition: gap 0.3s ease, margin-bottom 0.3s ease;
+      transition:
+        gap 0.3s ease,
+        margin-bottom 0.3s ease;
 
       .home__img,
       .home__intro-text {
@@ -50,7 +44,6 @@
   &__img {
     grid-column: 2;
     grid-row: 1 / -1; // Span all rows in the text column
-
     display: block;
     width: 100%;
     max-width: 400px;
@@ -62,13 +55,14 @@
     border-radius: a.rem(10);
 
     // Smooth transitions for image changes
-    transition: max-width 0.3s ease, padding 0.3s ease;
+    transition:
+      max-width 0.3s ease,
+      padding 0.3s ease;
 
-    @include a.breakpoint-down(small) {
+    @include a.breakpoint-down('699.98') {
       grid-column: 1;
       grid-row: 1;
       order: -1; // Put image first on mobile
-      max-width: 300px;
     }
   }
 
@@ -91,24 +85,46 @@
   text-wrap: balance;
   text-align: center;
   position: relative;
-  margin-top: -10px; // default for smallest viewports
-  transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-  // Mobile-first: smallest to largest
-  @include a.breakpoint('tiny') {
-    margin-top: -20px;
+  &-raised {
+    margin-block: -15px 60px; // default for smallest viewports
+    transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    // Mobile-first: smallest to largest
+    @include a.breakpoint('275') {
+      margin-top: -20px;
+    }
+
+    @include a.breakpoint('400') {
+      margin-top: -30px;
+    }
+
+    @include a.breakpoint('486') {
+      margin-top: -20px;
+    }
+
+    @include a.breakpoint('600') {
+      margin-top: -30px;
+    }
+
+    @include a.breakpoint('700') {
+      margin-top: -40px;
+    }
+
+    @include a.breakpoint('800') {
+      margin-top: -60px;
+    }
   }
-  @include a.breakpoint('xsmall') {
-    margin-top: -30px;
+}
+
+@include a.breakpoint('486') {
+  .home__intro .home__subheading {
+    width: 70%;
   }
-  @include a.breakpoint('small') {
-    margin-top: -40px;
+}
+
+@include a.breakpoint-down('499.98') {
+  .home__intro .home__subheading {
+    width: 70%;
   }
-  @include a.breakpoint('medium') {
-    margin-top: -40px;
-  }
-  @include a.breakpoint('xl-xxl') {
-    margin-top: -20px;
-  }
-  // Smoothly scales from -10px at <400px up to -40px at 600-900px, then -20px at xl-xxl
 }

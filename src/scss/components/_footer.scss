@@ -6,7 +6,7 @@
   padding-block: a.rem(16);
   font-size: a.rem(10);
 
-  @include a.breakpoint(large) {
+  @include a.breakpoint('999.98') {
     padding-block: a.rem(24);
     font-size: a.rem(16);
   }

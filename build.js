@@ -16,29 +16,28 @@
 
 const fs = require('fs');
 const path = require('path');
+// Load environment variables from .env or .env.production
+// Uses dotenv for easy environment management
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
+});
 
-// Configuration
-const config = {
-  development: {
-    baseUrl: 'https://iknittheweb.github.io',
-    assetUrl: '/src/img',
-  },
-  production: {
-    baseUrl: 'https://yourdomain.com', // Update this to your custom domain
-    assetUrl: 'https://yourdomain.com/src/img',
-  },
-};
+/*
+  Environment variable usage:
+  - BASE_URL: The base URL for your site (e.g., https://iknittheweb.github.io or your custom domain)
+  - ASSET_URL: The base path or URL for your static assets (e.g., /src/img or https://yourdomain.com/src/img)
+  Set these in your .env (for development) and .env.production (for production) files.
+*/
 
-// Get environment from command line argument or default to development
-const env = process.argv[2] || 'development';
-const envConfig = config[env];
+const baseUrl = process.env.BASE_URL;
+const assetUrl = process.env.ASSET_URL;
 
-if (!envConfig) {
-  console.error(`Unknown environment: ${env}`);
+if (!baseUrl || !assetUrl) {
+  console.error('❌ BASE_URL and ASSET_URL must be set in your .env or .env.production file.');
   process.exit(1);
 }
 
-console.log(`Building for ${env} environment...`);
+console.log('Building with environment variables...');
 
 // Read the template HTML file
 const templatePath = path.join(__dirname, 'index.template.html');
@@ -48,16 +47,14 @@ try {
   let htmlContent = fs.readFileSync(templatePath, 'utf8');
 
   // Replace placeholders with environment-specific values
-  htmlContent = htmlContent
-    .replace(/{{BASE_URL}}/g, envConfig.baseUrl)
-    .replace(/{{ASSET_URL}}/g, envConfig.assetUrl);
+  htmlContent = htmlContent.replace(/{{BASE_URL}}/g, baseUrl).replace(/{{ASSET_URL}}/g, assetUrl);
 
   // Write the processed HTML
   fs.writeFileSync(outputPath, htmlContent);
 
-  console.log(`✅ Built ${outputPath} for ${env}`);
-  console.log(`🌐 Base URL: ${envConfig.baseUrl}`);
-  console.log(`🖼️ Asset URL: ${envConfig.assetUrl}`);
+  console.log(`✅ Built ${outputPath}`);
+  console.log(`🌐 Base URL: ${baseUrl}`);
+  console.log(`🖼️ Asset URL: ${assetUrl}`);
 } catch (error) {
   console.error('❌ Build failed:', error.message);
   process.exit(1);

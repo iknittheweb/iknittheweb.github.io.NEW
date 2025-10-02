@@ -1,9 +1,9 @@
+/* stylelint-disable no-descending-specificity */
 @use '../abstracts' as a;
 
 .contact {
-  -webkit-margin-after: a.rem(60);
-  margin-block-end: a.rem(60);
-  padding: 0 a.rem(20);
+  padding: a.rem(60) a.rem(20);
+  margin-inline: auto;
 
   &__heading {
     text-align: center;
@@ -26,13 +26,12 @@
     margin: 0 auto;
     background: var(--primary-bg);
     border-radius: a.rem(12);
-    box-shadow: 0 4px 20px rgba(68, 15, 72, 0.1);
+    box-shadow: 0 4px 20px rgb(68 15 72 / 10%);
     padding: a.rem(40);
     border: 1px solid var(--border-color, #e0e0e0);
 
-    @include a.breakpoint-down(small) {
+    @include a.breakpoint-down('699.98') {
       padding: a.rem(24);
-      margin: 0 a.rem(10);
     }
   }
 
@@ -61,7 +60,7 @@
     font-weight: 600;
     margin-bottom: a.rem(8);
     color: var(--text-color-2);
-    font-size: a.rem(14);
+    font-size: a.rem(20);
 
     span {
       color: var(--accent-color, #d32f2f);
@@ -70,48 +69,6 @@
   }
 
   &__input {
-    width: 100%;
-    padding: a.rem(12);
-    border: 2px solid var(--border-color, #e0e0e0);
-    border-radius: a.rem(8);
-    font-size: a.rem(16);
-    font-family: inherit;
-    background: var(--bg-light);
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-
-    &::-webkit-input-placeholder {
-      color: var(--text-color-muted);
-      opacity: 0.8;
-      font-style: italic;
-      -webkit-transition: opacity 0.3s ease;
-      transition: opacity 0.3s ease;
-    }
-
-    &::-moz-placeholder {
-      color: var(--text-color-muted);
-      opacity: 0.8;
-      font-style: italic;
-      -moz-transition: opacity 0.3s ease;
-      transition: opacity 0.3s ease;
-    }
-
-    &:-ms-input-placeholder {
-      color: var(--text-color-muted);
-      opacity: 0.8;
-      font-style: italic;
-      -ms-transition: opacity 0.3s ease;
-      transition: opacity 0.3s ease;
-    }
-
-    &::-ms-input-placeholder {
-      color: var(--text-color-muted);
-      opacity: 0.8;
-      font-style: italic;
-      -ms-transition: opacity 0.3s ease;
-      transition: opacity 0.3s ease;
-    }
-
     &::placeholder {
       color: var(--text-color-muted);
       opacity: 0.8;
@@ -125,28 +82,12 @@
       box-shadow: 0 0 0 3px var(--contact-input-focus-shadow);
       background: var(--bg-light);
 
-      &::-webkit-input-placeholder {
-        opacity: 0.5;
-      }
-
-      &::-moz-placeholder {
-        opacity: 0.5;
-      }
-
-      &:-ms-input-placeholder {
-        opacity: 0.5;
-      }
-
-      &::-ms-input-placeholder {
-        opacity: 0.5;
-      }
-
       &::placeholder {
         opacity: 0.5;
       }
     }
 
-    &:invalid:not(:focus):not(:placeholder-shown) {
+    &:invalid:not(:focus, :placeholder-shown) {
       border-color: var(--error-color, #de1616);
     }
 
@@ -173,7 +114,7 @@
   &__submit {
     width: 100%;
     padding: a.rem(16);
-    background: var(--primary-color, #440f48);
+    background: var(--primary-color, #531045);
     color: #fff;
     border: 2px solid var(--contact-button-border);
     border-radius: a.rem(8);
@@ -187,13 +128,13 @@
     &:hover {
       background: var(--primary-color-dark, #2d0a30);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(68, 15, 72, 0.3);
+      box-shadow: 0 6px 20px rgb(68 15 72 / 30%);
     }
 
     &:focus {
       outline: none;
       background: var(--primary-color-dark, #2d0a30);
-      box-shadow: 0 0 0 3px rgba(68, 15, 72, 0.3);
+      box-shadow: 0 0 0 3px rgb(68 15 72 / 30%);
     }
 
     &:active {
@@ -209,8 +150,8 @@
   }
 
   // Responsive adjustments
-  @include a.breakpoint-down(small) {
-    padding: 0 a.rem(10);
+  @include a.breakpoint('699.98') {
+    // padding-inline: a.rem(10);
 
     &__intro {
       font-size: a.rem(16);
@@ -221,5 +162,37 @@
       font-size: a.rem(18);
       margin-bottom: a.rem(20);
     }
+  }
+}
+
+.contact--inverse {
+  background: var(--primary-bg);
+  color: var(--text-color-2);
+
+  .contact__input {
+    background: var(--primary-bg);
+    color: var(--text-color-2);
+    border: 2px solid var(--primary-bg);
+  }
+
+  .contact__intro,
+  .contact__legend {
+    color: var(--text-color-2);
+  }
+
+  .contact__label {
+    color: var(--text-color-accent);
+  }
+
+  .contact__form {
+    background: var(--bg-light);
+    color: var(--text-color-1);
+    border: 1px solid var(--primary-bg);
+  }
+
+  .contact__button {
+    background: var(--text-color-2);
+    color: var(--primary-bg);
+    border: 1px solid var(--primary-bg);
   }
 }

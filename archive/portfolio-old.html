@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta
+      name="keywords"
+      content="portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments" />
+    <meta
+      name="author"
+      content="I Knit The Web" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Full Portfolio | I Knit The Web - I Knit The Web" />
+    <meta
+      property="og:description"
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta
+      property="og:image"
+      content="/src/img/branding/logo.png" />
+    <meta
+      property="og:url"
+      content="https://iknittheweb.github.io/src/pages/portfolio.html" />
+    <meta
+      property="og:type"
+      content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta
+      name="twitter:card"
+      content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Full Portfolio | I Knit The Web - I Knit The Web" />
+    <meta
+      name="twitter:description"
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta
+      name="twitter:image"
+      content="/src/img/branding/logo.png" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/src/img/favicon_io/favicon.ico" />
+
+    <!-- Title -->
+    <title>Full Portfolio | I Knit The Web - I Knit The Web</title>
+
+    <!-- Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap"
+      rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="/dist/styles.css" />
+
+    <!-- Page-specific styles -->
+    {{PAGE_STYLES}}
+
+    <!-- Page-specific data for component injection -->
+    <div
+      id="page-data"
+      data-page-title="Full Portfolio | I Knit The Web"
+      data-page-subtitle="Complete collection of web development projects"
+      data-nav-config="portfolio"
+      data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
+  </head>
+  <body class="portfolio-page">
+    <!-- Header will be injected here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main
+      id="main-content"
+      class="portfolio-main">
+      <div class="wrapper">
+        <!-- Page content goes here -->
+
+        <div class="wrapper">
+          <h1 class="portfolio-page__title">My Full Portfolio</h1>
+          <p class="portfolio-page__intro">Welcome to my full portfolio showcasing every web development project I've created! From practical applications to learning challenges, each project represents a step in my journey of mastering HTML, CSS, JavaScript, and modern web development practices.</p>
+
+          <!-- Featured Projects Section -->
+          <section class="portfolio-section">
+            <h2 class="portfolio-section__heading">Featured Projects</h2>
+            <p class="portfolio-section__intro">These are my most comprehensive projects showcasing practical applications and real-world problem solving.</p>
+            <div class="portfolio__row">
+              <article class="card">
+                <div class="card-header">
+                  <h3 class="card__title">Alien Abduction Order Form</h3>
+                </div>
+                <div class="card-body">
+                  <figure class="card-figure">
+                    <img
+                      alt="Thumbnail preview of Alien Abduction Order Form project"
+                      src="/src/img/cards/Alien-abduction-form-thumb.jpg"
+                      class="card-image"
+                      width="345"
+                      height="259" />
+                    <figcaption class="card__caption">
+                      <p>When you want an alien abduction, you want it your way. Fill out this form to get started.</p>
+                    </figcaption>
+                  </figure>
+                  <a
+                    href="/src/pages/portfolio-pages/alien-abduction-form.html"
+                    class="card-button card__button--primary card-link">
+                    see page
+                  </a>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-header">
+                  <h3 class="card__title">Calculator</h3>
+                </div>
+                <div class="card-body">
+                  <figure class="card-figure">
+                    <img
+                      alt="Thumbnail preview of Calculator project"
+                      src="/src/img/cards/Calculator-thumb.jpg"
+                      class="card-image"
+                      width="356"
+                      height="268" />
+                    <figcaption class="card__caption">
+                      <p>A simple calculator built with HTML, CSS, and JavaScript.</p>
+                    </figcaption>
+                  </figure>
+                  <a
+                    href="/src/pages/portfolio-pages/calculator.html"
+                    class="card-button card__button--primary card-link">
+                    see page
+                  </a>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-header">
+                  <h3 class="card__title">CSS Position Cheat Sheet</h3>
+                </div>
+                <div class="card-body">
+                  <figure class="card-figure">
+                    <img
+                      alt="Thumbnail preview of CSS Position Cheat Sheet project"
+                      src="/src/img/cards/css-position-cheat-sheet-thumb.png"
+                      class="card-image"
+                      width="1868"
+                      height="1401" />
+                    <figcaption class="card__caption">
+                      <p>
+                        I created this cheat sheet as an assignment on
+                        <a
+                          href="https://www.codecademy.com/learn/paths/front-end-engineer-career-path"
+                          target="_blank"
+                          rel="noopener"
+                          >Codecademy's Front-End Engineer Career Path</a
+                        >.
+                      </p>
+                    </figcaption>
+                  </figure>
+                  <a
+                    href="/src/pages/portfolio-pages/css-position-cheat-sheet.html"
+                    class="card-button card__button--primary card-link">
+                    see page
+                  </a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <hr />
+
+          <!-- Learning Challenges Section -->
+          <section class="portfolio-section">
+            <h2 class="portfolio-section__heading">Learning Challenges</h2>
+            <p class="portfolio-section__intro">Daily coding challenges that helped me develop specific skills and explore different techniques in HTML and CSS.</p>
+            <div class="portfolio__row">
+              <article class="card">
+                <div class="card-header">
+                  <h3 class="card__title">15 Days of CSS - Day 5 Challenge</h3>
+                </div>
+                <div class="card-body">
+                  <figure class="card-figure">
+                    <img
+                      alt="Thumbnail preview of 15 Days of CSS Day 5 Challenge project"
+                      src="/src/img/pages/galaxy.jpg"
+                      class="card-image"
+                      width="400"
+                      height="300" />
+                    <figcaption class="card__caption">
+                      <p>CSS challenge focusing on advanced styling techniques and creative layouts.</p>
+                    </figcaption>
+                  </figure>
+                  <a
+                    href="/src/pages/portfolio-pages/fifteenDaysofCSS-Day-5-Challenge.html"
+                    class="card-button card__button--primary card-link">
+                    see page
+                  </a>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-header">
+                  <h3 class="card__title">15 Days of CSS - Day 4 Vertical Navbars</h3>
+                </div>
+                <div class="card-body">
+                  <figure class="card-figure">
+                    <img
+                      alt="Thumbnail preview of 15 Days of CSS Day 4 Basic Vertical Navbars project"
+                      src="/src/img/pages/galaxy.jpg"
+                      class="card-image"
+                      width="400"
+                      height="300" />
+                    <figcaption class="card__caption">
+                      <p>Exploring vertical navigation bar design and implementation with CSS.</p>
+                    </figcaption>
+                  </figure>
+                  <a
+                    href="/src/pages/portfolio-pages/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.html"
+                    class="card-button card__button--primary card-link">
+                    see page
+                  </a>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-header">
+                  <h3 class="card__title">15 Days of HTML - Day 5 Desc List</h3>
+                </div>
+                <div class="card-body">
+                  <figure class="card-figure">
+                    <img
+                      alt="Thumbnail preview of 15 Days of HTML Day 5 Description List Challenge project"
+                      src="/src/img/pages/galaxy.jpg"
+                      class="card-image"
+                      width="400"
+                      height="300" />
+                    <figcaption class="card__caption">
+                      <p>HTML challenge focusing on semantic markup and description list structures.</p>
+                    </figcaption>
+                  </figure>
+                  <a
+                    href="/src/pages/portfolio-pages/fifteenDaysofHTML-Day5-Desc-List-Challenge.html"
+                    class="card-button card__button--primary card-link">
+                    see page
+                  </a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <hr />
+
+          <!-- Experiments Section -->
+          <section class="portfolio-section">
+            <h2 class="portfolio-section__heading">UI Experiments</h2>
+            <p class="portfolio-section__intro">Focused experiments exploring specific UI patterns and interactive elements.</p>
+            <div class="portfolio__row">
+              <article class="card">
+                <div class="card-header">
+                  <h3 class="card__title">Navbar Link Filling Li</h3>
+                </div>
+                <div class="card-body">
+                  <figure class="card-figure">
+                    <img
+                      alt="Thumbnail preview of Navbar Link Filling Li project"
+                      src="/src/img/pages/galaxy.jpg"
+                      class="card-image"
+                      width="400"
+                      height="300" />
+                    <figcaption class="card__caption">
+                      <p>Navigation bar styling with full-width link areas for improved user experience.</p>
+                    </figcaption>
+                  </figure>
+                  <a
+                    href="/src/pages/portfolio-pages/navbar-link-filling-li.html"
+                    class="card-button card__button--primary card-link">
+                    see page
+                  </a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <hr />
+
+          <!-- Back to Home -->
+          <section class="portfolio-back">
+            <p class="portfolio-back__text">
+              Ready to work together?
+              <a
+                href="/#contact"
+                class="portfolio-back__link"
+                >Let's connect</a
+              >
+              or
+              <a
+                href="/"
+                class="portfolio-back__link"
+                >return to homepage</a
+              >.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script
+      defer
+      src="/src/js/bodyScrollLock.min.js"></script>
+    <script
+      defer
+      src="/src/js/components.js"></script>
+    <script
+      defer
+      type="module"
+      src="/src/js/script.js"></script>
+
+    <!-- Optional: Page-specific JavaScript -->
+  </body>
+</html>

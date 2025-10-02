@@ -5,29 +5,23 @@
    ===================================== */
 
 .alien-form {
-  background: rgba(var(--alien-secondary-bg), 0.1);
+  background: rgb(var(--alien-secondary-bg), 0.1);
   border: 2px solid var(--alien-border-color);
   border-radius: a.rem(12);
   padding: a.rem(40);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 255, 65, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px rgb(0 255 65 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 10%);
   position: relative;
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     border-radius: a.rem(12);
-    background: linear-gradient(
-      135deg,
-      rgba(0, 255, 65, 0.03) 0%,
-      rgba(255, 51, 102, 0.03) 100%
-    );
+    background: linear-gradient(135deg, rgb(0 255 65 / 3%) 0%, rgb(255 51 102 / 3%) 100%);
     pointer-events: none;
   }
 }
@@ -39,7 +33,7 @@
   position: relative;
   z-index: 1;
 
-  @include a.breakpoint-down(medium) {
+  @include a.breakpoint-down('799.98') {
     grid-template-columns: 1fr;
     gap: a.rem(24);
   }
@@ -53,18 +47,18 @@
   border: 2px solid var(--alien-border-color);
   border-radius: a.rem(8);
   padding: a.rem(24);
-  background: rgba(10, 10, 10, 0.8);
+  background: rgb(10 10 10 / 80%);
   position: relative;
   transition: all 0.3s ease;
 
   &:hover {
     border-color: var(--alien-accent);
-    box-shadow: 0 4px 20px rgba(0, 255, 65, 0.15);
+    box-shadow: 0 4px 20px rgb(0 255 65 / 15%);
   }
 
   &:focus-within {
     border-color: var(--alien-accent);
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 0 3px rgb(0 255 65 / 20%);
   }
 }
 
@@ -98,7 +92,7 @@
   gap: a.rem(24);
   margin-top: a.rem(16);
 
-  @include a.breakpoint-down(small) {
+  @include a.breakpoint-down('699.98') {
     grid-template-columns: 1fr;
     gap: a.rem(16);
   }
@@ -129,7 +123,7 @@
 .alien-form__input,
 .alien-form__textarea,
 .alien-form__select {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgb(0 0 0 / 80%);
   border: 2px solid var(--alien-border-color);
   border-radius: a.rem(6);
   padding: a.rem(12) a.rem(16);
@@ -140,27 +134,22 @@
   position: relative;
   width: 100%;
   box-sizing: border-box;
-
   &::-webkit-input-placeholder {
     color: var(--alien-text-dim);
     opacity: 0.7;
   }
-
   &::-moz-placeholder {
     color: var(--alien-text-dim);
     opacity: 0.7;
   }
-
   &:-ms-input-placeholder {
     color: var(--alien-text-dim);
     opacity: 0.7;
   }
-
   &::-ms-input-placeholder {
     color: var(--alien-text-dim);
     opacity: 0.7;
   }
-
   &::placeholder {
     color: var(--alien-text-dim);
     opacity: 0.7;
@@ -168,28 +157,29 @@
 
   &:hover {
     border-color: var(--alien-accent);
-    box-shadow: 0 2px 8px rgba(0, 255, 65, 0.1);
+    box-shadow: 0 2px 8px rgb(0 255 65 / 10%);
     transform: translateY(-1px);
   }
 
   &:focus {
     outline: none;
     border-color: var(--alien-accent);
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.3),
-      0 4px 12px rgba(0, 255, 65, 0.15);
-    background: rgba(0, 0, 0, 0.9);
+    box-shadow:
+      0 0 0 3px rgb(0 255 65 / 30%),
+      0 4px 12px rgb(0 255 65 / 15%);
+    background: rgb(0 0 0 / 90%);
     transform: scale(1.01);
   }
 
   &:valid:not(:placeholder-shown) {
     border-color: var(--alien-accent);
-    background: rgba(0, 255, 65, 0.05);
+    background: rgb(0 255 65 / 5%);
   }
 
   &:invalid:not(:placeholder-shown) {
     border-color: var(--alien-accent-secondary);
-    box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2);
-    background: rgba(255, 51, 102, 0.05);
+    box-shadow: 0 0 0 2px rgb(255 51 102 / 20%);
+    background: rgb(255 51 102 / 5%);
   }
 
   // Enhanced loading state
@@ -210,6 +200,7 @@
       border-radius: 50%;
       -webkit-animation: spin 1s linear infinite;
       animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
     }
   }
 }
@@ -218,6 +209,7 @@
   0% {
     transform: translateY(-50%) rotate(0deg);
   }
+
   100% {
     transform: translateY(-50%) rotate(360deg);
   }
@@ -227,6 +219,17 @@
   0% {
     transform: translateY(-50%) rotate(0deg);
   }
+
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
   100% {
     transform: translateY(-50%) rotate(360deg);
   }
@@ -259,6 +262,7 @@
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    appearance: none;
     margin: 0;
   }
 
@@ -278,9 +282,7 @@
   }
 
   // Fallback for browsers with poor appearance support
-  @supports not (
-    ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none))
-  ) {
+  @supports not (((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none))) {
     // Keep native styling if appearance isn't supported
     background-image: none;
     padding-right: a.rem(16);
@@ -289,7 +291,7 @@
 
 /* Option styling for select dropdown */
 .alien-form__option {
-  background: rgba(0, 0, 0, 0.95) !important;
+  background: rgb(0 0 0 / 95%) !important;
   color: var(--alien-text-light) !important;
   padding: a.rem(12) a.rem(16) !important;
   font-family: var(--alien-font-family) !important;
@@ -299,19 +301,19 @@
 
   &:hover,
   &:focus {
-    background: rgba(0, 255, 65, 0.2) !important;
+    background: rgb(0 255 65 / 20%) !important;
     color: var(--alien-text-light) !important;
   }
 
   &:checked,
   &:selected {
-    background: rgba(0, 255, 65, 0.4) !important;
+    background: rgb(0 255 65 / 40%) !important;
     color: var(--alien-primary-bg) !important;
     font-weight: 600 !important;
   }
 
   &:disabled {
-    background: rgba(0, 0, 0, 0.6) !important;
+    background: rgb(0 0 0 / 60%) !important;
     color: var(--alien-text-dim) !important;
     cursor: not-allowed !important;
   }
@@ -346,7 +348,7 @@
   transition: all 0.3s ease;
 
   &:hover {
-    background: rgba(0, 255, 65, 0.05);
+    background: rgb(0 255 65 / 5%);
   }
 }
 
@@ -366,7 +368,7 @@
   &:checked {
     border-color: var(--alien-accent);
     background: var(--alien-accent);
-    box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+    box-shadow: 0 0 8px rgb(0 255 65 / 40%);
 
     &::after {
       content: '';
@@ -383,7 +385,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.3);
+    box-shadow: 0 0 0 3px rgb(0 255 65 / 30%);
   }
 }
 
@@ -410,7 +412,7 @@
 
   &:hover {
     border-color: var(--alien-accent);
-    background: rgba(0, 255, 65, 0.05);
+    background: rgb(0 255 65 / 5%);
   }
 }
 
@@ -430,7 +432,7 @@
   &:checked {
     border-color: var(--alien-accent);
     background: var(--alien-accent);
-    box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+    box-shadow: 0 0 8px rgb(0 255 65 / 40%);
 
     &::after {
       content: '✓';
@@ -446,7 +448,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.3);
+    box-shadow: 0 0 0 3px rgb(0 255 65 / 30%);
   }
 }
 
@@ -462,11 +464,7 @@
    ===================================== */
 
 .alien-form__submit {
-  background: linear-gradient(
-    135deg,
-    var(--alien-accent) 0%,
-    var(--alien-accent-secondary) 100%
-  );
+  background: linear-gradient(135deg, var(--alien-accent) 0%, var(--alien-accent-secondary) 100%);
   border: none;
   border-radius: a.rem(8);
   padding: a.rem(16) a.rem(32);
@@ -489,19 +487,15 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 20%), transparent);
     transition: left 0.5s ease;
   }
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 255, 65, 0.3),
-      0 4px 15px rgba(255, 51, 102, 0.2);
+    box-shadow:
+      0 8px 25px rgb(0 255 65 / 30%),
+      0 4px 15px rgb(255 51 102 / 20%);
 
     &::before {
       left: 100%;
@@ -514,8 +508,9 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.4),
-      0 8px 25px rgba(0, 255, 65, 0.3);
+    box-shadow:
+      0 0 0 3px rgb(0 255 65 / 40%),
+      0 8px 25px rgb(0 255 65 / 30%);
   }
 }
 
@@ -523,7 +518,7 @@
    Responsive Design
    ===================================== */
 
-@include a.breakpoint-down(medium) {
+@include a.breakpoint-down('799.98') {
   .alien-form {
     padding: a.rem(24);
   }
@@ -551,7 +546,7 @@
 
 /* Enhanced Typography for Alien Theme */
 .alien-form__legend {
-  font-family: 'Orbitron', var(--alien-font-family), sans-serif;
+  font-family: Orbitron, var(--alien-font-family), sans-serif;
 }
 
 /* =====================================
@@ -573,7 +568,7 @@
     transition: all 0.3s ease;
     position: relative;
 
-    &.active {
+    &--active {
       background: var(--alien-accent);
       box-shadow: 0 0 8px var(--alien-glow-color);
 
@@ -590,7 +585,7 @@
       }
     }
 
-    &.completed {
+    &--completed {
       background: var(--alien-accent);
       box-shadow: 0 0 12px var(--alien-glow-color);
 
@@ -613,7 +608,7 @@
     background: var(--alien-border-color);
     transition: all 0.3s ease;
 
-    &.active {
+    &--active {
       background: var(--alien-accent);
       box-shadow: 0 0 4px var(--alien-glow-color);
     }
@@ -624,9 +619,9 @@
 .alien-form__input,
 .alien-form__textarea,
 .alien-form__select {
-  &.valid {
+  &--valid {
     border-color: var(--alien-accent);
-    box-shadow: 0 0 0 1px rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 0 1px rgb(0 255 65 / 20%);
 
     &::after {
       content: '✓';
@@ -640,17 +635,17 @@
     }
   }
 
-  &.invalid {
+  &--invalid {
     border-color: var(--alien-accent-secondary);
-    box-shadow: 0 0 0 1px rgba(255, 51, 102, 0.3);
+    box-shadow: 0 0 0 1px rgb(255 51 102 / 30%);
   }
 }
 
 /* Enhanced Field Completion Indicators */
 .alien-form__fieldset {
-  &.completed {
+  &--completed {
     border-color: var(--alien-accent);
-    background: rgba(0, 255, 65, 0.02);
+    background: rgb(0 255 65 / 2%);
 
     .alien-form__legend::after {
       content: ' ✓';
@@ -664,13 +659,13 @@
    Enhanced Responsive Design
    ===================================== */
 
-@include a.breakpoint-down(large) {
+@include a.breakpoint-down('999.98') {
   .alien-form__inner {
     gap: a.rem(32);
   }
 }
 
-@include a.breakpoint-down(medium) {
+@include a.breakpoint-down('799.98') {
   .alien-form {
     padding: a.rem(24);
   }
@@ -690,7 +685,7 @@
   }
 }
 
-@include a.breakpoint-down(small) {
+@include a.breakpoint-down('699.98') {
   .alien-form {
     padding: a.rem(16);
   }

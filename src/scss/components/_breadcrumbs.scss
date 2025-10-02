@@ -1,16 +1,26 @@
 @use '../abstracts' as a;
 
+// .breadcrumbs block styles and accessibility improvements combined
+
 .breadcrumbs {
   background-color: var(--bg-light);
   border-bottom: 1px solid var(--nav-border-bottom);
   padding-block: a.rem(12);
+}
 
-  .wrapper {
-    padding-block: 0; // Override any wrapper padding for breadcrumbs
+.breadcrumbs__current {
+  .breadcrumbs__text {
+    color: var(--text-color-2);
+    font-weight: 600;
   }
 }
 
-.breadcrumb-list {
+.breadcrumbs [aria-current='page'] .breadcrumbs__text {
+  // Screen readers will announce this as current page
+  position: relative;
+}
+
+.breadcrumbs__list {
   display: flex !important;
   flex-wrap: wrap;
   align-items: center;
@@ -20,12 +30,12 @@
   list-style: none !important;
   font-size: a.rem(14);
 
-  @include a.breakpoint(small) {
+  @include a.breakpoint('600') {
     font-size: a.rem(16);
   }
 }
 
-.breadcrumb-item {
+.breadcrumbs__item {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
@@ -40,7 +50,8 @@
     opacity: 0.6;
   }
 }
-.breadcrumb-link {
+
+.breadcrumbs__link {
   color: var(--primary-color-mid);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -52,37 +63,19 @@
   }
 
   // Reduce touch target on mobile to save space
-  @include a.breakpoint-down(small) {
+  @include a.breakpoint-down('699.98') {
     padding: a.rem(4);
   }
 }
 
-.breadcrumb-current {
-  .breadcrumb-text {
-    color: var(--text-color-2);
-    font-weight: 600;
-  }
-}
-
 // Mobile optimization
-@include a.breakpoint-down(xxsmall) {
-  .breadcrumb-item:first-child {
+@include a.breakpoint-down('499.98') {
+  .breadcrumbs__item:first-child {
     // On very small screens, hide "Home" and start with "Portfolio" to save space
     display: none;
 
     &::after {
       display: none;
-    }
-  }
-}
-
-// Accessibility improvements
-.breadcrumbs {
-  // Ensure breadcrumbs work with screen readers
-  [aria-current='page'] {
-    .breadcrumb-text {
-      // Screen readers will announce this as current page
-      position: relative;
     }
   }
 }

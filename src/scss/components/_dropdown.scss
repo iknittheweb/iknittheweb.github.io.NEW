@@ -47,7 +47,7 @@
     }
   }
 
-  &__content.show {
-    display: block; /* Show content when 'show' class is added */
+  &__content--show {
+    display: block; /* Show content when 'show' modifier is added */
   }
 }

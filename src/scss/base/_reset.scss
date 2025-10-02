@@ -8,7 +8,7 @@
    ========================================================================== */
 html {
   line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Universal Reset
@@ -105,7 +105,6 @@ time,
 mark,
 audio,
 video {
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
 }
@@ -154,10 +153,10 @@ q {
   quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
   content: '';
   content: none;
 }
@@ -172,7 +171,6 @@ a {
    ========================================================================== */
 abbr[title] {
   border-bottom: none;
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 
@@ -185,7 +183,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 
@@ -245,12 +243,9 @@ select {
   text-transform: none;
 }
 
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button;
-  -moz-appearance: button;
+button {
+  /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
+  /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
   appearance: button;
 }
 
@@ -300,18 +295,17 @@ textarea {
 }
 
 [type='search'] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
   appearance: textfield;
   outline-offset: -2px;
 }
 
 [type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
+  /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
+  appearance: button;
   font: inherit;
 }
 
