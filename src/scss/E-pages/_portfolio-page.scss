@@ -1,0 +1,54 @@
+//* ------------------------------------------------------------
+//* PORTFOLIO PAGE PARTIAL
+//*
+//* Place all styles specific to the Portfolio page layout and appearance here.
+//* Use page-level selectors (e.g., .portfolio-page, .portfolio-page__title, etc.).
+//* Do NOT put global resets or reusable component styles here.
+//* Only styles unique to the Portfolio page belong in this file.
+//* ------------------------------------------------------------
+
+.portfolio-page {
+  &__title {
+    font-size: clamp(a.rem(36), calc(28.364px + 2.424vw), a.rem(56));
+    text-align: center;
+    margin-bottom: a.rem(30);
+    margin-top: a.rem(60); // Add top margin to replace wrapper padding
+
+    @include a.breakpoint-down('699.98') {
+      margin-top: a.rem(40); // Smaller top margin on mobile
+    }
+  }
+
+  &__intro {
+    text-align: center;
+    font-size: a.rem(18);
+    margin-bottom: a.rem(50);
+    color: var(--text-color-1);
+    max-width: a.rem(700);
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+}
+
+.portfolio-section {
+  margin-bottom: a.rem(60);
+
+  &__heading {
+    font-size: clamp(a.rem(28), calc(22.182px + 1.212vw), a.rem(36));
+    text-align: center;
+    margin-bottom: a.rem(20);
+    color: var(--primary-color);
+  }
+
+  &__intro {
+    text-align: center;
+    font-size: a.rem(16);
+    margin-bottom: a.rem(30);
+    color: var(--text-color-1);
+    max-width: a.rem(600);
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+}

@@ -1,0 +1,15 @@
+//& THE /PAGES FOLDER
+//* The /pages folder contains styles specific to individual pages or sections of the website. These styles are often unique and not reused across other pages.
+
+//& Why It’s Important:
+//* Page-specific styles are kept separate from global styles, which helps avoid unnecessary bloat in your CSS and makes it easier to locate and modify page-specific styles.
+
+@forward 'about';
+@forward 'alien-abduction-form';
+@forward 'alien-form-page';
+@forward 'calculator';
+@forward 'contact';
+@forward 'home';
+@forward 'home1';
+@forward 'portfolio-hero';
+@forward 'portfolio-page';

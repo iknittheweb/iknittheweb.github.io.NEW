@@ -1,5 +1,15 @@
-@use 'abstracts';
-@use 'base';
-@use 'components';
-@use 'pages';
-@use 'utils';
+//& THE MAIN.SCSS FILE
+//* The main.scss file is the root file that imports all the partials from the folders mentioned above. This is the only file that gets compiled into your final CSS file.
+
+@use 'A-abstracts' as a;
+@use 'B-base';
+@use 'C-components';
+@use 'D-layout';
+@use 'E-pages';
+@use 'F-themes';
+@use 'G-vendors';
+
+//* testing for compilation
+body {
+  background: rgb(227, 153, 17);
+}

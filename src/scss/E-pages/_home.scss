@@ -1,0 +1,87 @@
+//* ------------------------------------------------------------
+//* HOME PAGE PARTIAL
+//*
+//* Place all styles specific to the Home page layout and appearance here.
+//* Use page-level selectors (e.g., .home, .home__banner, etc.).
+//* Do NOT put global resets or reusable component styles here.
+//* Only styles unique to the Home page belong in this file.
+//* ------------------------------------------------------------
+
+.home {
+  &__banner {
+    max-width: 100%;
+    height: auto;
+    margin: a.rem(10) auto;
+    display: block;
+    position: relative;
+  }
+
+  &__intro {
+    &-content {
+      display: flex;
+      flex-flow: row-reverse wrap;
+      justify-content: center;
+      align-items: center;
+      gap: a.rem(24);
+      width: 90%;
+      margin-inline: auto;
+      margin-bottom: a.rem(60);
+
+      // Smooth transitions for layout changes
+      transition: margin-bottom 0.3s ease;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+    padding: a.rem(20);
+    background-color: var(--primary-bg);
+    color: var(--text-color-2);
+    border-radius: a.rem(10);
+
+    // Smooth transitions for image changes
+    transition:
+      max-width 0.3s ease,
+      padding 0.3s ease;
+  }
+
+  &__intro-text {
+    font-size: a.rem(24);
+    line-height: 1.6;
+    margin-bottom: a.rem(16);
+    text-align: center;
+  }
+}
+
+.home__subheading {
+  font-size: clamp(16px, calc(16px + 2vw), 36px);
+  width: clamp(80%, calc(80% + 2vw), 90%);
+  margin-inline: auto;
+  text-wrap: balance;
+  text-align: center;
+  position: relative;
+
+  &-raised {
+    // Responsive margin-top using clamp for smooth scaling and full browser compatibility
+    $neg-vw: calc(0px - 15vw);
+    margin-top: clamp(-100px, #{$neg-vw}, -15px);
+    transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: a.rem(40);
+  }
+}
+
+@include a.breakpoint('486') {
+  .home__intro .home__subheading {
+    width: 70%;
+  }
+}
+
+@include a.breakpoint-down('499.98') {
+  .home__intro .home__subheading {
+    width: 70%;
+  }
+}

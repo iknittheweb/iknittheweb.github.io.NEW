@@ -1,0 +1,23 @@
+//* ------------------------------------------------------------
+//* ALIEN FORM PAGE PARTIAL
+//*
+//* Place all styles specific to the Alien Abduction Form page layout and appearance here.
+//* Use page-level selectors (e.g., .alien-form-page__wrapper, etc.).
+//* Do NOT put global resets or reusable component styles here.
+//* Only styles unique to the Alien Abduction Form page belong in this file.
+//* ------------------------------------------------------------
+
+/* =====================================
+   Alien Abduction Form Page Styles
+   ===================================== */
+
+.alien-form-page__wrapper {
+  max-width: a.rem(900);
+  margin-inline: auto;
+  padding: a.rem(32) a.rem(16);
+  background: rgb(var(--alien-primary-bg), 0.85);
+  border-radius: a.rem(16);
+  box-shadow: 0 8px 32px rgb(0 255 65 / 10%);
+}
+
+// Add any additional page-level styles here, such as layout, hero, or page-specific backgrounds.
