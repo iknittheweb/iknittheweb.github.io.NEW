@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="{{PAGE_DESCRIPTION}}" />
+    <meta
+      name="keywords"
+      content="{{PAGE_KEYWORDS}}" />
+    <meta
+      name="author"
+      content="I Knit The Web" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="{{PAGE_TITLE}} - I Knit The Web" />
+    <meta
+      property="og:description"
+      content="{{PAGE_DESCRIPTION}}" />
+    <meta
+      property="og:image"
+      content="{{PAGE_IMAGE}}" />
+    <meta
+      property="og:url"
+      content="{{BASE_URL}}/{{PAGE_URL}}" />
+    <meta
+      property="og:type"
+      content="{{PAGE_TYPE}}" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta
+      name="twitter:card"
+      content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="{{PAGE_TITLE}} - I Knit The Web" />
+    <meta
+      name="twitter:description"
+      content="{{PAGE_DESCRIPTION}}" />
+    <meta
+      name="twitter:image"
+      content="{{PAGE_IMAGE}}" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/src/img/favicon_io/favicon.ico" />
+
+    <!-- Title -->
+    <title>{{PAGE_TITLE}} - I Knit The Web</title>
+
+    <!-- Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap"
+      rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="/dist/styles.css" />
+
+    <!-- Page-specific styles -->
+    {{PAGE_STYLES}}
+
+    <!-- Page-specific data for component injection -->
+    <div
+      id="page-data"
+      data-page-title="{{PAGE_TITLE}}"
+      data-page-subtitle="{{PAGE_SUBTITLE}}"
+      data-nav-config="{{NAV_CONFIG}}"
+      data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
+  </head>
+  <body class="{{BODY_CLASS}}">
+    <!-- Header will be injected here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main
+      id="main-content"
+      class="{{MAIN_CLASS}}">
+      <div class="wrapper">
+        <!-- Page content goes here -->
+        {{CONTENT}}
+      </div>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script
+      defer
+      src="/src/js/bodyScrollLock.min.js"></script>
+    <script
+      defer
+      src="/src/js/components.js"></script>
+    <script
+      defer
+      type="module"
+      src="/src/js/script.js"></script>
+
+    <!-- Optional: Page-specific JavaScript -->
+    {{PAGE_SCRIPTS}}
+  </body>
+</html>
