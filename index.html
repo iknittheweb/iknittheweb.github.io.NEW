@@ -38,7 +38,15 @@
     <!-- Stylesheet -->
     <link
       rel="stylesheet"
-      href="/iknittheweb.github.io.NEW/dist/styles.min.css" />
+      href="/iknittheweb.github.io.NEW/dist/styles.min.css"
+      onload="window.mainCSSLoaded = true;" />
+
+    <!-- Preload critical CSS to prevent FOUC -->
+    <style>
+      /* Minimal critical CSS to prevent FOUC */
+      body { visibility: hidden; }
+      .css-loaded body { visibility: visible; }
+    </style>
 
     <!-- Structured Data -->
     <!-- URLs automatically updated by build process -->
@@ -55,14 +63,9 @@
       }
     </script>
 
-    <!-- FontAwesome CSS/JS -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" /> -->
+    <!-- FontAwesome JS - deferred to prevent blocking -->
     <script
+      defer
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
     <!-- JavaScript -->
@@ -72,6 +75,19 @@
     <script
       defer
       src="/iknittheweb.github.io.NEW/src/js/script.js"></script>
+    
+    <!-- CSS Load Detection -->
+    <script>
+      // Wait for CSS to load before showing content
+      function checkCSSLoaded() {
+        if (window.mainCSSLoaded && document.readyState !== 'loading') {
+          document.documentElement.classList.add('css-loaded');
+        } else {
+          requestAnimationFrame(checkCSSLoaded);
+        }
+      }
+      checkCSSLoaded();
+    </script>
   </head>
 
   <body class="home">
