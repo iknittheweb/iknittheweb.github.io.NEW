@@ -1,16 +1,37 @@
-# 🧩 Component-Based Architecture Migration Guide
+# 🧩 Component System Guide
 
 ## Overview
 
-This migration transforms your site from duplicated header/footer HTML to a centralized JavaScript component system that's future-proof and maintainable.
+This project uses two different systems for managing pages:
 
-## ✨ Benefits
+1. **Template-based Pages** (`index.template.html`) - Built via `build.cjs`
+2. **Component-based Pages** - Use `components.js` for header/footer injection
 
-- **Single Source of Truth**: One header/footer template for all pages
-- **Consistent Navigation**: Automatic navigation state management
-- **Easy Updates**: Change navigation once, updates everywhere
-- **Reduced Code**: ~70% less HTML duplication
-- **Future Proof**: Easy to add new pages or modify structure
+## ✨ Component-Based Page System
+
+### How It Works
+
+Component-based pages use JavaScript injection for consistent headers/footers:
+- `components.js` - Contains header/footer templates and injection logic
+- `<div id="header-placeholder"></div>` - Where header gets injected
+- `<div id="footer-placeholder"></div>` - Where footer gets injected
+
+### Page Identification
+
+Component-based pages have this comment:
+```html
+<!--
+🚨 COMPONENT-BASED PAGE
+------------------------
+This page uses the component injection system (components.js) for header/footer.
+If you need to update the template structure:
+1. Edit: src/pages/templates/page-template.html
+2. Run: node component-build.cjs
+3. Test all component-based pages
+
+For content-only changes, edit this file directly.
+-->
+```
 
 ## 🏗️ Architecture
 
@@ -49,14 +70,19 @@ This migration transforms your site from duplicated header/footer HTML to a cent
 
 ### Step 2: Update Build Process
 
-**New NPM Commands:**
+**NPM Commands:**
 
 ```bash
-npm run build:components  # Generate pages from templates
-npm run build:pages      # Build just the pages
-npm run dev              # Build dev + components
-npm run deploy           # Build prod + components
+npm run build:components  # Generate component-based pages from templates
+npm run dev              # Build template-based pages for development
+npm run deploy           # Build template-based pages for production
 ```
+
+**When to use each command:**
+
+- **`npm run build:components`** - After editing component templates or creating new component-based pages
+- **`npm run dev`** - After editing `index.template.html` for development
+- **`npm run deploy`** - Before going live (builds production version of template-based pages)
 
 ### Step 3: Page Migration Process
 
