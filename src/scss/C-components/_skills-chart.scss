@@ -9,8 +9,7 @@
 
 .skills-chart {
   // 🎯 COMPONENT IDENTIFIER: skills-chart (for easy removal)
-  margin-top: a.rem(24);
-  margin-bottom: a.rem(20);
+  width: 100%;
   background: var(--light-bg);
   border: 1px solid var(--light-border);
   border-radius: a.rem(8);
@@ -170,7 +169,7 @@
         background: rgba(255, 255, 255, 0.7);
 
         .skills-chart__icon {
-          transform: rotate(180deg);
+          transform: rotate(0deg);
         }
       }
     }
