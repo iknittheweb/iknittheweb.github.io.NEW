@@ -94,4 +94,34 @@
     margin: -10px 0 1rem 0 !important;
     text-align: left !important;
   }
+  .bonafides {
+    display: flex;
+    // gap: 1rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    // Smooth transition for flex direction changes
+    transition:
+      flex-direction 0.3s ease,
+      gap 0.3s ease;
+
+    // Container query setup
+    container-type: inline-size;
+
+    // Smoother breakpoint using mixin
+    @include a.breakpoint('1000') {
+      flex-direction: row;
+      gap: a.rem(16);
+    }
+
+    // Progressive enhancement
+    @supports (container-type: inline-size) {
+      @container (min-width: 800px) {
+        flex-direction: row;
+        gap: a.rem(16);
+      }
+    }
+  }
 }

@@ -32,10 +32,28 @@
     width: 95%;
     margin-inline: auto;
 
-    @include a.breakpoint-down('785.98') {
+    // Smooth transitions for layout changes
+    transition:
+      grid-template-columns 0.4s ease,
+      gap 0.3s ease,
+      min-height 0.3s ease;
+
+    // Container query setup
+    container-type: inline-size;
+
+    // Smoother breakpoint - less jarring transition
+    @include a.breakpoint-down('899.98') {
       grid-template-columns: 1fr;
-      gap: a.rem(32);
+      gap: a.rem(24);
       min-height: auto;
+    }
+
+    // Progressive enhancement with container queries
+    @supports (container-type: inline-size) {
+      @container (max-width: 800px) {
+        grid-template-columns: 1fr;
+        gap: a.rem(24);
+      }
     }
   }
 
@@ -57,10 +75,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @include a.breakpoint-down('785.98') {
-      order: -1; // Move image above content on mobile
-    }
   }
 
   &__intro {
@@ -83,27 +97,25 @@
   &__img {
     display: block;
     width: 100%;
-    max-width: 428px; // Reduced from 450px by ~5% (450 * 0.95 = 427.5)
+    // Fluid scaling - smooth transition between sizes
+    max-width: clamp(266px, 40vw + 100px, 428px);
     height: auto;
     margin: 0 auto;
-    padding: a.rem(20);
+    // Fluid padding that scales smoothly
+    padding: clamp(0.625rem, 2vw + 0.5rem, 1.25rem);
     background-color: var(--primary-bg);
     color: var(--light-text);
     border-radius: a.rem(10);
 
-    // Smooth transitions for image changes
+    // Smooth transitions for all changes
     transition:
-      max-width 0.3s ease,
-      padding 0.3s ease;
+      max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      padding 0.3s ease,
+      transform 0.3s ease;
 
-    @include a.breakpoint-down('785.98') {
-      max-width: 333px; // Reduced from 350px by ~5% (350 * 0.95 = 332.5)
-      padding: a.rem(15);
-    }
-
-    @include a.breakpoint-down('485.98') {
-      max-width: 266px; // Reduced from 280px by ~5% (280 * 0.95 = 266)
-      padding: a.rem(10);
+    // Container query enhancement
+    @supports (container-type: inline-size) {
+      // Parent container defines the containment context
     }
   }
 
