@@ -6,18 +6,66 @@
 //* Do NOT put global resets or reusable component styles here.
 //* Only styles unique to the Home page belong in this file.
 //* ------------------------------------------------------------
+@use '../A-abstracts' as a;
 
 .home {
   &__banner {
-    max-width: 100%;
+    max-width: 95%; // Reduced from 100% to make height about 5% smaller
     height: auto;
-    margin: a.rem(10) auto;
+    margin: a.rem(10) auto 0 auto;
     display: block;
     position: relative;
+
+    // Soft edge blur effect
+    mask: radial-gradient(ellipse at center, black 60%, transparent 90%);
+    -webkit-mask: radial-gradient(ellipse at center, black 60%, transparent 90%);
+  }
+
+  // New hero container for two-column layout
+  &__hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: a.rem(32);
+    align-items: center;
+    margin-bottom: a.rem(60);
+    min-height: 60vh;
+    width: 95%;
+    margin-inline: auto;
+
+    @include a.breakpoint-down('785.98') {
+      grid-template-columns: 1fr;
+      gap: a.rem(32);
+      min-height: auto;
+    }
+  }
+
+  &__hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: a.rem(24);
+    padding-right: a.rem(20);
+    text-wrap: balance;
+
+    @include a.breakpoint-down('785.98') {
+      padding-right: 0;
+      text-align: center;
+    }
+  }
+
+  &__hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include a.breakpoint-down('785.98') {
+      order: -1; // Move image above content on mobile
+    }
   }
 
   &__intro {
     &-content {
+      // Legacy styles - keeping for backward compatibility if needed
       display: flex;
       flex-flow: row-reverse wrap;
       justify-content: center;
@@ -35,38 +83,57 @@
   &__img {
     display: block;
     width: 100%;
-    max-width: 400px;
+    max-width: 428px; // Reduced from 450px by ~5% (450 * 0.95 = 427.5)
     height: auto;
     margin: 0 auto;
     padding: a.rem(20);
     background-color: var(--primary-bg);
-    color: var(--text-color-2);
+    color: var(--light-text);
     border-radius: a.rem(10);
 
     // Smooth transitions for image changes
     transition:
       max-width 0.3s ease,
       padding 0.3s ease;
+
+    @include a.breakpoint-down('785.98') {
+      max-width: 333px; // Reduced from 350px by ~5% (350 * 0.95 = 332.5)
+      padding: a.rem(15);
+    }
+
+    @include a.breakpoint-down('485.98') {
+      max-width: 266px; // Reduced from 280px by ~5% (280 * 0.95 = 266)
+      padding: a.rem(10);
+    }
   }
 
   &__intro-text {
-    font-size: a.rem(24);
+    font-size: clamp(a.rem(18), 2.5vw, a.rem(24));
     line-height: 1.6;
-    margin-bottom: a.rem(16);
+    margin-bottom: 0;
     text-align: center;
+
+    @include a.breakpoint-down('785.98') {
+      text-align: center;
+    }
   }
 }
 
 .home__subheading {
-  font-size: clamp(16px, calc(16px + 2vw), 36px);
-  width: clamp(80%, calc(80% + 2vw), 90%);
-  margin-inline: auto;
-  text-wrap: balance;
+  font-size: clamp(a.rem(20), 4vw, a.rem(36));
+  width: 100%;
+  margin: -10px 0 0 0;
   text-align: center;
+  text-wrap: balance;
   position: relative;
+  line-height: 1.3;
+  @include a.breakpoint-down('785.98') {
+    text-align: center;
+    font-size: clamp(a.rem(18), 5vw, a.rem(32));
+  }
 
+  // Legacy raised variant - remove if not needed elsewhere
   &-raised {
-    // Responsive margin-top using clamp for smooth scaling and full browser compatibility
     $neg-vw: calc(0px - 15vw);
     margin-top: clamp(-100px, #{$neg-vw}, -15px);
     transition: margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -74,14 +141,15 @@
   }
 }
 
+// Legacy breakpoint styles - keeping for backward compatibility
 @include a.breakpoint('486') {
   .home__intro .home__subheading {
-    width: 70%;
+    width: 100%;
   }
 }
 
 @include a.breakpoint-down('499.98') {
   .home__intro .home__subheading {
-    width: 70%;
+    width: 100%;
   }
 }

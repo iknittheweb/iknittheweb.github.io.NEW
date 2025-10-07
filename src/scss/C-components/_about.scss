@@ -9,25 +9,26 @@
 
 // Only styles specific to the about component belong in this file.
 //* ------------------------------------------------------------
-@use 'A-abstracts/functions' as f;
+@use '../A-abstracts' as a;
 
 .about {
   background-color: var(--primary-bg);
-  color: var(--text-color-2);
-  padding: f.rem(60);
+  color: var(--light-text);
+  padding: a.rem(60);
 
   &__content {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     align-items: flex-start;
+    color: var(--light-text);
   }
 
   // Profile section (BEM: about__profile)
   &__profile {
     flex: 0 0 40%;
     min-width: 250px;
-    padding: f.rem(60);
+    width: a.rem(300);
 
     @include a.breakpoint-down('699.98') {
       flex: none;
@@ -76,10 +77,21 @@
 
     p a {
       text-decoration: underline;
+      color: inherit;
     }
 
     p:not(.dropdown__title) {
       margin-bottom: a.rem(8);
     }
+
+    .fa-brands {
+      display: inline-block;
+      text-align: center;
+      margin-inline: auto;
+    }
+  }
+  &__heading {
+    margin: -10px 0 1rem 0 !important;
+    text-align: left !important;
   }
 }

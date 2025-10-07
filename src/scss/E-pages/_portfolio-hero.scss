@@ -1,3 +1,5 @@
+@use '../A-abstracts' as a;
+
 section.portfolio__intro {
   position: relative;
   width: 100%;
@@ -11,7 +13,7 @@ section.portfolio__intro {
   text-align: center;
   color: var(--hero-text);
   background:
-    linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-mid) 100%),
+    linear-gradient(135deg, var(--primary-bg) 0%, var(--primary-bg-mid) 100%),
     repeating-linear-gradient(45deg, rgb(255 255 255 / 4%) 0 2px, transparent 2px 20px);
   background-blend-mode: overlay;
   overflow: hidden;

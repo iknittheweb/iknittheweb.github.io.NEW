@@ -1,3 +1,14 @@
+<!--
+🚨 COMPONENT-BASED PAGE
+------------------------
+This page uses the component injection system (components.js) for header/footer.
+If you need to update the template structure:
+1. Edit: src/pages/templates/page-template.html
+2. Run: node component-build.cjs  
+3. Test all component-based pages
+
+For content-only changes, edit this file directly.
+-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,12 +55,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       rel="stylesheet"
     />
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/dist/styles.css" />
+
+    <!-- FontAwesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
     <!-- Page-specific styles -->
     {{PAGE_STYLES}}

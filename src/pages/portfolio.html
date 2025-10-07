@@ -1,71 +1,100 @@
 <!--
-HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
-------------------------------------------------
-1. Copy this file and rename it for your new page (e.g., about.html).
-2. Update the <title> and all <meta> tags for SEO and page-specific info.
-3. Add or update the favicon link if needed.
-4. Add or update font links as needed for your design.
-5. Add your global stylesheet(s) and any page-specific stylesheets.
-6. If you have page-specific data (e.g., JSON-LD), add it where indicated.
-7. Add your page content inside <main id="main-content">.
-8. Use <header id="header"></header> and <footer id="footer"></footer> for component injection.
-9. Include /src/js/components.js and /src/js/script.js for header/footer and navigation injection.
-10. Add any page-specific JavaScript after the main scripts.
-11. Keep the order of tags in <head>: meta tags, favicon, title, fonts, stylesheets, page styles, page data, JavaScript.
+🚨 COMPONENT-BASED PAGE
+------------------------
+This page uses the component injection system (components.js) for header/footer.
+If you need to update the template structure for this and similar pages:
+1. Edit: src/pages/templates/page-template.html
+2. Run: node component-build.cjs
+3. Test all component-based pages
+
+For content-only changes, edit this file directly.
 -->
 <!doctype html>
 <html lang="en">
   <head>
     <!-- 1. Meta tags -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills."
-    />
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
     <meta
       name="keywords"
-      content="portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments"
-    />
-    <meta name="author" content="I Knit The Web" />
+      content="portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments" />
+    <meta
+      name="author"
+      content="I Knit The Web" />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Full Portfolio | I Knit The Web - I Knit The Web" />
+    <meta
+      property="og:title"
+      content="Full Portfolio | I Knit The Web - I Knit The Web" />
     <meta
       property="og:description"
-      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills."
-    />
-    <meta property="og:image" content="/src/img/branding/logo.png" />
-    <meta property="og:url" content="https://iknittheweb.github.io/src/pages/portfolio.html" />
-    <meta property="og:type" content="website" />
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta
+      property="og:image"
+      content="/src/img/branding/logo.png" />
+    <meta
+      property="og:url"
+      content="https://iknittheweb.github.io/src/pages/portfolio.html" />
+    <meta
+      property="og:type"
+      content="website" />
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Full Portfolio | I Knit The Web" />
+    <meta
+      name="twitter:card"
+      content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Full Portfolio | I Knit The Web" />
     <meta
       name="twitter:description"
-      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills."
-    />
-    <meta name="twitter:image" content="/src/img/branding/logo.png" />
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta
+      name="twitter:image"
+      content="/src/img/branding/logo.png" />
 
     <!-- 2. Favicon -->
-    <link rel="icon" href="/src/img/favicon.ico" />
-    <link rel="shortcut icon" href="/src/img/favicon_io/favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="/src/img/favicon.ico" />
+    <link
+      rel="shortcut icon"
+      href="/src/img/favicon_io/favicon.ico"
+      type="image/x-icon" />
 
     <!-- 3. Title -->
     <title>Full Portfolio | I Knit The Web</title>
 
     <!-- 4. Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
 
     <!-- 5. Global Stylesheets -->
-    <link rel="stylesheet" href="/dist/styles.css" />
+    <link
+      rel="stylesheet"
+      href="/dist/styles.css" />
+
+    <!-- FontAwesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
     <!-- 6. Page-specific styles (optional) -->
     <!-- <link rel="stylesheet" href="/src/css/page-specific.css"> -->
@@ -79,30 +108,34 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
       data-nav-config="portfolio"
       data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
       data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
-      style="display: none"
-    ></div>
+      style="display: none"></div>
 
     <!-- 8. JavaScript (component injection, then page-specific) -->
-    <script src="/src/js/components.js" defer></script>
-    <script src="/src/js/script.js" defer></script>
+    <script
+      src="/src/js/components.js"
+      defer></script>
+    <script
+      src="/src/js/script.js"
+      defer></script>
     <!-- <script src="/src/js/page-specific.js" defer></script> -->
   </head>
   <body>
-    <header id="header"></header>
-    <main id="main-content" class="portfolio-main">
+    <div id="header-placeholder"></div>
+    <main
+      id="main-content"
+      class="portfolio-main">
       <section class="portfolio__intro">
         <img
           src="/src/img/pages/heading-banner-dark.svg"
           alt=""
           class="home__banner"
           width="1125"
-          height="375"
-        />
+          height="375" />
         <h1 class="portfolio-page__title">My Full Portfolio</h1>
         <p class="portfolio-page__intro">
-          Welcome to my full portfolio showcasing every web development project I've created! From
-          practical applications to learning challenges, each project represents a step in my
-          journey of mastering HTML, CSS, JavaScript, and modern web development practices.
+          Welcome to my full portfolio showcasing every web development project I've created! From practical
+          applications to learning challenges, each project represents a step in my journey of mastering HTML, CSS,
+          JavaScript, and modern web development practices.
         </p>
       </section>
       <div class="wrapper">
@@ -112,8 +145,7 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
         <section class="portfolio-section">
           <h2 class="portfolio-section__heading portfolio__heading">Featured Projects</h2>
           <p class="portfolio-section__intro portfolio__intro">
-            These are my most comprehensive projects showcasing practical applications and
-            real-world problem solving.
+            These are my most comprehensive projects showcasing practical applications and real-world problem solving.
           </p>
           <div class="portfolio__row">
             <article class="card">
@@ -125,22 +157,19 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
                   <img
                     alt="Thumbnail preview of Alien Abduction Order Form project"
                     src="/src/img/cards/Alien-abduction-form-thumb.jpg"
-                    class="card-image"
+                    class="card__image"
                     width="345"
-                    height="259"
-                  />
+                    height="259" />
                   <figcaption class="card__caption">
-                    <p>
-                      When you want an alien abduction, you want it your way. Fill out this form to
-                      get started.
-                    </p>
+                    <p> When you want an alien abduction, you want it your way. Fill out this form to get started. </p>
                   </figcaption>
                 </figure>
+              </div>
+              <div class="card__footer">
                 <a
                   href="/src/pages/portfolio-pages/alien-abduction-form.html"
-                  class="card__button card__button--primary card-link"
-                >
-                  see page
+                  class="card__button card__button--primary card__link">
+                  See more...
                 </a>
               </div>
             </article>
@@ -153,19 +182,19 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
                   <img
                     alt="Thumbnail preview of Calculator project"
                     src="/src/img/cards/Calculator-thumb.jpg"
-                    class="card-image"
+                    class="card__image"
                     width="356"
-                    height="268"
-                  />
+                    height="268" />
                   <figcaption class="card__caption">
                     <p>A simple calculator built with HTML, CSS, and JavaScript.</p>
                   </figcaption>
                 </figure>
+              </div>
+              <div class="card__footer">
                 <a
                   href="/src/pages/portfolio-pages/calculator.html"
-                  class="card__button card__button--primary card-link"
-                >
-                  see page
+                  class="card__button card__button--primary card__link">
+                  See more...
                 </a>
               </div>
             </article>
@@ -178,10 +207,9 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
                   <img
                     alt="Thumbnail preview of CSS Position Cheat Sheet project"
                     src="/src/img/cards/css-position-cheat-sheet-thumb.png"
-                    class="card-image"
+                    class="card__image"
                     width="1868"
-                    height="1401"
-                  />
+                    height="1401" />
                   <figcaption class="card__caption">
                     <p>
                       I created this cheat sheet as an assignment on
@@ -194,11 +222,12 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
                     </p>
                   </figcaption>
                 </figure>
+              </div>
+              <div class="card__footer">
                 <a
                   href="/src/pages/portfolio-pages/css-position-cheat-sheet.html"
-                  class="card__button card__button--primary card-link"
-                >
-                  see page
+                  class="card__button card__button--primary card__link">
+                  See more...
                 </a>
               </div>
             </article>
@@ -211,8 +240,8 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
         <section class="portfolio-section">
           <h2 class="portfolio-section__heading portfolio__heading">Learning Challenges</h2>
           <p class="portfolio-section__intro portfolio__intro">
-            Daily coding challenges that helped me develop specific skills and explore different
-            techniques in HTML and CSS.
+            Daily coding challenges that helped me develop specific skills and explore different techniques in HTML and
+            CSS.
           </p>
           <div class="portfolio__row">
             <article class="card">
@@ -224,21 +253,19 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
                   <img
                     alt="Thumbnail preview of 15 Days of CSS Day 5 Challenge project"
                     src="/src/img/pages/galaxy.jpg"
-                    class="card-image"
+                    class="card__image"
                     width="400"
-                    height="300"
-                  />
+                    height="300" />
                   <figcaption class="card__caption">
-                    <p>
-                      CSS challenge focusing on advanced styling techniques and creative layouts.
-                    </p>
+                    <p> CSS challenge focusing on advanced styling techniques and creative layouts. </p>
                   </figcaption>
                 </figure>
+              </div>
+              <div class="card__footer">
                 <a
                   href="/src/pages/portfolio-pages/fifteenDaysofCSS-Day-5-Challenge.html"
-                  class="card__button card__button--primary card-link"
-                >
-                  see page
+                  class="card__button card__button--primary card__link">
+                  See more...
                 </a>
               </div>
             </article>
@@ -251,19 +278,19 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
                   <img
                     alt="Thumbnail preview of 15 Days of CSS Day 4 Basic Vertical Navbars project"
                     src="/src/img/pages/galaxy.jpg"
-                    class="card-image"
+                    class="card__image"
                     width="400"
-                    height="300"
-                  />
+                    height="300" />
                   <figcaption class="card__caption">
                     <p>Exploring vertical navigation bar design and implementation with CSS.</p>
                   </figcaption>
                 </figure>
+              </div>
+              <div class="card__footer">
                 <a
                   href="/src/pages/portfolio-pages/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.html"
-                  class="card__button card__button--primary card-link"
-                >
-                  see page
+                  class="card__button card__button--primary card__link">
+                  See more...
                 </a>
               </div>
             </article>
@@ -276,21 +303,19 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
                   <img
                     alt="Thumbnail preview of 15 Days of HTML Day 5 Description List Challenge project"
                     src="/src/img/pages/galaxy.jpg"
-                    class="card-image"
+                    class="card__image"
                     width="400"
-                    height="300"
-                  />
+                    height="300" />
                   <figcaption class="card__caption">
-                    <p>
-                      HTML challenge focusing on semantic markup and description list structures.
-                    </p>
+                    <p> HTML challenge focusing on semantic markup and description list structures. </p>
                   </figcaption>
                 </figure>
+              </div>
+              <div class="card__footer">
                 <a
                   href="/src/pages/portfolio-pages/fifteenDaysofHTML-Day5-Desc-List-Challenge.html"
-                  class="card__button card__button--primary card-link"
-                >
-                  see page
+                  class="card__button card__button--primary card__link">
+                  See more...
                 </a>
               </div>
             </article>
@@ -317,20 +342,17 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
                     src="/src/img/pages/galaxy.jpg"
                     class="card__image"
                     width="400"
-                    height="300"
-                  />
+                    height="300" />
                   <figcaption class="card__caption">
-                    <p>
-                      Navigation bar styling with full-width link areas for improved user
-                      experience.
-                    </p>
+                    <p> Navigation bar styling with full-width link areas for improved user experience. </p>
                   </figcaption>
                 </figure>
+              </div>
+              <div class="card__footer">
                 <a
                   href="/src/pages/portfolio-pages/navbar-link-filling-li.html"
-                  class="card__button card__button--primary card__link"
-                >
-                  see page
+                  class="card__button card__button--primary card__link">
+                  See more...
                 </a>
               </div>
             </article>
@@ -343,13 +365,21 @@ HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
         <section class="portfolio-back wrapper">
           <p class="portfolio-back__text">
             Ready to work together?
-            <a href="/#contact" class="portfolio-back__link">Let's connect</a>
+            <a
+              href="/#contact"
+              class="portfolio-back__link"
+              >Let's connect</a
+            >
             or
-            <a href="/" class="portfolio-back__link">return to homepage</a>.
+            <a
+              href="/"
+              class="portfolio-back__link"
+              >return to homepage</a
+            >.
           </p>
         </section>
       </div>
     </main>
-    <footer id="footer"></footer>
+    <div id="footer-placeholder"></div>
   </body>
 </html>

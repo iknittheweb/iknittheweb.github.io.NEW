@@ -1,3 +1,21 @@
+<!--
+HOW TO USE THIS TEMPLATE TO CREATE A NEW PAGE
+------------------------------------------------
+1. Copy this file and rename it for your new page (e.g., about.html).
+2. Update the <title> and all <meta> tags for SEO and page-specific info.
+3. Add or update the favicon link if needed.
+4. Add or update font links as needed for your design.
+5. Add your global stylesheet(s) and any page-specific stylesheets.
+6. If you have page-specific data (e.g., JSON-LD), add it where indicated.
+7. Add your page content inside <main id="main-content">.
+8. Use <div id="header-placeholder"></div> and <div id="footer-placeholder"></div> for component injection.
+9. Include /src/js/components.js and /src/js/script.js for header/footer and navigation injection.
+10. Add any page-specific JavaScript after the main scripts.
+11. Keep the order of tags in <head>: meta tags, favicon, title, fonts, stylesheets, page styles, page data, JavaScript.
+12. Update {{PLACEHOLDERS}} with actual content or remove unused ones.
+13. Test the page in both desktop and mobile viewports.
+14. Remove these instructions from the final page.
+-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -66,13 +84,21 @@
       href="https://fonts.gstatic.com"
       crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       rel="stylesheet" />
 
     <!-- Stylesheet -->
     <link
       rel="stylesheet"
       href="/dist/styles.css" />
+
+    <!-- FontAwesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
 
     <!-- Page-specific styles -->
     {{PAGE_STYLES}}
