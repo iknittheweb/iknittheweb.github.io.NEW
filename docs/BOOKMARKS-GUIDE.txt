@@ -1,0 +1,126 @@
+
+!============================================================
+? VS Code Bookmarks Extension Guide (Comprehensive, Alphabetized, Colorful)
+!============================================================
+
+? LEGEND: Colorful Comments Tags & Meanings
+-------------------------------------------
+!  = Recorded/Critical (Red, reserved for marking completed/recorded bookmarks)
+?  = Major Category (Blue/Purple)
+@  = Subsection/Feature (Green)
+&  = Action Item (Orange)
+#  = Nice-to-Have/Minor (Gray)
+~  = Reference/Tip (Mint)
+*  = Highlight/Starred (Yellow)
+TODO = To Do (Coral)
+FIXME = Needs Fix (Pink)
+NOTE = Note/Info (Light Blue)
+
+? HOW TO USE
+------------
+@ Open the file and go to the suggested line.
+@ Add a bookmark (`Ctrl+Alt+K` or `Alt+Cmd+K`).
+@ Right-click the bookmark in the Bookmarks panel to label it.
+@ Use the Bookmarks panel to jump between bookmarks.
+
+? JAVASCRIPT FILES
+------------------
+& src/js/components.js
+  ! Breadcrumbs: line 69 — `function createBreadcrumbs(...)`
+  ! Footer: line 210 — `function createFooter()`
+  ! Header: line 123 — `function createHeader(...)`
+& src/js/script.js
+  ! Accessibility-Announce: line 40 — `function announceToScreenReader(message)`
+  ! AutoHide-Header: line 91 — `function handleHeaderAutoHide()`
+  ! ContactForm-Init: line 328 — `waitForCSSAndDOM(function () {`
+  ! ContactForm-Submit: line 528 — `function handleFormSubmit(event)`
+  ! ContactForm-Validate: line 445 — `function validateField(input, fieldName)`
+  ! Dropdown-Toggle: line 352 — `function toggleDropdown()`
+  ! Dropdown-Open: line 362 — `function openDropdown()`
+  ! Dropdown-Close: line 368 — `function closeDropdown()`
+  ! MobileMenu-Open: line 240 — `function openMobileMenu()`
+  ! MobileMenu-Close: line 284 — `function closeMobileMenu()`
+  ! Nav-Init: line 160 — `window.initializeNavigation = function () {`
+  ! SkillsChart-Init: line 625 — `function initializeSkillsChart()`
+
+? SCSS FILES
+------------
+& src/scss/A-abstracts/_colors.scss
+  ! Color-Variables: line 9 — Color Palette section
+& src/scss/A-abstracts/_functions.scss
+  ! Functions: line 1 — `@function ... {}`
+& src/scss/A-abstracts/_mixins.scss
+  ! Mixins: line 1 — `@mixin ... {}`
+& src/scss/A-abstracts/_variables.scss
+  ! Variables: line 1 — `$variable-name: ...;`
+& src/scss/B-base/_reset.scss
+  ! Base-Reset: line 1 — `html, body { ... }`
+  ! Typography: line 20 — typography rules
+& src/scss/B-base/_utilities.scss
+  ! Accessibility-Utilities: line 11 — accessibility helpers
+  ! General-Utilities: line 39 — general utility classes
+& src/scss/C-components/_dropdown.scss
+  ! Dropdown-Component: line 10 — `.dropdown {`
+  ! Dropdown-Title: line 15 — `&__title-group {`
+& src/scss/E-pages/_portfolio-page.scss
+  ! Portfolio-Intro: line 22 — `&__intro {`
+  ! Portfolio-Start: line 11 — `.portfolio-page {`
+  ! Portfolio-Title: line 12 — `&__title {`
+& src/scss/F-themes/_dark-theme.scss
+  ! Dark-Theme: line 1 — `.dark-theme { ... }`
+& src/scss/F-themes/_light-theme.scss
+  ! Light-Theme: line 1 — `.light-theme { ... }`
+
+? CSS FILES
+-----------
+& src/css/alien-abduction-form.css
+  ! Accessibility: line 1 — focus styles
+  ! Responsive: line 15 — `@media (max-width: 700px)`
+& src/css/calculator.css
+  ! Calculator-Main: line 1 — `.calculator { ... }`
+& src/css/css-position-cheat-sheet-styles.css
+  ! CheatSheet-Main: line 1 — `.cheat-sheet { ... }`
+& src/css/fifteenDaysofHTML-Day5-Desc-List-Challenge.css
+  ! DescList-Main: line 1 — main styles
+& src/css/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.css
+  ! VerticalNavbars-Main: line 1 — main styles
+& src/css/fifteenDaysofCSS-Day-5-Challenge.css
+  ! Day5Challenge-Main: line 1 — main styles
+& src/css/navbar-link-filling li.css
+  ! NavbarLink-Main: line 1 — main styles
+
+? HTML FILES
+------------
+& index.template.html
+  ! Favicon: line 18 — `<link rel="icon" ...>`
+  ! Footer: line 1300 — `<footer ...>`
+  ! Head: line 8 — `<head>`
+  ! Main: line 60 — `<main id="main-content">`
+  ! Stylesheet: line 38 — `<link rel="stylesheet" ...>`
+& src/pages/portfolio-pages/alien-abduction-form.html
+  ! Header: line 13 — `<header class="header-flex">`
+  ! Logo: line 18 — `<img class="logo" ...>`
+  ! Navigation: line 29 — `<nav class="header-nav ...">`
+& src/pages/portfolio-pages/calculator.html
+  ! Head: line 8 — `<head>`
+  ! Main: line 41 — `<main id="main-content" class="calculator-main">`
+  ! Calculator-Section: line 48 — `<section class="calculator-section">`
+  ! Keypad: line 54 — `<section class="calc-keypad">`
+  ! Footer: line 167 — `<div id="footer-placeholder"></div>`
+& src/pages/portfolio-pages/css-position-cheat-sheet.html
+  ! Head: line 4 — `<head>`
+  ! Header: line 11 — `<header class="header-flex">`
+  ! Navigation: line 22 — `<nav class="header-nav flex-row-end" aria-label="Main navigation">`
+  ! Main: line 33 — `<main id="main-content" role="main" tabindex="-1">`
+  ! CheatSheet-Table: line 34 — `<table class="cheat-sheet" ...>`
+  ! Property-Row: line 46 — `<tr class="property-row" ...>`
+  ! Z-Index-Row: line 120 — `<tr class="property-row" ...>`
+
+~ TIPS
+------
+* Use Colorful Comments indicators for visual organization.
+* Group bookmarks by feature, section, or file type.
+* Add bookmarks to other files using similar labels.
+* Use the Bookmarks panel to search/filter by label.
+* For more specific suggestions, just ask!
+

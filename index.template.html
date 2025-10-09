@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
   🚨 IMPORTANT: This is a TEMPLATE file!
-  
+
   After editing this file, you MUST run:
   - npm run dev        (for development/testing)
   - npm run deploy     (before pushing to production)
-  
+
   DO NOT edit index.html directly - it gets overwritten!
 -->
 <html lang="en">
@@ -29,7 +29,7 @@
       href="https://fonts.googleapis.com" />
     <!-- System fonts only - no external font loading to avoid CORS issues -->
     <!-- Google Fonts disabled due to CORS blocking on GitHub Pages -->
-    <!-- 
+    <!--
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -260,14 +260,14 @@
         class="about section-padding">
         <div class="about__content wrapper">
           <aside class="about__profile">
-            <figure class="about__profile__figure">
+            <figure class="about__profile-figure">
               <img
                 alt="Profile picture: smiling person with glasses and short hair"
                 src="{{ASSET_URL}}/img/pages/Profile.png"
-                class="about__profile__pic"
+                class="about__profile-pic"
                 width="371"
                 height="373" />
-              <figcaption class="about__profile__caption">
+              <figcaption class="about__profile-caption">
                 <p>
                   I knit the web like a handmade sweater — structured with HTML, styled with CSS, and sprinkled with
                   JavaScript magic for that
@@ -913,19 +913,19 @@
             <pre><code class="language-javascript">// Responsive Navigation with Accessibility
 function openMobileMenu() {
   if (!menuTopNav || !overlay) return;
-  
+
   // Visual changes
   menuTopNav.classList.add('mobile-menu--open');
   overlay.classList.add('overlay--visible');
-  
+
   // Accessibility improvements
   menuTopNav.removeAttribute('inert');
   btnOpen.setAttribute('aria-expanded', 'true');
-  
+
   // Focus management for screen readers
   const firstNavLink = menuTopNav.querySelector('a');
   if (firstNavLink) firstNavLink.focus();
-  
+
   // Trap focus within menu
   document.addEventListener('keydown', handleEscapeKey);
 }</code></pre>
@@ -945,7 +945,11 @@ function openMobileMenu() {
         <div class="portfolio__row">
           <article class="card">
             <div class="card-header">
-              <h3 class="card__title">Alien Abduction Order Form</h3>
+              <a
+                href="{{ASSET_URL}}/pages/portfolio-pages/alien-abduction-form.html"
+                class="card-header__link">
+                <h3 class="card__title">Alien Abduction Order Form</h3>
+              </a>
             </div>
             <div class="card-body">
               <figure class="card__figure">
@@ -965,19 +969,19 @@ function openMobileMenu() {
                   <pre><code class="language-javascript">// Form data collection and validation
 function sendData() {
   var urlEncodedDataPairs = [];
-  
+
   // Collect form fields with validation
   urlEncodedDataPairs.push(
-    encodeURIComponent('name') + '=' + 
+    encodeURIComponent('name') + '=' +
     encodeURIComponent(form.querySelector('[name="name"]').value)
   );
-  
+
   // Handle radio button selection
   let radio = document.getElementsByName('ufotype');
   for (var i = 0; i < radio.length; i++) {
     if (radio[i].checked) {
       urlEncodedDataPairs.push(
-        encodeURIComponent('ufotype') + '=' + 
+        encodeURIComponent('ufotype') + '=' +
         encodeURIComponent(radio[i].value)
       );
     }
@@ -1008,7 +1012,11 @@ function sendData() {
           </article>
           <article class="card">
             <div class="card-header">
-              <h3 class="card__title">Calculator</h3>
+              <a
+                href="{{ASSET_URL}}/pages/calculator.html"
+                class="card-header__link">
+                <h3 class="card__title">Calculator</h3>
+              </a>
             </div>
             <div class="card-body">
               <figure class="card__figure">
@@ -1035,7 +1043,7 @@ class Calculator {
     this.operator = null;
     this.memory = 0;
   }
-  
+
   handleOperation(op) {
     if (this.operator && this.previousInput) {
       this.calculate();
@@ -1044,11 +1052,11 @@ class Calculator {
     this.previousInput = this.currentInput;
     this.currentInput = '0';
   }
-  
+
   calculate() {
     const prev = parseFloat(this.previousInput);
     const current = parseFloat(this.currentInput);
-    
+
     switch(this.operator) {
       case '+': return prev + current;
       case '-': return prev - current;
@@ -1082,7 +1090,11 @@ class Calculator {
           </article>
           <article class="card">
             <div class="card-header">
-              <h3 class="card__title">CSS Position Cheat Sheet</h3>
+              <a
+                href="{{ASSET_URL}}/pages/calculator.html"
+                class="card-header__link">
+                <h3 class="card__title">CSS Position Cheat Sheet</h3>
+              </a>
             </div>
             <div class="card-body">
               <figure class="card__figure">
@@ -1118,18 +1130,18 @@ class Calculator {
   &__container {
     display: grid;
     gap: f.rem(24);
-    
+
     @include breakpoint-up('700') {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
   }
-  
+
   &__card {
     background: var(--card-bg);
     border: 2px solid var(--primary-border);
     border-radius: f.rem(8);
     padding: f.rem(16);
-    
+
     &--relative { position: relative; }
     &--absolute { position: absolute; }
     &--fixed { position: fixed; }
@@ -1174,7 +1186,6 @@ class Calculator {
         <form
           class="contact__form"
           action="#"
-          method="post"
           autocomplete="on"
           novalidate>
           <fieldset class="contact__fieldset">

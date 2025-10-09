@@ -14,13 +14,14 @@
 .about {
   background-color: var(--primary-bg);
   color: var(--light-text);
-  padding: a.rem(60);
+  padding-block: a.rem(60);
 
   &__content {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: center;
+    padding-bottom: 60px;
     color: var(--light-text);
   }
 
@@ -35,11 +36,14 @@
       width: 100%;
     }
 
-    &__figure {
+    &-figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: 0;
     }
 
-    &__pic {
+    &-pic {
       display: block;
       width: min(100%, 300px);
       height: auto;
@@ -47,17 +51,18 @@
       border-radius: 50%;
     }
 
-    &__caption {
-      // width: 95%;
-      // max-width: calc(min(100%, 300px) * 0.95);
+    &-caption {
       margin: 10px auto;
-      padding-left: 15px;
-      border-left: 3px solid #ccc;
+      text-align: center;
+      border-left: 6px solid;
+      border-image: linear-gradient(180deg, var(--primary-bg-mid) 0%, var(--secondary-bg-mid) 100%) 1;
 
       p {
+        display: inline-block;
+        width: auto;
         font-style: italic;
         font-family: var(--font-2);
-        width: 100%;
+        margin: 0;
         text-wrap: balance;
       }
     }
@@ -101,6 +106,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 80%;
+    margin-inline: auto;
 
     // Smooth transition for flex direction changes
     transition:

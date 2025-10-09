@@ -1,0 +1,8 @@
+@import '../../A-abstracts/variables';
+@import '../../B-base/base';
+@import '../../C-components/card';
+@import '../../D-layout/layout';
+@import '../../F-themes/theme';
+
+// Import the home page partial
+@import './_home';
