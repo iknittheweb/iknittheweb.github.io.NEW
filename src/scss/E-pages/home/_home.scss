@@ -6,8 +6,7 @@
 //* Do NOT put global resets or reusable component styles here.
 //* Only styles unique to the Home page belong in this file.
 //* ------------------------------------------------------------
-@use '../A-abstracts' as a;
-
+@use '../../A-abstracts' as a;
 .home {
   &__banner {
     max-width: 95%; // Reduced from 100% to make height about 5% smaller

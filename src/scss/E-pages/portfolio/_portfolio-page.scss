@@ -6,7 +6,7 @@
 //* Do NOT put global resets or reusable component styles here.
 //* Only styles unique to the Portfolio page belong in this file.
 //* ------------------------------------------------------------
-@use '../A-abstracts' as a;
+@use '../../A-abstracts' as a;
 
 .portfolio-page {
   &__title {
