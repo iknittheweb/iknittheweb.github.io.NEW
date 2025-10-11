@@ -15,12 +15,9 @@ const purgecss = require('@fullhuman/postcss-purgecss').default;
 module.exports = {
   plugins: [
     purgecss({
-      content: [
-        './index.html',
-        './src/pages/**/*.html'
-      ],
-        safelist: ['header-hidden'], // Prevent PurgeCSS from removing this dynamic class
-        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-    })
-  ]
+      content: ['./index.html', './src/pages/**/*.html'],
+      safelist: ['header-hidden', 'show', 'skills-chart__tab--active', 'skills-chart__category--active'], // Prevent PurgeCSS from removing this dynamic class
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+    }),
+  ],
 };

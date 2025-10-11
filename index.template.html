@@ -23,26 +23,112 @@
 -->
 <html lang="en">
   <head>
+    <!--@ ===========================================================================  -->
+    <!--@     Meta tags                                                                -->
+    <!--@     Always have these 2 meta tags for charset and viewport                   -->
+    <!--@ ===========================================================================  -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
 
+    <!--@ ===========================================================================  -->
+    <!--@     SEO META TAGS PLACEHOLDERS                                               -->
+    <!--@ ===========================================================================  -->
+
+    <!--@ {{TITLE}}: PAGE-SPECIFIC. Fill in manually. The page’s title (shows in browser tab and search results). -->
     <title>I Knit the Web</title>
 
-    <!-- Favicon -->
+    <!--@ {{DESCRIPTION}}: PAGE-SPECIFIC. Fill in manually. A concise summary of the page for SEO and social sharing. -->
+    <meta
+      name="description"
+      content="{{DESCRIPTION}}" />
+
+    <!--@ {{KEYWORDS}}: PAGE-SPECIFIC. Fill in manually. Comma-separated keywords relevant to the page. -->
+    <meta
+      name="keywords"
+      content="{{KEYWORDS}}" />
+
+    <!--@ {{AUTHOR}}: SITE-WIDE. Filled by build system. The author of the page or site (e.g., "I Knit The Web"). -->
+    <meta
+      name="author"
+      content="{{AUTHOR}}" />
+
+    <!--@ {{ROBOTS}}: SITE-WIDE. Filled by build system from environment or page config. e.g., "index,follow" for public pages, "noindex,nofollow" for private. -->
+    <!--@ {{ROBOTS}}: e.g., "index,follow" for public pages, "noindex,nofollow" for private. -->
+    <meta
+      name="robots"
+      content="{{ROBOTS}}" />
+
+    <!--@ {{CANONICAL_URL}}: SITE-WIDE. Filled by build system from environment or page config. The preferred URL for this page (for SEO). -->
+    <link
+      rel="canonical"
+      href="{{CANONICAL_URL}}" />
+
+    <!-- @ =========================================================================== -->
+    <!-- @     OPEN GRAPH META TAGS PLACEHOLDERS                                       -->
+    <!-- @ =========================================================================== -->
+
+    <!--@ {{OG_TITLE}}, {{OG_DESCRIPTION}}, {{OG_IMAGE}}, {{OG_URL}}, {{OG_TYPE}}: PAGE-SPECIFIC. Fill in manually. Open Graph tags for social sharing. -->
+    <meta
+      property="og:title"
+      content="{{OG_TITLE}}" />
+    <meta
+      property="og:description"
+      content="{{OG_DESCRIPTION}}" />
+    <meta
+      property="og:image"
+      content="{{OG_IMAGE}}" />
+    <meta
+      property="og:url"
+      content="{{OG_URL}}" />
+    <meta
+      property="og:type"
+      content="{{OG_TYPE}}" />
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     TWITTER CARD META TAGS PLACEHOLDERS                                              -->
+    <!-- @     {{TWITTER_CARD}}, {{TWITTER_TITLE}}, {{TWITTER_DESCRIPTION}}, {{TWITTER_IMAGE}}: -->
+    <!-- @     PAGE-SPECIFIC. Fill in manually.                                                 -->
+    <!-- @ ==================================================================================== -->
+    <meta
+      name="twitter:card"
+      content="{{TWITTER_CARD}}" />
+    <meta
+      name="twitter:title"
+      content="{{TWITTER_TITLE}}" />
+    <meta
+      name="twitter:description"
+      content="{{TWITTER_DESCRIPTION}}" />
+    <meta
+      name="twitter:image"
+      content="{{TWITTER_IMAGE}}" />
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     Preload minimal critical CSS to prevent FOUC                                     -->
+    <!-- @ ==================================================================================== -->
+    <style>
+      body {
+        visibility: hidden;
+      }
+      .css-loaded body {
+        visibility: visible;
+      }
+    </style>
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     Favicon                                                                          -->
+    <!-- @ ==================================================================================== -->
     <link
       rel="icon"
       type="image/x-icon"
       href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
 
-    <!-- Google Fonts -->
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com" />
-    <!-- System fonts only - no external font loading to avoid CORS issues -->
-    <!-- Google Fonts disabled due to CORS blocking on GitHub Pages -->
-
+    <!-- @ ==================================================================================== -->
+    <!-- @     FONTS                                                                            -->
+    <!-- @ ==================================================================================== -->
+    <!-- @     Google font preconnect links                                                     -->
+    <!-- @ ==================================================================================== -->
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com" />
@@ -50,6 +136,10 @@
       rel="preconnect"
       href="https://fonts.gstatic.com"
       crossorigin />
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     GOOGLE FONTS PLACEHOLDER: SITE-WIDE. Filled by build system.                     -->
+    <!-- @ ==================================================================================== -->
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       rel="stylesheet"
@@ -62,13 +152,69 @@
         rel="stylesheet" />
     </noscript>
 
-    <!-- Stylesheet -->
+    <!-- @ ==================================================================================== -->
+    <!-- @     3rd Party Stylesheets                                                            -->
+    <!-- @ ==================================================================================== -->
+    <!-- @     FontAwesome CSS                                                                  -->
+    <!-- @ ==================================================================================== -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     PAGE-SPECIFIC CSS PLACEHOLDER: PAGE-SPECIFIC. Fill in manually.                  -->
+    <!-- @ ==================================================================================== -->
     <link
       rel="stylesheet"
       href="{{BASE_URL}}dist/css/styles.purged.css"
       onload="window.mainCSSLoaded = true;" />
 
-    <!-- Preload critical CSS to prevent FOUC -->
+    <!-- @ ==================================================================================== -->
+    <!-- @     PAGE DATA PLACEHOLDERS: PAGE-SPECIFIC. Fill in manually.                         -->
+    <!-- @ ==================================================================================== -->
+    <!-- pp {{TITLE}}: Page title.                                                              -->
+    <!-- pp {{SUBTITLE}}: Short subtitle or tagline.                                            -->
+    <!-- pp {{NAV_CONFIG}}: Navigation config (e.g., "home", "portfolio").                      -->
+    <!-- pp {{BREADCRUMB_CATEGORY}}: Breadcrumb category (e.g., "Portfolio").                   -->
+    <!-- pp {{BREADCRUMB_CATEGORY_URL}}: URL for breadcrumb category.                           -->
+    <div
+      id="page-data"
+      data-page-title="{{TITLE}}"
+      data-page-subtitle="{{SUBTITLE}}"
+      data-nav-config="{{NAV_CONFIG}}"
+      data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     STRUCTURED DATA PLACEHOLDERS: PAGE-SPECIFIC. Fill in manually.                   -->
+    <!-- @ ==================================================================================== -->
+    <!--pp {{SCHEMA_TYPE}}: Schema.org type (e.g., "WebPage", "Article", "Person", "Project").        -->
+    <!-- pp {{SCHEMA_NAME}}: Name of the page, person, or project.                                    -->
+    <!-- pp {{SCHEMA_DESCRIPTION}}: Description for structured data.                                  -->
+    <!-- pp {{SCHEMA_URL}}: Canonical URL for the page.                                               -->
+    <!-- pp {{SCHEMA_IMAGE}}: Image URL for structured data.                                          -->
+    <!-- pp {{SCHEMA_SAMEAS}}: Array of social/profile URLs (e.g., ["https://github.com/username"]).  -->
+    <!-- pp {{SCHEMA_KNOWSABOUT}}: Array of topics/skills (e.g., ["HTML", "CSS"]).                    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "{{SCHEMA_TYPE}}",
+        "name": "{{SCHEMA_NAME}}",
+        "description": "{{SCHEMA_DESCRIPTION}}",
+        "url": "{{SCHEMA_URL}}",
+        "image": "{{SCHEMA_IMAGE}}",
+        "sameAs": {{SCHEMA_SAMEAS}},
+        "knowsAbout": {{SCHEMA_KNOWSABOUT}}
+      }
+    </script>
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     Preload critical CSS to prevent FOUC                                             -->
+    <!-- @ ==================================================================================== -->
     <style>
       /* Minimal critical CSS to prevent FOUC */
       body {
@@ -79,35 +225,41 @@
       }
     </style>
 
-    <!-- Structured Data -->
-    <!-- URLs automatically updated by build process -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "I Knit The Web",
-        "jobTitle": "Web Developer",
-        "description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams",
-        "url": "{{BASE_URL}}",
-        "sameAs": [],
-        "knowsAbout": ["HTML", "CSS", "JavaScript", "SCSS", "Web Design", "Responsive Design"]
-      }
-    </script>
+    <!-- @ ==================================================================================== -->
+    <!-- @     PAGE-SPECIFIC JS PLACEHOLDER: PAGE-SPECIFIC. Fill in manually. -->
+    <!-- @ ==================================================================================== -->
+    {{PAGE_JS}}
 
-    <!-- FontAwesome JS - deferred to prevent blocking -->
+    <!-- @ ==================================================================================== -->
+    <!-- @     FONTAWESOME JS PLACEHOLDER: SITE-WIDE. Filled by build system. -->
+    <!-- @ ==================================================================================== -->
     <script
       defer
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
-    <!-- JavaScript -->
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     JAVASCRIPT FILE PLACEHOLDERS: SITE-WIDE. Filled by build system.                 -->
+    <!-- @ ==================================================================================== -->
     <script
       defer
       src="{{ASSET_URL}}src/js/bodyScrollLock.min.js"></script>
     <script
       defer
-      src="{{ASSET_URL}}src/js/script.js"></script>
+      src="{{ASSET_URL}}src/js/navigation.js"></script>
+    <script
+      defer
+      src="{{ASSET_URL}}src/js/dropdown.js"></script>
+    <script
+      defer
+      src="{{ASSET_URL}}src/js/contactForm.js"></script>
+    <script
+      defer
+      src="{{ASSET_URL}}src/js/skillsChart.js"></script>
 
-    <!-- CSS Load Detection -->
+    <!-- @ ==================================================================================== -->
+    <!-- @     CSS Load Detection                                                               -->
+    <!-- @ ==================================================================================== -->
     <script>
       // Wait for CSS to load before showing content
       function checkCSSLoaded() {
@@ -224,7 +376,7 @@
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="{{ASSET_URL}}src/pages/portfolio.html"
+                  href="{{ASSET_URL}}dist/pages/portfolio.html"
                   >Full Portfolio</a
                 >
               </li>
@@ -295,7 +447,7 @@
             </p>
             <p>
               Take a look at my
-              <a href="{{ASSET_URL}}src/pages/portfolio.html">portfolio</a> and if you'd like to collaborate,
+              <a href="{{ASSET_URL}}dist/pages/portfolio.html">portfolio</a> and if you'd like to collaborate,
               <a href="#contact">let's connect</a> —I'd love to help bring your ideas to life!
             </p>
           </section>
@@ -949,7 +1101,7 @@ function openMobileMenu() {
           <article class="card">
             <div class="card__header">
               <a
-                href="{{ASSET_URL}}src/pages/portfolio-pages/alien-abduction-form.html"
+                href="{{ASSET_URL}}dist/pages/portfolio-pages/alien-abduction-form.html"
                 class="card__header__link">
                 <h3 class="card__title">Alien Abduction Order Form</h3>
               </a>
@@ -1007,7 +1159,7 @@ function sendData() {
             </div>
             <div class="card__footer">
               <a
-                href="{{ASSET_URL}}src/pages/alien-abduction-form.html"
+                href="{{ASSET_URL}}dist/pages/alien-abduction-form.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
@@ -1016,7 +1168,7 @@ function sendData() {
           <article class="card">
             <div class="card__header">
               <a
-                href="{{ASSET_URL}}src/pages/calculator.html"
+                href="{{ASSET_URL}}dist/pages/calculator.html"
                 class="card__header__link">
                 <h3 class="card__title">Calculator</h3>
               </a>
@@ -1085,7 +1237,7 @@ class Calculator {
             </div>
             <div class="card__footer">
               <a
-                href="{{ASSET_URL}}src/pages/calculator.html"
+                href="{{ASSET_URL}}dist/pages/calculator.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
@@ -1094,7 +1246,7 @@ class Calculator {
           <article class="card">
             <div class="card__header">
               <a
-                href="{{ASSET_URL}}src/pages/calculator.html"
+                href="{{ASSET_URL}}dist/pages/calculator.html"
                 class="card__header__link">
                 <h3 class="card__title">CSS Position Cheat Sheet</h3>
               </a>
@@ -1168,7 +1320,7 @@ class Calculator {
             </div>
             <div class="card__footer">
               <a
-                href="{{ASSET_URL}}src/pages/css-position-cheat-sheet.html"
+                href="{{ASSET_URL}}dist/pages/css-position-cheat-sheet.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
@@ -1188,7 +1340,7 @@ class Calculator {
         </p>
         <form
           class="contact__form"
-          action="#"
+          action="https://formspree.io/f/mpwyyeaa"
           autocomplete="on"
           novalidate>
           <fieldset class="contact__fieldset">
@@ -1333,7 +1485,7 @@ class Calculator {
                 >
                 <li
                   ><a
-                    href="{{ASSET_URL}}src/pages/portfolio.html"
+                    href="{{ASSET_URL}}dist/pages/portfolio.html"
                     class="footer__nav-link"
                     >Portfolio</a
                   ></li

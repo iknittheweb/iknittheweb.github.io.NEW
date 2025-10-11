@@ -1,9 +1,0 @@
-/* Dropdown Icon Animation */
-.dropdown__icon {
-  transition: transform 0.3s ease;
-  transform: rotate(180deg);
-}
-
-.dropdown__title-group.dropdown-open .dropdown__icon {
-  transform: rotate(0deg);
-}

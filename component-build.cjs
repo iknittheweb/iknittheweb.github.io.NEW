@@ -51,11 +51,7 @@ const path = require('path'); // Node.js built-in module for handling file and f
 // Example: NODE_ENV=alt node component-build.cjs all
 require('dotenv').config({
   path:
-    process.env.NODE_ENV === 'production'
-      ? '.env.production'
-      : process.env.NODE_ENV === 'alt'
-      ? '.env.alt'
-      : '.env',
+    process.env.NODE_ENV === 'production' ? '.env.production' : process.env.NODE_ENV === 'alt' ? '.env.alt' : '.env',
 });
 
 // Site-wide environment variables
@@ -66,45 +62,7 @@ const baseUrl = process.env.BASE_URL;
 const assetUrl = process.env.ASSET_URL;
 const cssFile = process.env.CSS_FILE || 'styles.purged.css';
 
-// Array of page objects to build
-// Each object describes:
-//   - template: which template file to use (from src/templates/)
-//   - output: what the output HTML file should be named
-//   - data: site-wide variables to inject (page-specific variables must be filled in the template)
-const pages = [
-  {
-    template: 'portfolio.template.html',
-    output: 'portfolio.html',
-    data: {
-      TITLE: 'Full Portfolio | I Knit The Web',
-      DESCRIPTION: 'Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills.',
-      KEYWORDS: 'portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments',
-      AUTHOR: 'I Knit The Web',
-      CANONICAL_URL: 'https://iknittheweb.com/pages/portfolio.html',
-      ROBOTS: 'index,follow',
-      OG_TITLE: 'Full Portfolio | I Knit The Web - I Knit The Web',
-      OG_DESCRIPTION: 'Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills.',
-      OG_IMAGE: 'https://iknittheweb.com/src/img/branding/logo.png',
-      OG_URL: 'https://iknittheweb.com/pages/portfolio.html',
-      TWITTER_TITLE: 'Full Portfolio | I Knit The Web',
-      TWITTER_DESCRIPTION: 'Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills.',
-      TWITTER_IMAGE: 'https://iknittheweb.com/src/img/branding/logo.png',
-      // Add more variables as needed for your template
-    }
-  },
-  {
-    template: 'example.template.html',
-    output: 'example.html',
-    data: {
-  AUTHOR: 'I Knit The Web',
-  CANONICAL_URL: 'https://iknittheweb.com/pages/example.html',
-  ROBOTS: 'index,follow',
-  FAVICON_URL: '/src/img/favicon_io/favicon.ico',
-  GOOGLE_FONTS_LINK: 'https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap',
-  // Site-wide variables only. Page-specific variables must be filled in the template before build.
-    }
-  }
-];
+// No pages array needed! All page-specific data should be in the template files.
 
 // Utility function: Extracts the shared <header> and <footer> from index.template.html
 // These are injected into every generated page for consistency
@@ -124,21 +82,15 @@ function extractHeaderFooter() {
 // - content: the template HTML as a string
 // - data: site-wide variables to inject (from the page object)
 // - envConfig: (not used, but kept for compatibility)
-function replaceTemplateVariables(content, data, envConfig) {
+function replaceTemplateVariables(content) {
   let result = content;
-
-  // Only replace global environment variables (e.g., {{BASE_URL}}, {{ASSET_URL}})
+  // Replace global environment variables
   result = result.replace(/{{BASE_URL}}/g, baseUrl);
   result = result.replace(/{{ASSET_URL}}/g, assetUrl);
-
-  // Inject shared header/footer (from index.template.html)
-  // If your template uses <div id="header-placeholder"></div>, it will be replaced with the actual header HTML
-  // Same for footer
+  // Inject shared header/footer
   const { headerHTML, footerHTML } = extractHeaderFooter();
   result = result.replace('<div id="header-placeholder"></div>', headerHTML);
   result = result.replace('<div id="footer-placeholder"></div>', footerHTML);
-
-  // Return the final HTML string
   return result;
 }
 
@@ -147,28 +99,40 @@ function replaceTemplateVariables(content, data, envConfig) {
 // - Injects site-wide variables and header/footer
 // - Writes the final HTML file to dist/pages/
 function buildPagesFromTemplates(env = 'development') {
-  const templatesDir = path.join(__dirname, 'src', 'templates'); // Where your templates live
-  const outputDir = path.join(__dirname, 'dist', 'pages'); // Where generated HTML files go
+  const templatesDir = path.join(__dirname, 'src', 'templates');
+  const outputDir = path.join(__dirname, 'dist', 'pages');
 
-  console.log('\n🧩 Building pages from templates with environment variables...');
+  console.log('\n🧩 Building pages from templates with global environment variables...');
 
-  pages.forEach((page) => {
+  // Read all .template.html files in src/templates/
+  const templateFiles = fs.readdirSync(templatesDir).filter(f => f.endsWith('.template.html'));
+
+  // Also process index.template.html in the project root
+  const mainTemplatePath = path.join(__dirname, 'index.template.html');
+  if (fs.existsSync(mainTemplatePath)) {
     try {
-      const templatePath = path.join(templatesDir, page.template); // Full path to template file
-      const outputPath = path.join(outputDir, page.output); // Full path to output HTML file
+      const mainContent = fs.readFileSync(mainTemplatePath, 'utf8');
+      const processedMain = replaceTemplateVariables(mainContent);
+      const outputMainPath = path.join(__dirname, 'index.html');
+      fs.writeFileSync(outputMainPath, processedMain, 'utf8');
+      console.log(`✅ Built index.html from index.template.html`);
+    } catch (error) {
+      console.error(`❌ Error building index.template.html:`, error.message);
+    }
+  }
 
-      // Check if the template file exists
-      if (!fs.existsSync(templatePath)) {
-        console.warn(`⚠️  Template not found: ${templatePath}`);
-        return;
-      }
+  templateFiles.forEach(templateFile => {
+    try {
+      const templatePath = path.join(templatesDir, templateFile);
+      const outputFile = templateFile.replace('.template.html', '.html');
+      const outputPath = path.join(outputDir, outputFile);
 
-      // Read the template file as a string
+      // Read the template file
       const templateContent = fs.readFileSync(templatePath, 'utf8');
-      // Replace placeholders with actual data
-      const processedContent = replaceTemplateVariables(templateContent, page.data);
+      // Replace global variables and inject header/footer
+      const processedContent = replaceTemplateVariables(templateContent);
 
-      // Make sure the output directory exists
+      // Ensure output directory exists
       const outputDirPath = path.dirname(outputPath);
       if (!fs.existsSync(outputDirPath)) {
         fs.mkdirSync(outputDirPath, { recursive: true });
@@ -176,10 +140,9 @@ function buildPagesFromTemplates(env = 'development') {
 
       // Write the final HTML file
       fs.writeFileSync(outputPath, processedContent, 'utf8');
-      console.log(`✅ Built ${page.output} from ${page.template}`);
+      console.log(`✅ Built ${outputFile} from ${templateFile}`);
     } catch (error) {
-      // If something goes wrong, print an error message
-      console.error(`❌ Error building ${page.output}:`, error.message);
+      console.error(`❌ Error building ${templateFile}:`, error.message);
     }
   });
 }
