@@ -1,3 +1,14 @@
+// ------------------------------------------------------------
+// BEGINNER-FRIENDLY EXPLANATORY COMMENTS
+// ------------------------------------------------------------
+// This file configures Stylelint, a tool for checking CSS code for errors and style issues.
+// You can set rules to enforce consistent styles and catch mistakes early.
+//
+// Key concepts:
+// - Stylelint: Tool for finding and fixing problems in CSS
+// - Rule: Defines what is allowed or not in your styles
+// - Configuration: Controls how Stylelint works for your project
+// ------------------------------------------------------------
 // Stylelint configuration with explanatory comments
 module.exports = {
   // Extends standard and recommended SCSS configs for best practices
