@@ -4,6 +4,10 @@
 * {
   box-sizing: border-box;
 }
+/* @================== */
+/* @BOOKMARK: navbar */
+/* @================== */
+/* Main navbar styles. */
 
 ul {
   list-style-type: none;
@@ -36,6 +40,8 @@ li a {
     color 0.2s,
     outline 0.2s;
 }
+/* BOOKMARK: button */
+/* Main button styles. */
 
 a:hover,
 a:focus {
@@ -44,6 +50,8 @@ a:focus {
   outline: 2px solid #222;
   outline-offset: 2px;
 }
+/* BOOKMARK: accessibility */
+/* Focus states for accessibility. */
 
 /* =========================
    Responsive Design

@@ -2,11 +2,24 @@
 <!--
   🚨 IMPORTANT: This is a TEMPLATE file!
 
-  After editing this file, you MUST run:
-  - npm run dev        (for development/testing)
-  - npm run deploy     (before pushing to production)
+  For each template, customize:
+    * <title>
+    * <meta name="description">
+    * <meta name="keywords">
+    * Open Graph tags (og:title, og:description, og:image, og:url)
+    * Twitter Card tags
 
-  DO NOT edit index.html directly - it gets overwritten!
+  Automatic build system features:
+    * Shared <header> and <footer> are injected from index.template.html
+    * Global environment variables (e.g., /, /) are replaced automatically
+    * Page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}) remain for manual editing
+
+  After editing this file, you MUST run:
+    - npm run local   (for development/testing)
+    - npm run deploy  (before pushing to production)
+    - npm run alt     (for alternate .env.alt builds, e.g., GitHub Pages; see docs/environment-setup-guide.txt)
+
+  DO NOT edit the generated *.html file directly—it gets overwritten!
 -->
 <html lang="en">
   <head>
@@ -21,7 +34,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="/iknittheweb.github.io.NEW/src/img/favicon_io/favicon.ico" />
+      href="/src/img/favicon_io/favicon.ico" />
 
     <!-- Google Fonts -->
     <link
@@ -29,9 +42,14 @@
       href="https://fonts.googleapis.com" />
     <!-- System fonts only - no external font loading to avoid CORS issues -->
     <!-- Google Fonts disabled due to CORS blocking on GitHub Pages -->
-    <!--
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       rel="stylesheet"
@@ -43,12 +61,11 @@
         href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
         rel="stylesheet" />
     </noscript>
-    -->
 
     <!-- Stylesheet -->
     <link
       rel="stylesheet"
-      href="https://iknittheweb.github.io/iknittheweb.github.io.NEW/dist/{{CSS_FILE}}"
+      href="/dist/css/styles.purged.css"
       onload="window.mainCSSLoaded = true;" />
 
     <!-- Preload critical CSS to prevent FOUC -->
@@ -71,7 +88,7 @@
         "name": "I Knit The Web",
         "jobTitle": "Web Developer",
         "description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams",
-        "url": "https://iknittheweb.github.io/iknittheweb.github.io.NEW",
+        "url": "/",
         "sameAs": [],
         "knowsAbout": ["HTML", "CSS", "JavaScript", "SCSS", "Web Design", "Responsive Design"]
       }
@@ -85,10 +102,10 @@
     <!-- JavaScript -->
     <script
       defer
-      src="/iknittheweb.github.io.NEW/src/js/bodyScrollLock.min.js"></script>
+      src="/src/js/bodyScrollLock.min.js"></script>
     <script
       defer
-      src="/iknittheweb.github.io.NEW/src/js/script.js"></script>
+      src="/src/js/script.js"></script>
 
     <!-- CSS Load Detection -->
     <script>
@@ -135,7 +152,7 @@
           <img
             alt="I Knit The Web Homepage"
             class="topnav__logo"
-            src="/iknittheweb.github.io.NEW/src/img/branding/logo.png"
+            src="/src/img/branding/logo.png"
             width="250"
             height="250" />
         </a>
@@ -163,7 +180,7 @@
             aria-labelledby="nav-label">
             <!-- <img
               alt="Open menu"
-              src="/iknittheweb.github.io.NEW/src/img/icons/hamburger.svg"
+              src="/src/img/icons/hamburger.svg"
               width="30"
               height="23" /> -->
             <span
@@ -182,7 +199,7 @@
               class="topnav__close">
               <!-- <img
                 alt="Close menu"
-                src="/iknittheweb.github.io.NEW/src/img/icons/close-button.svg"
+                src="/src/img/icons/close-button.svg"
                 width="26"
                 height="26" /> -->
               <span
@@ -207,7 +224,7 @@
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="/iknittheweb.github.io.NEW/src/pages/portfolio.html"
+                  href="/src/pages/portfolio.html"
                   >Full Portfolio</a
                 >
               </li>
@@ -228,32 +245,18 @@
       id="main-content"
       class="home">
       <h1 class="home__title visually-hidden">I Knit The Web</h1>
-      <section class="home__intro wrapper section-padding">
-        <div class="home__hero-container">
-          <!-- Left container: Banner + Subheading + Intro Text -->
-          <div class="home__hero-left">
-            <img
-              src="/iknittheweb.github.io.NEW/src/img/pages/heading-banner-dark.svg"
-              alt=""
-              class="home__banner"
-              width="1125px"
-              height="375px" />
-            <h2 class="home__subheading"> Handcrafted Websites for Small Budgets and Big Dreams </h2>
-            <p class="home__intro-text">
-              Time to turn your digital dreams into reality?<br />
-              I'll help you knit them into the perfect website!
-            </p>
-          </div>
-          <!-- Right container: Home Image -->
-          <div class="home__hero-right">
-            <img
-              alt="woman knitting a web"
-              src="/iknittheweb.github.io.NEW/src/img/pages/Woman_knitting_web_small.png"
-              class="home__img"
-              width="540"
-              height="540" />
-          </div>
-        </div>
+      <section class="hero">
+        <img
+          src="/src/img/pages/heading-banner-dark.svg"
+          alt=""
+          class="hero__banner"
+          width="1125"
+          height="375" />
+        <h2 class="hero__subtitle"> Handcrafted Websites for Small Budgets and Big Dreams </h2>
+        <p class="hero__intro">
+          Time to turn your digital dreams into reality?<br />
+          I'll help you knit them into the perfect website!
+        </p>
       </section>
       <section
         id="about"
@@ -263,7 +266,7 @@
             <figure class="about__profile-figure">
               <img
                 alt="Profile picture: smiling person with glasses and short hair"
-                src="/iknittheweb.github.io.NEW/src/img/pages/Profile.png"
+                src="/src/img/pages/Profile.png"
                 class="about__profile-pic"
                 width="371"
                 height="373" />
@@ -292,7 +295,7 @@
             </p>
             <p>
               Take a look at my
-              <a href="/iknittheweb.github.io.NEW/src/pages/portfolio.html">portfolio</a> and if you'd like to collaborate,
+              <a href="/src/pages/portfolio.html">portfolio</a> and if you'd like to collaborate,
               <a href="#contact">let's connect</a> —I'd love to help bring your ideas to life!
             </p>
           </section>
@@ -339,21 +342,21 @@
                   <span>
                     Level 1 Certifications in
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/CCA-Certificate-HTML-Level-1.jpg"
+                      href="/src/certificates/CCA-Certificate-HTML-Level-1.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >HTML</a
                     >,
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/CCA-Certificate-CSS-Level-1.jpg"
+                      href="/src/certificates/CCA-Certificate-CSS-Level-1.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >CSS</a
                     >, and
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/CCA-Certificate-Javascript-Level-1.jpg"
+                      href="/src/certificates/CCA-Certificate-Javascript-Level-1.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -371,21 +374,21 @@
                     aria-hidden="true"></span>
                   <span>
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/Sololearn-HTML-Course.jpg"
+                      href="/src/certificates/Sololearn-HTML-Course.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >HTML</a
                     >,
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/Sololearn-CSS-Course.jpg"
+                      href="/src/certificates/Sololearn-CSS-Course.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >CSS</a
                     >, and
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/Sololearn-Web-Development-course.jpg"
+                      href="/src/certificates/Sololearn-Web-Development-course.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -412,7 +415,7 @@
                     aria-hidden="true"></span>
                   <span>
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg"
+                      href="/src/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -439,7 +442,7 @@
                     aria-hidden="true"></span>
                   <span>
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png"
+                      href="/src/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -465,21 +468,21 @@
                     aria-hidden="true"></span>
                   <span>
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg"
+                      href="/src/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >HTML Forms</a
                     >,
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg"
+                      href="/src/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >Website Embeds & GitHub Pages</a
                     >, and
                     <a
-                      href="/iknittheweb.github.io.NEW/src/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg"
+                      href="/src/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -944,18 +947,18 @@ function openMobileMenu() {
         </details>
         <div class="portfolio__row">
           <article class="card">
-            <div class="card-header">
+            <div class="card__header">
               <a
-                href="/iknittheweb.github.io.NEW/src/pages/portfolio-pages/alien-abduction-form.html"
-                class="card-header__link">
+                href="/src/pages/portfolio-pages/alien-abduction-form.html"
+                class="card__header__link">
                 <h3 class="card__title">Alien Abduction Order Form</h3>
               </a>
             </div>
-            <div class="card-body">
+            <div class="card__body">
               <figure class="card__figure">
                 <img
                   alt="Thumbnail preview of Alien Abduction Order Form project"
-                  src="/iknittheweb.github.io.NEW/src/img/cards/Alien-abduction-form-thumb.jpg"
+                  src="/src/img/cards/Alien-abduction-form-thumb.jpg"
                   class="card__image"
                   width="345"
                   height="259" />
@@ -995,7 +998,7 @@ function sendData() {
                   </div>
                   <div class="code-showcase__links">
                     <a
-                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main/iknittheweb.github.io.NEW/src/js/alien-abduction-form.js"
+                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main/src/js/alien-abduction-form.js"
                       >View full component</a
                     >
                   </div>
@@ -1004,25 +1007,25 @@ function sendData() {
             </div>
             <div class="card__footer">
               <a
-                href="/iknittheweb.github.io.NEW/src/pages/alien-abduction-form.html"
+                href="/src/pages/alien-abduction-form.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
             </div>
           </article>
           <article class="card">
-            <div class="card-header">
+            <div class="card__header">
               <a
-                href="/iknittheweb.github.io.NEW/src/pages/calculator.html"
-                class="card-header__link">
+                href="/src/pages/calculator.html"
+                class="card__header__link">
                 <h3 class="card__title">Calculator</h3>
               </a>
             </div>
-            <div class="card-body">
+            <div class="card__body">
               <figure class="card__figure">
                 <img
                   alt="Thumbnail preview of Calculator project"
-                  src="/iknittheweb.github.io.NEW/src/img/cards/Calculator-thumb.jpg"
+                  src="/src/img/cards/Calculator-thumb.jpg"
                   class="card__image"
                   width="356"
                   height="268" />
@@ -1073,7 +1076,7 @@ class Calculator {
                   </div>
                   <div class="code-showcase__links">
                     <a
-                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main/iknittheweb.github.io.NEW/src/js/calculator.js"
+                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main/src/js/calculator.js"
                       >View full component</a
                     >
                   </div>
@@ -1082,25 +1085,25 @@ class Calculator {
             </div>
             <div class="card__footer">
               <a
-                href="/iknittheweb.github.io.NEW/src/pages/calculator.html"
+                href="/src/pages/calculator.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
             </div>
           </article>
           <article class="card">
-            <div class="card-header">
+            <div class="card__header">
               <a
-                href="/iknittheweb.github.io.NEW/src/pages/calculator.html"
-                class="card-header__link">
+                href="/src/pages/calculator.html"
+                class="card__header__link">
                 <h3 class="card__title">CSS Position Cheat Sheet</h3>
               </a>
             </div>
-            <div class="card-body">
+            <div class="card__body">
               <figure class="card__figure">
                 <img
                   alt="Thumbnail preview of CSS Position Cheat Sheet project"
-                  src="/iknittheweb.github.io.NEW/src/img/cards/css-position-cheat-sheet-thumb.png"
+                  src="/src/img/cards/css-position-cheat-sheet-thumb.png"
                   class="card__image"
                   width="1868"
                   height="1401" />
@@ -1137,7 +1140,7 @@ class Calculator {
   }
 
   &__card {
-    background: var(--card-bg);
+    background: var(--card__bg);
     border: 2px solid var(--primary-border);
     border-radius: f.rem(8);
     padding: f.rem(16);
@@ -1156,7 +1159,7 @@ class Calculator {
                     >
                   </div>
                   <div class="code-showcase__links">
-                    <a href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/tree/main/iknittheweb.github.io.NEW/src/scss"
+                    <a href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/tree/main/src/scss"
                       >View SCSS architecture</a
                     >
                   </div>
@@ -1165,7 +1168,7 @@ class Calculator {
             </div>
             <div class="card__footer">
               <a
-                href="/iknittheweb.github.io.NEW/src/pages/css-position-cheat-sheet.html"
+                href="/src/pages/css-position-cheat-sheet.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
@@ -1330,7 +1333,7 @@ class Calculator {
                 >
                 <li
                   ><a
-                    href="/iknittheweb.github.io.NEW/src/pages/portfolio.html"
+                    href="/src/pages/portfolio.html"
                     class="footer__nav-link"
                     >Portfolio</a
                   ></li

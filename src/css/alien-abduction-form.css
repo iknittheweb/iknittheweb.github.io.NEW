@@ -1,7 +1,6 @@
 /* =========================
    Accessibility: Focus Styles
    ========================= */
-input:not([type='radio']):not([type='checkbox']):focus,
 textarea:focus,
 select:focus {
   outline: 2px solid #d3fe3e;
@@ -16,6 +15,10 @@ button:focus {
   border-color: #50249d;
   background: #fffbe6;
 }
+/* @================== */
+/* @BOOKMARK: accessibility */
+/* @================== */
+/* Focus styles for accessibility. */
 
 /* =========================
    Responsive Design
@@ -49,6 +52,8 @@ button:focus {
     height: 180px !important;
   }
 }
+/* BOOKMARK: responsive */
+/* Responsive styles for mobile. */
 /* =========================
    Box Model & Reset
    ========================= */
@@ -152,6 +157,8 @@ form {
   gap: 5rem;
   padding: 1.2rem;
 }
+/* BOOKMARK: form */
+/* Alien abduction form container styles. */
 
 fieldset {
   border: 1px solid #000000;
