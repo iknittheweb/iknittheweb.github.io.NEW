@@ -4,21 +4,32 @@
 
 This project uses two different systems for managing pages:
 
-1. **Template-based Pages** (`index.template.html`) - Built via `build.cjs`
-2. **Component-based Pages** - Use `components.js` for header/footer injection
+1. **Template-based Pages** (`index.template.html` and templates in `src/templates/`) - Built via `build.cjs` and
+   `component-build.cjs`.
+2. **Component-based Pages** - Use `components.js` for header/footer injection and are generated via
+   `component-build.cjs`.
 
 ## ✨ Component-Based Page System
 
 ### How It Works
 
 Component-based pages use JavaScript injection for consistent headers/footers:
+
 - `components.js` - Contains header/footer templates and injection logic
 - `<div id="header-placeholder"></div>` - Where header gets injected
 - `<div id="footer-placeholder"></div>` - Where footer gets injected
 
+**To migrate or add a new component-based page:**
+
+1. Create a new template in `src/templates/`.
+2. Add a page entry to the `pages` array in `component-build.cjs`.
+3. Run `npm run local`, `npm run deploy`, or `npm run alt` to build and test.
+4. For header/footer changes, update `components.js` and rebuild.
+
 ### Page Identification
 
-Component-based pages have this comment:
+Component-based pages have this comment (for easy identification):
+
 ```html
 <!--
 🚨 COMPONENT-BASED PAGE
@@ -30,6 +41,14 @@ If you need to update the template structure:
 3. Test all component-based pages
 
 For content-only changes, edit this file directly.
+
+---
+
+## 🧑‍💻 Onboarding for New Developers
+
+- All page generation and migration is handled by the build scripts and templates.
+- Never edit generated HTML files directly—always update templates and run the appropriate npm script.
+- See DEVELOPMENT-WORKFLOW.md for a step-by-step guide.
 -->
 ```
 
@@ -74,8 +93,8 @@ For content-only changes, edit this file directly.
 
 ```bash
 npm run build:components  # Generate component-based pages from templates
-npm run dev              # Build template-based pages for development
-npm run deploy           # Build template-based pages for production
+  npm run local            # Build all pages for local development (purged CSS)
+  npm run deploy           # Build all pages for production (purged CSS)
 ```
 
 **When to use each command:**
@@ -121,8 +140,7 @@ npm run deploy           # Build template-based pages for production
       id="page-data"
       data-page-title="Calculator"
       data-page-subtitle="A simple calculator..."
-      data-nav-config="project"
-    ></div>
+      data-nav-config="project"></div>
   </head>
   <body class="project-page">
     <!-- Header injected here -->
@@ -193,7 +211,9 @@ The component system supports different navigation contexts:
 
 ```html
 <!-- Components auto-inject based on page context -->
-<script defer src="/src/js/components.js"></script>
+<script
+  defer
+  src="/src/js/components.js"></script>
 ```
 
 ### Manual Control
@@ -286,4 +306,5 @@ Once migrated, easy to add:
 
 ---
 
-This component system transforms your static site into a more maintainable, scalable architecture while preserving all existing functionality. It's a professional approach that will save significant time on future updates!
+This component system transforms your static site into a more maintainable, scalable architecture while preserving all
+existing functionality. It's a professional approach that will save significant time on future updates!

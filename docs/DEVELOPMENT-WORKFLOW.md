@@ -2,8 +2,23 @@
 
 ## From Repository Creation to Live Deployment
 
-This document outlines the complete workflow for developing and deploying a GitHub Pages website, from initial setup to
-feature implementation using modern Git practices.
+This document outlines the complete workflow for developing and deploying this website, from initial setup to feature
+implementation using modern Git practices.
+
+## 🚦 Quick Start for New Developers
+
+1. **Clone the repository**
+2. **Install dependencies:** `npm install`
+3. **Local development build:** `npm run local` (uses `.env`)
+4. **Production build:** `npm run deploy` (uses `.env.production`)
+5. **Alternate build (e.g., staging):** `npm run alt` (uses `.env.alt`)
+6. **Build system:**
+   - `component-build.cjs` generates HTML pages from templates and injects shared content.
+   - `build.cjs` automates environment variable injection and template processing for `index.html`.
+7. **Edit templates:** Always edit `index.template.html` and page templates in `src/templates/`, not the generated HTML
+   files.
+8. **For new pages:** Add a template in `src/templates/` and update the `pages` array in `component-build.cjs`.
+9. \*\*All CSS/SCSS compilation and purging is handled by npm scripts. No manual PowerShell or CLI needed.
 
 ---
 
@@ -87,8 +102,8 @@ npm install --save-dev live-server
 ```json
 {
   "scripts": {
-    "build:local": "cross-env DOTENV_CONFIG_PATH=.env.local node build.cjs development && npx sass src/scss/styles.scss dist/styles.css --style=expanded --source-map",
-    "build:prod": "cross-env DOTENV_CONFIG_PATH=.env.production node build.cjs production && npx sass src/scss/styles.scss dist/styles.css --style=compressed",
+    "build:local": "cross-env DOTENV_CONFIG_PATH=.env.local node build.cjs development && npx sass src/scss/E-pages/home/home.scss dist/home.css --style=expanded --source-map && npx sass src/scss/E-pages/home/home.scss dist/home.min.css --style=compressed --source-map && npx sass src/scss/E-pages/about/about.scss dist/about.css --style=expanded --source-map && npx sass src/scss/E-pages/about/about.scss dist/about.min.css --style=compressed --source-map && npx sass src/scss/E-pages/contact/contact.scss dist/contact.css --style=expanded --source-map && npx sass src/scss/E-pages/contact/contact.scss dist/contact.min.css --style=compressed --source-map && npx sass src/scss/E-pages/portfolio/portfolio.scss dist/portfolio.css --style=expanded --source-map && npx sass src/scss/E-pages/portfolio/portfolio.scss dist/portfolio.min.css --style=compressed --source-map && npx sass src/scss/E-pages/calculator/calculator.scss dist/calculator.css --style=expanded --source-map && npx sass src/scss/E-pages/calculator/calculator.scss dist/calculator.min.css --style=compressed --source-map && npx postcss dist/home.min.css -o dist/home.purged.min.css && npx postcss dist/about.min.css -o dist/about.purged.min.css && npx postcss dist/contact.min.css -o dist/contact.purged.min.css && npx postcss dist/portfolio.min.css -o dist/portfolio.purged.min.css && npx postcss dist/calculator.min.css -o dist/calculator.purged.min.css",
+    "build:prod": "cross-env NODE_ENV=production node build.cjs production && npx sass src/scss/E-pages/home/home.scss dist/home.css --style=expanded --source-map && npx sass src/scss/E-pages/home/home.scss dist/home.min.css --style=compressed --source-map && npx sass src/scss/E-pages/about/about.scss dist/about.css --style=expanded --source-map && npx sass src/scss/E-pages/about/about.scss dist/about.min.css --style=compressed --source-map && npx sass src/scss/E-pages/contact/contact.scss dist/contact.css --style=expanded --source-map && npx sass src/scss/E-pages/contact/contact.scss dist/contact.min.css --style=compressed --source-map && npx sass src/scss/E-pages/portfolio/portfolio.scss dist/portfolio.css --style=expanded --source-map && npx sass src/scss/E-pages/portfolio/portfolio.scss dist/portfolio.min.css --style=compressed --source-map && npx sass src/scss/E-pages/calculator/calculator.scss dist/calculator.css --style=expanded --source-map && npx sass src/scss/E-pages/calculator/calculator.scss dist/calculator.min.css --style=compressed --source-map && npx postcss dist/home.min.css -o dist/home.purged.min.css && npx postcss dist/about.min.css -o dist/about.purged.min.css && npx postcss dist/contact.min.css -o dist/contact.purged.min.css && npx postcss dist/portfolio.min.css -o dist/portfolio.purged.min.css && npx postcss dist/calculator.min.css -o dist/calculator.purged.min.css",
     "local": "npm run build:local",
     "dev": "live-server --port=3000 --host=localhost",
     "watch": "npx sass --watch src/scss/styles.scss dist/styles.css --style=expanded"
