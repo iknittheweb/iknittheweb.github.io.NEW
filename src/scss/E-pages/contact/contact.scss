@@ -1,9 +1,9 @@
 // SCSS for contact page. Import partials as needed.
-@use '../../A-abstracts' as a;
-@import '../B-base/base';
-@import '../C-components/card';
-@import '../D-layout/layout';
-@import '../F-themes/theme';
+@use '../../A-abstracts/variables' as *;
+@use '../../B-base' as *;
+@use '../../C-components/card' as *;
+@use '../../D-layout' as *;
+@use '../../F-themes' as *;
 
 // Page-specific styles here
-@import './contact';
+@use './_contact' as *;

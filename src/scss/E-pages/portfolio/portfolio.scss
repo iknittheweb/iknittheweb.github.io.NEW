@@ -1,10 +1,8 @@
 // SCSS for portfolio page. Import partials as needed.
-@use '../../A-abstracts' as a;
-@import '../B-base/base';
-@import '../C-components/card';
-@import '../D-layout/layout';
-@import '../F-themes/theme';
-
-// Page-specific styles here
-@import './portfolio-hero';
-@import './portfolio-page';
+@use '../../A-abstracts/variables' as *;
+@use '../../B-base' as *;
+@use '../../C-components/card' as *;
+@use '../../D-layout' as *;
+@use '../../F-themes' as *;
+@use './portfolio-hero' as *;
+@use './portfolio-page' as *;

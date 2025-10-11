@@ -8,17 +8,6 @@
 //* ------------------------------------------------------------
 @use '../../A-abstracts' as a;
 .home {
-  &__banner {
-    max-width: 95%; // Reduced from 100% to make height about 5% smaller
-    height: auto;
-    margin: a.rem(10) auto 0 auto;
-    display: block;
-    position: relative;
-
-    // Soft edge blur effect
-    mask: radial-gradient(ellipse at center, black 60%, transparent 90%);
-    -webkit-mask: radial-gradient(ellipse at center, black 60%, transparent 90%);
-  }
 
   // New hero container for two-column layout
   &__hero-container {
