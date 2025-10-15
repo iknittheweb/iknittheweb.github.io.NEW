@@ -10,7 +10,7 @@
     * Twitter Card tags
 
   Automatic build system features:
-    * Shared <header> and <footer> are injected from index.template.html
+    * Shared <'header'> and <'footer'> are injected from index.template.html
     * Global environment variables (e.g., {{BASE_URL}}, {{ASSET_URL}}) are replaced automatically
     * Page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}) remain for manual editing
 
@@ -23,53 +23,68 @@
 -->
 <html lang="en">
   <head>
-    <!--@ ===========================================================================  -->
-    <!--@     Meta tags                                                                -->
-    <!--@     Always have these 2 meta tags for charset and viewport                   -->
-    <!--@ ===========================================================================  -->
+    <!--@ =============================================  -->
+    <!--@     Meta tags: charset and viewport            -->
+    <!--@ =============================================  -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
 
-    <!--@ ===========================================================================  -->
-    <!--@     SEO META TAGS PLACEHOLDERS                                               -->
-    <!--@ ===========================================================================  -->
+    <!--@ =============================================  -->
+    <!--@     SEO META TAGS PLACEHOLDERS                 -->
+    <!--@     Mix of page-specific and site-wide         -->
+    <!--@ =============================================  -->
 
-    <!--@ {{TITLE}}: PAGE-SPECIFIC. Fill in manually. The page’s title (shows in browser tab and search results). -->
+    <!--- TITLE: PAGE-SPECIFIC. Fill in manually. The page’s title (shows in browser tab and search results). -->
+    <!---  Best practice: Use a clear, descriptive title under 60 characters. Include important keywords for the page, but avoid keyword stuffing. -->
     <title>I Knit the Web</title>
 
-    <!--@ {{DESCRIPTION}}: PAGE-SPECIFIC. Fill in manually. A concise summary of the page for SEO and social sharing. -->
+    <!--- DESCRIPTION: PAGE-SPECIFIC. Fill in manually. A concise summary of the page for SEO and social sharing. -->
+    <!---  Best practice: 150–160 characters. Summarize the page’s content and include relevant keywords naturally. This appears in search results and social shares. -->
     <meta
       name="description"
       content="{{DESCRIPTION}}" />
 
-    <!--@ {{KEYWORDS}}: PAGE-SPECIFIC. Fill in manually. Comma-separated keywords relevant to the page. -->
+    <!--- KEYWORDS: PAGE-SPECIFIC. Fill in manually. Comma-separated keywords relevant to the page. -->
+    <!---  Best practice: List 3–8 keywords or phrases separated by commas. Not heavily used by modern search engines, but can help with internal search. -->
     <meta
       name="keywords"
       content="{{KEYWORDS}}" />
 
-    <!--@ {{AUTHOR}}: SITE-WIDE. Filled by build system. The author of the page or site (e.g., "I Knit The Web"). -->
+    <!-- NOTE  AUTHOR: SITE-WIDE. -->
     <meta
       name="author"
-      content="{{AUTHOR}}" />
+      content="I Knit the Web" />
 
-    <!--@ {{ROBOTS}}: SITE-WIDE. Filled by build system from environment or page config. e.g., "index,follow" for public pages, "noindex,nofollow" for private. -->
-    <!--@ {{ROBOTS}}: e.g., "index,follow" for public pages, "noindex,nofollow" for private. -->
+    <!--- ROBOTS: PAGE-SPECIFIC. Controls search engine indexing and crawling for this page. -->
+    <!--@     Common values: -->
+    <!--@     - "index,follow" (default for public pages; allows search engines to index and follow links) -->
+    <!--@     - "noindex,nofollow" (prevents indexing and link following; use for private, test, or duplicate pages) -->
+    <!--@     - "noindex,follow" (do not index, but allow following links) -->
+    <!--@     - "index,nofollow" (index page, but do not follow links) -->
+    <!--@ If unsure, use "index,follow" for public content you want discoverable. For pages you do NOT want in search results, use "noindex,nofollow". -->
     <meta
       name="robots"
       content="{{ROBOTS}}" />
 
-    <!--@ {{CANONICAL_URL}}: SITE-WIDE. Filled by build system from environment or page config. The preferred URL for this page (for SEO). -->
+    <!--- CANONICAL_URL: PAGE-SPECIFIC. The preferred URL for this page (for SEO). Should be unique per page. -->
+    <!---  Best practice: Use the full absolute URL (e.g., https://example.com/page-name). Ensures search engines know which URL is the original if duplicates exist. -->
     <link
       rel="canonical"
       href="{{CANONICAL_URL}}" />
 
-    <!-- @ =========================================================================== -->
-    <!-- @     OPEN GRAPH META TAGS PLACEHOLDERS                                       -->
-    <!-- @ =========================================================================== -->
-
-    <!--@ {{OG_TITLE}}, {{OG_DESCRIPTION}}, {{OG_IMAGE}}, {{OG_URL}}, {{OG_TYPE}}: PAGE-SPECIFIC. Fill in manually. Open Graph tags for social sharing. -->
+    <!--- ============================================= -->
+    <!---     OPEN GRAPH META TAGS PLACEHOLDERS         -->
+    <!--- ============================================= -->
+    <!--- OG_TITLE, OG_DESCRIPTION, OG_IMAGE, OG_URL, OG_TYPE: PAGE-SPECIFIC. Fill in manually. Open Graph tags for social sharing. -->
+    <!--- ============================================= -->
+    <!--@ Best practice: -->
+    <!--@ OG_TITLE: Same as page title, but can be more attention-grabbing for social media. -->
+    <!--@ OG_DESCRIPTION: Similar to meta description, tailored for social sharing. -->
+    <!--@ OG_IMAGE: Absolute URL to a relevant image (1200x630px recommended). -->
+    <!--@ OG_URL: Canonical URL of the page. -->
+    <!--@ OG_TYPE: "website" for most pages, "article" for blog posts, etc. -->
     <meta
       property="og:title"
       content="{{OG_TITLE}}" />
@@ -86,11 +101,16 @@
       property="og:type"
       content="{{OG_TYPE}}" />
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     TWITTER CARD META TAGS PLACEHOLDERS                                              -->
-    <!-- @     {{TWITTER_CARD}}, {{TWITTER_TITLE}}, {{TWITTER_DESCRIPTION}}, {{TWITTER_IMAGE}}: -->
-    <!-- @     PAGE-SPECIFIC. Fill in manually.                                                 -->
-    <!-- @ ==================================================================================== -->
+    <!--- ============================================= -->
+    <!--- TWITTER CARD META TAGS PLACEHOLDERS           -->
+    <!---- PAGE-SPECIFIC. Fill in manually.              -->
+    <!--- ============================================= -->
+    <!--@ Best practice:                                -->
+    <!--@ _CARD: "summary" or "summary_large_image" (for big preview images)                                 -->
+    <!--@ _TITLE: Same as OG_TITLE                      -->
+    <!--@ _DESCRIPTION: Same as OG_DESCRIPTION          -->
+    <!--@ _IMAGE: Same as OG_IMAGE (absolute URL)       -->
+    <!--@ ============================================= -->
     <meta
       name="twitter:card"
       content="{{TWITTER_CARD}}" />
@@ -104,9 +124,9 @@
       name="twitter:image"
       content="{{TWITTER_IMAGE}}" />
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     Preload minimal critical CSS to prevent FOUC                                     -->
-    <!-- @ ==================================================================================== -->
+    <!-- @ ============================================= -->
+    <!-- @ Preload minimal critical CSS to prevent FOUC  -->
+    <!-- @ ============================================= -->
     <style>
       body {
         visibility: hidden;
@@ -116,19 +136,17 @@
       }
     </style>
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     Favicon                                                                          -->
-    <!-- @ ==================================================================================== -->
+    <!-- NOTE ========================================== -->
+    <!-- NOTE FAVICON_URL: SITE-WIDE. Filled by build system. -->
+    <!-- NOTE ========================================== -->
     <link
       rel="icon"
       type="image/x-icon"
       href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     FONTS                                                                            -->
-    <!-- @ ==================================================================================== -->
-    <!-- @     Google font preconnect links                                                     -->
-    <!-- @ ==================================================================================== -->
+    <!-- @ ============================================= -->
+    <!-- @     Google font preconnect links              -->
+    <!-- @ ============================================= -->
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com" />
@@ -137,9 +155,9 @@
       href="https://fonts.gstatic.com"
       crossorigin />
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     GOOGLE FONTS PLACEHOLDER: SITE-WIDE. Filled by build system.                     -->
-    <!-- @ ==================================================================================== -->
+    <!-- - ============================================= -->
+    <!-- - GOOGLE FONTS PLACEHOLDER: PAGE-SPECIFIC. Fill in manually. -->
+    <!-- - ============================================= -->
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       rel="stylesheet"
@@ -152,11 +170,9 @@
         rel="stylesheet" />
     </noscript>
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     3rd Party Stylesheets                                                            -->
-    <!-- @ ==================================================================================== -->
-    <!-- @     FontAwesome CSS                                                                  -->
-    <!-- @ ==================================================================================== -->
+    <!-- @ ============================================= -->
+    <!-- @     FontAwesome CSS                           -->
+    <!-- @ ============================================= -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -164,22 +180,23 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     PAGE-SPECIFIC CSS PLACEHOLDER: PAGE-SPECIFIC. Fill in manually.                  -->
-    <!-- @ ==================================================================================== -->
+    <!--- ============================================= -->
+    <!--- PAGE-SPECIFIC CSS PLACEHOLDER: Fill in manually. -->
+    <!--- ============================================= -->
     <link
       rel="stylesheet"
       href="{{BASE_URL}}dist/css/styles.purged.css"
       onload="window.mainCSSLoaded = true;" />
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     PAGE DATA PLACEHOLDERS: PAGE-SPECIFIC. Fill in manually.                         -->
-    <!-- @ ==================================================================================== -->
-    <!-- pp {{TITLE}}: Page title.                                                              -->
-    <!-- pp {{SUBTITLE}}: Short subtitle or tagline.                                            -->
-    <!-- pp {{NAV_CONFIG}}: Navigation config (e.g., "home", "portfolio").                      -->
-    <!-- pp {{BREADCRUMB_CATEGORY}}: Breadcrumb category (e.g., "Portfolio").                   -->
-    <!-- pp {{BREADCRUMB_CATEGORY_URL}}: URL for breadcrumb category.                           -->
+    <!--- ============================================= -->
+    <!--- PAGE DATA PLACEHOLDERS: PAGE-SPECIFIC. Fill in manually. -->
+    <!--- ============================================= -->
+    <!--@ TITLE: Page title.                            -->
+    <!--@ SUBTITLE: Short subtitle or tagline.          -->
+    <!--@ NAV_CONFIG: Navigation config (e.g., "home", "portfolio"). -->
+    <!--@ BREADCRUMB_CATEGORY: Breadcrumb category (e.g., "Portfolio"). -->
+    <!--@ BREADCRUMB_CATEGORY_URL: URL for breadcrumb category. -->
+    <!--@ ============================================= -->
     <div
       id="page-data"
       data-page-title="{{TITLE}}"
@@ -189,16 +206,17 @@
       data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
       style="display: none"></div>
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     STRUCTURED DATA PLACEHOLDERS: PAGE-SPECIFIC. Fill in manually.                   -->
-    <!-- @ ==================================================================================== -->
-    <!--pp {{SCHEMA_TYPE}}: Schema.org type (e.g., "WebPage", "Article", "Person", "Project").        -->
-    <!-- pp {{SCHEMA_NAME}}: Name of the page, person, or project.                                    -->
-    <!-- pp {{SCHEMA_DESCRIPTION}}: Description for structured data.                                  -->
-    <!-- pp {{SCHEMA_URL}}: Canonical URL for the page.                                               -->
-    <!-- pp {{SCHEMA_IMAGE}}: Image URL for structured data.                                          -->
-    <!-- pp {{SCHEMA_SAMEAS}}: Array of social/profile URLs (e.g., ["https://github.com/username"]).  -->
-    <!-- pp {{SCHEMA_KNOWSABOUT}}: Array of topics/skills (e.g., ["HTML", "CSS"]).                    -->
+    <!--- ============================================= -->
+    <!--- STRUCTURED DATA PLACEHOLDERS: PAGE-SPECIFIC. Fill in manually.                   -->
+    <!--- ============================================= -->
+    <!--@ SCHEMA_TYPE: Schema.org type (e.g., "WebPage", "Article", "Person", "Project").        -->
+    <!--@ SCHEMA_NAME: Name of the page, person, or project.                                    -->
+    <!--@ SCHEMA_DESCRIPTION: Description for structured data.                                  -->
+    <!--@ SCHEMA_URL: Canonical URL for the page.                                               -->
+    <!--@ SCHEMA_IMAGE: Image URL for structured data.                                          -->
+    <!--@ SCHEMA_SAMEAS: Array of social/profile URLs (e.g., ["https://github.com/username"]).  -->
+    <!--@ SCHEMA_KNOWSABOUT: Array of topics/skills (e.g., ["HTML", "CSS"]).                    -->
+    <!--@ ============================================= -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -212,35 +230,17 @@
       }
     </script>
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     Preload critical CSS to prevent FOUC                                             -->
-    <!-- @ ==================================================================================== -->
-    <style>
-      /* Minimal critical CSS to prevent FOUC */
-      body {
-        visibility: hidden;
-      }
-      .css-loaded body {
-        visibility: visible;
-      }
-    </style>
-
-    <!-- @ ==================================================================================== -->
-    <!-- @     PAGE-SPECIFIC JS PLACEHOLDER: PAGE-SPECIFIC. Fill in manually. -->
-    <!-- @ ==================================================================================== -->
-    {{PAGE_JS}}
-
-    <!-- @ ==================================================================================== -->
-    <!-- @     FONTAWESOME JS PLACEHOLDER: SITE-WIDE. Filled by build system. -->
-    <!-- @ ==================================================================================== -->
+    <!-- @ ============================================= -->
+    <!-- @     FONTAWESOME JS                            -->
+    <!-- @ ============================================= -->
     <script
       defer
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     JAVASCRIPT FILE PLACEHOLDERS: SITE-WIDE. Filled by build system.                 -->
-    <!-- @ ==================================================================================== -->
+    <!--NOTE ============================================ -->
+    <!--NOTE JS PLACEHOLDERS: SITE-WIDE. Filled by build system. -->
+    <!--NOTE ============================================ -->
     <script
       defer
       src="{{ASSET_URL}}src/js/bodyScrollLock.min.js"></script>
@@ -257,9 +257,9 @@
       defer
       src="{{ASSET_URL}}src/js/skillsChart.js"></script>
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     CSS Load Detection                                                               -->
-    <!-- @ ==================================================================================== -->
+    <!-- @ ============================================= -->
+    <!-- @     CSS Load Detection                        -->
+    <!-- @ ============================================= -->
     <script>
       // Wait for CSS to load before showing content
       function checkCSSLoaded() {
@@ -284,6 +284,9 @@
     </script>
   </head>
 
+  <!--- ============================================= -->
+  <!--- BODY_ID AND BODY_CLASS: Fill in manually -->
+  <!--- ============================================= -->
   <body class="home">
     <!-- Skip Link for Screen Readers -->
     <a
@@ -291,7 +294,6 @@
       class="skip-link"
       >Skip to main content</a
     >
-
     <header class="topnav">
       <!-- For Screen Readers to simplify navigation -->
       <h1 class="visually-hidden">I Knit The Web Header</h1>
@@ -349,11 +351,6 @@
             <button
               id="btnClose"
               class="topnav__close">
-              <!-- <img
-                alt="Close menu"
-                src="{{ASSET_URL}}src/img/icons/close-button.svg"
-                width="26"
-                height="26" /> -->
               <span
                 class="fa-solid fa-xmark"
                 aria-hidden="true"></span>
@@ -362,14 +359,14 @@
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="#main-content"
+                  href="{{BASE_URL}}#main-content"
                   >Home</a
                 >
               </li>
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="#about"
+                  href="{{BASE_URL}}#about"
                   >About</a
                 >
               </li>
@@ -383,7 +380,7 @@
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="#contact"
+                  href="{{BASE_URL}}#contact"
                   >Contact</a
                 >
               </li>
@@ -1471,14 +1468,14 @@ class Calculator {
               <ul class="footer__nav-list">
                 <li
                   ><a
-                    href="#main-content"
+                    href="{{BASE_URL}}#main-content"
                     class="footer__nav-link"
                     >Home</a
                   ></li
                 >
                 <li
                   ><a
-                    href="#about"
+                    href="{{BASE_URL}}#about"
                     class="footer__nav-link"
                     >About</a
                   ></li
@@ -1492,7 +1489,7 @@ class Calculator {
                 >
                 <li
                   ><a
-                    href="#contact"
+                    href="{{BASE_URL}}#contact"
                     class="footer__nav-link"
                     >Contact</a
                   ></li
@@ -1508,7 +1505,7 @@ class Calculator {
               Ready to start your project? I'd love to hear about your ideas and help bring them to life.
             </p>
             <a
-              href="#contact"
+              href="/index.html/#contact"
               class="footer__cta-link"
               >Get In Touch</a
             >
