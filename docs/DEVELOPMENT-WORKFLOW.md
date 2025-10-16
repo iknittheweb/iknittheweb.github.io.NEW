@@ -7,18 +7,58 @@ implementation using modern Git practices.
 
 ## 🚦 Quick Start for New Developers
 
-1. **Clone the repository**
-2. **Install dependencies:** `npm install`
-3. **Local development build:** `npm run local` (uses `.env`)
-4. **Production build:** `npm run deploy` (uses `.env.production`)
-5. **Alternate build (e.g., staging):** `npm run alt` (uses `.env.alt`)
-6. **Build system:**
-   - `component-build.cjs` generates HTML pages from templates and injects shared content.
-   - `build.cjs` automates environment variable injection and template processing for `index.html`.
-7. **Edit templates:** Always edit `index.template.html` and page templates in `src/templates/`, not the generated HTML
-   files.
-8. **For new pages:** Add a template in `src/templates/` and update the `pages` array in `component-build.cjs`.
-9. \*\*All CSS/SCSS compilation and purging is handled by npm scripts. No manual PowerShell or CLI needed.
+1. Clone the repository
+2. Install dependencies:
+   - npm install
+3. Bulk build for local development:
+   - npm run local (uses .env)
+4. Bulk build for production:
+   - npm run deploy (uses .env.production)
+5. Bulk build for alternate environment:
+   - npm run alt (uses .env.alt)
+6. Bulk build process includes:
+   - Generation of all HTML pages from all \*.template.html files in templates to pages using component-build.cjs.
+   - Compilation of all SCSS entry points to .temp.css files using compile-e-pages-scss.cjs and sass.
+   - Purging and minification of CSS using purge-and-minify.cjs to produce .purged.css and .purged.min.css files in css.
+7. Edit templates: Always edit index.template.html and page templates in templates, not the generated HTML files.
+8. For new pages: Add a new \*.template.html file in templates. The build system will automatically generate the
+   corresponding .html file in pages during bulk build.
+9. _All CSS/SCSS compilation and purging is handled by npm scripts. No manual PowerShell or CLI needed._ ⚡ Individual
+   File Build Process You can also build individual pages or stylesheets manually:
+
+## Generate a single HTML page from a template
+
+    node component-build.cjs src/templates/index.template.html
+
+---
+
+This will output your-page.html to pages.
+
+## Compile a single SCSS file to temp CSS
+
+    npx sass src/scss/styles.scss dist/css/styles.temp.css --style=expanded --source-map
+
+---
+
+## Purge and minify a single temp CSS file
+
+    npx postcss dist/css/styles.temp.css -o dist/css/styles.purged.css --purgecss --map --purgecss-content "dist/pages/index.html"
+    npx postcss dist/css/styles.purged.css -o dist/css/styles.purged.min.css --use cssnano --map
+
+---
+
+🛠️ Bulk Build Process (Recommended) Use the npm scripts in package.json for full automation:
+
+- npm run local – Bulk build for local development (all pages and CSS)
+- npm run deploy – Bulk build for production
+- npm run alt – Bulk build for alternate environment
+
+These scripts will:
+
+1. Compile all SCSS entry points to .temp.css files
+2. Generate all HTML pages from all templates
+3. Purge and minify all CSS to .purged.css and .purged.min.css
+4. Output all results to the dist folder
 
 ---
 
