@@ -52,3 +52,12 @@
     line-height: 1.5;
   }
 }
+
+a.portfolio-back__link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: var(--primary-text-mid);
+  }
+}

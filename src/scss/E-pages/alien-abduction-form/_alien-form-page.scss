@@ -6,11 +6,8 @@
 //* Do NOT put global resets or reusable component styles here.
 //* Only styles unique to the Alien Abduction Form page belong in this file.
 //* ------------------------------------------------------------
+@use '../../A-abstracts' as *;
 @use '../../A-abstracts' as a;
-
-/* =====================================
-   Alien Abduction Form Page Styles
-   ===================================== */
 
 .alien-form-page__wrapper {
   position: relative;
@@ -20,7 +17,7 @@
   padding: a.rem(40) a.rem(16);
   background: rgb(var(--alien-primary-bg), 0.85);
   border-radius: a.rem(16);
-  box-shadow: 0 8px 32px rgb(0 255 65 / 10%);
+  box-shadow: 0 a.rem(8) a.rem(32) rgb(0 255 65 / 10%);
 
   @include a.breakpoint-down('699.98') {
     padding: a.rem(32) a.rem(12);

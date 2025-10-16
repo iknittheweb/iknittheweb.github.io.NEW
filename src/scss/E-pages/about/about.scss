@@ -1,9 +1,0 @@
-// SCSS for about page. Import partials as needed.
-@use '../../A-abstracts/variables' as *;
-@use '../../B-base' as *;
-@use '../../C-components/card' as *;
-@use '../../D-layout' as *;
-@use '../../F-themes' as *;
-
-// Import the about page partial
-@use './_about' as *;

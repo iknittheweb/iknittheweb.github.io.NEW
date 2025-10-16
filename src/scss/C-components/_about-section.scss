@@ -1,15 +1,13 @@
 //* ------------------------------------------------------------
-//* ABOUT COMPONENT PARTIAL
+//* ABOUT SECTION COMPONENT PARTIAL
 //*
-//* Place all styles for the reusable .about component here.
+//* Place all styles for the reusable .about section component here.
 //* Includes BEM classes like .about, .about__profile, .about__content, etc.
 //* Do NOT put global resets or page-level layout styles here.
 //* Only styles specific to the about component belong in this file.
 //* ------------------------------------------------------------
 
-// Only styles specific to the about component belong in this file.
-//* ------------------------------------------------------------
-@use '../A-abstracts' as a;
+@use '../A-abstracts/index' as a;
 
 .about {
   background-color: var(--primary-bg);
@@ -19,7 +17,7 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: a.rem(32);
     align-items: center;
     padding-bottom: 60px;
     color: var(--light-text);
@@ -94,7 +92,7 @@
     }
   }
   &__heading {
-    margin: -10px 0 1rem 0 !important;
+    margin: -10px 0 a.rem(16) 0 !important;
     text-align: left !important;
   }
   .bonafides {

@@ -1,15 +1,19 @@
-@use '../../A-abstracts' as a;
+@use '../A-abstracts' as a;
 
-section.portfolio__intro {
+.hero {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 340px;
-  padding: a.rem(80) a.rem(32) a.rem(48);
-  margin-bottom: a.rem(40);
+  padding: a.rem(80) 0 a.rem(48);
+  // margin-bottom: a.rem(40);
   text-align: center;
   color: var(--hero-text);
   background-image: url('/src/img/pages/open-laptops.jpg');
@@ -18,22 +22,19 @@ section.portfolio__intro {
   background-repeat: no-repeat;
   overflow: hidden;
   text-wrap: balance;
-  /* Ensure text color is high contrast: white for dark mask */
   color: var(--light-text);
 }
 
-section.portfolio__intro::before {
+.hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  /* Partially opaque black mask for readability */
   background: rgba(0, 0, 0, 0.55);
   z-index: 1;
   pointer-events: none;
 }
 
-// Subtle animated overlay for pizzazz
-section.portfolio__intro::after {
+.hero::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -48,29 +49,30 @@ section.portfolio__intro::after {
   0% {
     background-position: 0 0;
   }
-
   100% {
     background-position: 120px 60px;
   }
 }
 
-@keyframes heroSparkle {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 120px 60px;
-  }
-}
-
-section.portfolio__intro > * {
+.hero > * {
   position: relative;
   z-index: 3;
 }
 
-.portfolio-page__title,
-.portfolio-page__title,
-.portfolio-page__intro {
+.hero__banner {
+  width: 80%;
+  height: auto;
+  margin: a.rem(10) auto 0 auto;
+  display: block;
+  position: relative;
+
+  // Soft edge blur effect
+  mask: radial-gradient(ellipse at center, black 60%, transparent 90%);
+  -webkit-mask: radial-gradient(ellipse at center, black 60%, transparent 90%);
+}
+
+.hero__title,
+.hero__subtitle,
+.hero__intro {
   color: #fff;
 }

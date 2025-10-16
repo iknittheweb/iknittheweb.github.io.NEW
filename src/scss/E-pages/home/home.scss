@@ -1,8 +1,1 @@
-@use '../../A-abstracts/variables' as *;
-@use '../../B-base' as *;
-@use '../../C-components/card' as *;
-@use '../../D-layout' as *;
-@use '../../F-themes' as *;
-
-// Import the home page partial
-@use './_home' as *;
+@use '../../A-abstracts' as a;

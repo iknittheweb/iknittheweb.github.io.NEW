@@ -6,18 +6,19 @@
 //* Do NOT put global resets or reusable component styles here.
 //* Only styles unique to the Calculator page belong in this file.
 //* ------------------------------------------------------------
+@use '../../A-abstracts' as *;
 @use '../../A-abstracts' as a;
 
 /* =====================================
 	 Calculator Page Layout
 	 ===================================== */
 .calculator__main {
-  margin: 2rem auto;
-  padding: 0 1rem;
+  margin: a.rem(32) auto;
+  padding: 0 a.rem(16);
 
   @include a.breakpoint-down('599.98') {
-    margin: 1rem auto;
-    padding: 0 0.5rem;
+    margin: a.rem(16) auto;
+    padding: 0 a.rem(8);
   }
 }
 

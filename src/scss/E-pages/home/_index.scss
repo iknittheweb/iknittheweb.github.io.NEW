@@ -6,9 +6,10 @@
 //* Do NOT put global resets or reusable component styles here.
 //* Only styles unique to the Home page belong in this file.
 //* ------------------------------------------------------------
+@use '../../A-abstracts' as *;
 @use '../../A-abstracts' as a;
-.home {
 
+.home {
   // New hero container for two-column layout
   &__hero-container {
     display: grid;
@@ -51,6 +52,7 @@
     justify-content: center;
     gap: a.rem(24);
     padding-right: a.rem(20);
+    padding-right: a.rem(20);
     text-wrap: balance;
 
     @include a.breakpoint-down('785.98') {
@@ -90,7 +92,7 @@
     height: auto;
     margin: 0 auto;
     // Fluid padding that scales smoothly
-    padding: clamp(0.625rem, 2vw + 0.5rem, 1.25rem);
+    padding: clamp(a.rem(10), 2vw + a.rem(8), a.rem(20));
     background-color: var(--primary-bg);
     color: var(--light-text);
     border-radius: a.rem(10);
@@ -108,6 +110,7 @@
   }
 
   &__intro-text {
+    font-size: clamp(a.rem(18), 2.5vw, a.rem(24));
     font-size: clamp(a.rem(18), 2.5vw, a.rem(24));
     line-height: 1.6;
     margin-bottom: 0;

@@ -1,9 +1,7 @@
 // Entry-point SCSS for Calculator
-@use '../../A-abstracts/variables' as *;
+@use '../../A-abstracts' as *;
 @use '../../B-base' as *;
-@use '../../C-components/card' as *;
+@use '../../C-components' as *;
 @use '../../D-layout' as *;
 @use '../../F-themes' as *;
-
-// Page-specific styles here
-@use './_calculator' as *;
+@use '../../G-vendors' as *;

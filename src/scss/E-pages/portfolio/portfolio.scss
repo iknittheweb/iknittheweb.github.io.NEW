@@ -1,8 +1,21 @@
-// SCSS for portfolio page. Import partials as needed.
-@use '../../A-abstracts/variables' as *;
-@use '../../B-base' as *;
-@use '../../C-components/card' as *;
-@use '../../D-layout' as *;
-@use '../../F-themes' as *;
-@use './portfolio-hero' as *;
-@use './portfolio-page' as *;
+// SCSS for portfolio page. Import partials as needed. All partials related to this page are listed below.
+
+@use '../../A-abstracts' as a;
+@use 'portfolio-hero';
+@use 'portfolio-page';
+@use '../../B-base/' as *;
+@use '../../C-components/about-section';
+@use '../../C-components/buttons';
+@use '../../C-components/card';
+@use '../../C-components/code-showcase';
+@use '../../C-components/contact';
+@use '../../C-components/dropdown';
+@use '../../C-components/footer';
+@use '../../C-components/forms';
+@use '../../C-components/hero';
+@use '../../C-components/navbar';
+@use '../../C-components/skills-chart';
+@use '../../C-components/sparkle-animations';
+@use '../../C-components/topnav';
+@use '../../D-layout';
+@use '../../E-pages/home/home.scss';

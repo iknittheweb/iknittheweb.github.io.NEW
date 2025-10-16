@@ -1,17 +1,17 @@
-//& THE /PAGES FOLDER
-//* The /pages folder contains styles specific to individual pages or sections of the website. These styles are often unique and not reused across other pages.
+//& THE /E-PAGES FOLDER
+//* The /E-pages folder contains styles specific to individual pages or sections of the website. These styles are often unique and not reused across other pages.
 
 //& Why It’s Important:
 //* Page-specific styles are kept separate from global styles, which helps avoid unnecessary bloat in your CSS and makes it easier to locate and modify page-specific styles.
 
-@forward 'about/_about';
-@forward 'alien-abduction-form/_index';
-@forward 'calculator/_calculator';
-@forward 'contact/_contact';
-@forward 'css-position-cheat-sheet/_partial';
-@forward 'fifteenDaysofCSS-Day-5-Challenge/_partial';
-@forward 'fifteenDaysOfCSS-Day4-BasicVerticalNavbars/_partial';
-@forward 'fifteenDaysofHTML-Day5-Desc-List-Challenge/_partial';
-@forward 'home/_home';
-@forward 'navbar-link-filling-li/_partial';
-@forward 'portfolio/_portfolio-page';
+@forward 'about';
+@forward 'alien-abduction-form';
+@forward 'calculator';
+@forward 'contact';
+@forward 'css-position-cheat-sheet';
+@forward 'multi-level-navbar';
+@forward 'fifteenDaysOfCSS-Day4-BasicVerticalNavbars';
+@forward 'fifteenDaysofHTML-Day5-Desc-List-Challenge';
+@forward 'home';
+@forward 'navbar-link-filling-li';
+@forward 'portfolio';
