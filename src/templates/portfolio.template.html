@@ -1,0 +1,576 @@
+<!doctype html>
+<!--
+  🚨 IMPORTANT: This is a TEMPLATE file!
+
+  Build System Workflow (2025):
+    * All .template.html files in src/templates/ are automatically built to /dist/pages/ as .html files.
+    * No need to register new pages in the build script—just add your template here.
+    * Shared <'header'> and <'footer'> are injected from index.template.html
+    * Global environment variables (e.g., {{BASE_URL}}, {{ASSET_URL}}) are replaced automatically.
+    * Page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}) must be filled manually in each template.
+
+  How to use:
+    1. Duplicate this file for each new page you want to create.
+    2. Fill in all page-specific variables and content.
+    3. Run:
+       - npm run local   (for development/testing)
+       - npm run deploy  (before pushing to production)
+       - npm run alt     (for alternate .env.alt builds, e.g., GitHub Pages; see docs/environment-setup-guide.txt)
+
+  DO NOT edit the generated *.html file directly—it gets overwritten!
+-->
+<html lang="en">
+  <head>
+    <!--@ =============================================  -->
+    <!--@     Meta tags: charset and viewport            -->
+    <!--@ =============================================  -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+
+    <!--@ =============================================  -->
+    <!--@     SEO META TAGS PLACEHOLDERS                 -->
+    <!--@     Mix of page-specific and site-wide         -->
+    <!--@ =============================================  -->
+
+    <!--- TITLE: PAGE-SPECIFIC. Filled in manually. The page’s title (shows in browser tab and search results). -->
+    <!--@  Best practice: Use a clear, descriptive title under 60 characters. Include important keywords for the page, but avoid keyword stuffing. -->
+    <title>Full Portfolio | I Knit The Web</title>
+
+    <!--- DESCRIPTION: PAGE-SPECIFIC. Filled in manually. A concise summary of the page for SEO and social sharing. -->
+    <!--@  Best practice: 150–160 characters. Summarize the page’s content and include relevant keywords naturally. This appears in search results and social shares. -->
+    <meta
+      name="description"
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+
+    <!--- KEYWORDS: PAGE-SPECIFIC. Filled in manually. Comma-separated keywords relevant to the page. -->
+    <!--@  Best practice: List 3–8 keywords or phrases separated by commas. Not heavily used by modern search engines, but can help with internal search. -->
+    <meta
+      name="keywords"
+      content="portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments" />
+
+    <!--NOTE  AUTHOR: SITE-WIDE. -->
+    <meta
+      name="author"
+      content="I Knit The Web" />
+
+    <!--- ROBOTS: PAGE-SPECIFIC. Controls search engine indexing and crawling for this page. -->
+    <!--@     Common values: -->
+    <!--@     - "index,follow" (default for public pages; allows search engines to index and follow links) -->
+    <!--@     - "noindex,nofollow" (prevents indexing and link following; use for private, test, or duplicate pages) -->
+    <!--@     - "noindex,follow" (do not index, but allow following links) -->
+    <!--@     - "index,nofollow" (index page, but do not follow links) -->
+    <!--@ If unsure, use "index,follow" for public content you want discoverable. For pages you do NOT want in search results, use "noindex,nofollow". -->
+    <meta
+      name="robots"
+      content="{{ROBOTS}}" />
+
+    <!--- CANONICAL_URL: PAGE-SPECIFIC. The preferred URL for this page (for SEO). Should be unique per page. -->
+    <!--@  Best practice: Use the full absolute URL (e.g., https://example.com/page-name). Ensures search engines know which URL is the original if duplicates exist. -->
+    <link
+      rel="canonical"
+      href="{{BASE_URL}}dist/pages/portfolio.html" />
+
+    <!--- ============================================= -->
+    <!---     OPEN GRAPH META TAGS PLACEHOLDERS         -->
+    <!--- ============================================= -->
+    <!--- OG_TITLE, OG_DESCRIPTION, OG_IMAGE, OG_URL, OG_TYPE: PAGE-SPECIFIC. Filled in manually. Open Graph tags for social sharing. -->
+    <!--- ============================================= -->
+    <!--@ Best practice: -->
+    <!--@ OG_TITLE: Same as page title, but can be more attention-grabbing for social media. -->
+    <!--@ OG_DESCRIPTION: Similar to meta description, tailored for social sharing. -->
+    <!--@ OG_IMAGE: Absolute URL to a relevant image (1200x630px recommended). -->
+    <!--@ OG_URL: Canonical URL of the page. -->
+    <!--@ OG_TYPE: "website" for most pages, "article" for blog posts, etc. -->
+    <meta
+      property="og:title"
+      content="Full Portfolio | I Knit The Web - I Knit The Web" />
+    <meta
+      property="og:description"
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta
+      property="og:image"
+      content="{{ASSET_URL}}src/img/branding/logo.png" />
+    <meta
+      property="og:url"
+      content="{{BASE_URL}}pages/portfolio.html" />
+    <meta
+      property="og:type"
+      content="website" />
+
+    <!--- ============================================= -->
+    <!--- TWITTER CARD META TAGS PLACEHOLDERS           -->
+    <!---- PAGE-SPECIFIC. Filled in manually.              -->
+    <!--- ============================================= -->
+    <!--@ Best practice:                                -->
+    <!--@ _CARD: "summary" or "summary_large_image" (for big preview images)                                 -->
+    <!--@ _TITLE: Same as OG_TITLE                      -->
+    <!--@ _DESCRIPTION: Same as OG_DESCRIPTION          -->
+    <!--@ _IMAGE: Same as OG_IMAGE (absolute URL)       -->
+    <!--@ ============================================= -->
+    <meta
+      name="twitter:card"
+      content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Full Portfolio | I Knit The Web" />
+    <meta
+      name="twitter:description"
+      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta
+      name="twitter:image"
+      content="{{ASSET_URL}}/img/branding/logo.png" />
+
+    <!-- @ ============================================= -->
+    <!-- @ Preload minimal critical CSS to prevent FOUC  -->
+    <!-- @ ============================================= -->
+    <style>
+      body {
+        visibility: hidden;
+      }
+      .css-loaded body {
+        visibility: visible;
+      }
+    </style>
+
+    <!--NOTE ========================================== -->
+    <!--NOTE FAVICON_URL: SITE-WIDE. ASSET_URL filled by build system. -->
+    <!--NOTE ========================================== -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
+
+    <!-- @ ==================================================================================== -->
+    <!-- @     Google font preconnect links                                                     -->
+    <!-- @ ==================================================================================== -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+
+    <!--- ============================================= -->
+    <!--- GOOGLE FONTS PLACEHOLDER: PAGE-SPECIFIC. Filled in manually. -->
+    <!--- ============================================= -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+      onerror="document.documentElement.classList.add('fonts-failed');" />
+
+    <!-- @ ============================================= -->
+    <!-- @     FontAwesome CSS                          -->
+    <!-- @ ============================================= -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <!--NOTE ========================================== -->
+    <!--  NOTE PAGE-SPECIFIC CSS PLACEHOLDER: BASE_URL filled by build system;
+    <!--- PAGE-SPECIFIC CSS PLACEHOLDER: Fill in PAGE_NAME manually. -->
+    <!--- ============================================= -->
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}dist/css/portfolio.purged.css"
+      onload="window.mainCSSLoaded = true;" />
+
+    <!--- ============================================= -->
+    <!--- PAGE DATA PLACEHOLDERS: PAGE-SPECIFIC. Filled in manually. -->
+    <!--- ============================================= -->
+    <!--@ TITLE: Page title.                            -->
+    <!--@ SUBTITLE: Short subtitle or tagline.          -->
+    <!--@ NAV_CONFIG: Navigation config (e.g., "home", "portfolio"). -->
+    <!--@ BREADCRUMB_CATEGORY: Breadcrumb category (e.g., "Portfolio"). -->
+    <!--@ BREADCRUMB_CATEGORY_URL: URL for breadcrumb category. -->
+    <!--@ ============================================= -->
+    <div
+      id="page-data"
+      data-page-title="{{TITLE}}"
+      data-page-subtitle="{{SUBTITLE}}"
+      data-nav-config="{{NAV_CONFIG}}"
+      data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
+
+    <!--- ============================================= -->
+    <!--- STRUCTURED DATA PLACEHOLDERS: PAGE-SPECIFIC. Filled in manually.                   -->
+    <!--- ============================================= -->
+    <!--@ SCHEMA_TYPE: Schema.org type (e.g., "WebPage", "Article", "Person", "Project").        -->
+    <!--@ SCHEMA_NAME: Name of the page, person, or project.                                    -->
+    <!--@ SCHEMA_DESCRIPTION: Description for structured data.                                  -->
+    <!--@ SCHEMA_URL: Canonical URL for the page.                                               -->
+    <!--@ SCHEMA_IMAGE: Image URL for structured data.                                          -->
+    <!--@ SCHEMA_SAMEAS: Array of social/profile URLs (e.g., ["https://github.com/username"]).  -->
+    <!--@ SCHEMA_KNOWSABOUT: Array of topics/skills (e.g., ["HTML", "CSS"]).                    -->
+    <!--@ ============================================= -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "I Knit The Web",
+        "jobTitle": "Web Developer",
+        "description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams",
+        "url": "{{BASE_URL}}",
+        "sameAs": [],
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "SCSS", "Web Design", "Responsive Design"]
+      }
+    </script>
+
+    <!-- @ ============================================= -->
+    <!-- @     FONTAWESOME JS                            -->
+    <!-- @ ============================================= -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/94262366bd.js"
+      crossorigin="anonymous"></script>
+
+    <!--NOTE ============================================ -->
+    <!--NOTE JS PLACEHOLDERS: SITE-WIDE. ASSET_URL filled by build system. -->
+    <!--NOTE ============================================ -->
+    <script
+      defer
+      src="{{ASSET_URL}}src/js/bodyScrollLock.min.js"></script>
+    <script
+      defer
+      src="{{ASSET_URL}}src/js/navigation.js"></script>
+    <script
+      defer
+      src="{{ASSET_URL}}src/js/dropdown.js"></script>
+    <script
+      defer
+      src="{{ASSET_URL}}src/js/contactForm.js"></script>
+    <script
+      defer
+      src="{{ASSET_URL}}src/js/skillsChart.js"></script>
+
+    <!-- @ ============================================= -->
+    <!-- @     CSS Load Detection                        -->
+    <!-- @ ============================================= -->
+    <script>
+      // Wait for CSS to load before showing content
+      function checkCSSLoaded() {
+        if (window.mainCSSLoaded && document.readyState !== 'loading') {
+          document.documentElement.classList.add('css-loaded');
+        } else {
+          requestAnimationFrame(checkCSSLoaded);
+        }
+      }
+      checkCSSLoaded();
+
+      // Fallback: Show content after 3 seconds even if CSS fails to load
+      setTimeout(function () {
+        if (!document.documentElement.classList.contains('css-loaded')) {
+          console.warn('CSS loading timeout - showing content anyway');
+          document.documentElement.classList.add('css-loaded');
+        }
+      }, 3000);
+    </script>
+  </head>
+
+  <!--- ============================================= -->
+  <!--- BODY_ID AND BODY_CLASS: Fill in manually -->
+  <!--- ============================================= -->
+  <body class="home">
+    <!-- Skip Link for Screen Readers -->
+    <a
+      href="#main-content"
+      class="skip-link"
+      >Skip to main content</a
+    >
+    {{HEADER}}
+
+    <main
+      id="main-content"
+      class="portfolio-main">
+      <section class="hero">
+        <img
+          src="/src/img/pages/heading-banner-dark.svg"
+          alt=""
+          class="hero__banner"
+          width="1125"
+          height="375" />
+        <h1 class="portfolio-page__title">My Full Portfolio</h1>
+        <p class="portfolio-page__intro">
+          Welcome to my full portfolio showcasing the best web development projects I've created! From practical
+          applications to learning challenges, each project represents a step in my journey of mastering HTML, CSS,
+          JavaScript, and modern web development practices.
+        </p>
+      </section>
+      <div class="wrapper">
+        <!-- Featured Projects Section -->
+        <section class="portfolio-section">
+          <h2 class="portfolio-section__heading">Featured Projects</h2>
+          <p class="portfolio-section__intro">
+            These are my most comprehensive projects showcasing practical applications and real-world problem solving.
+          </p>
+          <div class="portfolio__row">
+            <article class="card">
+              <div class="card__header">
+                <a
+                  href="{{ASSET_URL}}/pages/portfolio-pages/alien-abduction-form.html"
+                  class="card__header-link">
+                  <h3 class="card__title">Alien Abduction Order Form</h3>
+                </a>
+              </div>
+              <div class="card__body">
+                <figure class="card__figure">
+                  <img
+                    alt="Thumbnail preview of Alien Abduction Order Form project"
+                    src="/src/img/cards/Alien-abduction-form-thumb.jpg"
+                    class="card__image"
+                    width="345"
+                    height="259" />
+                  <figcaption class="card__caption">
+                    <p> When you want an alien abduction, you want it your way. Fill out this form to get started. </p>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="card__footer">
+                <a
+                  href="/src/pages/portfolio-pages/alien-abduction-form.html"
+                  class="card__button card__button--primary card__link">
+                  See more...
+                </a>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__header">
+                <a
+                  class="card__header-link"
+                  href="/src/pages/portfolio-pages/calculator.html">
+                  <h3 class="card__title">Calculator</h3>
+                </a>
+              </div>
+              <div class="card__body">
+                <figure class="card__figure">
+                  <img
+                    alt="Thumbnail preview of Calculator project"
+                    src="/src/img/cards/Calculator-thumb.jpg"
+                    class="card__image"
+                    width="356"
+                    height="268" />
+                  <figcaption class="card__caption">
+                    <p>A simple calculator built with HTML, CSS, and JavaScript.</p>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="card__footer">
+                <a
+                  class="card__button card__button--primary card__link"
+                  href="/src/pages/portfolio-pages/calculator.html">
+                  See more...
+                </a>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__header">
+                <a
+                  class="card__header-link"
+                  href="/src/pages/portfolio-pages/css-position-cheat-sheet.html">
+                  <h3 class="card__title">CSS Position Cheat Sheet</h3>
+                </a>
+              </div>
+              <div class="card__body">
+                <figure class="card__figure">
+                  <img
+                    alt="Thumbnail preview of CSS Position Cheat Sheet project"
+                    src="/src/img/cards/css-position-cheat-sheet-thumb.png"
+                    class="card__image"
+                    width="1868"
+                    height="1401" />
+                  <figcaption class="card__caption">
+                    <p>
+                      I created this cheat sheet as an assignment on
+                      <a
+                        href="https://www.codecademy.com/learn/paths/front-end-engineer-career-path"
+                        target="_blank"
+                        rel="noopener"
+                        >Codecademy's Front-End Engineer Career Path</a
+                      >.
+                    </p>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="card__footer">
+                <a
+                  class="card__button card__button--primary card__link"
+                  href="/src/pages/portfolio-pages/css-position-cheat-sheet.html">
+                  See more...
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Learning Challenges Section -->
+        <section class="portfolio-section">
+          <h2 class="portfolio-section__heading">Learning Challenges</h2>
+          <p class="portfolio-section__intro">
+            Daily coding challenges that helped me develop specific skills and explore different techniques in HTML and
+            CSS.
+          </p>
+          <div class="portfolio__row">
+            <article class="card">
+              <div class="card__header">
+                <a
+                  class="card__header-link"
+                  href="/src/pages/portfolio-pages/fifteenDaysofCSS-Day-5-Challenge.html">
+                  <h3 class="card__title">Multi-Level Navbar</h3>
+                </a>
+              </div>
+              <div class="card__body">
+                <figure class="card__figure">
+                  <img
+                    alt="Thumbnail preview of Multi-Level Navbar Challenge project"
+                    src="{{ASSET_URL}}src/img/pages/galaxy.jpg"
+                    class="card__image"
+                    width="400"
+                    height="300" />
+                  <figcaption class="card__caption">
+                    <p> CSS challenge focusing on advanced navigation menu styling techniques and creative layouts. </p>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="card__footer">
+                <a
+                  class="card__button card__button--primary card__link"
+                  href="/src/pages/portfolio-pages/fifteenDaysofCSS-Day-5-Challenge.html">
+                  See more...
+                </a>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__header">
+                <a
+                  class="card__header-link"
+                  href="/src/pages/portfolio-pages/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.html">
+                  <h3 class="card__title">15 Days of CSS<br />Day 4&mdash;Vertical Navbars</h3>
+                </a>
+              </div>
+              <div class="card__body">
+                <figure class="card__figure">
+                  <img
+                    alt="Thumbnail preview of 15 Days of CSS Day 4 Basic Vertical Navbars project"
+                    src="/src/img/pages/galaxy.jpg"
+                    class="card__image"
+                    width="400"
+                    height="300" />
+                  <figcaption class="card__caption">
+                    <p>Exploring vertical navigation bar design and implementation with CSS.</p>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="card__footer">
+                <a
+                  class="card__button card__button--primary card__link"
+                  href="/src/pages/portfolio-pages/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.html">
+                  See more...
+                </a>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card__header">
+                <a
+                  class="card__header-link"
+                  href="/src/pages/portfolio-pages/fifteenDaysofHTML-Day5-Desc-List-Challenge.html">
+                  <h3 class="card__title">15 Days of HTML<br />Day 5&mdash;Desc List</h3>
+                </a>
+              </div>
+              <div class="card__body">
+                <figure class="card__figure">
+                  <img
+                    alt="Thumbnail preview of 15 Days of HTML Day 5 Description List Challenge project"
+                    src="/src/img/pages/galaxy.jpg"
+                    class="card__image"
+                    width="400"
+                    height="300" />
+                  <figcaption class="card__caption">
+                    <p> HTML challenge focusing on semantic markup and description list structures. </p>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="card__footer">
+                <a
+                  class="card__button card__button--primary card__link"
+                  href="/src/pages/portfolio-pages/fifteenDaysofHTML-Day5-Desc-List-Challenge.html">
+                  See more...
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Experiments Section -->
+        <section class="portfolio-section">
+          <h2 class="portfolio-section__heading">UI Experiments</h2>
+          <p class="portfolio-section__intro">
+            Focused experiments exploring specific UI patterns and interactive elements.
+          </p>
+          <div class="portfolio__row">
+            <article class="card">
+              <div class="card__header">
+                <a
+                  class="card__header-link"
+                  href="/src/pages/portfolio-pages/navbar-link-filling-li.html">
+                  <h3 class="card__title">Navbar Link Filling Li</h3>
+                </a>
+              </div>
+              <div class="card__body">
+                <figure class="card__figure">
+                  <img
+                    alt="Thumbnail preview of Navbar Link Filling Li project"
+                    src="/src/img/pages/galaxy.jpg"
+                    class="card__image"
+                    width="400"
+                    height="300" />
+                  <figcaption class="card__caption">
+                    <p> Navigation bar styling with full-width link areas for improved user experience. </p>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="card__footer">
+                <a
+                  class="card__button card__button--primary card__link"
+                  href="/src/pages/portfolio-pages/navbar-link-filling-li.html">
+                  See more...
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Back to Home -->
+        <section class="portfolio-back wrapper">
+          <p class="portfolio-back__text">
+            Ready to work together?
+            <a
+              href="/#contact"
+              class="portfolio-back__link"
+              >Let's connect</a
+            >! Or you can
+            <a
+              href="/"
+              class="portfolio-back__link"
+              >return to the homepage</a
+            >.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    {{FOOTER}}
+  </body>
+</html>
