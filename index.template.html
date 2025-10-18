@@ -23,21 +23,26 @@
 -->
 <html lang="en">
   <head>
-    <!--@ =============================================  -->
-    <!--@     Meta tags: charset and viewport            -->
-    <!--@ =============================================  -->
+    <!--@ ==========================================  -->
+    <!--@     Meta tags: charset and viewport         -->
+    <!--@ ==========================================  -->
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
 
-    <!--@ =============================================  -->
-    <!--@     SEO META TAGS PLACEHOLDERS                 -->
-    <!--@     Mix of page-specific and site-wide         -->
-    <!--@ =============================================  -->
+    <!--@ ==========================================  -->
+    <!--@     SEO META TAGS PLACEHOLDERS              -->
+    <!--@     Mix of page-specific and site-wide      -->
+    <!--@ ==========================================  -->
 
     <!--- TITLE: PAGE-SPECIFIC. Fill in manually. The page’s title (shows in browser tab and search results). -->
     <!---  Best practice: Use a clear, descriptive title under 60 characters. Include important keywords for the page, but avoid keyword stuffing. -->
+
     <title>I Knit the Web</title>
 
     <!--- DESCRIPTION: PAGE-SPECIFIC. Fill in manually. A concise summary of the page for SEO and social sharing. -->
@@ -60,9 +65,9 @@
     <!--- ROBOTS: PAGE-SPECIFIC. Controls search engine indexing and crawling for this page. -->
     <!--@     Common values: -->
     <!--@     - "index,follow" (default for public pages; allows search engines to index and follow links) -->
+    <!--@     - "index,nofollow" (index page, but do not follow links) -->
     <!--@     - "noindex,nofollow" (prevents indexing and link following; use for private, test, or duplicate pages) -->
     <!--@     - "noindex,follow" (do not index, but allow following links) -->
-    <!--@     - "index,nofollow" (index page, but do not follow links) -->
     <!--@ If unsure, use "index,follow" for public content you want discoverable. For pages you do NOT want in search results, use "noindex,nofollow". -->
     <meta
       name="robots"
@@ -103,7 +108,7 @@
 
     <!--- ============================================= -->
     <!--- TWITTER CARD META TAGS PLACEHOLDERS           -->
-    <!---- PAGE-SPECIFIC. Fill in manually.              -->
+    <!---- PAGE-SPECIFIC. Fill in manually.             -->
     <!--- ============================================= -->
     <!--@ Best practice:                                -->
     <!--@ _CARD: "summary" or "summary_large_image" (for big preview images)                                 -->
@@ -124,9 +129,9 @@
       name="twitter:image"
       content="{{TWITTER_IMAGE}}" />
 
-    <!-- @ ============================================= -->
-    <!-- @ Preload minimal critical CSS to prevent FOUC  -->
-    <!-- @ ============================================= -->
+    <!-- @ ============================================ -->
+    <!-- @ Preload minimal critical CSS to prevent FOUC -->
+    <!-- @ ============================================ -->
     <style>
       body {
         visibility: hidden;
@@ -136,17 +141,18 @@
       }
     </style>
 
-    <!-- NOTE ========================================== -->
-    <!-- NOTE FAVICON_URL: SITE-WIDE. Filled by build system. -->
-    <!-- NOTE ========================================== -->
+    <!-- NOTE ==================================== -->
+    <!-- NOTE FAVICON_URL: SITE-WIDE.              -->
+    <!-- NOTE Filled by build system.              -->
+    <!-- NOTE ==================================== -->
     <link
       rel="icon"
       type="image/x-icon"
       href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
 
-    <!-- @ ============================================= -->
-    <!-- @     Google font preconnect links              -->
-    <!-- @ ============================================= -->
+    <!-- @ ========================================== -->
+    <!-- @     Google font preconnect links           -->
+    <!-- @ ========================================== -->
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com" />
@@ -155,9 +161,10 @@
       href="https://fonts.gstatic.com"
       crossorigin />
 
-    <!-- - ============================================= -->
-    <!-- - GOOGLE FONTS PLACEHOLDER: PAGE-SPECIFIC. Fill in manually. -->
-    <!-- - ============================================= -->
+    <!-- - ========================================== -->
+    <!-- - GOOGLE FONTS PLACEHOLDER:                  -->
+    <!-- - PAGE-SPECIFIC. Fill in manually.           -->
+    <!-- - ========================================== -->
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       rel="stylesheet"
@@ -170,9 +177,9 @@
         rel="stylesheet" />
     </noscript>
 
-    <!-- @ ============================================= -->
-    <!-- @     FontAwesome CSS                           -->
-    <!-- @ ============================================= -->
+    <!-- @ ========================================== -->
+    <!-- @     FontAwesome CSS                        -->
+    <!-- @ ========================================== -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -180,23 +187,28 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
 
-    <!--- ============================================= -->
-    <!--- PAGE-SPECIFIC CSS PLACEHOLDER: Fill in manually. -->
-    <!--- ============================================= -->
+    <!--- ========================================== -->
+    <!--- PAGE-SPECIFIC CSS PLACEHOLDER:             -->
+    <!--- Fill in manually.                          -->
+    <!--- ========================================== -->
     <link
       rel="stylesheet"
       href="{{BASE_URL}}dist/css/styles.purged.css"
       onload="window.mainCSSLoaded = true;" />
 
-    <!--- ============================================= -->
-    <!--- PAGE DATA PLACEHOLDERS: PAGE-SPECIFIC. Fill in manually. -->
-    <!--- ============================================= -->
-    <!--@ TITLE: Page title.                            -->
-    <!--@ SUBTITLE: Short subtitle or tagline.          -->
-    <!--@ NAV_CONFIG: Navigation config (e.g., "home", "portfolio"). -->
-    <!--@ BREADCRUMB_CATEGORY: Breadcrumb category (e.g., "Portfolio"). -->
-    <!--@ BREADCRUMB_CATEGORY_URL: URL for breadcrumb category. -->
-    <!--@ ============================================= -->
+    <!--- ========================================== -->
+    <!--- PAGE DATA PLACEHOLDERS:                    -->
+    <!--- PAGE-SPECIFIC. Fill in manually.           -->
+    <!--- ========================================== -->
+    <!--@ TITLE: Page title.                         -->
+    <!--@ SUBTITLE: Short subtitle or tagline.       -->
+    <!--@ NAV_CONFIG: Navigation config              -->
+    <!--@   (e.g., "home", "portfolio").             -->
+    <!--@ BREADCRUMB_CATEGORY: Breadcrumb category   -->
+    <!--@   (e.g., "Portfolio").                     -->
+    <!--@ BREADCRUMB_CATEGORY_URL:                   -->
+    <!--@   URL for breadcrumb category.             -->
+    <!--@ ========================================== -->
     <div
       id="page-data"
       data-page-title="{{TITLE}}"
