@@ -5,7 +5,7 @@
  * Delete this file and remove import from _index.scss to remove completely
  * ================================================================= */
 
-@use '../A-abstracts/index' as a;
+ @use 'A-abstracts' as a;
 
 .skills-chart {
   // 🎯 COMPONENT IDENTIFIER: skills-chart (for easy removal)

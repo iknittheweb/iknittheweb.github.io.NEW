@@ -8,8 +8,8 @@
 //* Only styles unique to the multi-level navbar page belong in this file.
 //* ------------------------------------------------------------
 
-@use '../A-abstracts' as a;
-@use '../B-base' as b;
+@use 'A-abstracts' as a;
+@use 'B-base' as *;
 @use '../C-components' as c;
 // @use '../D-layout' as d;
 // @use '../F-themes' as f;
