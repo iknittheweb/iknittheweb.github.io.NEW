@@ -1,0 +1,57 @@
+Environment Setup Guide:
+
+📝 Development (.env):
+  BASE_URL=/                    # Injected as {{BASE_URL}} for local testing
+  ASSET_URL=/                   # Injected as {{ASSET_URL}} for local image paths
+  CSS_FILE=styles.css           # Injected as {{CSS_FILE}} for expanded CSS with source maps
+  ROBOTS=index,follow           # Injected as {{ROBOTS}} for SEO (public indexing)
+  CANONICAL_URL=http://localhost:3000/ # Injected as {{CANONICAL_URL}} for local canonical URL
+
+🚀 Production (.env.production):
+  BASE_URL=https://iknittheweb.com           # {{BASE_URL}} for live site
+  ASSET_URL=https://iknittheweb.com/src/img  # {{ASSET_URL}} for CDN or custom domain
+  CSS_FILE=styles.min.css                    # {{CSS_FILE}} for minified CSS
+  ROBOTS=index,follow                       # {{ROBOTS}} for SEO (public indexing)
+  CANONICAL_URL=https://iknittheweb.com/     # {{CANONICAL_URL}} for canonical production URL
+
+🌐 Alternative Development (.env.alt):
+  BASE_URL=https://iknittheweb.github.io     # {{BASE_URL}} for GitHub Pages
+  ASSET_URL=/src/img                        # {{ASSET_URL}} for GitHub Pages asset paths
+  CSS_FILE=styles.css                       # {{CSS_FILE}} for expanded CSS
+  ROBOTS=index,follow                       # {{ROBOTS}} for SEO (public indexing)
+  CANONICAL_URL=https://iknittheweb.github.io/src/pages/ # {{CANONICAL_URL}} for GitHub Pages canonical URL
+
+To use the alternative environment, run:
+  npm run alt
+This will use .env.alt and generate the site for GitHub Pages deployment.
+You can also set your build script or environment loader to use .env.alt manually if needed.
+
+
+Template & Build System Notes:
+* All pages are generated from template files (e.g., src/templates/new-page.template.html).
+* Placeholders are replaced during build using environment variables and page-specific data:
+    - {{TITLE}}: Set in the template or page config; not environment-specific.
+    - {{DESCRIPTION}}: Set in the template or page config; not environment-specific.
+    - {{KEYWORDS}}: Set in the template or page config; not environment-specific.
+    - {{AUTHOR}}: Set in the template or page config; not environment-specific.
+    @ {{ROBOTS}}: Injected from .env, .env.production, or .env.alt (controls indexing).
+    @ {{CANONICAL_URL}}: Injected from .env, .env.production, or .env.alt (canonical URL for SEO).
+    @ {{BASE_URL}}: Injected from environment file (controls root URL for assets/links).
+    @ {{ASSET_URL}}: Injected from environment file (controls asset paths for images, etc.).
+    @ {{CSS_FILE}}: Injected from environment file (controls which CSS file is loaded).
+    - {{OG_*}}, {{TWITTER_*}}: Set in the template or page config; not environment-specific.
+    - {{FAVICON_URL}}, {{GOOGLE_FONTS_LINK}}: Set in template or page config.
+- To create a new page:
+  1. Copy and rename the template file in src/templates (e.g., new-page.template.html to about.template.html).
+  2. Fill in all placeholders (meta tags, page data, structured data, CSS/JS) with page-specific content as described in the template comments.
+  3. Run `npm run local` (development), `npm run deploy` (production), or `npm run alt` (GitHub Pages) to generate the final HTML in src/pages.
+- Environment variables from .env, .env.production, or .env.alt are injected automatically for each build scenario.
+- Asset paths, CSS file names, robots, and canonical URL are controlled by environment variables for flexible deployment.
+
+Best Practices:
+- Use page-specific CSS files if compiling with PurgeCSS; global CSS is optional.
+- Fill all meta tag, Open Graph, Twitter Card, and structured data placeholders for SEO and social sharing.
+- Use {{ASSET_URL}} for all asset references in templates for correct path resolution.
+- Page-specific JS and CSS can be injected via placeholders if needed.
+
+For troubleshooting or further setup, see README.md or ask GitHub Copilot for help.

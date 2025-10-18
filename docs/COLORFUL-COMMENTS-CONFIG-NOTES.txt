@@ -1,0 +1,90 @@
+==========================
+Colorful Comments Extension Configuration
+For documentation organization in SITE-ENHANCEMENTS.txt
+==========================
+"colorful-comments.multilineComments": true,
+"colorful-comments.highlightPlainText": true,
+
+Custom comment tag colors matching our documentation legend:
+__________________________________________
+
+! Red
+"tag": "!", "color": "#ff5252",
+# Light Red
+"tag": "#", "color": "#F06292",
+TODO Orange
+"tag": "TODO", "color": "#FF8A65",
+^ Yellow
+"tag": "^", "color": "#fbff00",
+* Green
+"tag": "*", "color": "#3CFF00",
+~ Light green
+"tag": "~", "color": "#A8E6CF",
+@ greenish light blue
+"tag": "@", "color": "#45B7D1",
+NOTE light blue
+"tag": "NOTE", "color": "#00bbff",
+? Blue
+"tag": "?", "color": "#2196F3",
+pp Lavender
+"tag": "pp", "color": "#B266FF",
+; Purple
+"tag": ";", "color": "#9000ff",
+& Fuschia
+"tag": "&", "color": "#FF4FCB",
+- pink
+"tag": "-", "color": "#ff86f3",
+# gray
+"tag": "#", "color": "#9E9E9E",
+< white
+"tag": "<", "color": "#FFFFFF",
+(+) Plus sign (no parentheses in use) = Light gray/strikethrough
+"tag": "+", "color": "#c6c6c6", "strikethrough": true,
+
+__________________________________________
+  ~ ==========================
+  ~ Colorful Comments Settings
+  ~ ==========================
+
+  ~ Highlight plain text
+  "colorful-comments.highlightPlainText": true,
+  ~ Highlight multi-line comments
+  "colorful-comments.multilineComments": true,
+
+Custom comment tag colors matching our documentation legend:
+  ! Red
+  FIXME light red
+  TODO Orange
+  ^ Yellow
+  * Green
+  ~ Light green
+  @ greenish light blue
+  NOTE light blue
+  ? Blue
+  pp Lavender
+  ; Purple
+  & Fuschia
+  - pink
+  # gray
+  < white
+  + Light gray/strikethrough
+
+  ~ Colorful Comments: custom tag styles
+  "colorful-comments.tags": [
+    { "tag": "!", "color": "#F06292", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "FIXME", "color": "#ff5252", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "TODO", "color": "#FF8A65", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "^", "color": "#fbff00", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "*", "color": "#3CFF00", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "~", "color": "#A8E6CF", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "@", "color": "#45B7D1", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "NOTE", "color": "#008cffff", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "?", "color": "#3AB0FF", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "pp", "color": "#B266FF", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": ";", "color": "#9000ff", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "&", "color": "#FF4FCB", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "-", "color": "#ff86f3", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "#", "color": "#9E9E9E", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "<", "color": "#FFFFFF", "strikethrough": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+    { "tag": "+", "color": "#bcbbbbff", "strikethrough": true, "backgroundColor": "transparent", "bold": false, "italic": false }
+  ],
