@@ -23,6 +23,11 @@ implementation using modern Git practices.
 7. Edit templates: Always edit index.template.html and page templates in templates, not the generated HTML files.
 8. For new pages: Add a new \*.template.html file in templates. The build system will automatically generate the
    corresponding .html file in pages during bulk build.
+   - If page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}, {{KEYWORDS}}, {{OG_IMAGE}}, {{PAGE_NAME}}) are not
+     set in your template, the build system will insert generic defaults and a warning comment at the top of the
+     generated HTML file.
+   - Always check the top of your generated HTML files in dist/pages/ for the warning comment and update your template
+     with real values before deploying.
 9. _All CSS/SCSS compilation and purging is handled by npm scripts. No manual PowerShell or CLI needed._ ⚡ Individual
    File Build Process You can also build individual pages or stylesheets manually:
 
