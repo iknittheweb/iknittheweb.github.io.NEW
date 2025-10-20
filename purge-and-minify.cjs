@@ -62,15 +62,19 @@ function purgeAndMinify(file) {
   // Now you have a purged, readable CSS file for this page!
 }
 
-// Now let's process every CSS file in the "dist/css" folder.
-fs.readdirSync(cssDir).forEach(file => {
-  // Only process .css and .min.css files, skip already purged/minified files
-  if (
-    (file.endsWith('.css') || file.endsWith('.min.css')) &&
-    !file.endsWith('.purged.css') &&
-    !file.endsWith('.purged.min.css')
-  ) {
-    // For each file that matches, run our purge and prettify function.
-    purgeAndMinify(path.join(cssDir, file));
-  }
-});
+// Only process if dist/css exists
+if (fs.existsSync(cssDir)) {
+  fs.readdirSync(cssDir).forEach(file => {
+    // Only process .css and .min.css files, skip already purged/minified files
+    if (
+      (file.endsWith('.css') || file.endsWith('.min.css')) &&
+      !file.endsWith('.purged.css') &&
+      !file.endsWith('.purged.min.css')
+    ) {
+      // For each file that matches, run our purge and prettify function.
+      purgeAndMinify(path.join(cssDir, file));
+    }
+  });
+} else {
+  console.warn('Warning: dist/css directory does not exist. Skipping CSS purging.');
+}
