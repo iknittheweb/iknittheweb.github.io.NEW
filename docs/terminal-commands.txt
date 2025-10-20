@@ -1,0 +1,124 @@
+*==============================================================
+*==============================================================
+- PROCESS FOR BULK COMPILATION, PURGE, AND MINIFY
+*==============================================================
+*==============================================================
+- Compile all SCSS files to original CSS
+    npx sass src/scss/:dist/css/original-css/
+- Compiles all SCSS files to dist/css/original-css/.
+
+- Purge unused selectors from original CSS and output to purged/
+    npx purgecss --css "dist/css/original-css/*.css" --content "src/**/*.html" --output dist/css/purged
+- Removes unused selectors and writes purged CSS to dist/css/purged/.
+
+- Minify purged CSS files and output to min/
+    npx sass dist/css/purged/:dist/css/min/ --style=compressed
+- Minifies purged CSS files to dist/css/min/.
+
+- Rename minified files to *.min.css (optional, PowerShell)
+    Get-ChildItem dist/css/min/*.css | Rename-Item -NewName { $_.BaseName + ".min.css" }
+- Renames all minified files in dist/css/min/ to have .min.css extension.
+*==============================================================
+
+- ------------------------------------------------------------
+- COMMON TERMINAL COMMANDS FOR WEB DEVELOPMENT WORKFLOW
+- ------------------------------------------------------------
+
+- Install all dependencies listed in package.json
+npm install
+- Downloads and sets up all required packages for your project.
+
+- Start a local development server (if configured in package.json)
+npm start
+- Runs your app locally so you can preview changes in the browser.
+
+- Run the build process to generate production-ready files
+npm run build
+- Compiles, purges, and prettifies your CSS/JS/HTML for deployment.
+
+- Lint your code for errors and style issues
+npx eslint .
+npx stylelint "src/scss/**/*.scss"
+- Checks your JS and SCSS files for mistakes and enforces style rules.
+
+- Format your code for consistency
+npx prettier --write "**/*.{js,css,scss,html}"
+- Automatically formats all JS, CSS, SCSS, and HTML files in your project.
+
+- Run tests (if you have test scripts)
+npm test
+- Runs your project's test suite to check for bugs.
+
+- See which files are tracked by Git
+git ls-files
+- Lists all files currently in your repository.
+
+- Add changes to staging for the next commit
+git add .
+git add filename.ext
+- Prepares all (or specific) changed files to be committed.
+
+- Unstage a file or folder (remove from staging area, keep changes)
+git restore --staged filename.ext
+git restore --staged foldername/
+- Removes the file/folder from the staging area, but keeps your changes in your working directory.
+
+- Commit your changes with a message
+git commit -m "Describe your change here"
+- Saves your staged changes to the repository history.
+
+- Push your commits to GitHub
+git push
+- Uploads your commits to the remote repository (GitHub).
+
+- Remove a file or folder from the repository (but keep it locally)
+git rm --cached filename.ext
+git rm -r --cached foldername
+- Untracks the file/folder in Git, but leaves it on your computer.
+
+- See the status of your files (tracked, untracked, staged, etc.)
+git status
+- Shows which files have changed and what is staged for commit.
+
+- Check for security vulnerabilities in your dependencies
+npm audit
+- Scans your packages for known security issues.
+
+- Fix fixable vulnerabilities automatically
+npm audit fix
+- Updates packages to resolve security issues (when possible).
+
+- ------------------------------------------------------------
+- SASS/SCSS COMPILATION COMMANDS
+- ------------------------------------------------------------
+
+- Compile a single SCSS file to CSS (expanded, readable output)
+npx sass src/scss/styles.scss dist/css/styles.css
+- Compiles styles.scss to styles.css with default (expanded) formatting.
+
+- Compile a single SCSS file to minified CSS
+npx sass src/scss/styles.scss dist/css/styles.min.css --style=compressed
+- Compiles styles.scss to a minified CSS file.
+
+- Watch SCSS files for changes and auto-compile on save
+npx sass src/scss:dist/css --watch
+- Watches all SCSS files in src/scss and outputs CSS to dist/css, updating on every save.
+
+- Compile all SCSS files in a folder to a destination folder
+npx sass src/scss/:dist/css/original-css/
+- Compiles all SCSS files in src/scss/ to CSS files in dist/css/.
+
+- ------------------------------------------------------------
+- PurgeCSS COMMANDS
+- ------------------------------------------------------------
+
+- Purge unused selectors from all CSS files in dist/css and output to purged/ (preserving folder structure)
+New-Item -ItemType Directory -Path purged/dist/css
+npx purgecss --css "dist/css/*.css" --content "src/**/*.html" --output purged
+npx purgecss --css "dist/css/*.css" --content "src/**/*.html" --output dist/css/purged
+- Processes all CSS files in dist/css, removes unused selectors based on HTML in src/, and writes purged files to the purged folder (with folder structure).
+
+- ------------------------------------------------------------
+- You can copy and paste these commands into your terminal.
+- The comments explain what each command does for your workflow.
+- ------------------------------------------------------------

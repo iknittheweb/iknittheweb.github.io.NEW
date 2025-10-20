@@ -1,0 +1,54 @@
+^ PLACEHOLDERS FOR *.TEMPLATE.HTML FILES
+
+
+
+* Globals - Be sure to add URL placeholders for src and href attributes in images and other elements in new page templates
+	- line 38: {{ROBOTS}}
+	- line 43: {{BASE_URL}}
+	- line 43: {{CANONICAL_URL}}
+	- line 109: {{ASSET_URL}}
+
+* Page-specific
+	- line 28: {{TITLE}}
+	- line 34: {{DESCRIPTION}}
+	- line 40: {{KEYWORDS}}
+	- line 43: {{PAGE_NAME}}
+	- line 55: {{OG_TITLE}}
+	- line 57: {{OG_DESCRIPTION}}
+	- line 59: {{OG_IMAGE}}
+	- line 61: {{OG_URL}}
+	- line 63: {{OG_TYPE}}
+	- line 71: {{TWITTER_CARD}}
+	- line 73: {{TWITTER_TITLE}}
+	- line 75: {{TWITTER_DESCRIPTION}}
+	- line 77: {{TWITTER_IMAGE}}
+	- line 101: {{GOOGLE_FONTS_LINK}}
+	- line 170: {{BODY_ID}}
+	- line 171: {{BODY_CLASS}}
+	- line 143: {{SUBTITLE}}
+	- line 144: {{NAV_CONFIG}}
+	- line 145: {{BREADCRUMB_CATEGORY}}
+	- line 146: {{BREADCRUMB_CATEGORY_URL}}
+	- line 156: {{SCHEMA_TYPE}}
+	- line 157: {{SCHEMA_NAME}}
+	- line 158: {{SCHEMA_DESCRIPTION}}
+	- line 159: {{SCHEMA_URL}}
+	- line 160: {{SCHEMA_IMAGE}}
+	- line 161: {{SCHEMA_SAMEAS}}
+	- line 162: {{SCHEMA_KNOWSABOUT}}
+
+~ For best SEO and social sharing, you should use a high-quality, relevant image for {{OG_IMAGE}}, {{TWITTER_IMAGE}}, and {{SCHEMA_IMAGE}}. Here are the best practices:
+  @ The same image can be used for all three placeholders if it fits the requirements.
+  @ Recommended size: 1200x630 pixels (landscape, 1.91:1 aspect ratio).
+  @ Format: JPG or PNG.
+  @ The image should visually represent the page or your brand (e.g., a project screenshot, your logo, or a featured graphic).
+  @ The image URL should be absolute (e.g., https://iknittheweb.com/src/img/social/your-image.jpg).
+  @ Example:
+  %  {{OG_IMAGE}}: https://iknittheweb.com/src/img/social/portfolio-preview.jpg
+  %  {{TWITTER_IMAGE}}: https://iknittheweb.com/src/img/social/portfolio-preview.jpg
+  %  {{SCHEMA_IMAGE}}: https://iknittheweb.com/src/img/social/portfolio-preview.jpg
+  @ If you want to use different images for each, you can, but for most pages, using the same well-chosen image is perfectly fine. Just make sure the image is accessible and optimized for web.
+
+
+{{HEADER}} — line 286
+{{FOOTER}} — line 302
