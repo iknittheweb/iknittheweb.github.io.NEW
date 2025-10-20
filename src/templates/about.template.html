@@ -1,0 +1,376 @@
+<!doctype html>
+<!--
+  🚨 IMPORTANT: This is a TEMPLATE file!
+  See src/templates/new-page.template.html for usage instructions.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <!--
+    <meta
+      name="description"
+      content="Learn more about Marta, the developer behind I Knit the Web. Discover her skills, coding journey, and certifications." />
+    <meta
+      name="keywords"
+      content="about, developer, Marta, web development, skills, certifications, portfolio" />
+    <meta
+      content="I Knit the Web" />
+    <meta
+      name="robots"
+      content="index,follow" />
+    <link
+      rel="canonical"
+      href="{{BASE_URL}}dist/pages/about.html" />
+    <meta
+      property="og:title"
+      content="About Me | I Knit the Web" />
+    <meta
+      property="og:description"
+      content="Meet Marta, a web developer specializing in handcrafted, accessible websites. Explore her skills and achievements." />
+    <meta
+      property="og:image"
+      content="{{ASSET_URL}}src/img/pages/Profile.png" />
+    <meta
+      property="og:url"
+      content="{{BASE_URL}}dist/pages/about.html" />
+    <meta
+      property="og:type"
+      content="profile" />
+    <meta
+      name="twitter:card"
+      content="summary" />
+    <meta
+      name="twitter:title"
+      content="About Me | I Knit the Web" />
+    <meta
+      name="twitter:description"
+      content="Meet Marta, a web developer specializing in handcrafted, accessible websites. Explore her skills and achievements." />
+    <meta
+      name="twitter:image"
+      content="{{ASSET_URL}}src/img/pages/Profile.png" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'; this.onload=null;"
+      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet"
+    /></noscript>
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}dist/css/about.purged.min.css"
+      onload="window.mainCSSLoaded = true;" />
+    <div
+      id="page-data"
+      data-page-title="About Me"
+      data-page-subtitle="Meet Marta"
+      data-nav-config="about"
+      data-breadcrumb-category="About"
+      data-breadcrumb-category-url="{{BASE_URL}}dist/pages/about.html"
+      style="display: none"></div>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marta",
+        "description": "Web developer specializing in accessible, handcrafted websites.",
+        "url": "{{BASE_URL}}dist/pages/about.html",
+        "image": "{{ASSET_URL}}src/img/pages/Profile.png",
+        "sameAs": [],
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "Accessibility", "SCSS/Sass"]
+      }
+    </script>
+    <script
+      defer
+      src="https://kit.fontawesome.com/94262366bd.js"
+      crossorigin="anonymous"></script>
+    <script
+      type="module"
+      src="/src/js/script.js"></script>
+    <script>
+      function checkCSSLoaded() {
+        if (window.mainCSSLoaded && document.readyState !== 'loading') {
+          document.documentElement.classList.add('css-loaded');
+          document.documentElement.classList.add('fonts-failed');
+        } else {
+          requestAnimationFrame(checkCSSLoaded);
+        }
+      }
+      checkCSSLoaded();
+      setTimeout(function () {
+        if (!document.documentElement.classList.contains('css-loaded')) {
+          console.warn('CSS loading timeout - showing content anyway');
+          document.documentElement.classList.add('css-loaded');
+          document.documentElement.classList.add('fonts-failed');
+        }
+      }, 3000);
+    </script>
+  </head>
+  <body
+    id="about"
+    class="about">
+    <a
+      href="#main-content"
+      class="skip-link"
+      >Skip to main content</a
+    >
+    {{HEADER}}
+    <main
+      id="main-content"
+      class="about section-padding">
+      <div class="about__content wrapper">
+        <aside class="about__profile">
+          <figure class="about__profile-figure">
+            <img
+              alt="Profile picture: smiling person with glasses and short hair"
+              src="{{ASSET_URL}}src/img/pages/Profile.png"
+              class="about__profile-pic"
+              width="371"
+              height="373" />
+            <figcaption class="about__profile-caption">
+              <p
+                >I knit the web like a handmade sweater — structured with HTML, styled with CSS, and sprinkled with
+                JavaScript magic for that <span class="nowrap">✨perfect fit✨</span></p
+              >
+            </figcaption>
+          </figure>
+        </aside>
+        <section class="about__bio">
+          <h1 class="about__heading">About Me</h1>
+          <p
+            >Hi, I’m Marta! Collaboration is the key to building great websites; when we combine your ideas with my
+            development skills, we can create something truly effective and unique.</p
+          >
+          <p
+            >I work with HTML, CSS, JavaScript, and SCSS/Sass, using frameworks and design techniques that make your
+            site responsive, fast, and enjoyable to use. My approach focuses on both creativity and usability.</p
+          >
+          <p
+            >When I'm not coding, you'll probably find me <span class="nowrap">🧶 crafting 🧵</span> or diving into a
+            great book. 📖</p
+          >
+          <p
+            >Take a look at my <a href="{{ASSET_URL}}dist/pages/portfolio.html">portfolio</a> and if you'd like to
+            collaborate, <a href="{{BASE_URL}}dist/pages/contact.html">let's connect</a> —I'd love to help bring your
+            ideas to life!</p
+          >
+        </section>
+      </div>
+      <section class="bonafides">
+        <!-- Certificates, Courses & Achievements -->
+        <div class="dropdown">
+          <div
+            class="dropdown__title-group"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-controls="dropdown-content"
+            aria-describedby="dropdown-title dropdown-subtitle">
+            <span
+              class="fa-solid fa-hand-point-up dropdown__icon"
+              aria-hidden="true"></span>
+            <div class="dropdown__text-content">
+              <p
+                class="dropdown__title"
+                id="dropdown-title"
+                >My Secret Stash of Code Power-Ups!</p
+              >
+              <p
+                class="dropdown__subtitle"
+                id="dropdown-subtitle"
+                role="note"
+                aria-label="This section contains certificates, courses and achievements"
+                >a.k.a. My Certificates, Courses & Achievements</p
+              >
+            </div>
+          </div>
+          <ul
+            class="dropdown__content"
+            id="dropdown-content"
+            aria-labelledby="dropdown-title">
+            <!-- List of achievements copied from index.template.html -->
+            <li
+              ><div class="achievement"
+                ><span
+                  class="fa-solid fa-scroll achievement-icon"
+                  aria-hidden="true"></span
+                ><span
+                  >Level 1 Certifications in
+                  <a
+                    href="{{ASSET_URL}}src/certificates/CCA-Certificate-HTML-Level-1.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >HTML</a
+                  >,
+                  <a
+                    href="{{ASSET_URL}}src/certificates/CCA-Certificate-CSS-Level-1.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >CSS</a
+                  >, and
+                  <a
+                    href="{{ASSET_URL}}src/certificates/CCA-Certificate-Javascript-Level-1.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >JavaScript</a
+                  ></span
+                ></div
+              ><div class="source">Cambridge Certification Authority</div></li
+            >
+            <li
+              ><div class="achievement"
+                ><span
+                  class="fa-solid fa-books achievement-icon"
+                  style="--fa-primary-color: #2e0a20; --fa-secondary-color: #b89cbf"
+                  aria-hidden="true"></span
+                ><span
+                  ><a
+                    href="{{ASSET_URL}}src/certificates/Sololearn-HTML-Course.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >HTML</a
+                  >,
+                  <a
+                    href="{{ASSET_URL}}src/certificates/Sololearn-CSS-Course.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >CSS</a
+                  >, and
+                  <a
+                    href="{{ASSET_URL}}src/certificates/Sololearn-Web-Development-course.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >Web Development Fundamentals</a
+                  >
+                  Courses</span
+                ></div
+              ><div class="source"
+                ><a
+                  href="https://www.sololearn.com/"
+                  target="_blank"
+                  rel="noopener"
+                  class="link__site"
+                  >SoloLearn</a
+                ></div
+              ></li
+            >
+            <li
+              ><div class="achievement"
+                ><span
+                  class="fa-solid fa-books achievement-icon"
+                  style="--fa-primary-color: #2e0a20; --fa-secondary-color: #b89cbf"
+                  aria-hidden="true"></span
+                ><span
+                  ><a
+                    href="{{ASSET_URL}}src/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >Conquering Responsive Layouts</a
+                  >
+                  Course</span
+                ></div
+              ><div class="source"
+                ><a
+                  href="https://courses.kevinpowell.co/conquering-responsive-layouts"
+                  target="_blank"
+                  rel="noopener"
+                  class="link__site"
+                  >Kevin Powell</a
+                ></div
+              ></li
+            >
+            <li
+              ><div class="achievement"
+                ><span
+                  class="fa-solid fa-scroll achievement-icon"
+                  style="--fa-primary-color: #2e0a20; --fa-secondary-color: #b89cbf"
+                  aria-hidden="true"></span
+                ><span
+                  ><a
+                    href="{{ASSET_URL}}src/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >Responsive Web Design</a
+                  >
+                  Developer Certification</span
+                ></div
+              ><div class="source"
+                ><a
+                  href="https://www.freecodecamp.org/"
+                  target="_blank"
+                  rel="noopener"
+                  class="link__site"
+                  >freeCodeCamp</a
+                ></div
+              ></li
+            >
+            <li
+              ><div class="achievement"
+                ><span
+                  class="fa-solid fa-scroll achievement-icon"
+                  aria-hidden="true"></span
+                ><span
+                  ><a
+                    href="{{ASSET_URL}}src/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >HTML Forms</a
+                  >,
+                  <a
+                    href="{{ASSET_URL}}src/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >Website Embeds & GitHub Pages</a
+                  >, and
+                  <a
+                    href="{{ASSET_URL}}src/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__cert"
+                    >Calculator Project</a
+                  >
+                  Certifications</span
+                ></div
+              ><div class="source"
+                ><a
+                  href="https://frontendmasters.com/bootcamp/"
+                  target="_blank"
+                  rel="noopener"
+                  class="link__site"
+                  >Frontend Masters Bootcamp</a
+                ></div
+              ></li
+            >
+          </ul>
+        </div>
+      </section>
+    </main>
+    {{FOOTER}}
+  </body>
+</html>

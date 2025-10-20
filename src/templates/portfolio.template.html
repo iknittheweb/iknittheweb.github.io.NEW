@@ -5,17 +5,17 @@
   Build System Workflow (2025):
     * All .template.html files in src/templates/ are automatically built to /dist/pages/ as .html files.
     * No need to register new pages in the build script—just add your template here.
-    * Shared <'header'> and <'footer'> are injected from index.template.html
-    * Global environment variables (e.g., {{BASE_URL}}, {{ASSET_URL}}) are replaced automatically.
-    * Page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}) must be filled manually in each template.
+    * Shared <header> and <footer> are injected from index.html (not index.template.html).
+    * All environment variable placeholders (e.g., {{BASE_URL}}, {{ASSET_URL}}, {{ROBOTS}}, etc.) are replaced automatically from your .env files.
+    * Page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}, {{OG_IMAGE}}) must be filled manually in each template.
 
   How to use:
     1. Duplicate this file for each new page you want to create.
     2. Fill in all page-specific variables and content.
     3. Run:
-       - npm run local   (for development/testing)
-       - npm run deploy  (before pushing to production)
-       - npm run alt     (for alternate .env.alt builds, e.g., GitHub Pages; see docs/environment-setup-guide.txt)
+       - npm run local      (for development/testing)
+       - npm run prod       (for production build)
+       - npm run alt        (for alternate .env.alt builds, e.g., GitHub Pages)
 
   DO NOT edit the generated *.html file directly—it gets overwritten!
 -->
@@ -151,7 +151,6 @@
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com"
-      crossorigin />
 
     <!--- ============================================= -->
     <!--- GOOGLE FONTS PLACEHOLDER: PAGE-SPECIFIC. Filled in manually. -->
@@ -170,7 +169,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
       integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
+      <!--
 
     <!--NOTE ========================================== -->
     <!--  NOTE PAGE-SPECIFIC CSS PLACEHOLDER: BASE_URL filled by build system;
@@ -194,7 +193,6 @@
       id="page-data"
       data-page-title="{{TITLE}}"
       data-page-subtitle="{{SUBTITLE}}"
-      data-nav-config="{{NAV_CONFIG}}"
       data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
       data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
       style="display: none"></div>
@@ -235,20 +233,8 @@
     <!--NOTE JS PLACEHOLDERS: SITE-WIDE. ASSET_URL filled by build system. -->
     <!--NOTE ============================================ -->
     <script
-      defer
-      src="{{ASSET_URL}}src/js/bodyScrollLock.min.js"></script>
-    <script
-      defer
-      src="{{ASSET_URL}}src/js/navigation.js"></script>
-    <script
-      defer
-      src="{{ASSET_URL}}src/js/dropdown.js"></script>
-    <script
-      defer
-      src="{{ASSET_URL}}src/js/contactForm.js"></script>
-    <script
-      defer
-      src="{{ASSET_URL}}src/js/skillsChart.js"></script>
+      type="module"
+      src="/src/js/script.js"></script>
 
     <!-- @ ============================================= -->
     <!-- @     CSS Load Detection                        -->
@@ -321,12 +307,20 @@
               </div>
               <div class="card__body">
                 <figure class="card__figure">
-                  <img
-                    alt="Thumbnail preview of Alien Abduction Order Form project"
-                    src="/src/img/cards/Alien-abduction-form-thumb.jpg"
-                    class="card__image"
-                    width="345"
-                    height="259" />
+                  <picture>
+                    <source
+                      srcset="/dist/img/cards/Alien-abduction-form-thumb.webp"
+                      type="image/webp" />
+                    <source
+                      srcset="/dist/img/cards/Alien-abduction-form-thumb.jpg"
+                      type="image/jpeg" />
+                    <img
+                      alt="Thumbnail preview of Alien Abduction Order Form project"
+                      src="/dist/img/cards/Alien-abduction-form-thumb.jpg"
+                      class="card__image"
+                      width="345"
+                      height="259" />
+                  </picture>
                   <figcaption class="card__caption">
                     <p> When you want an alien abduction, you want it your way. Fill out this form to get started. </p>
                   </figcaption>
@@ -350,12 +344,20 @@
               </div>
               <div class="card__body">
                 <figure class="card__figure">
-                  <img
-                    alt="Thumbnail preview of Calculator project"
-                    src="/src/img/cards/Calculator-thumb.jpg"
-                    class="card__image"
-                    width="356"
-                    height="268" />
+                  <picture>
+                    <source
+                      srcset="/dist/img/cards/Calculator-thumb.webp"
+                      type="image/webp" />
+                    <source
+                      srcset="/dist/img/cards/Calculator-thumb.jpg"
+                      type="image/jpeg" />
+                    <img
+                      alt="Thumbnail preview of Calculator project"
+                      src="/dist/img/cards/Calculator-thumb.jpg"
+                      class="card__image"
+                      width="356"
+                      height="268" />
+                  </picture>
                   <figcaption class="card__caption">
                     <p>A simple calculator built with HTML, CSS, and JavaScript.</p>
                   </figcaption>
@@ -379,12 +381,20 @@
               </div>
               <div class="card__body">
                 <figure class="card__figure">
-                  <img
-                    alt="Thumbnail preview of CSS Position Cheat Sheet project"
-                    src="/src/img/cards/css-position-cheat-sheet-thumb.png"
-                    class="card__image"
-                    width="1868"
-                    height="1401" />
+                  <picture>
+                    <source
+                      srcset="/dist/img/cards/css-position-cheat-sheet-thumb.webp"
+                      type="image/webp" />
+                    <source
+                      srcset="/dist/img/cards/css-position-cheat-sheet-thumb.jpg"
+                      type="image/jpeg" />
+                    <img
+                      alt="Thumbnail preview of CSS Position Cheat Sheet project"
+                      src="/dist/img/cards/css-position-cheat-sheet-thumb.jpg"
+                      class="card__image"
+                      width="1868"
+                      height="1401" />
+                  </picture>
                   <figcaption class="card__caption">
                     <p>
                       I created this cheat sheet as an assignment on
@@ -429,12 +439,20 @@
               </div>
               <div class="card__body">
                 <figure class="card__figure">
-                  <img
-                    alt="Thumbnail preview of Multi-Level Navbar Challenge project"
-                    src="{{ASSET_URL}}src/img/pages/galaxy.jpg"
-                    class="card__image"
-                    width="400"
-                    height="300" />
+                  <picture>
+                    <source
+                      srcset="/dist/img/pages/galaxy.webp"
+                      type="image/webp" />
+                    <source
+                      srcset="/dist/img/pages/galaxy.jpg"
+                      type="image/jpeg" />
+                    <img
+                      alt="Thumbnail preview of Multi-Level Navbar Challenge project"
+                      src="/dist/img/pages/galaxy.jpg"
+                      class="card__image"
+                      width="400"
+                      height="300" />
+                  </picture>
                   <figcaption class="card__caption">
                     <p> CSS challenge focusing on advanced navigation menu styling techniques and creative layouts. </p>
                   </figcaption>
@@ -458,12 +476,20 @@
               </div>
               <div class="card__body">
                 <figure class="card__figure">
-                  <img
-                    alt="Thumbnail preview of 15 Days of CSS Day 4 Basic Vertical Navbars project"
-                    src="/src/img/pages/galaxy.jpg"
-                    class="card__image"
-                    width="400"
-                    height="300" />
+                  <picture>
+                    <source
+                      srcset="/dist/img/pages/galaxy.webp"
+                      type="image/webp" />
+                    <source
+                      srcset="/dist/img/pages/galaxy.jpg"
+                      type="image/jpeg" />
+                    <img
+                      alt="Thumbnail preview of 15 Days of CSS Day 4 Basic Vertical Navbars project"
+                      src="/dist/img/pages/galaxy.jpg"
+                      class="card__image"
+                      width="400"
+                      height="300" />
+                  </picture>
                   <figcaption class="card__caption">
                     <p>Exploring vertical navigation bar design and implementation with CSS.</p>
                   </figcaption>
@@ -487,12 +513,20 @@
               </div>
               <div class="card__body">
                 <figure class="card__figure">
-                  <img
-                    alt="Thumbnail preview of 15 Days of HTML Day 5 Description List Challenge project"
-                    src="/src/img/pages/galaxy.jpg"
-                    class="card__image"
-                    width="400"
-                    height="300" />
+                  <picture>
+                    <source
+                      srcset="/dist/img/pages/galaxy.webp"
+                      type="image/webp" />
+                    <source
+                      srcset="/dist/img/pages/galaxy.jpg"
+                      type="image/jpeg" />
+                    <img
+                      alt="Thumbnail preview of 15 Days of HTML Day 5 Description List Challenge project"
+                      src="/dist/img/pages/galaxy.jpg"
+                      class="card__image"
+                      width="400"
+                      height="300" />
+                  </picture>
                   <figcaption class="card__caption">
                     <p> HTML challenge focusing on semantic markup and description list structures. </p>
                   </figcaption>
@@ -528,12 +562,20 @@
               </div>
               <div class="card__body">
                 <figure class="card__figure">
-                  <img
-                    alt="Thumbnail preview of Navbar Link Filling Li project"
-                    src="/src/img/pages/galaxy.jpg"
-                    class="card__image"
-                    width="400"
-                    height="300" />
+                  <picture>
+                    <source
+                      srcset="/dist/img/pages/galaxy.webp"
+                      type="image/webp" />
+                    <source
+                      srcset="/dist/img/pages/galaxy.jpg"
+                      type="image/jpeg" />
+                    <img
+                      alt="Thumbnail preview of Navbar Link Filling Li project"
+                      src="/dist/img/pages/galaxy.jpg"
+                      class="card__image"
+                      width="400"
+                      height="300" />
+                  </picture>
                   <figcaption class="card__caption">
                     <p> Navigation bar styling with full-width link areas for improved user experience. </p>
                   </figcaption>

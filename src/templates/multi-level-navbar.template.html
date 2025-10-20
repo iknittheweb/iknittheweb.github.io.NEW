@@ -5,17 +5,17 @@
   Build System Workflow (2025):
     * All .template.html files in src/templates/ are automatically built to /dist/pages/ as .html files.
     * No need to register new pages in the build script—just add your template here.
-    * Shared <'header'> and <'footer'> are injected from index.template.html
-    * Global environment variables (e.g., {{BASE_URL}}, {{ASSET_URL}}) are replaced automatically.
-    * Page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}) must be filled manually in each template.
+    * Shared <header> and <footer> are injected from index.html (not index.template.html).
+    * All environment variable placeholders (e.g., {{BASE_URL}}, {{ASSET_URL}}, {{ROBOTS}}, etc.) are replaced automatically from your .env files.
+    * Page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}, {{OG_IMAGE}}) must be filled manually in each template.
 
   How to use:
     1. Duplicate this file for each new page you want to create.
     2. Fill in all page-specific variables and content.
     3. Run:
-       - npm run local   (for development/testing)
-       - npm run deploy  (before pushing to production)
-       - npm run alt     (for alternate .env.alt builds, e.g., GitHub Pages; see docs/environment-setup-guide.txt)
+       - npm run local      (for development/testing)
+       - npm run prod       (for production build)
+       - npm run alt        (for alternate .env.alt builds, e.g., GitHub Pages)
 
   DO NOT edit the generated *.html file directly—it gets overwritten!
 -->
@@ -151,7 +151,6 @@
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com"
-      crossorigin />
 
     <!--- ============================================= -->
     <!--- GOOGLE FONTS PLACEHOLDER: PAGE-SPECIFIC. Filled in manually. -->
@@ -170,7 +169,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
       integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
+      <!--
       referrerpolicy="no-referrer" />
 
     <!--NOTE ============================================= -->
@@ -194,7 +193,6 @@
     <div
       id="page-data"
       data-page-title="Multi-Level navbar"
-      data-page-subtitle="Day 5 of 15 Days of CSS by Jen Kramer"
       data-nav-config="Multi-Level navbar"
       data-breadcrumb-category="Portfolio"
       data-breadcrumb-category-url="{{BASE_URL}}dist/pages/portfolio.html"
@@ -236,20 +234,8 @@
     <!--NOTE JS PLACEHOLDERS: SITE-WIDE. ASSET_URL filled by build system. -->
     <!--NOTE ============================================ -->
     <script
-      defer
-      src="{{ASSET_URL}}src/js/bodyScrollLock.min.js"></script>
-    <script
-      defer
-      src="{{ASSET_URL}}src/js/navigation.js"></script>
-    <script
-      defer
-      src="{{ASSET_URL}}src/js/dropdown.js"></script>
-    <script
-      defer
-      src="{{ASSET_URL}}src/js/contactForm.js"></script>
-    <script
-      defer
-      src="{{ASSET_URL}}src/js/skillsChart.js"></script>
+      type="module"
+      src="/src/js/script.js"></script>
 
     <!-- @ ============================================= -->
     <!-- @     CSS Load Detection                        -->
