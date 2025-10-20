@@ -8,23 +8,19 @@
 //* Only styles unique to the multi-level navbar page belong in this file.
 //* ------------------------------------------------------------
 
-@use 'A-abstracts' as a;
-@use 'B-base' as *;
-@use '../C-components' as c;
-// @use '../D-layout' as d;
-// @use '../F-themes' as f;
-// @use '../G-vendors' as g;
+@use '../A-abstracts/functions' as f;
+@use '../A-abstracts/mixins' as m;
 
 .multi-level-nav {
   width: fit-content;
   background-color: #171821;
   box-shadow: 0 2px 8px rgba(80, 15, 68, 0.07);
-  padding: a.rem(24);
-  border-radius: a.rem(13);
+  padding: f.rem(24);
+  border-radius: f.rem(13);
   margin: 0 auto;
 
-  @include a.breakpoint-down('599.98') {
-    padding: a.rem(16);
+  @include m.breakpoint-down('599.98') {
+    padding: f.rem(16);
   }
 }
 
@@ -32,23 +28,23 @@
   &__list {
     display: inline-block;
     width: fit-content;
-    padding-inline: a.rem(24);
+    padding-inline: f.rem(24);
   }
   main {
-    padding: a.rem(40) a.rem(16);
+    padding: f.rem(40) f.rem(16);
     background: linear-gradient(135deg, #f8f8fc 0%, #eaeaf6 100%);
     border-radius: 16px;
     box-shadow: 0 2px 16px rgba(80, 15, 68, 0.08);
 
-    @include a.breakpoint-down(#{'599.98'}) {
-      padding: a.rem(16) a.rem(8);
+    @include m.breakpoint-down(#{'599.98'}) {
+      padding: f.rem(16) f.rem(8);
     }
   }
   &__title {
-    font-size: a.rem(40);
+    font-size: f.rem(40);
     font-weight: 700;
     color: #500f44;
-    margin-bottom: a.rem(24);
+    margin-bottom: f.rem(24);
     text-align: center;
     letter-spacing: 0.02em;
   }
@@ -71,12 +67,12 @@
     /* big clickable areas, padding, colors, turn off underline */
     display: block;
     color: #f679b6;
-    padding: a.rem(8) a.rem(16);
+    padding: f.rem(8) f.rem(16);
     border-radius: 10px;
   }
 
   nav ul ul a {
-    margin-left: a.rem(40);
+    margin-left: f.rem(40);
   }
 
   a:hover,  /* change the look on hover */
@@ -87,8 +83,8 @@
 
   body {
     font-family: Arial, sans-serif;
-    font-size: a.rem(16);
-    padding-bottom: a.rem(80);
+    font-size: f.rem(16);
+    padding-bottom: f.rem(80);
   }
 
   h1,
@@ -97,24 +93,24 @@
   h4,
   h5,
   h6 {
-    margin: a.rem(24) 0 a.rem(16);
+    margin: f.rem(24) 0 f.rem(16);
   }
 
   p {
-    line-height: a.rem(20.8); // 1.3rem
+    line-height: f.rem(20.8); // 1.3rem
     margin-top: 0;
   }
 
   .button {
     background-color: #eb3b5a;
-    padding: a.rem(8) a.rem(16);
+    padding: f.rem(8) f.rem(16);
     border: 1px solid #eb3b5a;
     border-radius: 30px;
     color: white;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    margin: a.rem(16) 0 a.rem(80);
+    margin: f.rem(16) 0 f.rem(80);
   }
 
   .button:hover,

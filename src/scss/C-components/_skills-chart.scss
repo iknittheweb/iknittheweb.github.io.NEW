@@ -5,14 +5,15 @@
  * Delete this file and remove import from _index.scss to remove completely
  * ================================================================= */
 
- @use 'A-abstracts' as a;
+ @use '../A-abstracts/functions' as f;
+  @use '../A-abstracts/mixins' as m;
 
 .skills-chart {
   // 🎯 COMPONENT IDENTIFIER: skills-chart (for easy removal)
   width: 100%;
   background: var(--light-bg);
   border: 1px solid var(--light-border);
-  border-radius: a.rem(8);
+  border-radius: f.rem(8);
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
   overflow: hidden;
   transition: all 0.3s ease;
@@ -23,23 +24,23 @@
 
   &__header {
     background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-    padding-block: a.rem(16);
+    padding-block: f.rem(16);
     text-align: center;
     border-bottom: 1px solid var(--light-border);
-    border-radius: a.rem(8) a.rem(8) 0 0;
+    border-radius: f.rem(8) f.rem(8) 0 0;
   }
 
   &__title {
-    font-size: a.rem(18);
+    font-size: f.rem(18);
     color: var(--light-text); // #e1dede on dark background - good contrast
-    margin-bottom: a.rem(6);
+    margin-bottom: f.rem(6);
     font-weight: 600;
     letter-spacing: 0.3px;
   }
 
   &__subtitle {
     color: var(--light-text); // Use same light color as title for consistency
-    font-size: a.rem(15);
+    font-size: f.rem(15);
     opacity: 0.85; // Slightly reduced opacity but still readable
     font-weight: 400;
   }
@@ -49,9 +50,9 @@
     flex-direction: column;
     background: var(--light-bg);
     border-bottom: 1px solid var(--light-border);
-    border-radius: 0 0 a.rem(8) a.rem(8);
+    border-radius: 0 0 f.rem(8) f.rem(8);
 
-    @include a.breakpoint('700') {
+    @include m.breakpoint('700') {
       flex-direction: row;
     }
   }
@@ -70,11 +71,11 @@
 
   &__icon {
     color: inherit;
-    font-size: a.rem(16);
+    font-size: f.rem(16);
     transition:
       transform 0.3s ease,
       color 0.6s ease;
-    margin-right: a.rem(8);
+    margin-right: f.rem(8);
 
     // When dropdown is closed, hand points down (rotate from up to down)
     transform: rotate(180deg);
@@ -98,9 +99,9 @@
   &__tab {
     background: var(--secondary-bg);
     border: none;
-    padding: a.rem(12) a.rem(16);
+    padding: f.rem(12) f.rem(16);
     font-family: inherit;
-    font-size: a.rem(15);
+    font-size: f.rem(15);
     font-weight: 500;
     color: var(--light-text);
     opacity: 0.7;
@@ -153,7 +154,7 @@
       &:focus-visible {
         outline: 3px solid var(--secondary-text);
         outline-offset: 3px;
-        border-radius: a.rem(4);
+        border-radius: f.rem(4);
       }
 
       // High contrast focus for better accessibility
@@ -181,9 +182,9 @@
 
   &__category {
     display: none;
-    padding: a.rem(16) a.rem(20);
+    padding: f.rem(16) f.rem(20);
     border-top: 1px solid var(--light-border);
-    min-height: a.rem(150);
+    min-height: f.rem(150);
 
     &--active {
       display: block;
@@ -197,7 +198,7 @@
   }
 
   &__skill-group {
-    margin-bottom: a.rem(20);
+    margin-bottom: f.rem(20);
 
     &:last-child {
       margin-bottom: 0;
@@ -205,32 +206,32 @@
   }
 
   &__group-title {
-    font-size: a.rem(16);
+    font-size: f.rem(16);
     color: var(--dark-text);
-    margin-bottom: a.rem(16);
+    margin-bottom: f.rem(16);
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: a.rem(8);
-    padding-bottom: a.rem(8);
+    gap: f.rem(8);
+    padding-bottom: f.rem(8);
     border-bottom: 2px solid var(--primary-bg-mid);
   }
 
   &__group-icon {
     color: var(--primary-bg-mid);
-    font-size: a.rem(16);
-    margin-right: a.rem(4);
+    font-size: f.rem(16);
+    margin-right: f.rem(4);
   }
 
   &__skills-list {
     display: grid;
-    gap: a.rem(14);
+    gap: f.rem(14);
   }
 
   &__skill {
     background: rgba(255, 255, 255, 0.6);
-    padding: a.rem(16);
-    border-radius: a.rem(6);
+    padding: f.rem(16);
+    border-radius: f.rem(6);
     border: 1px solid rgba(255, 255, 255, 0.8);
     transition: all 0.3s ease;
     position: relative;
@@ -264,7 +265,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: a.rem(10);
+    margin-bottom: f.rem(10);
   }
 
   &__skill-name {
@@ -272,8 +273,8 @@
     color: var(--dark-text);
     display: flex;
     align-items: center;
-    gap: a.rem(8);
-    font-size: a.rem(15);
+    gap: f.rem(8);
+    font-size: f.rem(15);
   }
 
   &__skill-icon {
@@ -283,22 +284,22 @@
   }
 
   &__skill-level {
-    font-size: a.rem(13);
+    font-size: f.rem(13);
     color: var(--primary-bg); // Dark purple text for better contrast
     font-weight: 600;
-    padding: a.rem(3) a.rem(8);
+    padding: f.rem(3) f.rem(8);
     background: var(--primary-bg-light); // Light purple background
-    border-radius: a.rem(10);
+    border-radius: f.rem(10);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
   &__progress-bar {
     background: var(--secondary-bg);
-    height: a.rem(6);
-    border-radius: a.rem(3);
+    height: f.rem(6);
+    border-radius: f.rem(3);
     overflow: hidden;
-    margin-bottom: a.rem(10);
+    margin-bottom: f.rem(10);
     position: relative;
 
     // Accessibility: Ensure sufficient contrast for progress bar background
@@ -321,7 +322,7 @@
   &__progress-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--secondary-bg-light), var(--primary-bg-light));
-    border-radius: a.rem(3);
+    border-radius: f.rem(3);
     transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     width: 0;
     position: relative;
@@ -355,37 +356,37 @@
   }
 
   &__skill-description {
-    font-size: a.rem(14);
+    font-size: f.rem(14);
     color: var(--secondary-text);
     line-height: 1.4;
-    margin-left: a.rem(20); // Align with icon
+    margin-left: f.rem(20); // Align with icon
   }
 
   &__timeline {
     background: rgba(255, 255, 255, 0.4);
-    padding: a.rem(24);
-    border-radius: a.rem(8);
+    padding: f.rem(24);
+    border-radius: f.rem(8);
     border: 1px solid rgba(255, 255, 255, 0.6);
   }
 
   &__timeline-title {
-    font-size: a.rem(16);
+    font-size: f.rem(16);
     color: var(--dark-text);
-    margin-bottom: a.rem(20);
+    margin-bottom: f.rem(20);
     text-align: center;
     font-weight: 600;
   }
 
   &__timeline-items {
     position: relative;
-    padding-left: a.rem(24);
+    padding-left: f.rem(24);
 
     &::before {
       content: '';
       position: absolute;
-      left: a.rem(10);
-      top: a.rem(8);
-      bottom: a.rem(8);
+      left: f.rem(10);
+      top: f.rem(8);
+      bottom: f.rem(8);
       width: 2px;
       background: linear-gradient(180deg, var(--primary-bg-mid), var(--secondary-bg-mid));
     }
@@ -393,8 +394,8 @@
 
   &__timeline-item {
     position: relative;
-    margin-bottom: a.rem(20);
-    padding-left: a.rem(20);
+    margin-bottom: f.rem(20);
+    padding-left: f.rem(20);
 
     &:last-child {
       margin-bottom: 0;
@@ -403,10 +404,10 @@
     &::before {
       content: '';
       position: absolute;
-      left: a.rem(-7);
-      top: a.rem(2);
-      width: a.rem(8);
-      height: a.rem(8);
+      left: f.rem(-7);
+      top: f.rem(2);
+      width: f.rem(8);
+      height: f.rem(8);
       background: var(--primary-bg-mid); // Medium purple for better visibility
       border-radius: 50%;
       border: 2px solid var(--light-bg);
@@ -415,23 +416,23 @@
   }
 
   &__timeline-date {
-    font-size: a.rem(13);
+    font-size: f.rem(13);
     color: var(--primary-bg-mid); // Medium purple for better contrast
     font-weight: 600;
-    margin-bottom: a.rem(4);
+    margin-bottom: f.rem(4);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
   &__timeline-event {
-    font-size: a.rem(15);
+    font-size: f.rem(15);
     color: var(--dark-text);
     font-weight: 600;
-    margin-bottom: a.rem(4);
+    margin-bottom: f.rem(4);
   }
 
   &__timeline-description {
-    font-size: a.rem(14);
+    font-size: f.rem(14);
     color: var(--secondary-text);
     line-height: 1.4;
   }
@@ -441,7 +442,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(a.rem(20));
+    transform: translateY(f.rem(20));
   }
   to {
     opacity: 1;

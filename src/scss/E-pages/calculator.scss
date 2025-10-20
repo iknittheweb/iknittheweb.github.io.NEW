@@ -1,21 +1,16 @@
 // Entry-point SCSS for Calculator
-@use 'A-abstracts' as a;
-@use 'B-base' as *;
-@use 'C-components' as *;
-@use 'D-layout' as *;
-@use 'F-themes' as *;
-@use 'G-vendors' as *;
-
+@use '../A-abstracts/functions' as f;
+@use '../A-abstracts/mixins' as m;
 /* =====================================
 	 Calculator Page Layout
 	 ===================================== */
 .calculator__main {
-  margin: a.rem(32) auto;
-  padding: 0 a.rem(16);
+  margin: f.rem(32) auto;
+  padding: 0 f.rem(16);
 
-  @include a.breakpoint-down('599.98') {
-    margin: a.rem(16) auto;
-    padding: 0 a.rem(8);
+  @include m.breakpoint-down('599.98') {
+    margin: f.rem(16) auto;
+    padding: 0 f.rem(8);
   }
 }
 
@@ -27,7 +22,7 @@
   border-radius: 8px;
   width: 400px;
 
-  @include a.breakpoint-down('599.98') {
+  @include m.breakpoint-down('599.98') {
     width: 98%;
     min-width: 0;
     padding: 5px;

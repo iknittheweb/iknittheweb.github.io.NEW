@@ -1,7 +1,3 @@
-// Entry-point SCSS for Alien Abduction Order Form
-
-@use 'A-abstracts' as a;
-
 //* ------------------------------------------------------------
 //* ALIEN ABDUCTION FORM PAGE PARTIAL
 //* Place all styles specific to the Alien Abduction Form page layout and appearance here.
@@ -10,10 +6,13 @@
 //* Only styles unique to the Alien Abduction Form page belong in this file.
 //* ------------------------------------------------------------
 
+@use '../A-abstracts/functions' as f;
+@use '../A-abstracts/mixins' as m;
+
 .alien-form-page-hero {
   background: linear-gradient(135deg, var(--alien-primary-bg) 0%, var(--alien-secondary-bg) 100%);
   color: var(--alien-text-light);
-  padding-block: a.rem(60);
+  padding-block: f.rem(60);
   text-align: center;
   border-bottom: 3px solid var(--alien-accent);
   position: relative;
@@ -35,8 +34,8 @@
     animation: starfield 20s linear infinite;
   }
 
-  @include a.breakpoint('900') {
-    padding-block: a.rem(80);
+  @include m.breakpoint('900') {
+    padding-block: f.rem(80);
   }
 }
 
@@ -52,15 +51,15 @@
 .alien-form-page__wrapper {
   position: relative;
   z-index: 1;
-  max-width: a.rem(900);
+  max-width: f.rem(900);
   margin-inline: auto;
-  padding: a.rem(40) a.rem(16);
+  padding: f.rem(40) f.rem(16);
   background: rgb(var(--alien-primary-bg), 0.85);
-  border-radius: a.rem(16);
+  border-radius: f.rem(16);
   box-shadow: 0 8px 32px rgb(0 255 65 / 10%);
 
-  @include a.breakpoint-down('699.98') {
-    padding: a.rem(32) a.rem(12);
+  @include m.breakpoint-down('699.98') {
+    padding: f.rem(32) f.rem(12);
   }
 }
 
