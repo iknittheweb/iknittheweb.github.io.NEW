@@ -25,6 +25,9 @@ const { execSync } = require('child_process'); // For running terminal commands 
 // __dirname means "the folder where this script is located".
 const cssDir = path.join(__dirname, 'dist', 'css');
 
+// Ensure dist/css exists (create if missing)
+fs.mkdirSync(cssDir, { recursive: true });
+
 // This function does the purging and prettifying for one CSS file.
 function purgeAndMinify(file) {
   // Get the "base name" of the CSS file (e.g., "portfolio" from "portfolio.css").
@@ -64,7 +67,7 @@ function purgeAndMinify(file) {
 
 // Only process if dist/css exists
 if (fs.existsSync(cssDir)) {
-  fs.readdirSync(cssDir).forEach(file => {
+  fs.readdirSync(cssDir).forEach((file) => {
     // Only process .css and .min.css files, skip already purged/minified files
     if (
       (file.endsWith('.css') || file.endsWith('.min.css')) &&
