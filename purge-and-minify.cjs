@@ -6,7 +6,7 @@
   Welcome! This script is your CSS cleanup assistant. Its job is to make sure your CSS files only contain styles that are actually used on each page, and that those styles are easy to read.
 
   Here's what happens step-by-step:
-  1. The script looks for all your CSS files in the "dist/css" folder.
+   1. The script looks for all your CSS files in the "dist/css" folder.
   2. For each CSS file, it finds the matching HTML file in "dist/pages" (for example, "portfolio.css" matches "portfolio.html").
   3. It creates a temporary config file that tells PurgeCSS to scan only that HTML file for used selectors.
   4. It runs PostCSS with PurgeCSS and postcss-prettify, which removes unused styles and makes the CSS readable.
@@ -64,12 +64,11 @@ function purgeAndMinify(file) {
 
 // Now let's process every CSS file in the "dist/css" folder.
 fs.readdirSync(cssDir).forEach(file => {
-  // We want to process both regular and minified CSS files, but skip temp and already purged files.
+  // Only process .css and .min.css files, skip already purged/minified files
   if (
-    (file.endsWith('.css') || file.endsWith('.min.css')) && // Only .css and .min.css files
-    !file.endsWith('.temp.css') && // Skip .temp.css files
-    !file.endsWith('.purged.css') && // Skip .purged.css files
-    !file.endsWith('.purged.min.css') // Skip .purged.min.css files
+    (file.endsWith('.css') || file.endsWith('.min.css')) &&
+    !file.endsWith('.purged.css') &&
+    !file.endsWith('.purged.min.css')
   ) {
     // For each file that matches, run our purge and prettify function.
     purgeAndMinify(path.join(cssDir, file));
