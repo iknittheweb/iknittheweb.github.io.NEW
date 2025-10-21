@@ -23,4 +23,5 @@ module.exports = {
   bracketSameLine: true, // Put the > of a multi-line HTML element at the end of the last line
   arrowParens: 'always', // Always include parentheses around arrow function parameters
   proseWrap: 'always', // Wrap markdown text as needed
+  htmlSelfClosingTags: false, // Prevent trailing slashes on void elements in HTML
 };
