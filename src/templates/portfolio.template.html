@@ -1,88 +1,35 @@
 <!doctype html>
-<!--
-  🚨 IMPORTANT: This is a TEMPLATE file!
-
-  Build System Workflow (2025):
-    * All .template.html files in src/templates/ are automatically built to /dist/pages/ as .html files.
-    * No need to register new pages in the build script—just add your template here.
-    * Shared <header> and <footer> are injected from index.html (not index.template.html).
-    * All environment variable placeholders (e.g., {{BASE_URL}}, {{ASSET_URL}}, {{ROBOTS}}, etc.) are replaced automatically from your .env files.
-    * Page-specific placeholders (e.g., {{TITLE}}, {{DESCRIPTION}}, {{OG_IMAGE}}) must be filled manually in each template.
-
-  How to use:
-    1. Duplicate this file for each new page you want to create.
-    2. Fill in all page-specific variables and content.
-    3. Run:
-       - npm run local      (for development/testing)
-       - npm run prod       (for production build)
-       - npm run alt        (for alternate .env.alt builds, e.g., GitHub Pages)
-
-  DO NOT edit the generated *.html file directly—it gets overwritten!
--->
 <html lang="en">
+  <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
-    <!--@ =============================================  -->
-    <!--@     Meta tags: charset and viewport            -->
-    <!--@ =============================================  -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
 
-    <!--@ =============================================  -->
-    <!--@     SEO META TAGS PLACEHOLDERS                 -->
-    <!--@     Mix of page-specific and site-wide         -->
-    <!--@ =============================================  -->
 
-    <!--- TITLE: PAGE-SPECIFIC. Filled in manually. The page’s title (shows in browser tab and search results). -->
-    <!--@  Best practice: Use a clear, descriptive title under 60 characters. Include important keywords for the page, but avoid keyword stuffing. -->
     <title>Full Portfolio | I Knit The Web</title>
 
-    <!--- DESCRIPTION: PAGE-SPECIFIC. Filled in manually. A concise summary of the page for SEO and social sharing. -->
-    <!--@  Best practice: 150–160 characters. Summarize the page’s content and include relevant keywords naturally. This appears in search results and social shares. -->
     <meta
       name="description"
       content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
 
-    <!--- KEYWORDS: PAGE-SPECIFIC. Filled in manually. Comma-separated keywords relevant to the page. -->
-    <!--@  Best practice: List 3–8 keywords or phrases separated by commas. Not heavily used by modern search engines, but can help with internal search. -->
     <meta
       name="keywords"
       content="portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments" />
 
-    <!--NOTE  AUTHOR: SITE-WIDE. -->
     <meta
       name="author"
       content="I Knit The Web" />
 
-    <!--- ROBOTS: PAGE-SPECIFIC. Controls search engine indexing and crawling for this page. -->
-    <!--@     Common values: -->
-    <!--@     - "index,follow" (default for public pages; allows search engines to index and follow links) -->
-    <!--@     - "noindex,nofollow" (prevents indexing and link following; use for private, test, or duplicate pages) -->
-    <!--@     - "noindex,follow" (do not index, but allow following links) -->
-    <!--@     - "index,nofollow" (index page, but do not follow links) -->
-    <!--@ If unsure, use "index,follow" for public content you want discoverable. For pages you do NOT want in search results, use "noindex,nofollow". -->
     <meta
       name="robots"
       content="{{ROBOTS}}" />
 
-    <!--- CANONICAL_URL: PAGE-SPECIFIC. The preferred URL for this page (for SEO). Should be unique per page. -->
-    <!--@  Best practice: Use the full absolute URL (e.g., https://example.com/page-name). Ensures search engines know which URL is the original if duplicates exist. -->
     <link
       rel="canonical"
       href="{{BASE_URL}}dist/pages/portfolio.html" />
 
-    <!--- ============================================= -->
-    <!---     OPEN GRAPH META TAGS PLACEHOLDERS         -->
-    <!--- ============================================= -->
-    <!--- OG_TITLE, OG_DESCRIPTION, OG_IMAGE, OG_URL, OG_TYPE: PAGE-SPECIFIC. Filled in manually. Open Graph tags for social sharing. -->
-    <!--- ============================================= -->
-    <!--@ Best practice: -->
-    <!--@ OG_TITLE: Same as page title, but can be more attention-grabbing for social media. -->
-    <!--@ OG_DESCRIPTION: Similar to meta description, tailored for social sharing. -->
-    <!--@ OG_IMAGE: Absolute URL to a relevant image (1200x630px recommended). -->
-    <!--@ OG_URL: Canonical URL of the page. -->
-    <!--@ OG_TYPE: "website" for most pages, "article" for blog posts, etc. -->
     <meta
       property="og:title"
       content="Full Portfolio | I Knit The Web - I Knit The Web" />
@@ -99,16 +46,6 @@
       property="og:type"
       content="website" />
 
-    <!--- ============================================= -->
-    <!--- TWITTER CARD META TAGS PLACEHOLDERS           -->
-    <!---- PAGE-SPECIFIC. Filled in manually.              -->
-    <!--- ============================================= -->
-    <!--@ Best practice:                                -->
-    <!--@ _CARD: "summary" or "summary_large_image" (for big preview images)                                 -->
-    <!--@ _TITLE: Same as OG_TITLE                      -->
-    <!--@ _DESCRIPTION: Same as OG_DESCRIPTION          -->
-    <!--@ _IMAGE: Same as OG_IMAGE (absolute URL)       -->
-    <!--@ ============================================= -->
     <meta
       name="twitter:card"
       content="summary_large_image" />
@@ -122,9 +59,6 @@
       name="twitter:image"
       content="{{ASSET_URL}}/img/branding/logo.png" />
 
-    <!-- @ ============================================= -->
-    <!-- @ Preload minimal critical CSS to prevent FOUC  -->
-    <!-- @ ============================================= -->
     <style>
       body {
         visibility: hidden;
@@ -134,17 +68,11 @@
       }
     </style>
 
-    <!--NOTE ========================================== -->
-    <!--NOTE FAVICON_URL: SITE-WIDE. ASSET_URL filled by build system. -->
-    <!--NOTE ========================================== -->
     <link
       rel="icon"
       type="image/x-icon"
       href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
 
-    <!-- @ ==================================================================================== -->
-    <!-- @     Google font preconnect links                                                     -->
-    <!-- @ ==================================================================================== -->
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com" />
@@ -152,18 +80,12 @@
       rel="preconnect"
       href="https://fonts.gstatic.com"
 
-    <!--- ============================================= -->
-    <!--- GOOGLE FONTS PLACEHOLDER: PAGE-SPECIFIC. Filled in manually. -->
-    <!--- ============================================= -->
 
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Orbitron:wght@400..900&display=swap"
       rel="stylesheet"
       onerror="document.documentElement.classList.add('fonts-failed');" />
 
-    <!-- @ ============================================= -->
-    <!-- @     FontAwesome CSS                          -->
-    <!-- @ ============================================= -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -171,24 +93,11 @@
       crossorigin="anonymous"
       <!--
 
-    <!--NOTE ========================================== -->
-    <!--  NOTE PAGE-SPECIFIC CSS PLACEHOLDER: BASE_URL filled by build system;
-    <!--- PAGE-SPECIFIC CSS PLACEHOLDER: Fill in PAGE_NAME manually. -->
-    <!--- ============================================= -->
     <link
       rel="stylesheet"
       href="{{BASE_URL}}dist/css/portfolio.purged.css"
       onload="window.mainCSSLoaded = true;" />
 
-    <!--- ============================================= -->
-    <!--- PAGE DATA PLACEHOLDERS: PAGE-SPECIFIC. Filled in manually. -->
-    <!--- ============================================= -->
-    <!--@ TITLE: Page title.                            -->
-    <!--@ SUBTITLE: Short subtitle or tagline.          -->
-    <!--@ NAV_CONFIG: Navigation config (e.g., "home", "portfolio"). -->
-    <!--@ BREADCRUMB_CATEGORY: Breadcrumb category (e.g., "Portfolio"). -->
-    <!--@ BREADCRUMB_CATEGORY_URL: URL for breadcrumb category. -->
-    <!--@ ============================================= -->
     <div
       id="page-data"
       data-page-title="{{TITLE}}"
@@ -197,17 +106,6 @@
       data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
       style="display: none"></div>
 
-    <!--- ============================================= -->
-    <!--- STRUCTURED DATA PLACEHOLDERS: PAGE-SPECIFIC. Filled in manually.                   -->
-    <!--- ============================================= -->
-    <!--@ SCHEMA_TYPE: Schema.org type (e.g., "WebPage", "Article", "Person", "Project").        -->
-    <!--@ SCHEMA_NAME: Name of the page, person, or project.                                    -->
-    <!--@ SCHEMA_DESCRIPTION: Description for structured data.                                  -->
-    <!--@ SCHEMA_URL: Canonical URL for the page.                                               -->
-    <!--@ SCHEMA_IMAGE: Image URL for structured data.                                          -->
-    <!--@ SCHEMA_SAMEAS: Array of social/profile URLs (e.g., ["https://github.com/username"]).  -->
-    <!--@ SCHEMA_KNOWSABOUT: Array of topics/skills (e.g., ["HTML", "CSS"]).                    -->
-    <!--@ ============================================= -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -221,24 +119,14 @@
       }
     </script>
 
-    <!-- @ ============================================= -->
-    <!-- @     FONTAWESOME JS                            -->
-    <!-- @ ============================================= -->
-    <script
       defer
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
-    <!--NOTE ============================================ -->
-    <!--NOTE JS PLACEHOLDERS: SITE-WIDE. ASSET_URL filled by build system. -->
-    <!--NOTE ============================================ -->
     <script
       type="module"
       src="/src/js/script.js"></script>
 
-    <!-- @ ============================================= -->
-    <!-- @     CSS Load Detection                        -->
-    <!-- @ ============================================= -->
     <script>
       // Wait for CSS to load before showing content
       function checkCSSLoaded() {
@@ -258,6 +146,35 @@
         }
       }, 3000);
     </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Portfolio | I Knit The Web</title>
+    <meta name="description" content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta name="keywords" content="portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments" />
+    <meta name="author" content="I Knit The Web" />
+    <meta name="robots" content="{{ROBOTS}}" />
+    <link rel="canonical" href="{{BASE_URL}}dist/pages/portfolio.html" />
+    <meta property="og:title" content="Full Portfolio | I Knit The Web - I Knit The Web" />
+    <meta property="og:description" content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta property="og:image" content="{{ASSET_URL}}src/img/branding/logo.png" />
+    <meta property="og:url" content="{{BASE_URL}}pages/portfolio.html" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Full Portfolio | I Knit The Web" />
+    <meta name="twitter:description" content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+    <meta name="twitter:image" content="{{ASSET_URL}}/img/branding/logo.png" />
+    <style>body {visibility: hidden;} .css-loaded body {visibility: visible;}</style>
+    <link rel="icon" type="image/x-icon" href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet" onerror="document.documentElement.classList.add('fonts-failed');" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" />
+    <link rel="stylesheet" href="{{BASE_URL}}dist/css/portfolio.purged.css" onload="window.mainCSSLoaded = true;" />
+    <div id="page-data" data-page-title="{{TITLE}}" data-page-subtitle="{{SUBTITLE}}" data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}" data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}" style="display: none"></div>
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "Person","name": "I Knit The Web","jobTitle": "Web Developer","description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams","url": "{{BASE_URL}}","sameAs": [],"knowsAbout": ["HTML", "CSS", "JavaScript", "SCSS", "Web Design", "Responsive Design"]}</script>
+    <script defer src="https://kit.fontawesome.com/94262366bd.js" crossorigin="anonymous"></script>
+    <script type="module" src="/src/js/script.js"></script>
+    <script>function checkCSSLoaded(){if(window.mainCSSLoaded&&document.readyState!=='loading'){document.documentElement.classList.add('css-loaded');}else{requestAnimationFrame(checkCSSLoaded);}}checkCSSLoaded();setTimeout(function(){if(!document.documentElement.classList.contains('css-loaded')){console.warn('CSS loading timeout - showing content anyway');document.documentElement.classList.add('css-loaded');}},3000);</script>
   </head>
 
   <!--- ============================================= -->
