@@ -1,1 +1,1 @@
-import 'cypress-image-snapshot/command';
+import '@percy/cypress';
