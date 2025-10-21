@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install
+      - name: Run build (local)
+        run: npm run local
+      - name: Run accessibility tests (multi-page)
+        run: npm run test:a11y:all
+      - name: Run E2E tests
+        run: npm run test:e2e
+      - name: Run stylelint
+        run: npm run test:style
+      - name: Run unit tests
+        run: npm test
+
+      - name: Run Lighthouse CI
+        run: npm run lighthouse:ci

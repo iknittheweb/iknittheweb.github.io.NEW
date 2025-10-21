@@ -1,0 +1,14 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:5500"],
+      "startServerCommand": "npx http-server ."
+    },
+    "assert": {
+      "preset": "lighthouse:recommended"
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

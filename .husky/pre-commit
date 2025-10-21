@@ -1,0 +1,18 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run lint-staged for staged files
+npx lint-staged
+
+# Run stylelint on staged SCSS files
+npx stylelint "src/**/*.scss"
+
+# Run ESLint on staged JS files
+npx eslint "src/**/*.js"
+
+# Run Prettier on staged JSON files
+npx prettier --check "**/*.json"
+
+# Run tests (unit, accessibility)
+npm run test
+npm run test:a11y
