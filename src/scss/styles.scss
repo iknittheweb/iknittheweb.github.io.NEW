@@ -7,10 +7,10 @@
 //* ------------------------------------------------------------
 
 // This is the root SCSS file for your project. It imports all partials from the subfolders (abstracts, base, components, layout, pages, themes, vendors).
-@use 'A-abstracts' as a;
-@use 'B-base';
-@use 'C-components';
-@use 'D-layout';
-@use 'E-pages';
-@use 'F-themes';
-@use 'G-vendors';
+@use './A-abstracts' as a;
+@use './B-base';
+@use './C-components';
+@use './D-layout';
+@use './E-pages';
+@use './F-themes';
+@use './G-vendors';
