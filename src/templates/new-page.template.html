@@ -1,31 +1,60 @@
 <!doctype html>
-  <html lang="en">
+<html lang="en">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
-
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{TITLE}} | I Knit The Web</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>NEW PAGE | I Knit The Web</title>
     <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
     <script>
       if (document.title.trim() === '' || document.title.includes('{{TITLE}}')) {
         document.title = 'New Page | I Knit The Web';
       }
     </script>
-    <meta name="description" content="{{DESCRIPTION}}" />
-    <meta name="keywords" content="{{KEYWORDS}}" />
-    <meta name="author" content="I Knit the Web" />
-    <meta name="robots" content="{{ROBOTS}}" />
-    <link rel="canonical" href="{{BASE_URL}}dist/pages/{{PAGE_NAME}}.html" />
-    <meta property="og:title" content="{{OG_TITLE}}" />
-    <meta property="og:description" content="{{OG_DESCRIPTION}}" />
-    <meta property="og:image" content="{{OG_IMAGE}}" />
-    <meta property="og:url" content="{{OG_URL}}" />
-    <meta property="og:type" content="{{OG_TYPE}}" />
-    <meta name="twitter:card" content="{{TWITTER_CARD}}" />
-    <meta name="twitter:title" content="{{TWITTER_TITLE}}" />
-    <meta name="twitter:description" content="{{TWITTER_DESCRIPTION}}" />
-    <meta name="twitter:image" content="{{TWITTER_IMAGE}}" />
+    <meta
+      name="description"
+      content="{{DESCRIPTION}}" />
+    <meta
+      name="keywords"
+      content="{{KEYWORDS}}" />
+    <meta
+      name="author"
+      content="I Knit the Web" />
+    <meta
+      name="robots"
+      content="{{ROBOTS}}" />
+    <link
+      rel="canonical"
+      href="{{BASE_URL}}dist/pages/{{PAGE_NAME}}.html" />
+    <meta
+      property="og:title"
+      content="{{OG_TITLE}}" />
+    <meta
+      property="og:description"
+      content="{{OG_DESCRIPTION}}" />
+    <meta
+      property="og:image"
+      content="{{OG_IMAGE}}" />
+    <meta
+      property="og:url"
+      content="{{OG_URL}}" />
+    <meta
+      property="og:type"
+      content="{{OG_TYPE}}" />
+    <meta
+      name="twitter:card"
+      content="{{TWITTER_CARD}}" />
+    <meta
+      name="twitter:title"
+      content="{{TWITTER_TITLE}}" />
+    <meta
+      name="twitter:description"
+      content="{{TWITTER_DESCRIPTION}}" />
+    <meta
+      name="twitter:image"
+      content="{{TWITTER_IMAGE}}" />
 
     <style>
       body {
@@ -60,7 +89,6 @@
         rel="stylesheet" />
     </noscript>
 
-
     <link
       rel="stylesheet"
       href="{{BASE_URL}}dist/css/{{PAGE_NAME}}.purged.min.css"
@@ -88,6 +116,7 @@
       }
     </script>
 
+    <script
       defer
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
