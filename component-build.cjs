@@ -16,7 +16,7 @@ require('dotenv').config({
 
 const srcDir = path.join(__dirname, 'src', 'templates');
 const outDir = path.join(__dirname, 'dist', 'pages');
-const indexHtmlPath = path.join(__dirname, 'index.html');
+const indexHtmlPath = path.join(__dirname, 'dist', 'index.html');
 
 // Ensure output directory exists
 fs.mkdirSync(outDir, { recursive: true });
