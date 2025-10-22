@@ -1,6 +1,7 @@
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
+  projectId: 'xrecd4',
   e2e: {
     setupNodeEvents(on, config) {
       // Percy does not require plugin setup here
