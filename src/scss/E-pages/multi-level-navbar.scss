@@ -14,7 +14,7 @@
 .multi-level-nav {
   width: fit-content;
   background-color: #171821;
-  box-shadow: 0 2px 8px rgba(80, 15, 68, 0.07);
+  box-shadow: 0 2px 8px rgb(80 15 68 / 7%);
   padding: f.rem(24);
   border-radius: f.rem(13);
   margin: 0 auto;
@@ -30,16 +30,18 @@
     width: fit-content;
     padding-inline: f.rem(24);
   }
+
   main {
     padding: f.rem(40) f.rem(16);
     background: linear-gradient(135deg, #f8f8fc 0%, #eaeaf6 100%);
     border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(80, 15, 68, 0.08);
+    box-shadow: 0 2px 16px rgb(80 15 68 / 8%);
 
     @include m.breakpoint-down(#{'599.98'}) {
       padding: f.rem(16) f.rem(8);
     }
   }
+
   &__title {
     font-size: f.rem(40);
     font-weight: 700;
@@ -48,6 +50,7 @@
     text-align: center;
     letter-spacing: 0.02em;
   }
+
   ul {
     /* turn off bullets, margin, padding */
     list-style-type: none;

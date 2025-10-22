@@ -5,8 +5,8 @@
  * Delete this file and remove import from _index.scss to remove completely
  * ================================================================= */
 
- @use '../A-abstracts/functions' as f;
-  @use '../A-abstracts/mixins' as m;
+@use '../A-abstracts/functions' as f;
+@use '../A-abstracts/mixins' as m;
 
 .skills-chart {
   // 🎯 COMPONENT IDENTIFIER: skills-chart (for easy removal)
@@ -65,7 +65,7 @@
     transition: all 0.3s ease;
 
     &:hover {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
     }
   }
 
@@ -76,16 +76,12 @@
       transform 0.3s ease,
       color 0.6s ease;
     margin-right: f.rem(8);
-
-    // When dropdown is closed, hand points down (rotate from up to down)
     transform: rotate(180deg);
 
-    // Respect user's motion preferences
     @media (prefers-reduced-motion: reduce) {
-      transition: color 0.6s ease; // Keep color transition, remove transform transition
+      transition: color 0.6s ease;
     }
   }
-
   // When dropdown is open, rotate hand to point up (original position)
   &__tab--active &__icon {
     transform: rotate(0deg);
@@ -119,9 +115,7 @@
       color: var(--secondary-text);
       opacity: 1;
 
-      .skills-chart__icon {
-        color: inherit;
-      }
+      // ...existing code...
     }
 
     &:focus {
@@ -131,9 +125,7 @@
       opacity: 1;
       box-shadow: 0 0 0 2px var(--primary-bg-light);
 
-      .skills-chart__icon {
-        color: inherit;
-      }
+      // ...existing code...
     }
 
     &:focus-visible {
@@ -147,9 +139,7 @@
       font-weight: 600;
       opacity: 1;
 
-      .skills-chart__icon {
-        color: inherit;
-      }
+      // ...existing code...
 
       &:focus-visible {
         outline: 3px solid var(--secondary-text);
@@ -167,11 +157,9 @@
 
       // Ensure interactive state is clear
       &[aria-expanded='true'] {
-        background: rgba(255, 255, 255, 0.7);
+        background: rgb(255 255 255 / 70%);
 
-        .skills-chart__icon {
-          transform: rotate(0deg);
-        }
+        // ...existing code...
       }
     }
   }
@@ -188,7 +176,7 @@
 
     &--active {
       display: block;
-      animation: fadeInUp 0.4s ease-out;
+      animation: fade-in-up 0.4s ease-out;
 
       // Respect user's motion preferences
       @media (prefers-reduced-motion: reduce) {
@@ -229,10 +217,10 @@
   }
 
   &__skill {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgb(255 255 255 / 60%);
     padding: f.rem(16);
     border-radius: f.rem(6);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgb(255 255 255 / 80%);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -251,8 +239,8 @@
 
     &:hover {
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+      background: rgb(255 255 255 / 90%);
       border-color: var(--primary-bg-mid);
 
       &::before {
@@ -339,11 +327,8 @@
     &::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgb(255 255 255 / 30%), transparent);
       animation: shimmer 2s infinite;
       opacity: 0;
 
@@ -363,10 +348,10 @@
   }
 
   &__timeline {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgb(255 255 255 / 40%);
     padding: f.rem(24);
     border-radius: f.rem(8);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgb(255 255 255 / 60%);
   }
 
   &__timeline-title {
@@ -439,11 +424,12 @@
 }
 
 // Elegant animations
-@keyframes fadeInUp {
+@keyframes fade-in-up {
   from {
     opacity: 0;
     transform: translateY(f.rem(20));
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -455,9 +441,11 @@
     opacity: 0;
     transform: translateX(-100%);
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: translateX(100%);
@@ -488,7 +476,7 @@
     }
   }
 
-  @keyframes fadeInUp {
+  @keyframes fade-in-up {
     from,
     to {
       opacity: 1;
