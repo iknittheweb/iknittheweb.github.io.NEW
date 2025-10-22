@@ -20,7 +20,7 @@
 <!--    * npx sass src/scss/styles.scss dist/css/styles.temp.css --style=expanded --source-map
 
 <!-- ~ Purge and minify a single temp CSS file
-<!--    * npx postcss dist/css/styles.temp.css -o dist/css/styles.purged.css --purgecss --map --purgecss-content "dist/pages/index.html"
+<!--    * npx postcss dist/css/styles.temp.css -o dist/css/styles.purged.css --purgecss --map --purgecss-content "dist/index.html"
 <!-- ^ 🛠️ Bulk Build Process (Recommended)
 
 <!-- ~ Use the npm scripts in package.json for full automation:
@@ -127,7 +127,7 @@ git add index.template.html
 
 <!-- ### 2. Pull Request Template -->
 
-````markdown
+`````markdown
 ## 🎯 What This PR Does
 
 Brief description of the feature or fix.
@@ -158,6 +158,8 @@ Brief description of the feature or fix.
 # - Missing semicolons
 # - Incorrect variable names ($variable)
 ````
+`````
+
 ````
 
 <!-- **Problem: GitHub Pages not updating** -->
@@ -572,7 +574,7 @@ Colorful Comment Key:
 
 # For GitHub authentication issues:
 # Use VS Code command palette: "Git: Clone" and sign in through browser
-````
+```
 
 <!-- ---- -->
 
