@@ -15,7 +15,7 @@ const fs = require('fs');
 const { JSDOM } = require('jsdom');
 
 test('homepage should have no accessibility violations', async () => {
-  const html = fs.readFileSync('index.html', 'utf8');
+  const html = fs.readFileSync('dist/index.html', 'utf8');
   const dom = new JSDOM(html);
   const axe = configureAxe(dom.window.document);
   const results = await axe.run(dom.window.document);

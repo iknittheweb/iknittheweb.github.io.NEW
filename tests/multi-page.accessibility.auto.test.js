@@ -7,7 +7,7 @@ const { JSDOM } = require('jsdom');
 // Find all .html files in dist/pages and root
 function getAllHtmlFiles() {
   const distPages = path.join(__dirname, '../dist/pages');
-  const rootFiles = [path.join(__dirname, '../index.html')];
+  const rootFiles = [path.join(__dirname, '../dist/index.html')];
   let files = [...rootFiles];
   if (fs.existsSync(distPages)) {
     fs.readdirSync(distPages).forEach((file) => {

@@ -5,7 +5,7 @@ const { JSDOM } = require('jsdom');
 
 // List of pages to test (add more as needed)
 const pages = [
-  'index.html',
+  'dist/index.html',
   'dist/pages/portfolio.html',
   'dist/pages/contact.html',
   'dist/pages/about.html',
