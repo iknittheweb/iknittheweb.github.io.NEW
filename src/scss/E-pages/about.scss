@@ -8,3 +8,12 @@
 //* ------------------------------------------------------------
 // SCSS for about page. Import partials as needed.
 @use '../A-abstracts' as a;
+@use '../B-base' as b;
+@use '../C-components' as c;
+@use '../D-layout' as l;
+@use '../F-themes' as t;
+@use '../G-vendors' as v;
+
+.purgecss-test-dummy-class-for-testing-so-I-know-it-isnot-in-html {
+  color: red;
+}

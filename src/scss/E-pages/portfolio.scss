@@ -1,25 +1,29 @@
 // SCSS for portfolio page. Import partials as needed. All partials related to this page are listed below.
 
-@use '../A-abstracts/functions' as f;
-@use '../A-abstracts/mixins' as m;
+@use '../A-abstracts' as a;
+@use '../B-base' as b;
+@use '../C-components' as c;
+@use '../D-layout' as l;
+@use '../F-themes' as t;
+@use '../G-vendors' as v;
 
 .portfolio-page {
   &__title {
-    font-size: clamp(f.rem(36), calc(28.364px + 2.424vw), f.rem(56));
+    font-size: clamp(a.rem(36), calc(28.364px + 2.424vw), a.rem(56));
     text-align: center;
-    margin-bottom: f.rem(30);
-    margin-top: f.rem(60); // Add top margin to replace wrapper padding
+    margin-bottom: a.rem(30);
+    margin-top: a.rem(60); // Add top margin to replace wrapper padding
 
-    @include m.breakpoint-down('699.98') {
-      margin-top: f.rem(40); // Smaller top margin on mobile
+    @include a.breakpoint-down('699.98') {
+      margin-top: a.rem(40); // Smaller top margin on mobile
     }
     // color removed; now handled in hero partial
   }
 
   &__intro {
     text-align: center;
-    font-size: f.rem(18);
-    margin-bottom: f.rem(50);
+    font-size: a.rem(18);
+    margin-bottom: a.rem(50);
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
@@ -28,19 +32,19 @@
 }
 
 .portfolio-section {
-  margin-bottom: f.rem(60);
+  margin-bottom: a.rem(60);
 
   &__heading {
-    font-size: clamp(f.rem(28), calc(22.182px + 1.212vw), f.rem(36));
+    font-size: clamp(a.rem(28), calc(22.182px + 1.212vw), a.rem(36));
     text-align: center;
-    margin-bottom: f.rem(20);
+    margin-bottom: a.rem(20);
     color: var(--primary-bg);
   }
 
   &__intro {
     text-align: center;
-    font-size: f.rem(16);
-    margin-bottom: f.rem(30);
+    font-size: a.rem(16);
+    margin-bottom: a.rem(30);
     color: var(--dark-text);
     margin-left: auto;
     margin-right: auto;
@@ -65,8 +69,8 @@ section.portfolio__intro {
   align-items: center;
   justify-content: center;
   min-height: 340px;
-  padding: f.rem(80) f.rem(32) f.rem(48);
-  margin-bottom: f.rem(40);
+  padding: a.rem(80) a.rem(32) a.rem(48);
+  margin-bottom: a.rem(40);
   text-align: center;
   background-image: url('/src/img/pages/open-laptops.jpg');
   background-size: cover;

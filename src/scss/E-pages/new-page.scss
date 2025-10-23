@@ -10,6 +10,11 @@
 // Add page-specific styles below. Use page-level selectors (e.g., .new-page, .new-page__section)
 
 @use '../A-abstracts' as a;
+@use '../B-base' as b;
+@use '../C-components' as c;
+@use '../D-layout' as l;
+@use '../F-themes' as t;
+@use '../G-vendors' as v;
 
 .new-page {
   // Example style
