@@ -28,54 +28,28 @@ const cssDir = path.join(__dirname, 'dist', 'css');
 // Ensure dist/css exists (create if missing)
 fs.mkdirSync(cssDir, { recursive: true });
 
-// This function does the purging and prettifying for one CSS file.
-function purgeAndMinify(file) {
-  // Get the "base name" of the CSS file (e.g., "portfolio" from "portfolio.css").
-  // This helps us find the matching HTML file and name the output file.
+// This function purges a CSS file using PurgeCSS CLI, then renames the purged file to overwrite the original for deployment.
+function purgeAndReplace(file) {
   let base = file.endsWith('.min.css') ? path.basename(file, '.min.css') : path.basename(file, '.css');
-  // Determine output extension
-  let outExt = file.endsWith('.min.css') ? '.purged.min.css' : '.purged.css';
-  // Build the path for the new purged CSS file (e.g., "portfolio.purged.css" or "portfolio.purged.min.css").
-  const purged = path.join(cssDir, `${base}${outExt}`);
+  // Special case: styles.css should use index.html
+  const htmlFile = path.join(__dirname, 'dist', 'pages', base === 'styles' ? 'index.html' : `${base}.html`);
+  const purged = path.join(cssDir, `purged-${base}.css`);
 
-  // Build the path for the HTML file that matches this CSS file (e.g., "portfolio.html").
-  const htmlFile = path.join(__dirname, 'dist', 'pages', `${base}.html`);
-
-  // Create a temporary config file for PostCSS and PurgeCSS to use.
-  // This config tells PurgeCSS to only look at the matching HTML file for used selectors.
-  const tempConfigPath = path.join(__dirname, `postcss.config.${base}.purged.cjs`);
-
-  // The configContent string is the actual config file contents.
-  // It sets up PurgeCSS to scan the HTML and keep only the selectors it finds there.
-  // The safelist is for any classes you want to keep, even if they're not in the HTML (maybe added by JS).
-  // The defaultExtractor is a function that tells PurgeCSS how to find selectors in your HTML.
-  const configContent = `const purgecss = require('@fullhuman/postcss-purgecss').default;\nconst prettify = require('postcss-prettify');\nmodule.exports = {\n  plugins: [\n    purgecss({\n      content: ['${htmlFile.replace(/\\/g, '/')}'],\n      safelist: ['header-hidden', 'show', 'skills-chart__tab--active', 'skills-chart__category--active'],\n      defaultExtractor: content => content.match(/[\\w-/:]+(?<!:)/g) || [],\n    }),\n    prettify({ expand: true }),\n  ],\n};\n`;
-
-  // Write the config file to disk so PostCSS can use it.
-  fs.writeFileSync(tempConfigPath, configContent);
-
-  // Run PostCSS using this config file. This does the purging and prettifying.
-  // "execSync" runs PostCSS just like you would in the terminal.
-  // "--map" creates a source map for easier debugging.
-  execSync(`npx postcss "${file}" -o "${purged}" --map --config ${tempConfigPath}`, { stdio: 'inherit' });
-
-  // After we're done, delete the temporary config file to keep things tidy.
-  fs.unlinkSync(tempConfigPath);
-
-  // Now you have a purged, readable CSS file for this page!
+  // Only purge if matching HTML file exists
+  if (fs.existsSync(htmlFile)) {
+    execSync(`npx purgecss --css "${file}" --content "${htmlFile}" --output "${purged}"`, { stdio: 'inherit' });
+    fs.renameSync(purged, file);
+  } else {
+    console.warn(`Skipping ${file}: No matching HTML file (${htmlFile}) found.`);
+  }
 }
 
 // Only process if dist/css exists
 if (fs.existsSync(cssDir)) {
   fs.readdirSync(cssDir).forEach((file) => {
     // Only process .css and .min.css files, skip already purged/minified files
-    if (
-      (file.endsWith('.css') || file.endsWith('.min.css')) &&
-      !file.endsWith('.purged.css') &&
-      !file.endsWith('.purged.min.css')
-    ) {
-      // For each file that matches, run our purge and prettify function.
-      purgeAndMinify(path.join(cssDir, file));
+    if ((file.endsWith('.css') || file.endsWith('.min.css')) && !file.startsWith('purged-')) {
+      purgeAndReplace(path.join(cssDir, file));
     }
   });
 } else {
