@@ -1,3 +1,21 @@
+----------------------------------------
+PowerShell Logging and Transcript Commands
+----------------------------------------
+
+1. Log output of a single command to a file:
+    npm run build:alt | Tee-Object build-log.txt
+    # This saves the output to build-log.txt and shows it in the terminal.
+
+2. Automatically log all terminal activity (full session):
+    Start-Transcript -Path "session-log.txt"
+    # Run your commands as usual. Everything will be saved to session-log.txt.
+
+    Stop-Transcript
+    # Ends the logging session.
+
+Notes:
+- You can use Start-Transcript at the beginning of your PowerShell session to capture all commands and output.
+- Use Tee-Object to log the output of any individual command.
 *==============================================================
 *==============================================================
 - PROCESS FOR BULK COMPILATION, PURGE, AND MINIFY

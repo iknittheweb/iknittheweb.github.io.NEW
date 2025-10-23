@@ -100,6 +100,11 @@
       referrerpolicy="no-referrer" />
 
     <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}dist/css/styles.css"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
       rel="stylesheet"
       href="{{BASE_URL}}dist/css/styles.css"
       onload="window.mainCSSLoaded = true;" />
@@ -124,6 +129,7 @@
 
     <script
       type="module"
+      defer
       src="/src/js/script.js"></script>
 
     <script>
