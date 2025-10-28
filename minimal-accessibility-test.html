@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" >
+    <title>Minimal Accessibility Test</title>
+  </head>
+  <body>
+    <header aria-label="Site header">
+      <h1>Minimal Accessibility Test</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#main">Skip to main content</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main
+      id="main"
+      aria-label="Main content"
+      tabindex="-1">
+      <section aria-label="Accessible Section">
+        <h2>Accessible Section</h2>
+        <p
+          >This is a minimal page for accessibility testing. It includes semantic HTML, skip link, and proper
+          landmarks.</p
+        >
+        <form aria-label="Contact form">
+          <div>
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              aria-required="true" >
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer aria-label="Site footer">
+      <p>&copy; 2025 Minimal Accessibility Test</p>
+    </footer>
+  </body>
+</html>
