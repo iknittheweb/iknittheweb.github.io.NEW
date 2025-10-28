@@ -111,6 +111,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -153,6 +156,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 form,
@@ -534,7 +539,7 @@ card__header-link:hover, card__header-link:focus {
   min-height: 340px;
   padding: 5rem 0 3rem;
   text-align: center;
-  background-image: url("/src/img/pages/open-laptops.jpg");
+  background-image: url("/dist/img/pages/open-laptops.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
