@@ -7,6 +7,9 @@
 	- line 43: {{BASE_URL}}
 	- line 43: {{CANONICAL_URL}}
 	- line 109: {{ASSET_URL}}
+* New templates supported: multi-level-navbar, about, contact, portfolio, new-page
+* Placeholders are now injected automatically from environment files (.env, .env.production, .env.alt, .env.netlify-alt)
+* Use npm run alt for alternate environment builds
 
 * Page-specific
 	- line 28: {{TITLE}}
