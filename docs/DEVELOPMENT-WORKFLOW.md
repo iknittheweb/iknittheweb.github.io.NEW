@@ -3,6 +3,9 @@
 <!-- ~ This guide will help new developers get started quickly and understand the key workflows, conventions, and structure of this project.
 <!-- ~ Docs and planning notes are in docs/ and notes/.
 <!-- ~ Build commands:
+<!-- ~ New templates: multi-level-navbar, about, contact, portfolio, new-page (see src/templates/)
+<!-- ~ Environment automation: DOTENV_CONFIG_PATH, npm run alt, .env.alt, .env.netlify-alt
+<!-- ~ Build script improvements: asset copy logic, flexible environment selection
 <!-- ~ Testing & Quality:
 
 <!-- ## 💻 Local Development Environment
