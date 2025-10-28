@@ -3,7 +3,7 @@ PowerShell Logging and Transcript Commands
 ----------------------------------------
 
 1. Log output of a single command to a file:
-    npm run build:alt | Tee-Object build-log.txt
+    npm run local | Tee-Object build-log.txt
     # This saves the output to build-log.txt and shows it in the terminal.
 
 2. Automatically log all terminal activity (full session):
