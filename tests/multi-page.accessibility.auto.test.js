@@ -1,12 +1,12 @@
-// Automated accessibility tests for all HTML files in dist/pages and root using axe-core and Jest
+// Automated accessibility tests for all HTML files in the project root using axe-core and Jest
 const axe = require('axe-core');
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-// Find all .html files in dist/pages and root
+// Find all .html files in the project root
 function getAllHtmlFiles() {
-  const distPages = path.join(__dirname, '../dist/pages');
+  const distPages = process.cwd();
   const rootFiles = [path.join(__dirname, '../dist/index.html')];
   let files = [...rootFiles];
   if (fs.existsSync(distPages)) {

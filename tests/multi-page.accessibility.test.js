@@ -6,9 +6,9 @@ const { JSDOM } = require('jsdom');
 // List of pages to test (add more as needed)
 const pages = [
   'dist/index.html',
-  'dist/pages/portfolio.html',
-  'dist/pages/contact.html',
-  'dist/pages/about.html',
+  'portfolio.html',
+  'contact.html',
+  'about.html',
   // Add other important pages here
 ];
 
@@ -17,8 +17,8 @@ describe('Accessibility audit for all key pages', () => {
     test(`${page} should have no accessibility violations`, async () => {
       const html = fs.readFileSync(page, 'utf8');
       // Debug: Log the loaded HTML to confirm <html lang="en"> is present
-      console.log(`\n--- DEBUG: Loaded HTML for ${page} ---\n`);
-      console.log(html.slice(0, 5000)); // Print first 5000 chars for brevity
+      // console.log(`\n--- DEBUG: Loaded HTML for ${page} ---\n`);
+      // console.log(html.slice(0, 5000)); // Removed for best practice: too verbose
       if (!html.includes('<html lang="en"')) {
         console.warn(`\nWARNING: <html lang="en"> not found in ${page}!\n`);
       }
