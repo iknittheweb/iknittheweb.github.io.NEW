@@ -16,7 +16,11 @@ Handlebars.registerHelper('eq', function (a, b) {
   return a === b;
 });
 require('dotenv').config({
-  path: process.env.DOTENV_CONFIG_PATH || (process.env.NODE_ENV === 'production' ? '.env.production' : '.env'),
+  path: process.env.DOTENV_CONFIG_PATH
+    ? process.env.DOTENV_CONFIG_PATH
+    : process.env.NODE_ENV === 'production'
+      ? '.env.production'
+      : '.env',
 });
 
 const srcDir = path.join(__dirname, 'src', 'templates');
