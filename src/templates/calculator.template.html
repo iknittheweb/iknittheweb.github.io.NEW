@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
+  <head>
+    <!-- CSS preload: use .css for local, .min.css for production -->
+    {{#if (eq NODE_ENV "production")}}
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{CALCULATOR_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{CALCULATOR_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" />
+    {{else}}
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{CALCULATOR_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{CALCULATOR_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" />
+    {{/if}}
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
+    <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+      script-src 'self' 'unsafe-inline' https://kit.fontawesome.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com;
+      img-src 'self' data: https://fonts.gstatic.com;
+      font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com;
+      connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';">
+    <title>{{CALCULATOR_TITLE}}</title>
+    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
+    <script>
+      if (document.title.trim() === '' || document.title.includes('{{CALCULATOR_TITLE}}')) {
+        document.title = 'Calculator | I Knit The Web';
+      }
+    </script>
+    <meta
+      name="description"
+      content="{{CALCULATOR_DESCRIPTION}}" />
+    <meta
+      name="keywords"
+      content="{{CALCULATOR_KEYWORDS}}" />
+    <meta
+      name="author"
+      content="I Knit the Web" />
+    <meta
+      name="robots"
+      content="{{ROBOTS}}" />
+    <meta
+      name="theme-color"
+      content="#500f44" />
+    <link
+      rel="canonical"
+      href="{{BASE_URL}}{{CALCULATOR_OG_URL}}" />
+    <meta
+      property="og:title"
+      content="{{CALCULATOR_OG_TITLE}}" />
+    <meta
+      property="og:description"
+      content="{{CALCULATOR_OG_DESCRIPTION}}" />
+    <meta
+      property="og:image"
+      content="{{ASSET_URL}}/branding/logo.png" />
+    <meta
+      property="og:url"
+      content="{{BASE_URL}}{{CALCULATOR_OG_URL}}" />
+    <meta
+      property="og:type"
+      content="{{OG_TYPE}}" />
+    <meta
+      name="twitter:card"
+      content="{{TWITTER_CARD}}" />
+    <meta
+      name="twitter:title"
+      content="{{CALCULATOR_TWITTER_TITLE}}" />
+    <meta
+      name="twitter:description"
+      content="{{CALCULATOR_TWITTER_DESCRIPTION}}" />
+    <meta
+      name="twitter:image"
+      content="{{ASSET_URL}}/branding/logo.png" />
+
+    <style>
+      body {
+        visibility: hidden;
+      }
+      .css-loaded body {
+        visibility: visible;
+      }
+    </style>
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+    <link
+      rel="manifest"
+      href="{{BASE_URL}}/manifest.json" />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com" />
+
+    <link
+      href="{{GOOGLE_FONTS_LINK}}"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'; this.onload=null;"
+      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+    <noscript>
+      <link
+        href="{{GOOGLE_FONTS_LINK}}"
+        rel="stylesheet" />
+    </noscript>
+
+    <script type="application/ld+json">
+      {{{CALCULATOR_SCHEMA_JSON}}}
+    </script>
+
+    <script
+      defer
+      src="https://kit.fontawesome.com/94262366bd.js"
+      crossorigin="anonymous"></script>
+
+    <script
+      defer
+      type="module"
+      src="{{BASE_URL}}/src/js/script.js"></script>
+
+    <script>
+      // Wait for CSS to load before showing content
+      function checkCSSLoaded() {
+        if (window.mainCSSLoaded && document.readyState !== 'loading') {
+          document.documentElement.classList.add('css-loaded');
+          // Add fonts-failed class immediately since we're using system fonts only
+          document.documentElement.classList.add('fonts-failed');
+        } else {
+          requestAnimationFrame(checkCSSLoaded);
+        }
+      }
+      checkCSSLoaded();
+
+      // Fallback: Show content after 3 seconds even if CSS fails to load
+      setTimeout(function () {
+        if (!document.documentElement.classList.contains('css-loaded')) {
+          console.warn('CSS loading timeout - showing content anyway');
+          document.documentElement.classList.add('css-loaded');
+          document.documentElement.classList.add('fonts-failed');
+        }
+      }, 3000);
+    </script>
+  </head>
+
+  <body>
+    <div
+      id="page-data"
+      data-page-title="{{CALCULATOR_TITLE}}"
+      data-page-subtitle="{{CALCULATOR_SUBTITLE}}"
+      data-nav-config="{{CALCULATOR_NAV_CONFIG}}"
+      data-breadcrumb-category="{{CALCULATOR_BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{CALCULATOR_BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
+    <!--@ Skip Link for Screen Readers -->
+    <a
+      href="#main-content"
+      class="skip-link"
+      aria-label="Skip to main content"
+      >Skip to main content</a
+    >
+    <!-- HEADER_PLACEHOLDER -->
+
+    <main
+      id="main-content"
+      role="main">
+      <!-- page content goes here -->
+    </main>
+
+    <!-- FOOTER_PLACEHOLDER -->
+  </body>
+</html>
