@@ -4,6 +4,7 @@ PowerShell Logging and Transcript Commands
 
 1. Log output of a single command to a file:
     npm run local | Tee-Object build-log.txt
+    npm run alt | Tee-Object build-log.txt   # Build with alternate environment (.env.alt)
     # This saves the output to build-log.txt and shows it in the terminal.
 
 2. Automatically log all terminal activity (full session):
@@ -50,9 +51,14 @@ npm install
 npm start
 - Runs your app locally so you can preview changes in the browser.
 
+
 - Run the build process to generate production-ready files
 npm run build
 - Compiles, purges, and prettifies your CSS/JS/HTML for deployment.
+
+- Build with alternate environment (staging, .env.alt)
+npm run alt
+- Generates site using alternate environment variables.
 
 - Lint your code for errors and style issues
 npx eslint .
