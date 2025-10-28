@@ -29,6 +29,14 @@ To use the alternate environment, run:
   npm run alt
 This will use .env.alt and generate the site for alternate local development or staging.
 
+New supported environment variables:
+  BASE_URL, ASSET_URL, CSS_FILE, ROBOTS, CANONICAL_URL
+
+Alternate environments:
+  .env.alt (local/staging), .env.netlify-alt (Netlify)
+
+For Netlify builds, use .env.netlify-alt and configure build settings accordingly.
+
 
 
 Template & Build System Notes:
