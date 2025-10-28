@@ -2,68 +2,97 @@
 <html lang="en">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
+    <!-- CSS preload: use .css for local, .min.css for production -->
+    {{#if (eq NODE_ENV "production")}}
     <link
       rel="preload"
       as="style"
-      href="{{BASE_URL}}dist/css/portfolio.purged.min.css"
-      onload="this.rel='stylesheet'; this.onload=null;"
-      />
+      href="{{BASE_URL}}{{PORTFOLIO_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{PORTFOLIO_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" />
+    {{else}}
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{PORTFOLIO_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{PORTFOLIO_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" />
+    {{/if}}
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-
-
-    <title>Full Portfolio | I Knit The Web</title>
-
+    <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+      script-src 'self' 'unsafe-inline' https://kit.fontawesome.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com;
+      img-src 'self' data: https://fonts.gstatic.com;
+      font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com;
+      connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';" />
+    <title>{{PORTFOLIO_TITLE}}</title>
+    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
+    <script>
+      if (document.title.trim() === '' || document.title.includes('{{PORTFOLIO_TITLE}}')) {
+        document.title = 'Portfolio | I Knit The Web';
+      }
+    </script>
     <meta
       name="description"
-      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
-
+      content="{{PORTFOLIO_DESCRIPTION}}" />
     <meta
       name="keywords"
-      content="portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments" />
-
+      content="{{PORTFOLIO_KEYWORDS}}" />
     <meta
       name="author"
-      content="I Knit The Web" />
-
+      content="I Knit the Web" />
     <meta
       name="robots"
       content="{{ROBOTS}}" />
-
+    <meta
+      name="theme-color"
+      content="#500f44" />
     <link
       rel="canonical"
-      href="{{BASE_URL}}dist/pages/portfolio.html" />
-
+      href="{{BASE_URL}}{{PORTFOLIO_OG_URL}}" />
     <meta
       property="og:title"
-      content="Full Portfolio | I Knit The Web - I Knit The Web" />
+      content="{{PORTFOLIO_OG_TITLE}}" />
     <meta
       property="og:description"
-      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+      content="{{PORTFOLIO_OG_DESCRIPTION}}" />
     <meta
       property="og:image"
-      content="{{ASSET_URL}}src/img/branding/logo.png" />
+      content="{{ASSET_URL}}/branding/logo.png" />
     <meta
       property="og:url"
-      content="{{BASE_URL}}pages/portfolio.html" />
+      content="{{BASE_URL}}{{PORTFOLIO_OG_URL}}" />
     <meta
       property="og:type"
-      content="website" />
-
+      content="{{OG_TYPE}}" />
     <meta
       name="twitter:card"
-      content="summary_large_image" />
+      content="{{TWITTER_CARD}}" />
     <meta
       name="twitter:title"
-      content="Full Portfolio | I Knit The Web" />
+      content="{{PORTFOLIO_TWITTER_TITLE}}" />
     <meta
       name="twitter:description"
-      content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
+      content="{{PORTFOLIO_TWITTER_DESCRIPTION}}" />
     <meta
       name="twitter:image"
-      content="{{ASSET_URL}}/img/branding/logo.png" />
+      content="{{ASSET_URL}}/branding/logo.png" />
 
     <style>
       body {
@@ -77,67 +106,55 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
+      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+    <link
+      rel="manifest"
+      href="{{BASE_URL}}/manifest.json" />
 
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com" />
     <link
       rel="preconnect"
-      href="https://fonts.gstatic.com"
-
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Orbitron:wght@400..900&display=swap"
-      rel="stylesheet"
-      onerror="document.documentElement.classList.add('fonts-failed');" />
+      href="https://fonts.gstatic.com" />
 
     <link
+      href="{{GOOGLE_FONTS_LINK}}"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      <!--
-
-    <link
-      rel="stylesheet"
-      href="{{BASE_URL}}dist/css/portfolio.purged.css"
-      onload="window.mainCSSLoaded = true;" />
-
-    <div
-      id="page-data"
-      data-page-title="{{TITLE}}"
-      data-page-subtitle="{{SUBTITLE}}"
-      data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
-      style="display: none"></div>
+      media="print"
+      onload="this.media='all'; this.onload=null;"
+      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+    <noscript>
+      <link
+        href="{{GOOGLE_FONTS_LINK}}"
+        rel="stylesheet" />
+    </noscript>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "I Knit The Web",
-        "jobTitle": "Web Developer",
-        "description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams",
-        "url": "{{BASE_URL}}",
-        "sameAs": [],
-        "knowsAbout": ["HTML", "CSS", "JavaScript", "SCSS", "Web Design", "Responsive Design"]
-      }
+      {{{PORTFOLIO_SCHEMA_JSON}}}
     </script>
 
+    <script
       defer
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
     <script
+      defer
       type="module"
-      src="/src/js/script.js"></script>
+      src="{{BASE_URL}}/src/js/script.js"></script>
 
     <script>
       // Wait for CSS to load before showing content
       function checkCSSLoaded() {
         if (window.mainCSSLoaded && document.readyState !== 'loading') {
           document.documentElement.classList.add('css-loaded');
+          // Add fonts-failed class immediately since we're using system fonts only
+          document.documentElement.classList.add('fonts-failed');
         } else {
           requestAnimationFrame(checkCSSLoaded);
         }
@@ -149,58 +166,41 @@
         if (!document.documentElement.classList.contains('css-loaded')) {
           console.warn('CSS loading timeout - showing content anyway');
           document.documentElement.classList.add('css-loaded');
+          document.documentElement.classList.add('fonts-failed');
         }
       }, 3000);
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Full Portfolio | I Knit The Web</title>
-    <meta name="description" content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
-    <meta name="keywords" content="portfolio, web development, HTML, CSS, JavaScript, projects, frontend development, coding challenges, UI experiments" />
-    <meta name="author" content="I Knit The Web" />
-    <meta name="robots" content="{{ROBOTS}}" />
-    <link rel="canonical" href="{{BASE_URL}}dist/pages/portfolio.html" />
-    <meta property="og:title" content="Full Portfolio | I Knit The Web - I Knit The Web" />
-    <meta property="og:description" content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
-    <meta property="og:image" content="{{ASSET_URL}}src/img/branding/logo.png" />
-    <meta property="og:url" content="{{BASE_URL}}pages/portfolio.html" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Full Portfolio | I Knit The Web" />
-    <meta name="twitter:description" content="Explore my complete portfolio of web development projects including featured applications, learning challenges, and UI experiments showcasing HTML, CSS, and JavaScript skills." />
-    <meta name="twitter:image" content="{{ASSET_URL}}/img/branding/logo.png" />
-    <style>body {visibility: hidden;} .css-loaded body {visibility: visible;}</style>
-    <link rel="icon" type="image/x-icon" href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet" onerror="document.documentElement.classList.add('fonts-failed');" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" />
-    <link rel="stylesheet" href="{{BASE_URL}}dist/css/portfolio.purged.css" onload="window.mainCSSLoaded = true;" />
-    <div id="page-data" data-page-title="{{TITLE}}" data-page-subtitle="{{SUBTITLE}}" data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}" data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}" style="display: none"></div>
-    <script type="application/ld+json">{"@context": "https://schema.org","@type": "Person","name": "I Knit The Web","jobTitle": "Web Developer","description": "Professional web developer specializing in handcrafted websites for small budgets and big dreams","url": "{{BASE_URL}}","sameAs": [],"knowsAbout": ["HTML", "CSS", "JavaScript", "SCSS", "Web Design", "Responsive Design"]}</script>
-    <script defer src="https://kit.fontawesome.com/94262366bd.js" crossorigin="anonymous"></script>
-    <script type="module" src="/src/js/script.js"></script>
-    <script>function checkCSSLoaded(){if(window.mainCSSLoaded&&document.readyState!=='loading'){document.documentElement.classList.add('css-loaded');}else{requestAnimationFrame(checkCSSLoaded);}}checkCSSLoaded();setTimeout(function(){if(!document.documentElement.classList.contains('css-loaded')){console.warn('CSS loading timeout - showing content anyway');document.documentElement.classList.add('css-loaded');}},3000);</script>
   </head>
 
-  <!--- ============================================= -->
-  <!--- BODY_ID AND BODY_CLASS: Fill in manually -->
-  <!--- ============================================= -->
-  <body class="home">
+  <body>
+    <div
+      id="page-data"
+      data-page-title="{{PORTFOLIO_TITLE}}"
+      data-page-subtitle="{{PORTFOLIO_SUBTITLE}}"
+      data-nav-config="{{PORTFOLIO_NAV_CONFIG}}"
+      data-breadcrumb-category="{{PORTFOLIO_BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{PORTFOLIO_BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
+
     <!-- Skip Link for Screen Readers -->
     <a
       href="#main-content"
       class="skip-link"
+      aria-label="Skip to main content"
       >Skip to main content</a
     >
-    {{HEADER}}
+
+    <!-- HEADER_PLACEHOLDER -->
 
     <main
       id="main-content"
       class="portfolio-main">
-      <section class="hero">
+      <section
+        class="hero"
+        role="region"
+        aria-labelledby="main-content">
         <img
-          src="/src/img/pages/heading-banner-dark.svg"
+          src="{{ASSET_URL}}/pages/heading-banner-dark.svg"
           alt=""
           class="hero__banner"
           width="1125"
@@ -223,7 +223,7 @@
             <article class="card">
               <div class="card__header">
                 <a
-                  href="{{ASSET_URL}}/pages/portfolio-pages/alien-abduction-form.html"
+                  href="{{BASE_URL}}//alien-abduction-form.html"
                   class="card__header-link">
                   <h3 class="card__title">Alien Abduction Order Form</h3>
                 </a>
@@ -232,14 +232,14 @@
                 <figure class="card__figure">
                   <picture>
                     <source
-                      srcset="/dist/img/cards/Alien-abduction-form-thumb.webp"
+                      srcset="{{ASSET_URL}}//cards/Alien-abduction-form-thumb.webp"
                       type="image/webp" />
                     <source
-                      srcset="/dist/img/cards/Alien-abduction-form-thumb.jpg"
+                      srcset="{{ASSET_URL}}//cards/Alien-abduction-form-thumb.jpg"
                       type="image/jpeg" />
                     <img
                       alt="Thumbnail preview of Alien Abduction Order Form project"
-                      src="/dist/img/cards/Alien-abduction-form-thumb.jpg"
+                      src="{{ASSET_URL}}//cards/Alien-abduction-form-thumb.jpg"
                       class="card__image"
                       width="345"
                       height="259" />
@@ -269,14 +269,14 @@
                 <figure class="card__figure">
                   <picture>
                     <source
-                      srcset="/dist/img/cards/Calculator-thumb.webp"
+                      srcset="{{ASSET_URL}}//cards/Calculator-thumb.webp"
                       type="image/webp" />
                     <source
-                      srcset="/dist/img/cards/Calculator-thumb.jpg"
+                      srcset="{{ASSET_URL}}//cards/Calculator-thumb.jpg"
                       type="image/jpeg" />
                     <img
                       alt="Thumbnail preview of Calculator project"
-                      src="/dist/img/cards/Calculator-thumb.jpg"
+                      src="{{ASSET_URL}}//cards/Calculator-thumb.jpg"
                       class="card__image"
                       width="356"
                       height="268" />
@@ -306,14 +306,14 @@
                 <figure class="card__figure">
                   <picture>
                     <source
-                      srcset="/dist/img/cards/css-position-cheat-sheet-thumb.webp"
+                      srcset="{{ASSET_URL}}//cards/css-position-cheat-sheet-thumb.webp"
                       type="image/webp" />
                     <source
-                      srcset="/dist/img/cards/css-position-cheat-sheet-thumb.jpg"
+                      srcset="{{ASSET_URL}}//cards/css-position-cheat-sheet-thumb.jpg"
                       type="image/jpeg" />
                     <img
                       alt="Thumbnail preview of CSS Position Cheat Sheet project"
-                      src="/dist/img/cards/css-position-cheat-sheet-thumb.jpg"
+                      src="{{ASSET_URL}}//cards/css-position-cheat-sheet-thumb.jpg"
                       class="card__image"
                       width="1868"
                       height="1401" />
@@ -364,14 +364,14 @@
                 <figure class="card__figure">
                   <picture>
                     <source
-                      srcset="/dist/img/pages/galaxy.webp"
+                      srcset="{{ASSET_URL}}//pages/galaxy.webp"
                       type="image/webp" />
                     <source
-                      srcset="/dist/img/pages/galaxy.jpg"
+                      srcset="{{ASSET_URL}}//pages/galaxy.jpg"
                       type="image/jpeg" />
                     <img
                       alt="Thumbnail preview of Multi-Level Navbar Challenge project"
-                      src="/dist/img/pages/galaxy.jpg"
+                      src="{{ASSET_URL}}//pages/galaxy.jpg"
                       class="card__image"
                       width="400"
                       height="300" />
@@ -393,7 +393,7 @@
               <div class="card__header">
                 <a
                   class="card__header-link"
-                  href="/src/pages/portfolio-pages/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.html">
+                  href="/src/pages/portfolio-pages/BasicVerticalNavbars.html">
                   <h3 class="card__title">15 Days of CSS<br />Day 4&mdash;Vertical Navbars</h3>
                 </a>
               </div>
@@ -401,14 +401,14 @@
                 <figure class="card__figure">
                   <picture>
                     <source
-                      srcset="/dist/img/pages/galaxy.webp"
+                      srcset="{{ASSET_URL}}//pages/galaxy.webp"
                       type="image/webp" />
                     <source
-                      srcset="/dist/img/pages/galaxy.jpg"
+                      srcset="{{ASSET_URL}}//pages/galaxy.jpg"
                       type="image/jpeg" />
                     <img
                       alt="Thumbnail preview of 15 Days of CSS Day 4 Basic Vertical Navbars project"
-                      src="/dist/img/pages/galaxy.jpg"
+                      src="{{ASSET_URL}}//pages/galaxy.jpg"
                       class="card__image"
                       width="400"
                       height="300" />
@@ -421,7 +421,7 @@
               <div class="card__footer">
                 <a
                   class="card__button card__button--primary card__link"
-                  href="/src/pages/portfolio-pages/fifteenDaysOfCSS-Day4-BasicVerticalNavbars.html">
+                  href="/src/pages/portfolio-pages/BasicVerticalNavbars.html">
                   See more...
                 </a>
               </div>
@@ -430,7 +430,7 @@
               <div class="card__header">
                 <a
                   class="card__header-link"
-                  href="/src/pages/portfolio-pages/fifteenDaysofHTML-Day5-Desc-List-Challenge.html">
+                  href="/src/pages/portfolio-pages/DESC-LIST-CHALLENGE.html">
                   <h3 class="card__title">15 Days of HTML<br />Day 5&mdash;Desc List</h3>
                 </a>
               </div>
@@ -438,14 +438,14 @@
                 <figure class="card__figure">
                   <picture>
                     <source
-                      srcset="/dist/img/pages/galaxy.webp"
+                      srcset="{{ASSET_URL}}//pages/galaxy.webp"
                       type="image/webp" />
                     <source
-                      srcset="/dist/img/pages/galaxy.jpg"
+                      srcset="{{ASSET_URL}}//pages/galaxy.jpg"
                       type="image/jpeg" />
                     <img
                       alt="Thumbnail preview of 15 Days of HTML Day 5 Description List Challenge project"
-                      src="/dist/img/pages/galaxy.jpg"
+                      src="{{ASSET_URL}}//pages/galaxy.jpg"
                       class="card__image"
                       width="400"
                       height="300" />
@@ -458,7 +458,7 @@
               <div class="card__footer">
                 <a
                   class="card__button card__button--primary card__link"
-                  href="/src/pages/portfolio-pages/fifteenDaysofHTML-Day5-Desc-List-Challenge.html">
+                  href="/src/pages/portfolio-pages/DESC-LIST-CHALLENGE.html">
                   See more...
                 </a>
               </div>
@@ -487,14 +487,14 @@
                 <figure class="card__figure">
                   <picture>
                     <source
-                      srcset="/dist/img/pages/galaxy.webp"
+                      srcset="{{ASSET_URL}}//pages/galaxy.webp"
                       type="image/webp" />
                     <source
-                      srcset="/dist/img/pages/galaxy.jpg"
+                      srcset="{{ASSET_URL}}//pages/galaxy.jpg"
                       type="image/jpeg" />
                     <img
                       alt="Thumbnail preview of Navbar Link Filling Li project"
-                      src="/dist/img/pages/galaxy.jpg"
+                      src="{{ASSET_URL}}//pages/galaxy.jpg"
                       class="card__image"
                       width="400"
                       height="300" />
@@ -536,6 +536,6 @@
       </div>
     </main>
 
-    {{FOOTER}}
+    <!-- FOOTER_PLACEHOLDER -->
   </body>
 </html>

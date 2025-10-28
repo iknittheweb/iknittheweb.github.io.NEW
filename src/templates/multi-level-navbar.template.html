@@ -2,72 +2,97 @@
 <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
 <html lang="en">
   <head>
+    <!-- CSS preload: use .css for local, .min.css for production -->
+    {{#if (eq NODE_ENV "production")}}
     <link
       rel="preload"
       as="style"
-      href="{{BASE_URL}}dist/css/multi-level-navbar.purged.min.css"
-      onload="this.rel='stylesheet'; this.onload=null;"
-      />
+      href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
     <link
       rel="stylesheet"
-      href="{{BASE_URL}}dist/css/multi-level-navbar.purged.min.css"
+      href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
       onload="window.mainCSSLoaded = true;" />
+    {{else}}
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" />
+    {{/if}}
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-
-
-    <title>Multi-Level navbar</title>
-
+    <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
+    <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+      script-src 'self' 'unsafe-inline' https://kit.fontawesome.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com;
+      img-src 'self' data: https://fonts.gstatic.com;
+      font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com;
+      connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';">
+    <title>{{MULTI-LEVEL-NAVBAR_TITLE}}</title>
+    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
+    <script>
+      if (document.title.trim() === '' || document.title.includes('{{MULTI-LEVEL-NAVBAR_TITLE}}')) {
+        document.title = 'Multi-Level Navbar | I Knit The Web';
+      }
+    </script>
     <meta
       name="description"
-      content="A demonstration of a multi-level navigation bar built with HTML and CSS, featuring dropdown menus, nested navigation, and responsive design for modern web interfaces." />
-
+      content="{{MULTI-LEVEL-NAVBAR_DESCRIPTION}}" />
     <meta
       name="keywords"
-      content="Multi-Level navbar, navigation, CSS, HTML, web development, menu, dropdown, nested navigation, frontend, UI, responsive design" />
-
+      content="{{MULTI-LEVEL-NAVBAR_KEYWORDS}}" />
     <meta
       name="author"
       content="I Knit the Web" />
-
     <meta
       name="robots"
-      content="index,nofollow" />
-
+      content="{{ROBOTS}}" />
+    <meta
+      name="theme-color"
+      content="#500f44" />
     <link
       rel="canonical"
-      href="{{BASE_URL}}dist/pages/multi-level-navbar.html" />
-
+      href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_OG_URL}}" />
     <meta
       property="og:title"
-      content="Multi-Level navbar" />
+      content="{{MULTI-LEVEL-NAVBAR_OG_TITLE}}" />
     <meta
       property="og:description"
-      content="Discover how to build a modern, multi-level navigation bar with HTML and CSS—featuring dropdown menus, nested links, and responsive design for seamless user experiences." />
+      content="{{MULTI-LEVEL-NAVBAR_OG_DESCRIPTION}}" />
     <meta
       property="og:image"
-      content="{{OG_IMAGE}}" />
+      content="{{ASSET_URL}}/branding/logo.png" />
     <meta
       property="og:url"
-      content="{{BASE_URL}}dist/pages/multi-level-navbar.html" />
+      content="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_OG_URL}}" />
     <meta
       property="og:type"
-      content="website" />
-
+      content="{{OG_TYPE}}" />
     <meta
       name="twitter:card"
-      content="summary_large_image" />
+      content="{{TWITTER_CARD}}" />
     <meta
       name="twitter:title"
-      content="Multi-Level navbar" />
+      content="{{MULTI-LEVEL-NAVBAR_TWITTER_TITLE}}" />
     <meta
       name="twitter:description"
-      content="Discover how to build a modern, multi-level navigation bar with HTML and CSS—featuring dropdown menus, nested links, and responsive design for seamless user experiences." />
+      content="{{MULTI-LEVEL-NAVBAR_TWITTER_DESCRIPTION}}" />
     <meta
       name="twitter:image"
-      content="{{TWITTER_IMAGE}}" />
+      content="{{ASSET_URL}}/branding/logo.png" />
 
     <style>
       body {
@@ -81,14 +106,21 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
+      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+    <link
+      rel="manifest"
+      href="{{BASE_URL}}/manifest.json" />
 
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com" />
     <link
       rel="preconnect"
-      href="https://fonts.gstatic.com"
+      href="https://fonts.gstatic.com" />
 
     <link
       href="{{GOOGLE_FONTS_LINK}}"
@@ -96,47 +128,25 @@
       media="print"
       onload="this.media='all'; this.onload=null;"
       onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      <!--
-      referrerpolicy="no-referrer" />
-
-    <link
-      rel="stylesheet"
-      href="{{BASE_URL}}dist/css/multi-level-navbar.purged.css"
-      onload="window.mainCSSLoaded = true;" />
-
-    <div
-      id="page-data"
-      data-page-title="Multi-Level navbar"
-      data-nav-config="Multi-Level navbar"
-      data-breadcrumb-category="Portfolio"
-      data-breadcrumb-category-url="{{BASE_URL}}dist/pages/portfolio.html"
-      style="display: none"></div>
+    <noscript>
+      <link
+        href="{{GOOGLE_FONTS_LINK}}"
+        rel="stylesheet" />
+    </noscript>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Project",
-        "name": "Multi-Level navbar",
-        "description": "A demonstration of a multi-level navigation bar built with HTML and CSS, featuring dropdown menus, nested navigation, and responsive design for modern web interfaces.",
-        "url": "{{BASE_URL}}dist/pages/multi-level-navbar.html",
-        "image": "{{SCHEMA_IMAGE}}",
-        "sameAs": ["https://github.com/iknittheweb", "https://twitter.com/iknittheweb"],
-        "knowsAbout": ["HTML", "CSS", "Navigation", "Responsive Design", "Frontend Development"]
-      }
+      {{{MULTI-LEVEL-NAVBAR_SCHEMA_JSON}}}
     </script>
 
+    <script
       defer
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
     <script
+      defer
       type="module"
-      src="/src/js/script.js"></script>
+      src="{{BASE_URL}}/src/js/script.js"></script>
 
     <script>
       // Wait for CSS to load before showing content
@@ -160,50 +170,30 @@
         }
       }, 3000);
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Multi-Level navbar</title>
-    <meta name="description" content="A demonstration of a multi-level navigation bar built with HTML and CSS, featuring dropdown menus, nested navigation, and responsive design for modern web interfaces." />
-    <meta name="keywords" content="Multi-Level navbar, navigation, CSS, HTML, web development, menu, dropdown, nested navigation, frontend, UI, responsive design" />
-    <meta name="author" content="I Knit the Web" />
-    <meta name="robots" content="index,nofollow" />
-    <link rel="canonical" href="{{BASE_URL}}dist/pages/multi-level-navbar.html" />
-    <meta property="og:title" content="Multi-Level navbar" />
-    <meta property="og:description" content="Discover how to build a modern, multi-level navigation bar with HTML and CSS—featuring dropdown menus, nested links, and responsive design for seamless user experiences." />
-    <meta property="og:image" content="{{OG_IMAGE}}" />
-    <meta property="og:url" content="{{BASE_URL}}dist/pages/multi-level-navbar.html" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Multi-Level navbar" />
-    <meta name="twitter:description" content="Discover how to build a modern, multi-level navigation bar with HTML and CSS—featuring dropdown menus, nested links, and responsive design for seamless user experiences." />
-    <meta name="twitter:image" content="{{TWITTER_IMAGE}}" />
-    <style>body {visibility: hidden;} .css-loaded body {visibility: visible;}</style>
-    <link rel="icon" type="image/x-icon" href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="{{GOOGLE_FONTS_LINK}}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;" onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" />
-    <link rel="stylesheet" href="{{BASE_URL}}dist/css/multi-level-navbar.purged.css" onload="window.mainCSSLoaded = true;" />
-    <div id="page-data" data-page-title="Multi-Level navbar" data-nav-config="Multi-Level navbar" data-breadcrumb-category="Portfolio" data-breadcrumb-category-url="{{BASE_URL}}dist/pages/portfolio.html" style="display: none"></div>
-    <script type="application/ld+json">{"@context": "https://schema.org","@type": "Project","name": "Multi-Level navbar","description": "A demonstration of a multi-level navigation bar built with HTML and CSS, featuring dropdown menus, nested navigation, and responsive design for modern web interfaces.","url": "{{BASE_URL}}dist/pages/multi-level-navbar.html","image": "{{SCHEMA_IMAGE}}","sameAs": ["https://github.com/iknittheweb", "https://twitter.com/iknittheweb"],"knowsAbout": ["HTML", "CSS", "Navigation", "Responsive Design", "Frontend Development"]}</script>
-    <script defer src="https://kit.fontawesome.com/94262366bd.js" crossorigin="anonymous"></script>
-    <script type="module" src="/src/js/script.js"></script>
-    <script>function checkCSSLoaded(){if(window.mainCSSLoaded&&document.readyState!=='loading'){document.documentElement.classList.add('css-loaded');document.documentElement.classList.add('fonts-failed');}else{requestAnimationFrame(checkCSSLoaded);}}checkCSSLoaded();setTimeout(function(){if(!document.documentElement.classList.contains('css-loaded')){console.warn('CSS loading timeout - showing content anyway');document.documentElement.classList.add('css-loaded');document.documentElement.classList.add('fonts-failed');}},3000);</script>
   </head>
 
-  <!--- ============================================= -->
-  <!--- BODY_ID AND BODY_CLASS: Filled in manually -->
-  <!--- ============================================= -->
-  <body id="multi-level-navbar">
+  <body>
+    <div
+      id="page-data"
+      data-page-title="{{MULTI-LEVEL-NAVBAR_TITLE}}"
+      data-page-subtitle="{{MULTI-LEVEL-NAVBAR_SUBTITLE}}"
+      data-nav-config="{{MULTI-LEVEL-NAVBAR_NAV_CONFIG}}"
+      data-breadcrumb-category="{{MULTI-LEVEL-NAVBAR_BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{MULTI-LEVEL-NAVBAR_BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
     <!--@ Skip Link for Screen Readers -->
     <a
-      href="-main-content"
+      href="#main-content"
       class="skip-link"
+      aria-label="Skip to main content"
       >Skip to main content</a
     >
-    {{HEADER}}
+    <!-- HEADER_PLACEHOLDER -->
 
-    <main id="main-content multi-level-navbar">
+    <main
+      id="main-content"
+      class="multi-level-navbar"
+      role="main">
       <h1 class="multi-level-navbar__title">Phyllum Mollusca</h1>
       <nav class="multi-level-navbar multi-level-nav">
         <ul class="multi-level-navbar__list">
@@ -301,6 +291,6 @@
       </nav>
     </main>
 
-    {{FOOTER}}
+    <!-- FOOTER_PLACEHOLDER -->
   </body>
 </html>

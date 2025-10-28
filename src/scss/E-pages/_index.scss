@@ -4,15 +4,12 @@
 //& Why It’s Important:
 //* Page-specific styles are kept separate from global styles, which helps avoid unnecessary bloat in your CSS and makes it easier to locate and modify page-specific styles.
 
-@forward 'about';
 @forward 'alien-abduction-form';
 @forward 'calculator';
-@forward 'contact';
 @forward 'css-position-cheat-sheet';
-@forward 'fifteenDaysOfCSS-Day4-BasicVerticalNavbars';
-@forward 'fifteenDaysofHTML-Day5-Desc-List-Challenge';
+@forward 'BasicVerticalNavbars';
+@forward 'Desc-List-Challenge';
 @forward 'multi-level-navbar';
 @forward 'navbar-link-filling-li';
 @forward 'new-page';
 @forward 'portfolio';
-@forward 'test-case';

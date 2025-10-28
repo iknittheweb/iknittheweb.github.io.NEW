@@ -2,50 +2,82 @@
 <html lang="en">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
+    <!-- CSS preload: use .css for local, .min.css for production -->
+    {{#if (eq NODE_ENV "production")}}
     <link
       rel="preload"
       as="style"
-      href="{{BASE_URL}}dist/css/new-page.purged.min.css"
-      onload="this.rel='stylesheet'; this.onload=null;"
-      /> <!-- UPDATE THE FILENAME HERE IN NEW PAGES -->
+      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" />
+    {{else}}
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" />
+    {{/if}}
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-    <title>NEW PAGE | I Knit The Web</title>
+    <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
+    <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+      script-src 'self' 'unsafe-inline' https://kit.fontawesome.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com;
+      img-src 'self' data: https://fonts.gstatic.com;
+      font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com;
+      connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';">
+    <title>{{NEW-PAGE_TITLE}}</title>
     <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
     <script>
-      if (document.title.trim() === '' || document.title.includes('{{TITLE}}')) {
+      if (document.title.trim() === '' || document.title.includes('{{NEW-PAGE_TITLE}}')) {
         document.title = 'New Page | I Knit The Web';
       }
     </script>
     <meta
       name="description"
-      content="{{DESCRIPTION}}" />
+      content="{{NEW-PAGE_DESCRIPTION}}" />
     <meta
       name="keywords"
-      content="{{KEYWORDS}}" />
+      content="{{NEW-PAGE_KEYWORDS}}" />
     <meta
       name="author"
       content="I Knit the Web" />
     <meta
       name="robots"
       content="{{ROBOTS}}" />
+    <meta
+      name="theme-color"
+      content="#500f44" />
     <link
       rel="canonical"
-      href="{{BASE_URL}}dist/pages/{{PAGE_NAME}}.html" />
+      href="{{BASE_URL}}{{NEW-PAGE_OG_URL}}" />
     <meta
       property="og:title"
-      content="{{OG_TITLE}}" />
+      content="{{NEW-PAGE_OG_TITLE}}" />
     <meta
       property="og:description"
-      content="{{OG_DESCRIPTION}}" />
+      content="{{NEW-PAGE_OG_DESCRIPTION}}" />
     <meta
       property="og:image"
-      content="{{OG_IMAGE}}" />
+      content="{{ASSET_URL}}/branding/logo.png" />
     <meta
       property="og:url"
-      content="{{OG_URL}}" />
+      content="{{BASE_URL}}{{NEW-PAGE_OG_URL}}" />
     <meta
       property="og:type"
       content="{{OG_TYPE}}" />
@@ -54,13 +86,13 @@
       content="{{TWITTER_CARD}}" />
     <meta
       name="twitter:title"
-      content="{{TWITTER_TITLE}}" />
+      content="{{NEW-PAGE_TWITTER_TITLE}}" />
     <meta
       name="twitter:description"
-      content="{{TWITTER_DESCRIPTION}}" />
+      content="{{NEW-PAGE_TWITTER_DESCRIPTION}}" />
     <meta
       name="twitter:image"
-      content="{{TWITTER_IMAGE}}" />
+      content="{{ASSET_URL}}/branding/logo.png" />
 
     <style>
       body {
@@ -74,7 +106,14 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ASSET_URL}}src\img\favicon_io\favicon.ico" />
+      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+    <link
+      rel="manifest"
+      href="{{BASE_URL}}/manifest.json" />
 
     <link
       rel="preconnect"
@@ -95,31 +134,8 @@
         rel="stylesheet" />
     </noscript>
 
-    <link
-      rel="stylesheet"
-      href="{{BASE_URL}}dist/css/{{PAGE_NAME}}.purged.min.css"
-      onload="window.mainCSSLoaded = true;" />
-
-    <div
-      id="page-data"
-      data-page-title="{{TITLE}}"
-      data-page-subtitle="{{SUBTITLE}}"
-      data-nav-config="{{NAV_CONFIG}}"
-      data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
-      style="display: none"></div>
-
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "{{SCHEMA_TYPE}}",
-        "name": "{{SCHEMA_NAME}}",
-        "description": "{{SCHEMA_DESCRIPTION}}",
-        "url": "{{SCHEMA_URL}}",
-        "image": "{{SCHEMA_IMAGE}}",
-        "sameAs": {{SCHEMA_SAMEAS}},
-        "knowsAbout": {{SCHEMA_KNOWSABOUT}}
-      }
+      {{{NEW-PAGE_SCHEMA_JSON}}}
     </script>
 
     <script
@@ -128,8 +144,9 @@
       crossorigin="anonymous"></script>
 
     <script
+      defer
       type="module"
-      src="/src/js/script.js"></script>
+      src="{{BASE_URL}}/src/js/script.js"></script>
 
     <script>
       // Wait for CSS to load before showing content
@@ -155,21 +172,30 @@
     </script>
   </head>
 
-  <body
-    id="{{BODY_ID}}"
-    class="{{BODY_CLASS}}">
+  <body>
+    <div
+      id="page-data"
+      data-page-title="{{NEW-PAGE_TITLE}}"
+      data-page-subtitle="{{NEW-PAGE_SUBTITLE}}"
+      data-nav-config="{{NEW-PAGE_NAV_CONFIG}}"
+      data-breadcrumb-category="{{NEW-PAGE_BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{NEW-PAGE_BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
     <!--@ Skip Link for Screen Readers -->
     <a
-      href="-main-content"
+      href="#main-content"
       class="skip-link"
+      aria-label="Skip to main content"
       >Skip to main content</a
     >
-    {{HEADER}}
+    <!-- HEADER_PLACEHOLDER -->
 
-    <main id="main-content">
+    <main
+      id="main-content"
+      role="main">
       <!-- page content goes here -->
     </main>
 
-    {{FOOTER}}
+    <!-- FOOTER_PLACEHOLDER -->
   </body>
 </html>

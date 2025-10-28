@@ -2,63 +2,95 @@
 <html lang="en">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
-    <meta charset="UTF-8" />
+    <!-- CSS preload: use .css for local, .min.css for production -->
+    {{#if (eq NODE_ENV "production")}}
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" >
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" >
+    {{else}}
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" >
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" >
+    {{/if}}
+    <meta charset="UTF-8" >
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0" />
+      content="width=device-width, initial-scale=1.0" >
+    <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
     <meta
-      http-equiv="X-UA-Compatible"
-      content="IE=edge" />
-
-    <title>I Knit the Web</title>
-
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+        script-src 'self' 'unsafe-inline' https://kit.fontawesome.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com;
+        img-src 'self' data: https://fonts.gstatic.com;
+        font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com;
+        connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com;
+        frame-src 'none';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';" >
+    <title>{{HOME_TITLE}}</title>
+    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
+    <script>
+      if (document.title.trim() === '' || document.title.includes('{{HOME_TITLE}}')) {
+        document.title = 'I Knit The Web';
+      }
+    </script>
     <meta
       name="description"
-      content="{{DESCRIPTION}}" />
-
+      content="{{HOME_DESCRIPTION}}" >
     <meta
       name="keywords"
-      content="{{KEYWORDS}}" />
-
+      content="{{HOME_KEYWORDS}}" >
     <meta
       name="author"
-      content="I Knit the Web" />
-
+      content="I Knit the Web" >
     <meta
       name="robots"
-      content="{{ROBOTS}}" />
+      content="{{ROBOTS}}" >
     <link
       rel="canonical"
-      href="{{CANONICAL_URL}}" />
-
+      href="{{BASE_URL}}{{HOME_OG_URL}}" >
     <meta
       property="og:title"
-      content="{{OG_TITLE}}" />
+      content="{{HOME_OG_TITLE}}" >
     <meta
       property="og:description"
-      content="{{OG_DESCRIPTION}}" />
+      content="{{HOME_OG_DESCRIPTION}}" >
     <meta
       property="og:image"
-      content="{{OG_IMAGE}}" />
+      content="{{ASSET_URL}}/branding/logo.png" >
     <meta
       property="og:url"
-      content="{{OG_URL}}" />
+      content="{{BASE_URL}}{{HOME_OG_URL}}" >
     <meta
       property="og:type"
-      content="{{OG_TYPE}}" />
-
+      content="{{OG_TYPE}}" >
     <meta
       name="twitter:card"
-      content="{{TWITTER_CARD}}" />
+      content="{{TWITTER_CARD}}" >
     <meta
       name="twitter:title"
-      content="{{TWITTER_TITLE}}" />
+      content="{{HOME_TWITTER_TITLE}}" >
     <meta
       name="twitter:description"
-      content="{{TWITTER_DESCRIPTION}}" />
+      content="{{HOME_TWITTER_DESCRIPTION}}" >
     <meta
       name="twitter:image"
-      content="{{TWITTER_IMAGE}}" />
+      content="{{ASSET_URL}}/branding/logo.png" >
+
     <style>
       body {
         visibility: hidden;
@@ -71,55 +103,36 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ASSET_URL}}src/img/favicon_io/favicon.ico" />
+      href="{{ASSET_URL}}/favicon_io/favicon.ico" >
     <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com" />
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" >
     <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin />
+      rel="manifest"
+      href="{{BASE_URL}}/manifest.json" >
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      rel="preconnect"
+      href="https://fonts.apis.com" >
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com" >
+
+    <link
+      href="{{GOOGLE_FONTS_LINK}}"
       rel="stylesheet"
       media="print"
       onload="this.media='all'; this.onload=null;"
-      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" >
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
-        rel="stylesheet" />
+        href="{{GOOGLE_FONTS_LINK}}"
+        rel="stylesheet" >
     </noscript>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
-
-    <link
-      rel="preload"
-      as="style"
-      href="{{BASE_URL}}dist/css/styles.css"
-      onload="this.rel='stylesheet'; this.onload=null;" />
-    <link
-      rel="stylesheet"
-      href="{{BASE_URL}}dist/css/styles.css"
-      onload="window.mainCSSLoaded = true;" />
-
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": {{ JSON.stringify(SCHEMA_TYPE) }},
-        "name": {{ JSON.stringify(SCHEMA_NAME) }},
-        "description": {{ JSON.stringify(SCHEMA_DESCRIPTION) }},
-        "url": {{ JSON.stringify(SCHEMA_URL) }},
-        "image": {{ JSON.stringify(SCHEMA_IMAGE) }},
-        "sameAs": {{ JSON.stringify(SCHEMA_SAMEAS) }},
-        "knowsAbout": {{ JSON.stringify(SCHEMA_KNOWSABOUT) }}
-      }
+      {{{HOME_SCHEMA_JSON}}}
     </script>
 
     <script
@@ -128,9 +141,9 @@
       crossorigin="anonymous"></script>
 
     <script
-      type="module"
       defer
-      src="/src/js/script.js"></script>
+      type="module"
+      src="{{BASE_URL}}/src/js/script.js"></script>
 
     <script>
       // Wait for CSS to load before showing content
@@ -156,43 +169,51 @@
     </script>
   </head>
 
-  <body class="home">
+  <body>
     <div
       id="page-data"
-      data-page-title="{{TITLE}}"
-      data-page-subtitle="{{SUBTITLE}}"
-      data-nav-config="{{NAV_CONFIG}}"
-      data-breadcrumb-category="{{BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{BREADCRUMB_CATEGORY_URL}}"
+      data-page-title="{{HOME_TITLE}}"
+      data-page-subtitle="{{HOME_SUBTITLE}}"
+      data-nav-config="{{HOME_NAV_CONFIG}}"
+      data-breadcrumb-category="{{HOME_BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{HOME_BREADCRUMB_CATEGORY_URL}}"
       style="display: none"></div>
-
     <!-- Skip Link for Screen Readers -->
     <a
-      href="#main-content"
+      href="{{BASE_URL}}/#main-content"
       class="skip-link"
       >Skip to main content</a
     >
-    <header class="topnav">
+    <header
+      class="topnav"
+      role="banner">
       <!-- For Screen Readers to simplify navigation -->
       <h1 class="visually-hidden">I Knit The Web Header</h1>
+      <!-- Global ARIA live region for notifications/status -->
+      <div
+        id="global-status"
+        aria-live="polite"
+        class="sr-only"
+        tabindex="-1"></div>
       <div class="wrapper topnav__wrapper">
         <!-- Main Header content including navigation -->
         <!-- Logo/Brand Home Link -->
         <a
-          href="/"
+          href="{{BASE_URL}}/"
           class="topnav__homelink hover-fade">
           <img
+            src="{{ASSET_URL}}/branding/logo.png"
             alt="I Knit The Web Homepage"
             class="topnav__logo"
-            src="{{ASSET_URL}}src/img/branding/logo.png"
             width="250"
-            height="250" />
+            height="250" >
         </a>
         <!-- Navigation Menu, mobile menu buttons, and overlay -->
         <!-- nav aria-label for accessibility -->
         <nav
           class="topnav__nav"
-          aria-label="Main navigation">
+          aria-label="Main navigation"
+          role="navigation">
           <!-- For Screen Readers to simplify navigation -->
           <span
             id="nav-label"
@@ -210,11 +231,6 @@
             class="topnav__open"
             aria-expanded="false"
             aria-labelledby="nav-label">
-            <!-- <img
-              alt="Open menu"
-              src="{{ASSET_URL}}src/img/icons/hamburger.svg"
-              width="30"
-              height="23" /> -->
             <span
               class="fa-solid fa-bars"
               aria-hidden="true"></span>
@@ -237,28 +253,28 @@
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="{{BASE_URL}}#main-content"
+                  href="{{BASE_URL}}"
                   >Home</a
                 >
               </li>
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="{{BASE_URL}}#about"
+                  href="{{BASE_URL}}/#about"
                   >About</a
                 >
               </li>
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="{{ASSET_URL}}dist/pages/portfolio.html"
-                  >Full Portfolio</a
+                  href="{{BASE_URL}}/#portfolio"
+                  >Portfolio</a
                 >
               </li>
               <li class="topnav__item">
                 <a
                   class="topnav__link"
-                  href="{{BASE_URL}}#contact"
+                  href="{{BASE_URL}}/#contact"
                   >Contact</a
                 >
               </li>
@@ -274,14 +290,14 @@
       <h1 class="home__title visually-hidden">I Knit The Web</h1>
       <section class="hero">
         <img
-          src="{{ASSET_URL}}src/img/pages/heading-banner-dark.svg"
+          src="{{ASSET_URL}}/pages/heading-banner-dark.svg"
           alt=""
           class="hero__banner"
           width="1125"
-          height="375" />
+          height="375" >
         <h2 class="hero__subtitle"> Handcrafted Websites for Small Budgets and Big Dreams </h2>
         <p class="hero__intro">
-          Time to turn your digital dreams into reality?<br />
+          Time to turn your digital dreams into reality?<br >
           I'll help you knit them into the perfect website!
         </p>
       </section>
@@ -292,11 +308,11 @@
           <aside class="about__profile">
             <figure class="about__profile-figure">
               <img
+                src="{{ASSET_URL}}/pages/Profile.png"
                 alt="Profile picture: smiling person with glasses and short hair"
-                src="{{ASSET_URL}}src/img/pages/Profile.png"
                 class="about__profile-pic"
                 width="371"
-                height="373" />
+                height="373" >
               <figcaption class="about__profile-caption">
                 <p>
                   I knit the web like a handmade sweater — structured with HTML, styled with CSS, and sprinkled with
@@ -322,8 +338,8 @@
             </p>
             <p>
               Take a look at my
-              <a href="{{ASSET_URL}}dist/pages/portfolio.html">portfolio</a> and if you'd like to collaborate,
-              <a href="#contact">let's connect</a> —I'd love to help bring your ideas to life!
+              <a href="{{BASE_URL}}/dist/pages/portfolio.html">portfolio</a> and if you'd like to collaborate,
+              <a href="{{BASE_URL}}/#contact">let's connect</a> —I'd love to help bring your ideas to life!
             </p>
           </section>
         </div>
@@ -369,21 +385,21 @@
                   <span>
                     Level 1 Certifications in
                     <a
-                      href="{{ASSET_URL}}src/certificates/CCA-Certificate-HTML-Level-1.jpg"
+                      href="{{ASSET_URL}}/certificates/CCA-Certificate-HTML-Level-1.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >HTML</a
                     >,
                     <a
-                      href="{{ASSET_URL}}src/certificates/CCA-Certificate-CSS-Level-1.jpg"
+                      href="{{ASSET_URL}}/certificates/CCA-Certificate-CSS-Level-1.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >CSS</a
                     >, and
                     <a
-                      href="{{ASSET_URL}}src/certificates/CCA-Certificate-Javascript-Level-1.jpg"
+                      href="{{ASSET_URL}}/certificates/CCA-Certificate-Javascript-Level-1.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -401,21 +417,21 @@
                     aria-hidden="true"></span>
                   <span>
                     <a
-                      href="{{ASSET_URL}}src/certificates/Sololearn-HTML-Course.jpg"
+                      href="{{ASSET_URL}}/certificates/Sololearn-HTML-Course.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >HTML</a
                     >,
                     <a
-                      href="{{ASSET_URL}}src/certificates/Sololearn-CSS-Course.jpg"
+                      href="{{ASSET_URL}}/certificates/Sololearn-CSS-Course.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >CSS</a
                     >, and
                     <a
-                      href="{{ASSET_URL}}src/certificates/Sololearn-Web-Development-course.jpg"
+                      href="{{ASSET_URL}}/certificates/Sololearn-Web-Development-course.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -442,7 +458,7 @@
                     aria-hidden="true"></span>
                   <span>
                     <a
-                      href="{{ASSET_URL}}src/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg"
+                      href="{{ASSET_URL}}/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -469,7 +485,7 @@
                     aria-hidden="true"></span>
                   <span>
                     <a
-                      href="{{ASSET_URL}}src/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png"
+                      href="{{ASSET_URL}}/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -495,21 +511,21 @@
                     aria-hidden="true"></span>
                   <span>
                     <a
-                      href="{{ASSET_URL}}src/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg"
+                      href="{{ASSET_URL}}/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >HTML Forms</a
                     >,
                     <a
-                      href="{{ASSET_URL}}src/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg"
+                      href="{{ASSET_URL}}/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
                       >Website Embeds & GitHub Pages</a
                     >, and
                     <a
-                      href="{{ASSET_URL}}src/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg"
+                      href="{{ASSET_URL}}/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg"
                       target="_blank"
                       rel="noopener"
                       class="link__cert"
@@ -923,7 +939,7 @@
           <!-- 🎯 SKILLS CHART COMPONENT END -->
         </section>
       </section>
-      <hr />
+      <hr >
       <section
         id="portfolio"
         class="portfolio wrapper section-padding">
@@ -976,7 +992,7 @@ function openMobileMenu() {
           <article class="card">
             <div class="card__header">
               <a
-                href="{{ASSET_URL}}dist/pages/portfolio-pages/alien-abduction-form.html"
+                href="{{BASE_URL}}/alien-abduction-form.html"
                 class="card__header__link">
                 <h3 class="card__title">Alien Abduction Order Form</h3>
               </a>
@@ -984,11 +1000,11 @@ function openMobileMenu() {
             <div class="card__body">
               <figure class="card__figure">
                 <img
+                  src="{{ASSET_URL}}/cards/Alien-abduction-form-thumb.jpg"
                   alt="Thumbnail preview of Alien Abduction Order Form project"
-                  src="{{ASSET_URL}}src/img/cards/Alien-abduction-form-thumb.jpg"
                   class="card__image"
                   width="345"
-                  height="259" />
+                  height="259" >
                 <figcaption class="card__caption">
                   <p> When you want an alien abduction, you want it your way. Fill out this form to get started. </p>
                 </figcaption>
@@ -1025,7 +1041,7 @@ function sendData() {
                   </div>
                   <div class="code-showcase__links">
                     <a
-                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main{{ASSET_URL}}src/js/alien-abduction-form.js"
+                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main{{ASSET_URL}}/src/js/alien-abduction-form.js"
                       >View full component</a
                     >
                   </div>
@@ -1034,7 +1050,7 @@ function sendData() {
             </div>
             <div class="card__footer">
               <a
-                href="{{ASSET_URL}}dist/pages/alien-abduction-form.html"
+                href="{{BASE_URL}}/alien-abduction-form.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
@@ -1043,7 +1059,7 @@ function sendData() {
           <article class="card">
             <div class="card__header">
               <a
-                href="{{ASSET_URL}}dist/pages/calculator.html"
+                href="{{BASE_URL}}/calculator.html"
                 class="card__header__link">
                 <h3 class="card__title">Calculator</h3>
               </a>
@@ -1051,11 +1067,11 @@ function sendData() {
             <div class="card__body">
               <figure class="card__figure">
                 <img
+                  src="{{ASSET_URL}}/cards/Calculator-thumb.jpg"
                   alt="Thumbnail preview of Calculator project"
-                  src="{{ASSET_URL}}src/img/cards/Calculator-thumb.jpg"
                   class="card__image"
                   width="356"
-                  height="268" />
+                  height="268" >
                 <figcaption class="card__caption">
                   <p>
                     A responsive calculator with advanced operations, built with vanilla JavaScript and modern CSS Grid.
@@ -1103,7 +1119,7 @@ class Calculator {
                   </div>
                   <div class="code-showcase__links">
                     <a
-                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main{{ASSET_URL}}src/js/calculator.js"
+                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main{{ASSET_URL}}/src/js/calculator.js"
                       >View full component</a
                     >
                   </div>
@@ -1112,7 +1128,7 @@ class Calculator {
             </div>
             <div class="card__footer">
               <a
-                href="{{ASSET_URL}}dist/pages/calculator.html"
+                href="{{BASE_URL}}/calculator.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
@@ -1121,7 +1137,7 @@ class Calculator {
           <article class="card">
             <div class="card__header">
               <a
-                href="{{ASSET_URL}}dist/pages/calculator.html"
+                href="{{BASE_URL}}/css-position-cheat-sheet.html"
                 class="card__header__link">
                 <h3 class="card__title">CSS Position Cheat Sheet</h3>
               </a>
@@ -1129,11 +1145,11 @@ class Calculator {
             <div class="card__body">
               <figure class="card__figure">
                 <img
+                  src="{{ASSET_URL}}/cards/css-position-cheat-sheet-thumb.png"
                   alt="Thumbnail preview of CSS Position Cheat Sheet project"
-                  src="{{ASSET_URL}}src/img/cards/css-position-cheat-sheet-thumb.png"
                   class="card__image"
                   width="1868"
-                  height="1401" />
+                  height="1401" >
                 <figcaption class="card__caption">
                   <p>
                     Interactive cheat sheet demonstrating CSS positioning with live examples, built using advanced SCSS
@@ -1186,7 +1202,7 @@ class Calculator {
                     >
                   </div>
                   <div class="code-showcase__links">
-                    <a href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/tree/main{{ASSET_URL}}src/scss"
+                    <a href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/tree/main{{ASSET_URL}}/src/scss"
                       >View SCSS architecture</a
                     >
                   </div>
@@ -1195,7 +1211,7 @@ class Calculator {
             </div>
             <div class="card__footer">
               <a
-                href="{{ASSET_URL}}dist/pages/css-position-cheat-sheet.html"
+                href="{{BASE_URL}}/css-position-cheat-sheet.html"
                 class="card__button card__button--primary card__link">
                 See more...
               </a>
@@ -1204,7 +1220,7 @@ class Calculator {
           <!-- Add more projects here as needed -->
         </div>
       </section>
-      <hr />
+      <hr >
       <section
         id="contact"
         class="contact contact--inverse">
@@ -1239,7 +1255,7 @@ class Calculator {
                 placeholder="Your name here..."
                 required
                 autocomplete="name"
-                aria-describedby="name-error" />
+                aria-describedby="name-error" >
               <div
                 id="name-error"
                 class="contact__error"
@@ -1264,7 +1280,7 @@ class Calculator {
                 placeholder="your.email@example.com"
                 required
                 autocomplete="email"
-                aria-describedby="email-error" />
+                aria-describedby="email-error" >
               <div
                 id="email-error"
                 class="contact__error"
@@ -1325,12 +1341,14 @@ class Calculator {
       </section>
     </main>
 
-    <footer class="footer">
+    <footer
+      class="footer"
+      role="contentinfo">
       <div class="footer__content wrapper">
         <div class="footer__sections">
           <!-- About Section -->
           <div class="footer__section footer__about">
-            <h3 class="footer__heading">I Knit The Web</h3>
+            <h2 class="footer__heading">I Knit The Web</h2>
             <p class="footer__description">
               Crafting handmade websites with care, creativity, and code. Bringing your digital dreams to life, one
               thread at a time.
@@ -1339,35 +1357,35 @@ class Calculator {
 
           <!-- Quick Links Section -->
           <div class="footer__section footer__links">
-            <h3 class="footer__heading">Quick Links</h3>
+            <h2 class="footer__heading">Quick Links</h2>
             <nav
               class="footer__nav"
               aria-label="Footer navigation">
               <ul class="footer__nav-list">
                 <li
                   ><a
-                    href="{{BASE_URL}}#main-content"
+                    href="{{BASE_URL}}/#main-content"
                     class="footer__nav-link"
                     >Home</a
                   ></li
                 >
                 <li
                   ><a
-                    href="{{BASE_URL}}#about"
+                    href="{{BASE_URL}}/#about"
                     class="footer__nav-link"
                     >About</a
                   ></li
                 >
                 <li
                   ><a
-                    href="{{ASSET_URL}}dist/pages/portfolio.html"
+                    href="{{BASE_URL}}/#portfolio"
                     class="footer__nav-link"
                     >Portfolio</a
                   ></li
                 >
                 <li
                   ><a
-                    href="{{BASE_URL}}#contact"
+                    href="{{BASE_URL}}/#contact"
                     class="footer__nav-link"
                     >Contact</a
                   ></li
@@ -1378,12 +1396,12 @@ class Calculator {
 
           <!-- Contact Section -->
           <div class="footer__section footer__contact">
-            <h3 class="footer__heading">Let's Connect</h3>
+            <h2 class="footer__heading">Let's Connect</h2>
             <p class="footer__contact-text">
               Ready to start your project? I'd love to hear about your ideas and help bring them to life.
             </p>
             <a
-              href="/index.html/#contact"
+              href="{{BASE_URL}}/#contact"
               class="footer__cta-link"
               >Get In Touch</a
             >
