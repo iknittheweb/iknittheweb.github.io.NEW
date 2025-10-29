@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/iknittheweb/iknittheweb.github.io.NEW/compare/v1.1.0...v1.1.1) (2025-10-29)
+
+
+### Bug Fixes
+
+* **html:** update index.html and template for build changes ([4abdd5f](https://github.com/iknittheweb/iknittheweb.github.io.NEW/commit/4abdd5fad6e8f16e34c96c16e8b230d18f1adb62))
+
 ## 1.1.0 (2025-10-29)
 
 
