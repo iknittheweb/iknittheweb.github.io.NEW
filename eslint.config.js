@@ -17,9 +17,6 @@ import prettierConfig from 'eslint-config-prettier';
 export default [
   {
     files: ['**/*.js'],
-    ignores: [
-      'src/js/bodyScrollLock.min.js', // Third-party minified library
-    ],
     languageOptions: {
       ecmaVersion: 2021,
       sourceType: 'module',
