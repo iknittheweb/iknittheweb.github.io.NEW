@@ -1,7 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html
+  lang="en"
+  class="no-js">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
+    <style>
+      .no-js body {
+        visibility: hidden;
+      }
+      .css-loaded body {
+        visibility: visible;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.remove('no-js');
+    </script>
+    <noscript
+      ><style>
+        body {
+          visibility: visible;
+        }
+      </style></noscript
+    >
     <!-- CSS preload: use .css for local, .min.css for production -->
     {{#if (eq NODE_ENV "production")}}
     <link
@@ -126,8 +146,8 @@
     </noscript>
 
     <script
-    src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
-    crossorigin="anonymous"></script>
+      src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
+      crossorigin="anonymous"></script>
 
     <script type="application/ld+json">
       {{{BASIC-VERTICAL-NAVBARS_SCHEMA_JSON}}}
