@@ -34,5 +34,7 @@ module.exports = {
         message: 'Class names should be written in BEM (block__element--modifier) style.',
       },
     ],
+    // Enforce modern media feature range notation
+    'media-feature-range-notation': 'no-prefix',
   },
 };
