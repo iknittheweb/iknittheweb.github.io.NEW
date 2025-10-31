@@ -10,5 +10,5 @@
 // - Automation: Runs checks automatically before each commit
 // ------------------------------------------------------------
 module.exports = {
-  '*.{js,cjs,css,scss,html,md}': 'echo "Staged files processed successfully"'
+  '*.{css,scss}': 'stylelint',
 };

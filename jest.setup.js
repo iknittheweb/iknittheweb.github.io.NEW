@@ -22,3 +22,21 @@ if (typeof global.TextEncoder === 'undefined') {
 if (typeof global.TextDecoder === 'undefined') {
   global.TextDecoder = require('util').TextDecoder;
 }
+
+// Mock IntersectionObserver for skillsChart tests
+global.IntersectionObserver = class {
+  constructor() {}
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
+
+// Mock HTMLFormElement.prototype.requestSubmit for contactForm tests
+if (typeof HTMLFormElement !== 'undefined' && !HTMLFormElement.prototype.requestSubmit) {
+  HTMLFormElement.prototype.requestSubmit = function () {
+    // Simulate form submit
+    if (typeof this.submit === 'function') {
+      this.submit();
+    }
+  };
+}
