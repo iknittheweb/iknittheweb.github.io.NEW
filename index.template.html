@@ -4,6 +4,17 @@
   class="no-js">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
+    <meta charset="UTF-8" >
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" >
+    <title>{{HOME_TITLE}}</title>
+    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
+    <script>
+      if (document.title.trim() === '' || document.title.includes('{{HOME_TITLE}}')) {
+        document.title = 'I Knit The Web';
+      }
+    </script>
     <!-- CSS preload: use .css for local, .min.css for production -->
     {{#if (eq NODE_ENV "production")}}
     <link
@@ -26,13 +37,6 @@
       href="{{BASE_URL}}{{HOME_CSS_FILE}}"
       onload="window.mainCSSLoaded = true;" >
     {{/if}}
-    <meta charset="UTF-8" >
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" >
-    <script>
-      0;
-    </script>
     <noscript>
       <style>
         body {
@@ -44,13 +48,6 @@
     <!-- <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" > -->
-    <title>{{HOME_TITLE}}</title>
-    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
-    <script>
-      if (document.title.trim() === '' || document.title.includes('{{HOME_TITLE}}')) {
-        document.title = 'I Knit The Web';
-      }
-    </script>
     <meta
       name="description"
       content="{{HOME_DESCRIPTION}}" >
@@ -230,7 +227,9 @@
         <nav
           class="topnav__nav"
           aria-label="Main navigation"
-          role="navigation">
+          role="navigation"
+          data-cy="main-nav"
+          aria-hidden="false">
           <!-- For Screen Readers to simplify navigation -->
           <span
             id="nav-label"
@@ -247,7 +246,8 @@
             id="btnOpen"
             class="topnav__open"
             aria-expanded="false"
-            aria-labelledby="nav-label">
+            aria-labelledby="nav-label"
+            data-cy="nav-open">
             <span
               class="fa-solid fa-bars"
               aria-hidden="true"></span>
@@ -257,11 +257,14 @@
             id="menuTopNav"
             class="topnav__menu"
             role="dialog"
-            aria-labelledby="nav-label">
+            aria-labelledby="nav-label"
+            data-cy="mobile-menu"
+            aria-hidden="true">
             <!-- Button to close Mobile Menu -->
             <button
               id="btnClose"
-              class="topnav__close">
+              class="topnav__close"
+              data-cy="nav-close">
               <span
                 class="fa-solid fa-xmark"
                 aria-hidden="true"></span>
@@ -271,6 +274,7 @@
                 <a
                   class="topnav__link"
                   href="{{BASE_URL}}"
+                  data-cy="nav-home"
                   >Home</a
                 >
               </li>
@@ -278,6 +282,7 @@
                 <a
                   class="topnav__link"
                   href="{{BASE_URL}}/#about"
+                  data-cy="nav-about"
                   >About</a
                 >
               </li>
@@ -285,6 +290,7 @@
                 <a
                   class="topnav__link"
                   href="{{BASE_URL}}/#portfolio"
+                  data-cy="nav-portfolio"
                   >Portfolio</a
                 >
               </li>
@@ -292,6 +298,7 @@
                 <a
                   class="topnav__link"
                   href="{{BASE_URL}}/#contact"
+                  data-cy="nav-contact"
                   >Contact</a
                 >
               </li>
@@ -373,7 +380,8 @@
               tabindex="0"
               aria-expanded="false"
               aria-controls="dropdown-content"
-              aria-describedby="dropdown-title dropdown-subtitle">
+              aria-describedby="dropdown-title dropdown-subtitle"
+              data-cy="dropdown-trigger">
               <span
                 class="fa-solid fa-hand-point-up dropdown__icon"
                 aria-hidden="true"></span>
@@ -398,7 +406,9 @@
             <ul
               class="dropdown__content"
               id="dropdown-content"
-              aria-labelledby="dropdown-title">
+              aria-labelledby="dropdown-title"
+              data-cy="dropdown-content"
+              aria-hidden="true">
               <li>
                 <div class="achievement">
                   <span
@@ -1255,7 +1265,8 @@ class Calculator {
           class="contact__form"
           action="https://formspree.io/f/mpwyyeaa"
           autocomplete="on"
-          novalidate>
+          novalidate
+          data-cy="contact-form">
           <fieldset class="contact__fieldset">
             <legend class="contact__legend"> Ready to Connect the Threads? </legend>
             <div class="contact__group">
@@ -1277,7 +1288,8 @@ class Calculator {
                 placeholder="Your name here..."
                 required
                 autocomplete="name"
-                aria-describedby="name-error" >
+                aria-describedby="name-error"
+                data-cy="contact-name" >
               <div
                 id="name-error"
                 class="contact__error"
@@ -1302,7 +1314,8 @@ class Calculator {
                 placeholder="your.email@example.com"
                 required
                 autocomplete="email"
-                aria-describedby="email-error" >
+                aria-describedby="email-error"
+                data-cy="contact-email" >
               <div
                 id="email-error"
                 class="contact__error"
@@ -1326,7 +1339,8 @@ class Calculator {
                 rows="5"
                 placeholder="Tell me about your project ideas, goals, budget, timeline, or any questions you have. I'd love to hear what you're envisioning!"
                 required
-                aria-describedby="message-error"></textarea>
+                aria-describedby="message-error"
+                data-cy="contact-message"></textarea>
               <div
                 id="message-error"
                 class="contact__error"
@@ -1335,7 +1349,8 @@ class Calculator {
             <button
               type="submit"
               class="contact__submit"
-              data-sparkles="true">
+              data-sparkles="true"
+              data-cy="contact-submit">
               <span class="contact__submit-text">Start the Conversation</span>
               <span
                 class="contact__sparkle contact__sparkle--main"
@@ -1380,12 +1395,10 @@ class Calculator {
           <!-- Quick Links Section -->
           <div class="footer__section footer__links">
             <h2 class="footer__heading">Quick Links</h2>
-            <nav
-              class="footer__nav"
-              aria-label="Footer navigation">
-              <ul class="footer__nav-list">
-                <li
-                  ><a
+            <nav class="footer__nav">
+              <ul>
+                <li>
+                  <a
                     href="{{BASE_URL}}/#main-content"
                     class="footer__nav-link"
                     >Home</a

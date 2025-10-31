@@ -4,6 +4,17 @@
   lang="en"
   class="no-js">
   <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>{{MULTI-LEVEL-NAVBAR_TITLE}}</title>
+    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
+    <script>
+      if (document.title.trim() === '' || document.title.includes('{{MULTI-LEVEL-NAVBAR_TITLE}}')) {
+        document.title = 'Multi-Level Navbar | I Knit The Web';
+      }
+    </script>
     <style>
       .no-js body {
         visibility: hidden;
@@ -44,21 +55,10 @@
       href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
       onload="window.mainCSSLoaded = true;" />
     {{/if}}
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" />
     <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" />
-    <title>{{MULTI-LEVEL-NAVBAR_TITLE}}</title>
-    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
-    <script>
-      if (document.title.trim() === '' || document.title.includes('{{MULTI-LEVEL-NAVBAR_TITLE}}')) {
-        document.title = 'Multi-Level Navbar | I Knit The Web';
-      }
-    </script>
     <meta
       name="description"
       content="{{MULTI-LEVEL-NAVBAR_DESCRIPTION}}" />
@@ -211,11 +211,14 @@
       role="main">
       <h1 class="multi-level-navbar__title">Phyllum Mollusca</h1>
       <nav class="multi-level-navbar multi-level-nav">
-        <ul class="multi-level-navbar__list">
+        <ul
+          class="multi-level-navbar__list"
+          data-cy="multi-navbar-list">
           <li class="multi-level-navbar__item multi-level-navbar__item--home">
             <a
               href="#"
               class="multi-level-navbar__link"
+              data-cy="multi-navbar-home"
               >Home</a
             >
             <ul class="multi-level-navbar__sublist">
@@ -246,6 +249,7 @@
             <a
               href="#"
               class="multi-level-navbar__link"
+              data-cy="multi-navbar-gastropods"
               >Gastropods</a
             >
             <ul class="multi-level-navbar__sublist">
@@ -269,6 +273,7 @@
             <a
               href="#"
               class="multi-level-navbar__link"
+              data-cy="multi-navbar-bivalvia"
               >Bivalvia</a
             >
             <ul class="multi-level-navbar__sublist">
