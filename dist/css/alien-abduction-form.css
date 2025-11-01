@@ -111,6 +111,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -152,6 +155,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 form,
@@ -298,12 +303,6 @@ a:active {
   --font-1: "Merriweather", "Georgia", serif;
   --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
   --alien-font-family: "Orbitron", roboto, monospace;
-}
-
-.fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
 }
 
 h1,
