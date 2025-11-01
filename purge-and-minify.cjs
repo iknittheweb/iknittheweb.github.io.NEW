@@ -33,13 +33,21 @@ fs.mkdirSync(cssDir, { recursive: true });
 // This function purges a CSS file using PurgeCSS CLI, then renames the purged file to overwrite the original for deployment.
 async function purgeAndReplace(file) {
   let base = file.endsWith('.min.css') ? path.basename(file, '.min.css') : path.basename(file, '.css');
-  // Special case: styles.css should use index.html in project root
-  const htmlFile = path.join(__dirname, base === 'styles' ? 'index.html' : `${base}.html`);
+  let htmlFiles;
+  if (base === 'styles') {
+    // Only use index.html for styles.css
+    htmlFiles = [path.join(__dirname, 'index.html')];
+  } else {
+    // Use only the matching HTML file for other CSS files
+    htmlFiles = [path.join(__dirname, `${base}.html`)];
+  }
   const purged = path.join(cssDir, `purged-${base}.css`);
 
-  // Only purge if matching HTML file exists
-  if (fs.existsSync(htmlFile)) {
-    execSync(`npx purgecss --css "${file}" --content "${htmlFile}" --output "${purged}"`, { stdio: 'inherit' });
+  // Only purge if all matching HTML files exist
+  const allExist = htmlFiles.every((f) => fs.existsSync(f));
+  if (allExist) {
+    const contentArgs = htmlFiles.map((f) => `--content "${f}"`).join(' ');
+    execSync(`npx purgecss --css "${file}" ${contentArgs} --output "${purged}"`, { stdio: 'inherit' });
     fs.renameSync(purged, file);
     // Minify after purging
     const css = fs.readFileSync(file, 'utf8');
@@ -47,7 +55,7 @@ async function purgeAndReplace(file) {
     const minFile = file.replace(/\.css$/, '.min.css');
     fs.writeFileSync(minFile, minified.css);
   } else {
-    console.warn(`Skipping ${file}: No matching HTML file (${htmlFile}) found.`);
+    console.warn(`Skipping ${file}: No matching HTML file(s) (${htmlFiles.join(', ')}) found.`);
   }
 }
 
