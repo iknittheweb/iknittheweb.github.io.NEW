@@ -34,13 +34,13 @@ describe('Contact Form', () => {
   });
 
   it('should follow correct focus order for keyboard users', () => {
-    cy.get('body').tab();
+    cy.get('body').realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'contact-name');
-    cy.focused().tab();
+    cy.focused().realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'contact-email');
-    cy.focused().tab();
+    cy.focused().realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'contact-message');
-    cy.focused().tab();
+    cy.focused().realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'contact-submit');
   });
   beforeEach(() => {

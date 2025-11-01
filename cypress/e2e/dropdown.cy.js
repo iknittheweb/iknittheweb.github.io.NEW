@@ -37,7 +37,7 @@ describe('Dropdown UI/Interaction', () => {
   it('should follow correct focus order for keyboard users', () => {
     cy.get('[data-cy="dropdown-trigger"]').focus().type('{enter}');
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().focus();
-    cy.focused().tab();
+    cy.focused().realPress('Tab');
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').eq(1).should('be.focused');
   });
   beforeEach(() => {

@@ -27,11 +27,11 @@ describe('Multi-Level Navbar', () => {
   });
 
   it('should follow correct focus order for keyboard users', () => {
-    cy.get('body').tab();
+    cy.get('body').realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'multi-navbar-home');
-    cy.focused().tab();
+    cy.focused().realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'multi-navbar-gastropods');
-    cy.focused().tab();
+    cy.focused().realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'multi-navbar-bivalvia');
   });
 
