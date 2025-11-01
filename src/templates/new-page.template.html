@@ -1,6 +1,7 @@
 <!doctype html>
 <html
   lang="en"
+  dir="ltr"
   class="no-js">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
@@ -56,135 +57,15 @@
       onload="window.mainCSSLoaded = true;" />
     {{/if}}
     <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" />
-    <meta
-      name="description"
-      content="{{NEW-PAGE_DESCRIPTION}}" />
-    <meta
-      name="keywords"
-      content="{{NEW-PAGE_KEYWORDS}}" />
-    <meta
-      name="author"
-      content="I Knit the Web" />
-    <meta
-      name="robots"
-      content="{{ROBOTS}}" />
-    <meta
-      name="theme-color"
-      content="#500f44" />
-    <link
-      rel="canonical"
-      href="{{BASE_URL}}{{NEW-PAGE_OG_URL}}" />
-    <meta
-      property="og:title"
-      content="{{NEW-PAGE_OG_TITLE}}" />
-    <meta
-      property="og:description"
-      content="{{NEW-PAGE_OG_DESCRIPTION}}" />
-    <meta
-      property="og:image"
-      content="{{ASSET_URL}}/branding/logo.png" />
-    <meta
-      property="og:url"
-      content="{{BASE_URL}}{{NEW-PAGE_OG_URL}}" />
-    <meta
-      property="og:type"
-      content="{{OG_TYPE}}" />
-    <meta
-      name="twitter:card"
-      content="{{TWITTER_CARD}}" />
-    <meta
-      name="twitter:title"
-      content="{{NEW-PAGE_TWITTER_TITLE}}" />
-    <meta
-      name="twitter:description"
-      content="{{NEW-PAGE_TWITTER_DESCRIPTION}}" />
-    <meta
-      name="twitter:image"
-      content="{{ASSET_URL}}/branding/logo.png" />
-
-    <style>
-      body {
-        visibility: hidden;
-      }
-      .css-loaded body {
-        visibility: visible;
-      }
-    </style>
-
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
-    <link
-      rel="manifest"
-      href="{{BASE_URL}}/manifest.json" />
-
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com" />
-
-    <link
-      href="{{GOOGLE_FONTS_LINK}}"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'; this.onload=null;"
-      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
-    <noscript>
-      <link
-        href="{{GOOGLE_FONTS_LINK}}"
-        rel="stylesheet" />
-    </noscript>
-
+    {{#if (eq NODE_ENV "production")}}
     <script
-      src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
-      crossorigin="anonymous"></script>
-
-    <script type="application/ld+json">
-      {{{NEW-PAGE_SCHEMA_JSON}}}
-    </script>
-
-    <script
-      defer
-      src="https://kit.fontawesome.com/94262366bd.js"
-      crossorigin="anonymous"></script>
-
-    <script
-      defer
       type="module"
-      src="{{BASE_URL}}/src/js/script.js"></script>
-
-    <script>
-      // Wait for CSS to load before showing content
-      function checkCSSLoaded() {
-        if (window.mainCSSLoaded && document.readyState !== 'loading') {
-          document.documentElement.classList.add('css-loaded');
-          // Add fonts-failed class immediately since we're using system fonts only
-          document.documentElement.classList.add('fonts-failed');
-        } else {
-          requestAnimationFrame(checkCSSLoaded);
-        }
-      }
-      checkCSSLoaded();
-
-      // Fallback: Show content after 3 seconds even if CSS fails to load
-      setTimeout(function () {
-        if (!document.documentElement.classList.contains('css-loaded')) {
-          console.warn('CSS loading timeout - showing content anyway');
-          document.documentElement.classList.add('css-loaded');
-          document.documentElement.classList.add('fonts-failed');
-        }
-      }, 3000);
-    </script>
+      src="/dist/assets/script.js"></script>
+    {{else}}
+    <script
+      type="module"
+      src="/src/js/script.js"></script>
+    {{/if}}
   </head>
 
   <body>

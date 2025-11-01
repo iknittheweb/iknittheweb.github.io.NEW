@@ -5,6 +5,7 @@
 <!doctype html>
 <html
   lang="en"
+  dir="ltr"
   class="no-js">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
@@ -38,76 +39,7 @@
     <link rel="preload" as="style" href="//dist/css/new-page.css" onload="this.rel='stylesheet'; this.onload=null;">
     <link rel="stylesheet" href="//dist/css/new-page.css" onload="this.media='all'" media="print">
     <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
-    <meta name="description" content="Explore new page features and layout ideas. Includes code samples, accessibility tips, and best practices for web development.">
-    <meta name="keywords" content="web development, new page, layout, accessibility, code examples, tutorial">
-    <meta name="author" content="I Knit the Web">
-    <meta name="robots" content="noindex,nofollow">
-    <meta name="theme-color" content="#500f44">
-    <link rel="canonical" href="//new-page.html">
-    <meta property="og:title" content="New Page | I Knit The Web">
-    <meta property="og:description" content="Step-by-step tutorial for new page features. Improve your site with modern layouts and accessible design.">
-    <meta property="og:image" content="/dist/img/branding/logo.png">
-    <meta property="og:url" content="//new-page.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="New Page | I Knit The Web">
-    <meta name="twitter:description" content="Discover new page features for modern web development. Visual examples, code snippets, and best practices.">
-    <meta name="twitter:image" content="/dist/img/branding/logo.png">
-
-    <style>
-      body {
-        visibility: hidden;
-      }
-      .css-loaded body {
-        visibility: visible;
-      }
-    </style>
-
-    <link rel="icon" type="image/x-icon" href="/dist/img/favicon_io/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/dist/img/favicon_io/apple-touch-icon.png">
-    <link rel="manifest" href="//manifest.json">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Merriweather+Sans:400,700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;" onerror="this.remove(); document.documentElement.classList.add('fonts-failed');">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Merriweather+Sans:400,700&amp;display=swap" rel="stylesheet">
-    </noscript>
-
-    <script src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js" crossorigin="anonymous"></script>
-
-    <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"WebPage","name":"New Page | I Knit The Web","description":"Explore new page features and layout ideas. Includes code samples, accessibility tips, and best practices for web development.","url":"/new-page.html"}
-    </script>
-
-    <script defer="" src="https://kit.fontawesome.com/94262366bd.js" crossorigin="anonymous"></script>
-
-    <script defer="" type="module" src="//src/js/script.js"></script>
-
-    <script>
-      // Wait for CSS to load before showing content
-      function checkCSSLoaded() {
-        if (window.mainCSSLoaded && document.readyState !== 'loading') {
-          document.documentElement.classList.add('css-loaded');
-          // Add fonts-failed class immediately since we're using system fonts only
-          document.documentElement.classList.add('fonts-failed');
-        } else {
-          requestAnimationFrame(checkCSSLoaded);
-        }
-      }
-      checkCSSLoaded();
-
-      // Fallback: Show content after 3 seconds even if CSS fails to load
-      setTimeout(function () {
-        if (!document.documentElement.classList.contains('css-loaded')) {
-          console.warn('CSS loading timeout - showing content anyway');
-          document.documentElement.classList.add('css-loaded');
-          document.documentElement.classList.add('fonts-failed');
-        }
-      }, 3000);
-    </script>
+    <script type="module" src="/src/js/script.js"></script>
   </head>
 
   <body>
@@ -244,7 +176,8 @@
 
     <footer
       class="footer"
-      role="contentinfo">
+      role="contentinfo"
+      aria-label="Site footer">
       <div class="footer__content wrapper">
         <div class="footer__sections">
           <!-- About Section -->

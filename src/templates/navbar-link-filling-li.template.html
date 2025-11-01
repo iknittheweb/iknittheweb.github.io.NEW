@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0" />
+      class="no-js" dir="ltr">
     <title>{{NAVBAR-LINK-FILLING-LI_TITLE}}</title>
     <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
     <script>
@@ -56,6 +56,15 @@
       onload="window.mainCSSLoaded = true;" />
     {{/if}}
     <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
+    {{#if (eq NODE_ENV "production")}}
+    <script
+      type="module"
+      src="/dist/assets/script.js"></script>
+    {{else}}
+    <script
+      type="module"
+      src="/src/js/script.js"></script>
+    {{/if}}
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" />
@@ -203,14 +212,11 @@
       aria-label="Skip to main content"
       >Skip to main content</a
     >
-    <!-- HEADER_PLACEHOLDER -->
-
-    <main
-      id="main-content"
-      role="main">
-      <!-- page content goes here -->
+        <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:100;" onfocus="this.style.position='static';this.style.width='auto';this.style.height='auto';this.style.left='0';">Skip to main content</a>
     </main>
 
     <!-- FOOTER_PLACEHOLDER -->
   </body>
 </html>
+          role="main" tabindex="-1" aria-label="Main content">
+

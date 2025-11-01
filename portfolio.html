@@ -39,6 +39,7 @@
     <link rel="preload" as="style" href="//dist/css/portfolio.css" onload="this.rel='stylesheet'; this.onload=null;">
     <link rel="stylesheet" href="//dist/css/portfolio.css" onload="this.media='all'" media="print">
     <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
+    <script type="module" src="/src/js/script.js"></script>
     <!-- <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" > -->
@@ -122,16 +123,18 @@
       data-breadcrumb-category="Portfolio"
       data-breadcrumb-category-url="/category/portfolio"
       style="display: none"></div>
-
-    <!-- Skip Link for Screen Readers -->
+    <!-- Skip to main content link for keyboard users -->
     <a
       href="#main-content"
       class="skip-link"
-      aria-label="Skip to main content"
+      style="position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 100"
+      onfocus="this.style.position='static';this.style.width='auto';this.style.height='auto';this.style.left='0';"
       >Skip to main content</a
     >
-
     <header
+      role="banner"
+      aria-label="Site header">
+      <header
       class="topnav"
       role="banner">
       <!-- For Screen Readers to simplify navigation -->
@@ -240,10 +243,17 @@
         </nav>
       </div>
     </header>
-
+    </header>
+    <nav
+      aria-label="Main navigation"
+      role="navigation">
+      <!-- NAV_PLACEHOLDER -->
+    </nav>
     <main
       id="main-content"
-      class="portfolio-main">
+      class="portfolio-main"
+      tabindex="-1"
+      aria-label="Main content">
       <section
         class="hero"
         role="region"
@@ -589,7 +599,8 @@
 
     <footer
       class="footer"
-      role="contentinfo">
+      role="contentinfo"
+      aria-label="Site footer">
       <div class="footer__content wrapper">
         <div class="footer__sections">
           <!-- About Section -->
