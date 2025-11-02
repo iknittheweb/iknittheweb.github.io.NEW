@@ -32,7 +32,7 @@ describe('contactForm.js', () => {
     messageError = document.getElementById('message-error');
   });
 
-  test.skip('should validate fields and set aria-invalid', () => {
+  test('should validate fields and set aria-invalid', () => {
     nameInput.value = '';
     nameInput.dispatchEvent(new Event('input'));
     expect(nameInput.getAttribute('aria-invalid')).toBe('true');
@@ -44,7 +44,7 @@ describe('contactForm.js', () => {
     expect(nameInput.getAttribute('aria-invalid')).toBe('false');
   });
 
-  test.skip('should associate error messages via aria-describedby', () => {
+  test('should associate error messages via aria-describedby', () => {
     nameInput.value = '';
     nameInput.dispatchEvent(new Event('input'));
     expect(nameInput.getAttribute('aria-describedby')).toBe('name-error');
@@ -66,7 +66,7 @@ describe('contactForm.js', () => {
     }, 1100);
   });
 
-  test.skip('should focus first invalid field on submit', () => {
+  test('should focus first invalid field on submit', () => {
     nameInput.value = '';
     emailInput.value = '';
     messageInput.value = '';
