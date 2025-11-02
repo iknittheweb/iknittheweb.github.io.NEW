@@ -1,19 +1,23 @@
 <!doctype html>
 <html
-  lang="en" dir="ltr" class="no-js">
+  lang="en"
+  class="no-js">
   <!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1" />
-    <title>{{ALIEN-ABDUCTION-FORM_TITLE}}</title>
-    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
-    <script>
-      if (document.title.trim() === '' || document.title.includes('{{ALIEN-ABDUCTION-FORM_TITLE}}')) {
-        document.title = 'Alien Abduction Form | I Knit The Web';
-      }
-    </script>
+    <title>Sign Up for an Alien Abduction! | I Knit The Web</title>
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
+      onload="this.rel='stylesheet'; this.onload=null;" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
+      onload="window.mainCSSLoaded = true;" />
     <style>
       .no-js body {
         visibility: hidden;
@@ -32,30 +36,6 @@
         }
       </style></noscript
     >
-    <!-- CSS preload: use .css for local, .min.css for production -->
-    {{#if (eq NODE_ENV "production")}}
-    <link
-      rel="preload"
-      as="style"
-      href="{{BASE_URL}}{{ALIEN-ABDUCTION-FORM_CSS_FILE}}"
-      onload="this.rel='stylesheet'; this.onload=null;" />
-    <link
-      rel="stylesheet"
-      href="{{BASE_URL}}{{ALIEN-ABDUCTION-FORM_CSS_FILE}}"
-      onload="window.mainCSSLoaded = true;" />
-    {{/if}}
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io http://127.0.0.1:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io http://127.0.0.1:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io http://127.0.0.1:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" />
-    {{#if (eq NODE_ENV "production")}}
-    <script
-      type="module"
-      src="/dist/assets/script.js"></script>
-    {{else}}
-    <script
-      type="module"
-      src="/src/js/script.js"></script>
-    {{/if}}
     <meta
       name="description"
       content="{{ALIEN-ABDUCTION-FORM_DESCRIPTION}}" />
@@ -119,16 +99,13 @@
       rel="apple-touch-icon"
       sizes="180x180"
       href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
-      <header role="banner" aria-label="Site header">
-      rel="manifest"
-      href="{{BASE_URL}}/manifest.json" />
-      <nav aria-label="Main navigation" role="navigation">
     <link
       rel="preconnect"
-        id="main-content" tabindex="-1" aria-label="Main content">
+      href="https://fonts.googleapis.com" />
+    <link
       rel="preconnect"
       href="https://fonts.gstatic.com" />
-      <footer role="contentinfo" aria-label="Site footer">
+
     <link
       href="{{ALIEN_ABDUCTION_FORM_GOOGLE_FONTS_LINK}}"
       rel="stylesheet"
@@ -154,11 +131,6 @@
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
-    <script
-      defer
-      type="module"
-      src="{{BASE_URL}}/src/js/script.js"></script>
-
     <script>
       // Wait for CSS to load before showing content
       function checkCSSLoaded() {
@@ -181,6 +153,9 @@
         }
       }, 3000);
     </script>
+    <script
+      type="module"
+      src="src/js/script.js"></script>
   </head>
 
   <body>

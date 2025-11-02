@@ -4,17 +4,10 @@
   lang="en"
   class="no-js">
   <head>
-  class="no-js" dir="ltr">
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-    <title>{{MULTI-LEVEL-NAVBAR_TITLE}}</title>
-    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
-    <script>
-      if (document.title.trim() === '' || document.title.includes('{{MULTI-LEVEL-NAVBAR_TITLE}}')) {
-        document.title = 'Multi-Level Navbar | I Knit The Web';
-      }
-    </script>
+    <title>Example of a Multi-Level Navbar | I Knit The Web</title>
     <style>
       .no-js body {
         visibility: hidden;
@@ -34,7 +27,6 @@
       </style></noscript
     >
     <!-- CSS preload: use .css for local, .min.css for production -->
-    {{#if (eq NODE_ENV "production")}}
     <link
       rel="preload"
       as="style"
@@ -44,30 +36,6 @@
       rel="stylesheet"
       href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
       onload="window.mainCSSLoaded = true;" />
-    {{else}}
-    <link
-      rel="preload"
-      as="style"
-      href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
-      onload="this.rel='stylesheet'; this.onload=null;" />
-    <link
-      rel="stylesheet"
-      href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
-      onload="window.mainCSSLoaded = true;" />
-    {{/if}}
-    <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
-    {{#if (eq NODE_ENV "production")}}
-    <script
-      type="module"
-      src="/dist/assets/script.js"></script>
-    {{else}}
-    <script
-      type="module"
-      src="/src/js/script.js"></script>
-    {{/if}}
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" />
     <meta
       name="description"
       content="{{MULTI-LEVEL-NAVBAR_DESCRIPTION}}" />
@@ -167,11 +135,6 @@
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
-    <script
-      defer
-      type="module"
-      src="{{BASE_URL}}/src/js/script.js"></script>
-
     <script>
       // Wait for CSS to load before showing content
       function checkCSSLoaded() {
@@ -194,6 +157,10 @@
         }
       }, 3000);
     </script>
+    <script
+      defer
+      type="module"
+      src="{{BASE_URL}}/src/js/script.js"></script>
   </head>
 
   <body>
@@ -208,15 +175,20 @@
     <!--@ Skip Link for Screen Readers -->
     <a
       href="#main-content"
-    <!-- Skip to main content link for keyboard users -->
-    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:100;" onfocus="this.style.position='static';this.style.width='auto';this.style.height='auto';this.style.left='0';">Skip to main content</a>
+      class="skip-link"
+      style="position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 100"
+      onfocus="this.style.position='static';this.style.width='auto';this.style.height='auto';this.style.left='0';"
+      >Skip to main content</a
+    >
     <!-- HEADER_PLACEHOLDER -->
     <main
       id="main-content"
       class="multi-level-navbar"
       role="main">
       <h1 class="multi-level-navbar__title">Phyllum Mollusca</h1>
-      <nav class="multi-level-navbar multi-level-nav">
+      <nav
+        class="multi-level-navbar multi-level-nav"
+        aria-label="Multi-level navigation">
         <ul
           class="multi-level-navbar__list"
           data-cy="multi-navbar-list">
@@ -225,9 +197,16 @@
               href="#"
               class="multi-level-navbar__link"
               data-cy="multi-navbar-home"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="multi-navbar-home-submenu"
               >Home</a
             >
-            <ul class="multi-level-navbar__sublist">
+            <ul
+              class="multi-level-navbar__sublist"
+              id="multi-navbar-home-submenu"
+              role="menu"
+              aria-label="Home submenu">
               <li class="multi-level-navbar__subitem"
                 ><a
                   href="#"
@@ -256,9 +235,16 @@
               href="#"
               class="multi-level-navbar__link"
               data-cy="multi-navbar-gastropods"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="multi-navbar-gastropods-submenu"
               >Gastropods</a
             >
-            <ul class="multi-level-navbar__sublist">
+            <ul
+              class="multi-level-navbar__sublist"
+              id="multi-navbar-gastropods-submenu"
+              role="menu"
+              aria-label="Gastropods submenu">
               <li class="multi-level-navbar__subitem"
                 ><a
                   href="#"
@@ -280,9 +266,16 @@
               href="#"
               class="multi-level-navbar__link"
               data-cy="multi-navbar-bivalvia"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="multi-navbar-bivalvia-submenu"
               >Bivalvia</a
             >
-            <ul class="multi-level-navbar__sublist">
+            <ul
+              class="multi-level-navbar__sublist"
+              id="multi-navbar-bivalvia-submenu"
+              role="menu"
+              aria-label="Bivalvia submenu">
               <li class="multi-level-navbar__subitem"
                 ><a
                   href="#"

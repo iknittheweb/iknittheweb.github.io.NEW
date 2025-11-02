@@ -8,15 +8,19 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" >
-    <title>{{HOME_TITLE}}</title>
-    <!-- If TITLE is not set, fallback to 'New Page' for accessibility compliance -->
-    <script>
-      if (document.title.trim() === '' || document.title.includes('{{HOME_TITLE}}')) {
-        document.title = 'I Knit The Web';
-      }
-    </script>
-    <!-- CSS preload: use .css for local, .min.css for production -->
-    {{#if (eq NODE_ENV "production")}}
+    <title>I Knit The Web</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+        script-src 'self' https://browser.sentry-cdn.com https://kit.fontawesome.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com;
+        font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com;
+        img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com;
+        connect-src 'self' https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com;
+        frame-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self' https://formspree.io;" >
     <link
       rel="preload"
       as="style"
@@ -26,17 +30,6 @@
       rel="stylesheet"
       href="{{BASE_URL}}{{HOME_CSS_FILE}}"
       onload="window.mainCSSLoaded = true;" >
-    {{else}}
-    <link
-      rel="preload"
-      as="style"
-      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
-      onload="this.rel='stylesheet'; this.onload=null;" >
-    <link
-      rel="stylesheet"
-      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
-      onload="window.mainCSSLoaded = true;" >
-    {{/if}}
     <noscript>
       <style>
         body {
@@ -44,19 +37,6 @@
         }
       </style>
     </noscript>
-    <!-- Content Security Policy: restricts sources for scripts, styles, images, fonts, and frames -->
-    {{#if (eq NODE_ENV "production")}}
-    <script
-      type="module"
-      src="/dist/assets/script.js"></script>
-    {{else}}
-    <script
-      type="module"
-      src="/src/js/script.js"></script>
-    {{/if}}
-    <!-- <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://ka-p.fontawesome.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; img-src 'self' data: https://fonts.gstatic.com https://iknittheweb.github.io/iknittheweb.github.io.NEW http://127.0.0.1:5500 http://localhost:5500; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://ka-p.fontawesome.com; connect-src 'self' https://kit.fontawesome.com https://ka-p.fontawesome.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';" > -->
     <meta
       name="description"
       content="{{HOME_DESCRIPTION}}" >
@@ -127,7 +107,7 @@
 
     <link
       rel="preconnect"
-      href="https://fonts.apis.com" >
+      href="https://fonts.googleapis.com" >
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com" >
@@ -163,11 +143,6 @@
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
-    <script
-      defer
-      type="module"
-      src="{{BASE_URL}}/src/js/script.js"></script>
-
     <script>
       // Wait for CSS to load before showing content
       function checkCSSLoaded() {
@@ -190,6 +165,9 @@
         }
       }, 3000);
     </script>
+    <script
+      type="module"
+      src="src/js/script.js"></script>
   </head>
 
   <body>
@@ -207,9 +185,7 @@
       class="skip-link"
       >Skip to main content</a
     >
-    <header
-      class="topnav"
-      role="banner">
+    <header class="topnav">
       <!-- For Screen Readers to simplify navigation -->
       <h1 class="visually-hidden">I Knit The Web Header</h1>
       <!-- Global ARIA live region for notifications/status -->
@@ -236,7 +212,6 @@
         <nav
           class="topnav__nav"
           aria-label="Main navigation"
-          role="navigation"
           data-cy="main-nav"
           aria-hidden="false">
           <!-- For Screen Readers to simplify navigation -->
@@ -255,6 +230,7 @@
             id="btnOpen"
             class="topnav__open"
             aria-expanded="false"
+            aria-controls="menuTopNav"
             aria-labelledby="nav-label"
             data-cy="nav-open">
             <span
@@ -268,11 +244,13 @@
             role="dialog"
             aria-labelledby="nav-label"
             data-cy="mobile-menu"
-            aria-hidden="true">
+            aria-hidden="true"
+            inert>
             <!-- Button to close Mobile Menu -->
             <button
               id="btnClose"
               class="topnav__close"
+              aria-controls="menuTopNav"
               data-cy="nav-close">
               <span
                 class="fa-solid fa-xmark"
@@ -323,13 +301,12 @@
       <h1 class="home__title visually-hidden">I Knit The Web</h1>
       <section
         class="hero"
-        role="region"
         aria-labelledby="main-content"
         id="hero"
         style="background-image: url('{{BASE_URL}}{{HERO_BG_URL_JPG}}');">
         <img
           src="{{ASSET_URL}}/pages/heading-banner-dark.svg"
-          alt=""
+          alt="I Knit The Web site title banner"
           class="hero__banner"
           width="1125"
           height="375" >
@@ -342,6 +319,7 @@
       <section
         id="about"
         class="about section-padding">
+        <h2>About Me</h2>
         <div class="about__content wrapper">
           <aside class="about__profile">
             <figure class="about__profile-figure">
@@ -361,7 +339,7 @@
             </figure>
           </aside>
           <section class="about__bio">
-            <h2 class="home__subheading about__heading">About Me</h2>
+            <h3 class="home__subheading about__heading">Meet Your Developer</h3>
             <p>
               Hi, I’m Marta! Collaboration is the key to building great websites; when we combine your ideas with my
               development skills, we can create something truly effective and unique.
@@ -390,13 +368,11 @@
               aria-expanded="false"
               aria-controls="dropdown-content"
               aria-describedby="dropdown-title dropdown-subtitle"
+              id="dropdown-title-group"
               data-cy="dropdown-trigger">
               <span
                 class="fa-solid fa-hand-point-up dropdown__icon"
                 aria-hidden="true"></span>
-              <!-- <i
-                class="fa-duotone fa-regular fa-hand-point-up"
-                style="--fa-primary-color: #2e0a20; --fa-secondary-color: #b89cbf"></i> -->
               <div class="dropdown__text-content">
                 <p
                   class="dropdown__title"
@@ -415,7 +391,8 @@
             <ul
               class="dropdown__content"
               id="dropdown-content"
-              aria-labelledby="dropdown-title"
+              role="menu"
+              aria-labelledby="dropdown-title-group"
               data-cy="dropdown-content"
               aria-hidden="true">
               <li>
@@ -1054,26 +1031,27 @@ function openMobileMenu() {
                 <summary>View Form Validation Logic</summary>
                 <div class="code-showcase__content">
                   <pre><code class="language-javascript">// Form data collection and validation
-function sendData() {
+function sendData() &#123;
   var urlEncodedDataPairs = [];
 
   // Collect form fields with validation
   urlEncodedDataPairs.push(
     encodeURIComponent('name') + '=' +
-    encodeURIComponent(form.querySelector('[name="name"]').value)
+    encodeURIComponent(form.querySelector('[name=\"name\"]').value)
   );
 
   // Handle radio button selection
   let radio = document.getElementsByName('ufotype');
-  for (var i = 0; i < radio.length; i++) {
-    if (radio[i].checked) {
+  for (var i = 0; i &lt; radio.length; i++) &#123;
+    if (radio[i].checked) &#123;
       urlEncodedDataPairs.push(
         encodeURIComponent('ufotype') + '=' +
         encodeURIComponent(radio[i].value)
       );
-    }
-  }
-}</code></pre>
+    &#125;
+  &#125;
+&#125;
+</code></pre>
                   <div class="code-showcase__explanation">
                     <p
                       ><strong>Technical highlights:</strong> Custom form validation, data encoding for security,
@@ -1285,7 +1263,6 @@ class Calculator {
                 >Let's start with introductions<span
                   aria-hidden="true"
                   class="contact__label--required"
-                  required
                   >* required</span
                 ></label
               >
@@ -1311,7 +1288,6 @@ class Calculator {
                 >Where can I reach you?<span
                   aria-hidden="true"
                   class="contact__label--required"
-                  required
                   >* required</span
                 ></label
               >
@@ -1334,13 +1310,13 @@ class Calculator {
               <label
                 class="contact__label"
                 for="message"
-                >Share your vision<span
+                >Share your vision
+                <span
                   aria-hidden="true"
                   class="contact__label--required"
-                  required
-                  >* required</span
-                ></label
-              >
+                  >* required
+                </span>
+              </label>
               <textarea
                 class="contact__input"
                 id="message"
@@ -1387,10 +1363,7 @@ class Calculator {
       </section>
     </main>
 
-    <footer
-      class="footer"
-      role="contentinfo"
-      aria-label="Site footer">
+    <footer class="footer">
       <div class="footer__content wrapper">
         <div class="footer__sections">
           <!-- About Section -->
@@ -1404,7 +1377,7 @@ class Calculator {
 
           <!-- Quick Links Section -->
           <div class="footer__section footer__links">
-            <h2 class="footer__heading">Quick Links</h2>
+            <h3 class="footer__heading">Quick Links</h3>
             <nav class="footer__nav">
               <ul>
                 <li>
@@ -1441,7 +1414,7 @@ class Calculator {
 
           <!-- Contact Section -->
           <div class="footer__section footer__contact">
-            <h2 class="footer__heading">Let's Connect</h2>
+            <h3 class="footer__heading">Let's Connect</h3>
             <p class="footer__contact-text">
               Ready to start your project? I'd love to hear about your ideas and help bring them to life.
             </p>
