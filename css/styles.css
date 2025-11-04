@@ -1257,7 +1257,6 @@ textarea:focus-visible {
     }
   }
 }
-/* stylelint-disable no-descending-specificity */
 .contact {
   padding: 3.75rem 1.25rem;
   background: var(--primary-bg);
@@ -1497,10 +1496,20 @@ textarea:focus-visible {
   animation: sparkle-float 2.2s ease-in-out infinite;
   animation-delay: 0.9s;
 }
-
-.contact--inverse {
+.contact .contact--inverse {
   background: var(--primary-bg);
   color: var(--light-text);
+}
+.contact__error {
+  display: block;
+  min-height: 1.25rem;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--dark-error);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
 }
 
 @keyframes sparkle-float {
@@ -1829,7 +1838,6 @@ input[type=button]:hover {
   }
 }
 
-/* stylelint-disable no-descending-specificity */
 .fa-solid,
 .fa-brands {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands", sans-serif !important;
@@ -1931,6 +1939,9 @@ input[type=button]:hover {
   .topnav__open[aria-expanded=true] + .topnav__menu {
     display: block;
     transform: translateY(0);
+  }
+  .topnav__open[aria-expanded=true] + .topnav__menu:hover {
+    cursor: pointer;
   }
 }
 @media (prefers-reduced-motion) {

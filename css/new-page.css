@@ -454,7 +454,6 @@ button:focus-visible {
     }
   }
 }
-/* stylelint-disable no-descending-specificity */
 .contact {
   padding: 3.75rem 1.25rem;
   background: var(--primary-bg);
@@ -571,7 +570,6 @@ button:hover {
 @supports (container-type: inline-size) {
 }
 
-/* stylelint-disable no-descending-specificity */
 .fa-solid {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands", sans-serif !important;
   font-weight: 900;
@@ -672,6 +670,9 @@ button:hover {
   .topnav__open[aria-expanded=true] + .topnav__menu {
     display: block;
     transform: translateY(0);
+  }
+  .topnav__open[aria-expanded=true] + .topnav__menu:hover {
+    cursor: pointer;
   }
 }
 @media (prefers-reduced-motion) {
