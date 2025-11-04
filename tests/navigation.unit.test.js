@@ -1,6 +1,11 @@
 /**
  * @jest-environment jsdom
  */
+
+// Mock body-scroll-lock functions for Jest environment
+global.disableBodyScroll = jest.fn();
+global.enableBodyScroll = jest.fn();
+
 const { initializeNavigation } = require('../src/js/navigation.js');
 
 describe('navigation.js', () => {

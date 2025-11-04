@@ -40,3 +40,7 @@ if (typeof HTMLFormElement !== 'undefined' && !HTMLFormElement.prototype.request
     }
   };
 }
+
+// Mock body-scroll-lock functions for navigation tests and others
+global.disableBodyScroll = jest.fn();
+global.enableBodyScroll = jest.fn();

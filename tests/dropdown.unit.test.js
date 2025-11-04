@@ -23,7 +23,22 @@ describe('dropdown.js', () => {
     dropdownContent = document.querySelector('.dropdown__content');
   });
 
-  test('should set ARIA attributes on init', () => {
+  // Helper to wait for ARIA attributes to be set
+  function waitForDropdownInit() {
+    return new Promise((resolve) => {
+      function check() {
+        if (dropdownTitleGroup.getAttribute('role') === 'button') {
+          resolve();
+        } else {
+          setTimeout(check, 5);
+        }
+      }
+      check();
+    });
+  }
+
+  test('should set ARIA attributes on init', async () => {
+    await waitForDropdownInit();
     expect(dropdownTitleGroup.getAttribute('role')).toBe('button');
     expect(dropdownTitleGroup.getAttribute('aria-controls')).toBe('dropdown-content');
     expect(dropdownTitleGroup.getAttribute('tabindex')).toBe('0');
@@ -33,7 +48,8 @@ describe('dropdown.js', () => {
     expect(dropdownContent.getAttribute('aria-hidden')).toBe('true');
   });
 
-  test('should toggle dropdown open/close on click', () => {
+  test('should toggle dropdown open/close on click', async () => {
+    await waitForDropdownInit();
     dropdownTitleGroup.click();
     expect(dropdownContent.classList.contains('show')).toBe(true);
     expect(dropdownContent.getAttribute('aria-hidden')).toBe('false');
@@ -48,7 +64,8 @@ describe('dropdown.js', () => {
     expect(dropdownTitleGroup.getAttribute('aria-expanded')).toBe('false');
   });
 
-  test('should handle keyboard events (Enter, Space, Escape)', () => {
+  test('should handle keyboard events (Enter, Space, Escape)', async () => {
+    await waitForDropdownInit();
     // Open with Enter
     dropdownTitleGroup.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
     expect(dropdownContent.classList.contains('show')).toBe(true);
@@ -60,7 +77,8 @@ describe('dropdown.js', () => {
     expect(dropdownContent.classList.contains('show')).toBe(true);
   });
 
-  test('should trap focus when open', () => {
+  test('should trap focus when open', async () => {
+    await waitForDropdownInit();
     dropdownTitleGroup.click();
     // Simulate tabbing into dropdown
     const firstLink = dropdownContent.querySelector('a');
