@@ -11,7 +11,13 @@ describe('Contact Form', () => {
       headers: { 'content-type': 'application/json' },
     }).as('formspree');
     cy.visit('index.html');
-    cy.get('[data-cy="contact-form"]').should('exist').and('be.visible');
+    cy.get('[data-cy="contact-form"]')
+      .should('exist')
+      .and('be.visible')
+      .invoke('attr', 'target', '_self')
+      .then(($form) => {
+        $form[0].addEventListener('submit', (e) => e.preventDefault());
+      });
     cy.get('[data-cy="contact-name"]').should('exist').and('be.visible');
     cy.get('[data-cy="contact-email"]').should('exist').and('be.visible');
     cy.get('[data-cy="contact-message"]').should('exist').and('be.visible');
