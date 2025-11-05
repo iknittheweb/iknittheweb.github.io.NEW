@@ -1,7 +1,10 @@
-// dropdown.cy.js
 // Cypress E2E tests for dropdown UI/interaction
-
 describe('Dropdown UI/Interaction', () => {
+  beforeEach(() => {
+    cy.visit('index.html');
+    cy.get('[data-cy="dropdown-trigger"]').should('exist');
+    cy.get('[data-cy="dropdown-content"]').should('exist');
+  });
   it('should handle disabled state gracefully', () => {
     // Simulate disabling the dropdown trigger
     cy.get('[data-cy="dropdown-trigger"]').invoke('attr', 'disabled', true);
@@ -39,9 +42,6 @@ describe('Dropdown UI/Interaction', () => {
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().focus();
     cy.realPress('Tab');
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').eq(1).should('have.focus');
-  });
-  beforeEach(() => {
-    cy.visit('index.html');
   });
 
   it('should set ARIA attributes on init', () => {
