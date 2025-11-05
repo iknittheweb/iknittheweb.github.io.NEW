@@ -6,11 +6,13 @@ describe('Navigation UI/Interaction', () => {
   });
   it('should set accessibility attributes on navigation', () => {
     cy.get('#menuTopNav').should('exist');
-    cy.get('#menuTopNav').should('have.attr', 'aria-hidden', 'true');
-    cy.get('#menuTopNav').then(($el) => {
-      if ($el.attr('inert') !== undefined) {
-        expect($el).to.have.attr('inert');
-      }
-    });
+    cy.get('#menuTopNav').should('exist').and('have.attr', 'aria-hidden', 'true');
+    cy.get('#menuTopNav')
+      .should('exist')
+      .then(($el) => {
+        if ($el.attr('inert') !== undefined) {
+          expect($el).to.have.attr('inert');
+        }
+      });
   });
 });
