@@ -29,7 +29,7 @@ describe('Dropdown UI/Interaction', () => {
   it('should trap focus within dropdown when open', () => {
     cy.get('[data-cy="dropdown-trigger"]').click();
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().focus();
-    cy.focused().should('exist');
+    cy.focused().should('exist').and('have.focus');
     cy.get('[data-cy="dropdown-trigger"]').type('{esc}');
     cy.get('[data-cy="dropdown-content"]').should('not.have.class', 'show');
   });
@@ -37,8 +37,8 @@ describe('Dropdown UI/Interaction', () => {
   it('should follow correct focus order for keyboard users', () => {
     cy.get('[data-cy="dropdown-trigger"]').focus().type('{enter}');
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().focus();
-    cy.focused().realPress('Tab');
-    cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').eq(1).should('be.focused');
+    cy.realPress('Tab');
+    cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').eq(1).should('have.focus');
   });
   beforeEach(() => {
     cy.visit('index.html');
@@ -82,7 +82,7 @@ describe('Dropdown UI/Interaction', () => {
   it('should be usable on mobile viewport', () => {
     cy.viewport('iphone-6');
     cy.get('[data-cy="dropdown-trigger"]').click();
-    cy.get('[data-cy="dropdown-content"]').should('be.visible');
+    cy.get('[data-cy="dropdown-content"]').should('exist').and('be.visible');
   });
 
   // Add more tests for focus trap if needed
