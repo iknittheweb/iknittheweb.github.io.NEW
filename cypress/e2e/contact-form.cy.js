@@ -25,11 +25,10 @@ describe('Contact Form', () => {
   });
 
   it('should not execute XSS from form fields', () => {
-    cy.get('[data-cy="contact-name"]').type('<img src=x onerror=window.xss=1>');
-    cy.get('[data-cy="contact-email"]').type('test@example.com');
-    cy.get('[data-cy="contact-message"]').type('Hello');
-    cy.get('[data-cy="contact-submit"]').click();
-    // Wait a tick to allow any XSS to run if it would
+    cy.get('[data-cy="contact-name"]').should('exist').type('<img src=x onerror=window.xss=1>');
+    cy.get('[data-cy="contact-email"]').should('exist').type('test@example.com');
+    cy.get('[data-cy="contact-message"]').should('exist').type('Hello');
+    cy.get('[data-cy="contact-submit"]').should('exist').click();
     cy.wait(100);
     cy.window().then((win) => {
       expect(win.xss).to.be.undefined;
@@ -45,21 +44,21 @@ describe('Contact Form', () => {
   });
 
   it('should show error messages when fields are invalid', () => {
-    cy.get('[data-cy="contact-submit"]').click();
-    cy.get('#name-error').should('be.visible');
-    cy.get('#email-error').should('be.visible');
-    cy.get('#message-error').should('be.visible');
+    cy.get('[data-cy="contact-submit"]').should('exist').click();
+    cy.get('#name-error').should('exist').and('be.visible');
+    cy.get('#email-error').should('exist').and('be.visible');
+    cy.get('#message-error').should('exist').and('be.visible');
   });
 
   it('should follow correct focus order for keyboard users', () => {
-    cy.get('[data-cy="contact-name"]').focus();
-    cy.focused().should('have.attr', 'data-cy', 'contact-name');
+    cy.get('[data-cy="contact-name"]').should('exist').focus();
+    cy.focused().should('exist').and('have.attr', 'data-cy', 'contact-name');
     cy.realPress('Tab');
-    cy.focused().should('have.attr', 'data-cy', 'contact-email');
+    cy.focused().should('exist').and('have.attr', 'data-cy', 'contact-email');
     cy.realPress('Tab');
-    cy.focused().should('have.attr', 'data-cy', 'contact-message');
+    cy.focused().should('exist').and('have.attr', 'data-cy', 'contact-message');
     cy.realPress('Tab');
-    cy.focused().should('have.attr', 'data-cy', 'contact-submit');
+    cy.focused().should('exist').and('have.attr', 'data-cy', 'contact-submit');
   });
 
   it('should render all required fields', () => {
@@ -71,26 +70,30 @@ describe('Contact Form', () => {
   });
 
   it('should validate required fields', () => {
-    cy.get('[data-cy="contact-submit"]').click();
-    cy.get('[data-cy="contact-name"]').then(($el) => {
-      expect($el[0].checkValidity()).to.be.false;
-    });
-    cy.get('[data-cy="contact-email"]').then(($el) => {
-      expect($el[0].checkValidity()).to.be.false;
-    });
-    cy.get('[data-cy="contact-message"]').then(($el) => {
-      expect($el[0].checkValidity()).to.be.false;
-    });
+    cy.get('[data-cy="contact-submit"]').should('exist').click();
+    cy.get('[data-cy="contact-name"]')
+      .should('exist')
+      .then(($el) => {
+        expect($el[0].checkValidity()).to.be.false;
+      });
+    cy.get('[data-cy="contact-email"]')
+      .should('exist')
+      .then(($el) => {
+        expect($el[0].checkValidity()).to.be.false;
+      });
+    cy.get('[data-cy="contact-message"]')
+      .should('exist')
+      .then(($el) => {
+        expect($el[0].checkValidity()).to.be.false;
+      });
   });
 
   it('should allow valid submission', () => {
-    cy.get('[data-cy="contact-name"]').type('Test User');
-    cy.get('[data-cy="contact-email"]').type('test@example.com');
-    cy.get('[data-cy="contact-message"]').type('This is a test message.');
-    cy.get('[data-cy="contact-submit"]').click();
-    // Wait for the mocked Formspree request
+    cy.get('[data-cy="contact-name"]').should('exist').type('Test User');
+    cy.get('[data-cy="contact-email"]').should('exist').type('test@example.com');
+    cy.get('[data-cy="contact-message"]').should('exist').type('This is a test message.');
+    cy.get('[data-cy="contact-submit"]').should('exist').click();
     cy.wait('@formspree');
-    // Assert a success message or UI state (customize selector/text as needed)
     cy.contains('Thank you').should('exist');
   });
 
