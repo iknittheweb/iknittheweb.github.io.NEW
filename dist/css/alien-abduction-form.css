@@ -2588,17 +2588,23 @@ card__header-link:hover, card__header-link:focus {
 }
 .contact__error {
   display: block;
-  min-height: 1.25rem;
   margin-top: 0.25rem;
   font-size: 0.875rem;
   color: var(--dark-error);
   font-weight: 500;
   opacity: 0;
+  max-height: 0;
+  overflow: hidden;
   transform: translateY(-10px);
   transition: all 0.3s ease;
 }
 .contact__error--visible {
+  display: block;
   opacity: 1;
+  max-height: 200px;
+  min-height: 1.25rem;
+  height: auto;
+  overflow: visible;
   transform: translateY(0);
 }
 .contact__success {
