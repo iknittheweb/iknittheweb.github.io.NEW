@@ -6,7 +6,8 @@ describe('Main Navigation', () => {
   it('should handle disabled nav links gracefully', () => {
     cy.get('[data-cy="nav-home"]').invoke('attr', 'disabled', true);
     cy.get('[data-cy="nav-home"]').click({ force: true });
-    cy.url().should('include', 'index.html');
+    // Should not navigate away
+    cy.location('pathname').should('include', 'index');
   });
 
   it('should not execute XSS from nav links', () => {
@@ -26,11 +27,14 @@ describe('Main Navigation', () => {
   });
 
   it('should trap focus in mobile menu when open', () => {
-    cy.get('#btnOpen').click();
-    cy.get('[data-cy="mobile-menu"]').within(() => {
-      cy.get('button, a').first().focus();
-      cy.focused().should('exist');
-    });
+    cy.viewport('iphone-6');
+    cy.get('#btnOpen').should('be.visible').click();
+    cy.get('[data-cy="mobile-menu"]')
+      .should('be.visible')
+      .within(() => {
+        cy.get('button, a').first().focus();
+        cy.focused().should('exist').and('have.focus');
+      });
     cy.get('#btnClose').focus().type('{esc}');
     cy.get('[data-cy="mobile-menu"]').should('not.be.visible');
   });
@@ -51,7 +55,8 @@ describe('Main Navigation', () => {
   });
 
   it('should open and close mobile menu', () => {
-    cy.get('#btnOpen').click();
+    cy.viewport('iphone-6');
+    cy.get('#btnOpen').should('be.visible').click();
     cy.get('[data-cy="mobile-menu"]').should('be.visible');
     cy.get('#btnClose').click();
     cy.get('[data-cy="mobile-menu"]').should('not.be.visible');
@@ -65,7 +70,7 @@ describe('Main Navigation', () => {
   it('should be usable on mobile viewport', () => {
     cy.viewport('iphone-6');
     cy.get('[data-cy="main-nav"]').should('be.visible');
-    cy.get('#btnOpen').click();
+    cy.get('#btnOpen').should('be.visible').click();
     cy.get('[data-cy="mobile-menu"]').should('be.visible');
   });
 });
