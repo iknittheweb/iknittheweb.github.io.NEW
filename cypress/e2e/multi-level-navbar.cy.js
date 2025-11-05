@@ -37,11 +37,11 @@ describe('Multi-Level Navbar', () => {
 
   it('should follow correct focus order for keyboard users', () => {
     cy.get('body').realPress('Tab');
-    cy.focused().should('exist').and('have.attr', 'data-cy', 'multi-navbar-home');
+    cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-home');
     cy.realPress('Tab');
-    cy.focused().should('exist').and('have.attr', 'data-cy', 'multi-navbar-gastropods');
+    cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-gastropods');
     cy.realPress('Tab');
-    cy.focused().should('exist').and('have.attr', 'data-cy', 'multi-navbar-bivalvia');
+    cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-bivalvia');
   });
 
   it('should allow keyboard navigation through subitems', () => {
@@ -50,12 +50,14 @@ describe('Multi-Level Navbar', () => {
       .first()
       .find('a')
       .should('exist')
+      .and('be.visible')
       .and('have.focus');
     cy.focused().type('{downarrow}');
     cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem')
       .eq(1)
       .find('a')
       .should('exist')
+      .and('be.visible')
       .and('have.focus');
   });
 
@@ -76,6 +78,7 @@ describe('Multi-Level Navbar', () => {
       .first()
       .find('a')
       .should('exist')
+      .and('be.visible')
       .and('have.focus');
   });
 
