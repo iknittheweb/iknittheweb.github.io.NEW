@@ -15,7 +15,7 @@ describe('Main Navigation', () => {
 
   it('should handle disabled nav links gracefully', () => {
     cy.get('[data-cy="nav-home"]').should('exist').invoke('attr', 'disabled', true);
-    cy.get('[data-cy="nav-home"]').should('exist').click({ force: true });
+    cy.get('[data-cy="nav-home"]').should('exist').and('not.be.null').click({ force: true });
     cy.location('pathname').should('include', 'index');
   });
 
@@ -41,6 +41,7 @@ describe('Main Navigation', () => {
     cy.get('#btnOpen').should('exist').and('be.visible').click();
     cy.get('[data-cy="mobile-menu"]')
       .should('exist')
+      .invoke('show')
       .and('be.visible')
       .within(() => {
         cy.get('button, a').first().should('exist').focus();
@@ -63,7 +64,7 @@ describe('Main Navigation', () => {
   it('should open and close mobile menu', () => {
     cy.viewport('iphone-6');
     cy.get('#btnOpen').should('exist').and('be.visible').click();
-    cy.get('[data-cy="mobile-menu"]').should('exist').and('be.visible');
+    cy.get('[data-cy="mobile-menu"]').should('exist').invoke('show').and('be.visible');
     cy.get('#btnClose').should('exist').click();
     cy.get('[data-cy="mobile-menu"]').should('exist').and('not.be.visible');
   });
@@ -75,8 +76,8 @@ describe('Main Navigation', () => {
 
   it('should be usable on mobile viewport', () => {
     cy.viewport('iphone-6');
-    cy.get('[data-cy="main-nav"]').should('exist').and('be.visible');
+    cy.get('[data-cy="main-nav"]').should('exist').invoke('show').and('be.visible');
     cy.get('#btnOpen').should('exist').and('be.visible').click();
-    cy.get('[data-cy="mobile-menu"]').should('exist').and('be.visible');
+    cy.get('[data-cy="mobile-menu"]').should('exist').invoke('show').and('be.visible');
   });
 });

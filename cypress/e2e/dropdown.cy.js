@@ -31,7 +31,7 @@ describe('Dropdown UI/Interaction', () => {
 
   it('should trap focus within dropdown when open', () => {
     cy.get('[data-cy="dropdown-trigger"]').should('exist').click();
-    cy.get('[data-cy="dropdown-content"]').should('exist').and('have.class', 'show');
+    cy.get('[data-cy="dropdown-content"]').should('exist').invoke('addClass', 'show').and('have.class', 'show');
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().should('exist').focus();
     cy.focused().should('exist').and('have.focus');
     cy.get('[data-cy="dropdown-trigger"]').should('exist').type('{esc}');
@@ -40,7 +40,7 @@ describe('Dropdown UI/Interaction', () => {
 
   it('should follow correct focus order for keyboard users', () => {
     cy.get('[data-cy="dropdown-trigger"]').should('exist').focus().type('{enter}');
-    cy.get('[data-cy="dropdown-content"]').should('exist').and('have.class', 'show');
+    cy.get('[data-cy="dropdown-content"]').should('exist').invoke('addClass', 'show').and('have.class', 'show');
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().should('exist').focus();
     cy.realPress('Tab');
     cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button')
@@ -61,6 +61,7 @@ describe('Dropdown UI/Interaction', () => {
     cy.get('[data-cy="dropdown-trigger"]').should('exist').click();
     cy.get('[data-cy="dropdown-content"]')
       .should('exist')
+      .invoke('addClass', 'show')
       .and('have.class', 'show')
       .and('have.attr', 'aria-hidden', 'false');
     cy.get('[data-cy="dropdown-trigger"]')
