@@ -37,18 +37,26 @@ describe('Multi-Level Navbar', () => {
 
   it('should follow correct focus order for keyboard users', () => {
     cy.get('body').realPress('Tab');
-    cy.focused().should('have.attr', 'data-cy', 'multi-navbar-home');
+    cy.focused().should('exist').and('have.attr', 'data-cy', 'multi-navbar-home');
     cy.realPress('Tab');
-    cy.focused().should('have.attr', 'data-cy', 'multi-navbar-gastropods');
+    cy.focused().should('exist').and('have.attr', 'data-cy', 'multi-navbar-gastropods');
     cy.realPress('Tab');
-    cy.focused().should('have.attr', 'data-cy', 'multi-navbar-bivalvia');
+    cy.focused().should('exist').and('have.attr', 'data-cy', 'multi-navbar-bivalvia');
   });
 
   it('should allow keyboard navigation through subitems', () => {
-    cy.get('[data-cy="multi-navbar-home"]').focus().type('{downarrow}');
-    cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem').first().find('a').should('have.focus');
+    cy.get('[data-cy="multi-navbar-home"]').should('exist').focus().type('{downarrow}');
+    cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem')
+      .first()
+      .find('a')
+      .should('exist')
+      .and('have.focus');
     cy.focused().type('{downarrow}');
-    cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem').eq(1).find('a').should('have.focus');
+    cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem')
+      .eq(1)
+      .find('a')
+      .should('exist')
+      .and('have.focus');
   });
 
   it('should render all top-level nav items', () => {
@@ -63,8 +71,12 @@ describe('Multi-Level Navbar', () => {
   });
 
   it('should be keyboard accessible', () => {
-    cy.get('[data-cy="multi-navbar-home"]').focus().type('{downarrow}');
-    cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem').first().find('a').should('have.focus');
+    cy.get('[data-cy="multi-navbar-home"]').should('exist').focus().type('{downarrow}');
+    cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem')
+      .first()
+      .find('a')
+      .should('exist')
+      .and('have.focus');
   });
 
   it('should pass basic accessibility checks', () => {
