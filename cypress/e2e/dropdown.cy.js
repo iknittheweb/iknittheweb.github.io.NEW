@@ -30,18 +30,21 @@ describe('Dropdown UI/Interaction', () => {
   });
 
   it('should trap focus within dropdown when open', () => {
-    cy.get('[data-cy="dropdown-trigger"]').click();
-    cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().focus();
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').click();
+    cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().should('exist').focus();
     cy.focused().should('exist').and('have.focus');
-    cy.get('[data-cy="dropdown-trigger"]').type('{esc}');
-    cy.get('[data-cy="dropdown-content"]').should('not.have.class', 'show');
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').type('{esc}');
+    cy.get('[data-cy="dropdown-content"]').should('exist').and('not.have.class', 'show');
   });
 
   it('should follow correct focus order for keyboard users', () => {
-    cy.get('[data-cy="dropdown-trigger"]').focus().type('{enter}');
-    cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().focus();
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').focus().type('{enter}');
+    cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').first().should('exist').focus();
     cy.realPress('Tab');
-    cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button').eq(1).should('have.focus');
+    cy.get('[data-cy="dropdown-content"] a, [data-cy="dropdown-content"] button')
+      .eq(1)
+      .should('exist')
+      .and('have.focus');
   });
 
   it('should set ARIA attributes on init', () => {
@@ -53,25 +56,33 @@ describe('Dropdown UI/Interaction', () => {
   });
 
   it('should toggle dropdown open/close on click', () => {
-    cy.get('[data-cy="dropdown-trigger"]').click();
-    cy.get('[data-cy="dropdown-content"]').should('have.class', 'show').and('have.attr', 'aria-hidden', 'false');
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').click();
+    cy.get('[data-cy="dropdown-content"]')
+      .should('exist')
+      .and('have.class', 'show')
+      .and('have.attr', 'aria-hidden', 'false');
     cy.get('[data-cy="dropdown-trigger"]')
+      .should('exist')
       .should('have.class', 'dropdown-open')
       .and('have.attr', 'aria-expanded', 'true');
-    cy.get('[data-cy="dropdown-trigger"]').click();
-    cy.get('[data-cy="dropdown-content"]').should('not.have.class', 'show').and('have.attr', 'aria-hidden', 'true');
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').click();
+    cy.get('[data-cy="dropdown-content"]')
+      .should('exist')
+      .and('not.have.class', 'show')
+      .and('have.attr', 'aria-hidden', 'true');
     cy.get('[data-cy="dropdown-trigger"]')
+      .should('exist')
       .should('not.have.class', 'dropdown-open')
       .and('have.attr', 'aria-expanded', 'false');
   });
 
   it('should handle keyboard events (Enter, Space, Escape)', () => {
-    cy.get('[data-cy="dropdown-trigger"]').focus().type('{enter}');
-    cy.get('[data-cy="dropdown-content"]').should('have.class', 'show');
-    cy.get('[data-cy="dropdown-trigger"]').type('{esc}');
-    cy.get('[data-cy="dropdown-content"]').should('not.have.class', 'show');
-    cy.get('[data-cy="dropdown-trigger"]').type(' ');
-    cy.get('[data-cy="dropdown-content"]').should('have.class', 'show');
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').focus().type('{enter}');
+    cy.get('[data-cy="dropdown-content"]').should('exist').and('have.class', 'show');
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').type('{esc}');
+    cy.get('[data-cy="dropdown-content"]').should('exist').and('not.have.class', 'show');
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').type(' ');
+    cy.get('[data-cy="dropdown-content"]').should('exist').and('have.class', 'show');
   });
 
   it('should pass basic accessibility checks', () => {
@@ -81,7 +92,7 @@ describe('Dropdown UI/Interaction', () => {
 
   it('should be usable on mobile viewport', () => {
     cy.viewport('iphone-6');
-    cy.get('[data-cy="dropdown-trigger"]').click();
+    cy.get('[data-cy="dropdown-trigger"]').should('exist').click();
     cy.get('[data-cy="dropdown-content"]').should('exist').and('be.visible');
   });
 
