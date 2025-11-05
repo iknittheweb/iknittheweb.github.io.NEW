@@ -4,19 +4,18 @@
 
 describe('Contact Form', () => {
   beforeEach(() => {
-    // Mock Formspree POST request to prevent real submission
+    // Always mock Formspree POST request
     cy.intercept('POST', /formspree\.io\//, {
       statusCode: 200,
       body: { ok: true },
       headers: { 'content-type': 'application/json' },
     }).as('formspree');
-    cy.visit('index.html'); // Adjust path if needed
-    // Wait for form to be visible before running tests
-    cy.get('[data-cy="contact-form"]').should('be.visible');
-    cy.get('[data-cy="contact-name"]').should('be.visible');
-    cy.get('[data-cy="contact-email"]').should('be.visible');
-    cy.get('[data-cy="contact-message"]').should('be.visible');
-    cy.get('[data-cy="contact-submit"]').should('be.visible');
+    cy.visit('index.html');
+    cy.get('[data-cy="contact-form"]').should('exist').and('be.visible');
+    cy.get('[data-cy="contact-name"]').should('exist').and('be.visible');
+    cy.get('[data-cy="contact-email"]').should('exist').and('be.visible');
+    cy.get('[data-cy="contact-message"]').should('exist').and('be.visible');
+    cy.get('[data-cy="contact-submit"]').should('exist').and('be.visible');
   });
   it('should handle disabled submit button gracefully', () => {
     cy.get('[data-cy="contact-submit"]').invoke('attr', 'disabled', true);
@@ -30,7 +29,11 @@ describe('Contact Form', () => {
     cy.get('[data-cy="contact-email"]').type('test@example.com');
     cy.get('[data-cy="contact-message"]').type('Hello');
     cy.get('[data-cy="contact-submit"]').click();
-    cy.window().its('xss').should('not.exist');
+    // Wait a tick to allow any XSS to run if it would
+    cy.wait(100);
+    cy.window().then((win) => {
+      expect(win.xss).to.be.undefined;
+    });
   });
   it('should have correct ARIA attributes and accessible labels', () => {
     cy.get('[data-cy="contact-name"]').should('have.attr', 'aria-describedby');
@@ -49,14 +52,13 @@ describe('Contact Form', () => {
   });
 
   it('should follow correct focus order for keyboard users', () => {
-    // Ensure the first tabbable element is focused
     cy.get('[data-cy="contact-name"]').focus();
     cy.focused().should('have.attr', 'data-cy', 'contact-name');
-    cy.focused().realPress('Tab');
+    cy.realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'contact-email');
-    cy.focused().realPress('Tab');
+    cy.realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'contact-message');
-    cy.focused().realPress('Tab');
+    cy.realPress('Tab');
     cy.focused().should('have.attr', 'data-cy', 'contact-submit');
   });
 
@@ -100,6 +102,6 @@ describe('Contact Form', () => {
 
   it('should be usable on mobile viewport', () => {
     cy.viewport('iphone-6');
-    cy.get('[data-cy="contact-form"]').should('be.visible');
+    cy.get('[data-cy="contact-form"]').should('exist').and('be.visible');
   });
 });
