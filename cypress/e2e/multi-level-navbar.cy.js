@@ -3,6 +3,14 @@
 /// <reference types="cypress" />
 
 describe('Multi-Level Navbar', () => {
+  beforeEach(() => {
+    cy.visit('multi-level-navbar.html');
+    cy.get('[data-cy="multi-navbar-list"]').should('exist');
+    cy.get('[data-cy="multi-navbar-home"]').should('exist');
+    cy.get('[data-cy="multi-navbar-gastropods"]').should('exist');
+    cy.get('[data-cy="multi-navbar-bivalvia"]').should('exist');
+  });
+
   it('should handle disabled nav items gracefully', () => {
     cy.get('[data-cy="multi-navbar-home"]').invoke('attr', 'disabled', true);
     cy.get('[data-cy="multi-navbar-home"]').click({ force: true });
@@ -14,6 +22,7 @@ describe('Multi-Level Navbar', () => {
     cy.get('[data-cy="multi-navbar-home"] a').click({ force: true });
     cy.window().its('xss').should('not.exist');
   });
+
   it('should have a visible skip link for accessibility', () => {
     cy.get('.skip-link').should('exist').and('have.attr', 'href').and('include', 'main-content');
     cy.get('.skip-link').focus().should('be.visible');
@@ -40,9 +49,6 @@ describe('Multi-Level Navbar', () => {
     cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem').first().find('a').should('have.focus');
     cy.focused().type('{downarrow}');
     cy.get('.multi-level-navbar__item--home .multi-level-navbar__subitem').eq(1).find('a').should('have.focus');
-  });
-  beforeEach(() => {
-    cy.visit('multi-level-navbar.html'); // Adjust path if needed
   });
 
   it('should render all top-level nav items', () => {
