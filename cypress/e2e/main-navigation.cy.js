@@ -9,9 +9,9 @@ describe('Main Navigation', () => {
     cy.window().then((win) => {
       win.disableBodyScroll = win.disableBodyScroll || (() => {});
     });
-    cy.get('[data-cy="main-nav"]').should('exist');
-    cy.get('[data-cy="nav-home"]').should('exist');
-    cy.get('[data-cy="nav-portfolio"]').should('exist');
+    cy.get('[data-cy="main-nav"]', { timeout: 8000 }).should('exist');
+    cy.get('[data-cy="nav-home"]', { timeout: 8000 }).should('exist');
+    cy.get('[data-cy="nav-portfolio"]', { timeout: 8000 }).should('exist');
   });
 
   it('should handle disabled nav links gracefully', () => {

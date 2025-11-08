@@ -26,7 +26,9 @@ describe('Multi-Level Navbar', () => {
     cy.screenshot('multi-navbar-xss-injected');
     cy.get('[data-cy="multi-navbar-home"] a').should('exist').click({ force: true });
     cy.screenshot('multi-navbar-xss-link-clicked');
-    cy.window().should('have.property', 'xss', undefined);
+    cy.window().then((win) => {
+      expect(win.xss).to.be.undefined;
+    });
   });
 
   it('should have a visible skip link for accessibility', () => {
@@ -45,14 +47,18 @@ describe('Multi-Level Navbar', () => {
 
   it('should follow correct focus order for keyboard users', () => {
     cy.get('body').tab();
+    cy.wait(100);
     cy.screenshot('multi-navbar-tabbed-to-home');
     cy.get('[data-cy="multi-navbar-home"]').should('exist').and('be.visible').focus();
+    cy.wait(100);
     cy.screenshot('multi-navbar-home-focused');
     cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-home');
     cy.focused().tab();
+    cy.wait(100);
     cy.screenshot('multi-navbar-tabbed-to-gastropods');
     cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-gastropods');
     cy.focused().tab();
+    cy.wait(100);
     cy.screenshot('multi-navbar-tabbed-to-bivalvia');
     cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-bivalvia');
   });
