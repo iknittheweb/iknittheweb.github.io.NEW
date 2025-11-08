@@ -63,8 +63,11 @@ describe('Contact Form', () => {
   });
 
   it('should show error messages when fields are invalid', () => {
+    cy.get('[data-cy="contact-name"]').focus().blur();
+    cy.get('[data-cy="contact-email"]').focus().blur();
+    cy.get('[data-cy="contact-message"]').focus().blur();
     cy.get('[data-cy="contact-submit"]').should('exist').click();
-    cy.wait(100); // Allow DOM to update
+    cy.wait(300); // Allow DOM to update
     cy.get('#name-error').should('be.visible');
     cy.get('#email-error').should('be.visible');
     cy.get('#message-error').should('be.visible');
@@ -127,10 +130,10 @@ describe('Contact Form', () => {
   });
 
   it('should allow valid submission', () => {
-    // Do not override form submission
-    cy.get('[data-cy="contact-name"]').should('exist').clear().type('Test User');
-    cy.get('[data-cy="contact-email"]').should('exist').clear().type('test@example.com');
-    cy.get('[data-cy="contact-message"]').should('exist').clear().type('This is a test message.');
+    cy.get('[data-cy="contact-name"]').should('exist').clear().type('Test User').blur();
+    cy.get('[data-cy="contact-email"]').should('exist').clear().type('test@example.com').blur();
+    cy.get('[data-cy="contact-message"]').should('exist').clear().type('This is a test message.').blur();
+    cy.wait(300);
     cy.intercept('POST', /formspree\.io\//).as('formspree');
     cy.get('[data-cy="contact-submit"]').click();
     cy.wait('@formspree');
