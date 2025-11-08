@@ -69,9 +69,7 @@
         visibility: visible;
       }
     </style>
-    <script>
-      document.documentElement.classList.remove('no-js');
-    </script>
+    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
     <noscript
       ><style>
         body {
@@ -142,12 +140,16 @@
       rel="apple-touch-icon"
       sizes="180x180"
       href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com" />
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com" />
+    <link
+      rel="preconnect"
+      href="https://ka-p.fontawesome.com" />
 
     <link
       href="{{ALIEN_ABDUCTION_FORM_GOOGLE_FONTS_LINK}}"
