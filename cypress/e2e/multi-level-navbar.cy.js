@@ -1,6 +1,7 @@
 // Cypress E2E test for multi-level navbar best practices
 
 /// <reference types="cypress" />
+import 'cypress-plugin-tab';
 
 describe('Multi-Level Navbar', () => {
   beforeEach(() => {
@@ -13,19 +14,26 @@ describe('Multi-Level Navbar', () => {
 
   it('should handle disabled nav items gracefully', () => {
     cy.get('[data-cy="multi-navbar-home"]').invoke('attr', 'disabled', true);
+    cy.screenshot('multi-navbar-home-disabled');
     cy.get('[data-cy="multi-navbar-home"]').click({ force: true });
+    cy.screenshot('multi-navbar-home-clicked-disabled');
     cy.url().should('include', 'multi-level-navbar.html');
+    cy.screenshot('multi-navbar-home-url-checked');
   });
 
   it('should not execute XSS from nav items', () => {
     cy.get('[data-cy="multi-navbar-home"]').invoke('html', '<a href="#" onclick="window.xss=true">XSS</a>');
+    cy.screenshot('multi-navbar-xss-injected');
     cy.get('[data-cy="multi-navbar-home"] a').should('exist').click({ force: true });
+    cy.screenshot('multi-navbar-xss-link-clicked');
     cy.window().should('have.property', 'xss', undefined);
   });
 
   it('should have a visible skip link for accessibility', () => {
     cy.get('.skip-link').should('exist').and('have.attr', 'href').and('include', 'main-content');
+    cy.screenshot('multi-navbar-skip-link-exists');
     cy.get('.skip-link').focus().should('be.visible');
+    cy.screenshot('multi-navbar-skip-link-focused');
   });
 
   it('should have correct ARIA attributes on nav and sublists', () => {
@@ -36,12 +44,16 @@ describe('Multi-Level Navbar', () => {
   });
 
   it('should follow correct focus order for keyboard users', () => {
-    cy.get('body').realPress('Tab');
+    cy.get('body').tab();
+    cy.screenshot('multi-navbar-tabbed-to-home');
     cy.get('[data-cy="multi-navbar-home"]').should('exist').and('be.visible').focus();
+    cy.screenshot('multi-navbar-home-focused');
     cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-home');
-    cy.realPress('Tab');
+    cy.focused().tab();
+    cy.screenshot('multi-navbar-tabbed-to-gastropods');
     cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-gastropods');
-    cy.realPress('Tab');
+    cy.focused().tab();
+    cy.screenshot('multi-navbar-tabbed-to-bivalvia');
     cy.focused().should('exist').and('be.visible').and('have.attr', 'data-cy', 'multi-navbar-bivalvia');
   });
 

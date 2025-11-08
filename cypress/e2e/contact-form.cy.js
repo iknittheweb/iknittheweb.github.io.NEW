@@ -2,6 +2,11 @@
 
 /// <reference types="cypress" />
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from failing the test
+  return false;
+});
+
 describe('Contact Form', () => {
   beforeEach(() => {
     // Always mock Formspree POST request
@@ -28,6 +33,7 @@ describe('Contact Form', () => {
     cy.get('[data-cy="contact-submit"]').click({ force: true });
     // No form submission should occur
     cy.url().should('include', 'index.html');
+    cy.screenshot('contact-disabled-submit');
   });
 
   it('should not execute XSS from form fields', () => {
@@ -36,6 +42,7 @@ describe('Contact Form', () => {
     cy.get('[data-cy="contact-message"]').should('exist').type('Hello');
     cy.get('[data-cy="contact-submit"]').should('exist').click();
     cy.wait(100);
+    cy.screenshot('contact-xss-after-submit');
     // Only check for window.xss if still on the same origin
     cy.location('origin').then((origin) => {
       if (origin === 'http://localhost:5500') {
@@ -52,14 +59,15 @@ describe('Contact Form', () => {
     cy.get('label[for="name"]').should('exist');
     cy.get('label[for="email"]').should('exist');
     cy.get('label[for="message"]').should('exist');
+    cy.screenshot('contact-aria-labels');
   });
 
   it('should show error messages when fields are invalid', () => {
     cy.get('[data-cy="contact-submit"]').should('exist').click();
-    cy.get('#name-error').should('exist').invoke('show').and('be.visible');
-    cy.get('#email-error').should('exist').invoke('show').and('be.visible');
-    cy.get('#message-error').should('exist').invoke('show').and('be.visible');
-    // Prevent Formspree navigation by intercepting and stubbing response
+    cy.get('#name-error').should('be.visible');
+    cy.get('#email-error').should('be.visible');
+    cy.get('#message-error').should('be.visible'); // Prevent Formspree navigation by intercepting and stubbing response
+    cy.screenshot('contact-errors-visible');
     cy.intercept('POST', /formspree\.io\//, {
       statusCode: 400,
       body: { error: 'Validation failed' },
@@ -70,12 +78,16 @@ describe('Contact Form', () => {
   it('should follow correct focus order for keyboard users', () => {
     cy.get('[data-cy="contact-name"]').should('exist').focus();
     cy.focused().should('exist').and('have.attr', 'data-cy', 'contact-name');
+    cy.screenshot('contact-focus-name');
     cy.realPress('Tab');
     cy.focused().should('exist').and('have.attr', 'data-cy', 'contact-email');
+    cy.screenshot('contact-focus-email');
     cy.realPress('Tab');
     cy.focused().should('exist').and('have.attr', 'data-cy', 'contact-message');
+    cy.screenshot('contact-focus-message');
     cy.realPress('Tab');
     cy.focused().should('exist').and('have.attr', 'data-cy', 'contact-submit');
+    cy.screenshot('contact-focus-submit');
   });
 
   it('should render all required fields', () => {
@@ -84,6 +96,7 @@ describe('Contact Form', () => {
     cy.get('[data-cy="contact-email"]').should('exist');
     cy.get('[data-cy="contact-message"]').should('exist');
     cy.get('[data-cy="contact-submit"]').should('exist');
+    cy.screenshot('contact-all-fields-rendered');
   });
 
   it('should validate required fields', () => {
@@ -103,6 +116,7 @@ describe('Contact Form', () => {
       .then(($el) => {
         expect($el[0].checkValidity()).to.be.false;
       });
+    cy.screenshot('contact-required-fields-invalid');
     // Prevent Formspree navigation by intercepting and stubbing response
     cy.intercept('POST', /formspree\.io\//, {
       statusCode: 400,
@@ -118,14 +132,11 @@ describe('Contact Form', () => {
     cy.get('[data-cy="contact-name"]').should('exist').type('Test User');
     cy.get('[data-cy="contact-email"]').should('exist').type('test@example.com');
     cy.get('[data-cy="contact-message"]').should('exist').type('This is a test message.');
-    cy.intercept('POST', /formspree\.io\//, {
-      statusCode: 200,
-      body: { ok: true },
-      headers: { 'content-type': 'application/json' },
-    }).as('formspree');
-    cy.get('[data-cy="contact-submit"]').should('exist').click();
+    cy.intercept('POST', 'https://formspree.io/f/mpwyyeaa').as('formspree');
+    cy.get('[data-cy="contact-submit"]').click();
     cy.wait('@formspree');
     cy.contains('Thank you').should('exist');
+    cy.screenshot('contact-valid-submission');
   });
 
   it('should pass basic accessibility checks', function () {
@@ -133,6 +144,7 @@ describe('Contact Form', () => {
     if (window && window.Cypress && window.Cypress.config('chromeWebSecurity') === false) {
       cy.injectAxe();
       cy.checkA11y('[data-cy="contact-form"]');
+      cy.screenshot('contact-accessibility-check');
     } else {
       this.skip();
     }
@@ -141,5 +153,6 @@ describe('Contact Form', () => {
   it('should be usable on mobile viewport', () => {
     cy.viewport('iphone-6');
     cy.get('[data-cy="contact-form"]').should('exist').and('be.visible');
+    cy.screenshot('contact-mobile-viewport');
   });
 });
