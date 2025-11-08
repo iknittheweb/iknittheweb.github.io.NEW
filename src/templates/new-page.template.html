@@ -120,10 +120,7 @@
         visibility: visible;
       }
     </style>
-    <script>
-      // Remove .no-js as soon as possible for FOUC protection
-      document.documentElement.classList.remove('no-js');
-    </script>
+    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
 
     <link
       rel="icon"
@@ -139,10 +136,13 @@
 
     <link
       rel="preconnect"
-      href="https://fonts.apis.com" />
+      href="https://fonts.googleapis.com" />
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com" />
+    <link
+      rel="preconnect"
+      href="https://ka-p.fontawesome.com" />
 
     <link
       rel="preload"
