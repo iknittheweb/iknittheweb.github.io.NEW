@@ -64,9 +64,10 @@ describe('Contact Form', () => {
 
   it('should show error messages when fields are invalid', () => {
     cy.get('[data-cy="contact-submit"]').should('exist').click();
+    cy.wait(100); // Allow DOM to update
     cy.get('#name-error').should('be.visible');
     cy.get('#email-error').should('be.visible');
-    cy.get('#message-error').should('be.visible'); // Prevent Formspree navigation by intercepting and stubbing response
+    cy.get('#message-error').should('be.visible');
     cy.screenshot('contact-errors-visible');
     cy.intercept('POST', /formspree\.io\//, {
       statusCode: 400,
@@ -126,13 +127,11 @@ describe('Contact Form', () => {
   });
 
   it('should allow valid submission', () => {
-    cy.get('[data-cy="contact-form"]').then(($form) => {
-      $form[0].onsubmit = null;
-    });
-    cy.get('[data-cy="contact-name"]').should('exist').type('Test User');
-    cy.get('[data-cy="contact-email"]').should('exist').type('test@example.com');
-    cy.get('[data-cy="contact-message"]').should('exist').type('This is a test message.');
-    cy.intercept('POST', 'https://formspree.io/f/mpwyyeaa').as('formspree');
+    // Do not override form submission
+    cy.get('[data-cy="contact-name"]').should('exist').clear().type('Test User');
+    cy.get('[data-cy="contact-email"]').should('exist').clear().type('test@example.com');
+    cy.get('[data-cy="contact-message"]').should('exist').clear().type('This is a test message.');
+    cy.intercept('POST', /formspree\.io\//).as('formspree');
     cy.get('[data-cy="contact-submit"]').click();
     cy.wait('@formspree');
     cy.contains('Thank you').should('exist');

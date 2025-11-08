@@ -1,6 +1,7 @@
 import '@percy/cypress';
 import 'cypress-real-events/support';
 import 'cypress-axe';
+import 'cypress-plugin-tab'
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   // Ignore Sentry module errors during tests
