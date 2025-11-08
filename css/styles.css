@@ -1502,12 +1502,13 @@ textarea:focus-visible {
 }
 .contact__error {
   display: block;
-  min-height: 1.25rem;
   margin-top: 0.25rem;
   font-size: 0.875rem;
   color: var(--dark-error);
   font-weight: 500;
   opacity: 0;
+  max-height: 0;
+  overflow: hidden;
   transform: translateY(-10px);
   transition: all 0.3s ease;
 }
