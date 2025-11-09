@@ -18,7 +18,7 @@ describe('dropdown.js', () => {
     document.documentElement.classList.add('css-loaded');
     // Re-require the module to re-run its setup
     jest.resetModules();
-    require('../src/js/dropdown.js');
+    require('../dist/js/dropdown.js');
     dropdownTitleGroup = document.querySelector('.dropdown__title-group');
     dropdownContent = document.querySelector('.dropdown__content');
   });
