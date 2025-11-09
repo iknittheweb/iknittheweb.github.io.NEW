@@ -1,3 +1,5 @@
+// This file is auto-generated from src/js/script.js. Do not edit directly.
+// ...existing code from src/js/script.js...
 /**
  * NAVIGATION SYSTEM
  * This file handles the mobile hamburger menu and responsive navigation
