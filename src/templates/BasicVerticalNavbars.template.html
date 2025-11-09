@@ -28,6 +28,7 @@
         visibility: visible;
       }
     </style>
+    <!-- FOUC/CSS loader fix: load before any other script -->
     <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
     <noscript
       ><style>
@@ -148,28 +149,7 @@
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
-    <script>
-      // Wait for CSS to load before showing content
-      function checkCSSLoaded() {
-        if (window.mainCSSLoaded && document.readyState !== 'loading') {
-          document.documentElement.classList.add('css-loaded');
-          // Add fonts-failed class immediately since we're using system fonts only
-          document.documentElement.classList.add('fonts-failed');
-        } else {
-          requestAnimationFrame(checkCSSLoaded);
-        }
-      }
-      checkCSSLoaded();
-
-      // Fallback: Show content after 3 seconds even if CSS fails to load
-      setTimeout(function () {
-        if (!document.documentElement.classList.contains('css-loaded')) {
-          console.warn('CSS loading timeout - showing content anyway');
-          document.documentElement.classList.add('css-loaded');
-          document.documentElement.classList.add('fonts-failed');
-        }
-      }, 3000);
-    </script>
+    <!-- CSS loader logic moved to fouc-fix.js for CSP compliance -->
     <script
       type="module"
       src="{{BASE_URL}}/dist/js/script.js"></script>

@@ -28,35 +28,15 @@
         visibility: visible;
       }
     </style>
-    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
+  <!-- FOUC/CSS loader fix: load before any other script -->
+  <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
     <noscript
       ><style>
         body {
           visibility: visible;
         }
       </style></noscript
-    >
-    <!-- CSS preload: use .css for local, .min.css for production -->
-    <link
-      rel="preload"
-      as="style"
-      href="{{BASE_URL}}{{CALCULATOR_CSS_FILE}}"
-      data-js-onload="relStylesheet" />
-    <link
-      rel="stylesheet"
-      href="{{BASE_URL}}{{CALCULATOR_CSS_FILE}}"
-      data-js-onload="mainCSSLoaded" />
-    <meta
-      name="description"
-      content="{{CALCULATOR_DESCRIPTION}}" />
-    <meta
-      name="keywords"
-      content="{{CALCULATOR_KEYWORDS}}" />
-    <meta
-      name="author"
-      content="I Knit the Web" />
-    <meta
-      name="robots"
+    <!-- CSS loader logic moved to fouc-fix.js for CSP compliance -->
       content="{{ROBOTS}}" />
     <meta
       name="theme-color"

@@ -88,7 +88,8 @@
         visibility: visible;
       }
     </style>
-    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
+  <!-- FOUC/CSS loader fix: load before any other script -->
+  <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
 
     <link
       rel="icon"
@@ -180,28 +181,7 @@
       data-breadcrumb-category-url="{{NEW-PAGE_BREADCRUMB_CATEGORY_URL}}"
       style="display: none"></div>
     <!--@ Skip Link for Screen Readers -->
-    <a
-      href="#main-content"
-      class="skip-link"
-      aria-label="Skip to main content"
-      >Skip to main content</a
-    >
-    <header aria-label="Site header">
-      <!-- HEADER_PLACEHOLDER -->
-    </header>
-
-    <main
-      id="main-content"
-      role="main"
-      tabindex="-1"
-      aria-label="Main content">
-      <!-- page content goes here -->
-    </main>
-
-    <footer
-      role="contentinfo"
-      aria-label="Site footer">
-      <!-- FOOTER_PLACEHOLDER -->
+    <!-- CSS loader logic moved to fouc-fix.js for CSP compliance -->
     </footer>
   </body>
 </html>
