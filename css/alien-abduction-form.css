@@ -301,12 +301,6 @@ a:active {
   --alien-font-family: "Orbitron", roboto, monospace;
 }
 
-.fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
-}
-
 h1,
 h2,
 h3 {
