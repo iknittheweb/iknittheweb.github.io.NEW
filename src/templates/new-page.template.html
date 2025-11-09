@@ -25,11 +25,11 @@
       rel="preload"
       as="style"
       href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}"
-      onload="this.rel='stylesheet'; this.onload=null;" />
+      data-js-onload="relStylesheet" />
     <link
       rel="stylesheet"
       href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}"
-      onload="window.mainCSSLoaded = true;" />
+      data-js-onload="mainCSSLoaded" />
     <noscript>
       <style>
         body {
@@ -116,14 +116,14 @@
       rel="preload"
       href="{{GOOGLE_FONTS_LINK}}"
       as="style"
-      onload="this.rel='stylesheet'; this.onload=null;"
-      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+      data-js-onload="relStylesheet"
+      data-js-onerror="fontsFailed" />
     <link
       href="{{GOOGLE_FONTS_LINK}}"
       rel="stylesheet"
       media="print"
-      onload="this.media='all'; this.onload=null;"
-      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+      data-js-onload="mediaAll"
+      data-js-onerror="fontsFailed" />
     <noscript>
       <link
         href="{{GOOGLE_FONTS_LINK}}"

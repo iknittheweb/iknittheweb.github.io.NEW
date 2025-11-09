@@ -41,11 +41,11 @@
       rel="preload"
       as="style"
       href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
-      onload="this.rel='stylesheet'; this.onload=null;" />
+      data-js-onload="relStylesheet" />
     <link
       rel="stylesheet"
       href="{{BASE_URL}}{{MULTI-LEVEL-NAVBAR_CSS_FILE}}"
-      onload="window.mainCSSLoaded = true;" />
+      data-js-onload="mainCSSLoaded" />
     <meta
       name="description"
       content="{{MULTI-LEVEL-NAVBAR_DESCRIPTION}}" />
@@ -127,8 +127,8 @@
       href="{{GOOGLE_FONTS_LINK}}"
       rel="stylesheet"
       media="print"
-      onload="this.media='all'; this.onload=null;"
-      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+      data-js-onload="mediaAll"
+      data-js-onerror="fontsFailed" />
     <noscript>
       <link
         href="{{GOOGLE_FONTS_LINK}}"
@@ -189,8 +189,7 @@
     <a
       href="#main-content"
       class="skip-link"
-      style="position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 100"
-      onfocus="this.style.position='static';this.style.width='auto';this.style.height='auto';this.style.left='0';"
+      data-js-onfocus="showSkipLink"
       >Skip to main content</a
     >
     <!-- HEADER_PLACEHOLDER -->

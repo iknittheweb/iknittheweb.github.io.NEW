@@ -25,11 +25,11 @@
       rel="preload"
       as="style"
       href="{{BASE_URL}}{{HOME_CSS_FILE}}"
-      onload="this.rel='stylesheet'; this.onload=null;" />
+      data-js-onload="relStylesheet" />
     <link
       rel="stylesheet"
       href="{{BASE_URL}}{{HOME_CSS_FILE}}"
-      onload="window.mainCSSLoaded = true;" />
+      data-js-onload="mainCSSLoaded" />
     <noscript>
       <style>
         body {
@@ -116,14 +116,14 @@
       rel="preload"
       href="{{GOOGLE_FONTS_LINK}}"
       as="style"
-      onload="this.rel='stylesheet'; this.onload=null;"
-      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+      data-js-onload="relStylesheet"
+      data-js-onerror="fontsFailed" />
     <link
       href="{{GOOGLE_FONTS_LINK}}"
       rel="stylesheet"
       media="print"
-      onload="this.media='all'; this.onload=null;"
-      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+      data-js-onload="mediaAll"
+      data-js-onerror="fontsFailed" />
     <noscript>
       <link
         href="{{GOOGLE_FONTS_LINK}}"
@@ -1023,7 +1023,8 @@ function openMobileMenu() {
                   alt="Thumbnail preview of Alien Abduction Order Form project"
                   class="card__image"
                   width="345"
-                  height="259" />
+                  height="259"
+                  data-js-onerror="imgErrorHandler" />
                 <figcaption class="card__caption">
                   <p> When you want an alien abduction, you want it your way. Fill out this form to get started. </p>
                 </figcaption>
@@ -1091,7 +1092,8 @@ function sendData() &#123;
                   alt="Thumbnail preview of Calculator project"
                   class="card__image"
                   width="356"
-                  height="268" />
+                  height="268"
+                  data-js-onerror="imgErrorHandler" />
                 <figcaption class="card__caption">
                   <p>
                     A responsive calculator with advanced operations, built with vanilla JavaScript and modern CSS Grid.
@@ -1169,7 +1171,8 @@ class Calculator {
                   alt="Thumbnail preview of CSS Position Cheat Sheet project"
                   class="card__image"
                   width="1868"
-                  height="1401" />
+                  height="1401"
+                  data-js-onerror="imgErrorHandler" />
                 <figcaption class="card__caption">
                   <p>
                     Interactive cheat sheet demonstrating CSS positioning with live examples, built using advanced SCSS

@@ -41,11 +41,11 @@
       rel="preload"
       as="style"
       href="{{BASE_URL}}{{NAVBAR-LINK-FILLING-LI_CSS_FILE}}"
-      onload="this.rel='stylesheet'; this.onload=null;" />
+      data-js-onload="relStylesheet" />
     <link
       rel="stylesheet"
       href="{{BASE_URL}}{{NAVBAR-LINK-FILLING-LI_CSS_FILE}}"
-      onload="window.mainCSSLoaded = true;" />
+      data-js-onload="mainCSSLoaded" />
     <meta
       name="description"
       content="{{NAVBAR-LINK-FILLING-LI_DESCRIPTION}}" />
@@ -127,8 +127,8 @@
       href="{{GOOGLE_FONTS_LINK}}"
       rel="stylesheet"
       media="print"
-      onload="this.media='all'; this.onload=null;"
-      onerror="this.remove(); document.documentElement.classList.add('fonts-failed');" />
+      data-js-onload="mediaAll"
+      data-js-onerror="fontsFailed" />
     <noscript>
       <link
         href="{{GOOGLE_FONTS_LINK}}"
