@@ -16,6 +16,9 @@ describe('Contact Form', () => {
       headers: { 'content-type': 'application/json' },
     }).as('formspree');
     cy.visit('index.html');
+    // Wait for body to be visible (css-loaded class present)
+    cy.document().its('documentElement.className').should('include', 'css-loaded');
+    cy.get('body').should('be.visible');
     cy.get('[data-cy="contact-form"]')
       .should('exist')
       .and('be.visible')
@@ -67,10 +70,16 @@ describe('Contact Form', () => {
     cy.get('[data-cy="contact-email"]').focus().blur();
     cy.get('[data-cy="contact-message"]').focus().blur();
     cy.get('[data-cy="contact-submit"]').should('exist').click();
-    cy.wait(300); // Allow DOM to update
-    cy.get('#name-error').should('be.visible');
-    cy.get('#email-error').should('be.visible');
-    cy.get('#message-error').should('be.visible');
+    cy.wait(200); // Allow DOM to update
+    cy.get('#name-error').should('have.class', 'contact__error--visible').and('be.visible');
+    cy.get('#email-error').should('have.class', 'contact__error--visible').and('be.visible');
+    // Debug: log <html> class list and take screenshot
+    cy.document().then((doc) => {
+      // Log class list to Cypress log
+      Cypress.log({ name: 'HTML classList', message: doc.documentElement.className });
+    });
+    cy.screenshot('contact-html-classlist');
+    cy.get('#message-error').should('have.class', 'contact__error--visible').and('be.visible');
     cy.screenshot('contact-errors-visible');
     cy.intercept('POST', /formspree\.io\//, {
       statusCode: 400,
