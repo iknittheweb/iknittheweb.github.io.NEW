@@ -5,6 +5,8 @@
 function initializeDropdown() {
   const dropdownTitleGroup = document.querySelector('.dropdown__title-group');
   const dropdownContent = document.querySelector('.dropdown__content');
+  if (window.dropdownInitialized) return;
+  window.dropdownInitialized = true;
   if (dropdownTitleGroup) dropdownTitleGroup.setAttribute('data-cy', 'dropdown-trigger');
   if (dropdownContent) dropdownContent.setAttribute('data-cy', 'dropdown-content');
   // Expose dropdown state for Cypress
@@ -25,7 +27,9 @@ function initializeDropdown() {
 
     let lastTrigger = null;
 
+    console.log('[Dropdown] Adding click event listener to trigger');
     dropdownTitleGroup.addEventListener('click', function (e) {
+      e.stopPropagation();
       console.log('[Dropdown] Click event on trigger');
       const isOpen = dropdownContent.classList.contains('show');
       console.log('[Dropdown] Trigger clicked. Dropdown is currently', isOpen ? 'OPEN' : 'CLOSED');
@@ -95,18 +99,17 @@ function initializeDropdown() {
         }
         // Ensure dropdown is visible for Cypress tests
         dropdownContent.style.opacity = '1';
-        dropdownContent.style.display = 'block';
       }, 10);
     }
     function closeDropdown() {
       console.log('[Dropdown] closeDropdown called');
+      console.log('[Dropdown] .show class present after close:', dropdownContent.classList.contains('show'));
       dropdownContent.classList.remove('show');
       dropdownContent.setAttribute('aria-hidden', 'true');
       dropdownTitleGroup.classList.remove('dropdown-open');
       dropdownTitleGroup.setAttribute('aria-expanded', 'false');
       // Reset dropdown visibility for Cypress tests
-      dropdownContent.style.opacity = '';
-      dropdownContent.style.display = '';
+      dropdownContent.removeAttribute('style');
       window.dropdownTestState.isOpen = false;
       window.dropdownTestState.focusTrapActive = false;
       if (lastTrigger) lastTrigger.focus();
@@ -180,13 +183,6 @@ function initializeDropdown() {
     });
     observer.observe(container, { attributes: true });
   }
-}
-
-// Initialize on DOM ready for static pages
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  initializeDropdown();
-} else {
-  document.addEventListener('DOMContentLoaded', initializeDropdown);
 }
 
 export { initializeDropdown };
