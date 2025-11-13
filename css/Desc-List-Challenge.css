@@ -867,7 +867,7 @@ button:hover {
   }
 }
 
-@media (max-width: ) {
+@media (max-width: 43.74875em) {
   .topnav__menu {
     width: 100vw;
     left: 0;
@@ -890,7 +890,7 @@ button:hover {
   }
 }
 
-@media (max-width: ) {
+@media (max-width: 43.74875em) {
   .topnav__links {
     flex-direction: column;
     gap: 1rem;
@@ -900,7 +900,7 @@ button:hover {
   }
 }
 
-@media (max-width: ) {
+@media (max-width: 43.74875em) {
   .topnav__item {
     width: 100%;
     margin: 0;
@@ -912,7 +912,7 @@ button:hover {
   }
 }
 
-@media (max-width: ) {
+@media (max-width: 43.74875em) {
   .topnav__link {
     width: 100%;
     display: block;
