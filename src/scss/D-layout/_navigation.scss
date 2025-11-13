@@ -6,7 +6,7 @@
 @use '../A-abstracts/functions' as f;
 
 .topnav__menu {
-  @include mixins.breakpoint-down('700') {
+  @include mixins.breakpoint-down('699.98') {
     width: 100vw;
     left: 0;
     right: 0;
@@ -29,7 +29,7 @@
 }
 
 .topnav__links {
-  @include mixins.breakpoint-down('700') {
+  @include mixins.breakpoint-down('699.98') {
     flex-direction: column;
     gap: f.rem(16);
     width: 100%;
@@ -39,7 +39,7 @@
 }
 
 .topnav__item {
-  @include mixins.breakpoint-down('700') {
+  @include mixins.breakpoint-down('699.98') {
     width: 100%;
     margin: 0;
     padding: f.rem(8) 0;
@@ -51,7 +51,7 @@
 }
 
 .topnav__link {
-  @include mixins.breakpoint-down('700') {
+  @include mixins.breakpoint-down('699.98') {
     width: 100%;
     display: block;
     padding: f.rem(12) f.rem(8);
