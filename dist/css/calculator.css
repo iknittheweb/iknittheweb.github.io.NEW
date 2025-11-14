@@ -422,6 +422,35 @@ button:focus-visible {
  * EASY REMOVAL: Search for "skills-chart" to find all related code
  * Delete this file and remove import from _index.scss to remove completely
  * ================================================================= */
+.skills-chart__tab--active {
+  background: var(--light-bg);
+  color: var(--secondary-text);
+  font-weight: 600;
+  opacity: 1;
+}
+.skills-chart__tab--active:focus-visible {
+  outline: 3px solid var(--secondary-text);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+@media (prefers-contrast: high) {
+  .skills-chart__tab--active:focus-visible {
+    outline: 4px solid #000;
+    outline-offset: 2px;
+  }
+}
+.skills-chart__tab--active[aria-expanded=true] {
+  background: rgba(255, 255, 255, 0.7);
+}
+.skills-chart__category--active {
+  display: block;
+  animation: fade-in-up 0.4s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .skills-chart__category--active {
+    animation: none;
+  }
+}
 
 @keyframes fade-in-up {
   from {
@@ -447,6 +476,9 @@ button:focus-visible {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .skills-chart__category--active {
+    animation: none;
+  }
   @keyframes fade-in-up {
     from, to {
       opacity: 1;
