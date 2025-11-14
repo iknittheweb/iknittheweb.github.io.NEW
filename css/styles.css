@@ -746,7 +746,7 @@ textarea:focus-visible {
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
   pointer-events: none;
 }
-.code-showcase details[open] > .code-showcase__content {
+.code-showcase details[open] .code-showcase__content {
   max-height: 2000px;
   opacity: 1;
   pointer-events: auto;
