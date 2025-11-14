@@ -674,13 +674,13 @@ textarea:focus-visible {
 }
 
 .code-showcase {
-  margin-top: 1.5rem;
+  margin-top: 0;
   border: 1px solid var(--light-border, #e0e0e0);
   border-radius: 0.375rem;
   background-color: var(--light-bg, #fafafa);
 }
 .card__body .code-showcase {
-  margin-top: 1rem;
+  margin-top: 0;
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -738,6 +738,8 @@ textarea:focus-visible {
   padding: 1.25rem;
   border-top: 1px solid var(--light-border, #e0e0e0);
   background: var(--primary-bg-pale);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .code-showcase pre {
   background-color: var(--dark-bg, #2d2d2d);
