@@ -47,7 +47,10 @@ async function purgeAndReplace(file) {
   const allExist = htmlFiles.every((f) => fs.existsSync(f));
   if (allExist) {
     const contentArgs = htmlFiles.map((f) => `--content "${f}"`).join(' ');
-    execSync(`npx purgecss --css "${file}" ${contentArgs} --output "${purged}"`, { stdio: 'inherit' });
+    execSync(
+      `npx purgecss --css "${file}" ${contentArgs} --safelist skills-chart__tab--active skills-chart__category--active --output "${purged}"`,
+      { stdio: 'inherit' }
+    );
     fs.renameSync(purged, file);
     // Minify after purging
     const css = fs.readFileSync(file, 'utf8');
