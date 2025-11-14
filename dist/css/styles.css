@@ -743,7 +743,7 @@ textarea:focus-visible {
   margin-bottom: 0;
   display: none;
 }
-.code-showcase details[open] .code-showcase__content {
+.code-showcase details.code-showcase[open] .code-showcase__content {
   display: block;
 }
 
