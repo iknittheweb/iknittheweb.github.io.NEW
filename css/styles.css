@@ -740,6 +740,18 @@ textarea:focus-visible {
   background: var(--primary-bg-pale);
   margin-top: 0;
   margin-bottom: 0;
+  transition: visibility 0.3s, max-height 0.3s, opacity 0.3s;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.code-showcase details[open] > .code-showcase__content, .code-showcase.open > .code-showcase__content {
+  max-height: 2000px;
+  opacity: 1;
+  visibility: visible;
+  overflow: visible;
+  transition: visibility 0.3s, max-height 0.3s, opacity 0.3s;
 }
 .code-showcase pre {
   background-color: var(--dark-bg, #2d2d2d);
