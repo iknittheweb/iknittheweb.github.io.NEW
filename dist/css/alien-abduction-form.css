@@ -111,6 +111,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -153,12 +156,15 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 fieldset,
 form,
 label,
 legend,
+table,
 details,
 footer,
 header,
@@ -305,6 +311,10 @@ details {
 
 /* Tables
    ========================================================================== */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 /* Hidden Elements
    ========================================================================== */
@@ -682,17 +692,11 @@ input[type=button]:hover {
 
 .topnav {
   border-bottom: 2px solid var(--topnav-border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: 100vw; /* Use viewport width to ensure full coverage */
-  transform: translateY(0);
-  transition: transform 0.3s ease-in-out;
-}
-@media (prefers-reduced-motion: reduce) {
-  .topnav {
-    transition: none;
-  }
+  /* Removed sticky/fixed positioning so header scrolls with page */
+  width: 100%;
+  background-color: var(--primary-bg);
+  transform: none;
+  transition: none;
 }
 .topnav, .topnav__menu {
   background-color: var(--primary-bg);
