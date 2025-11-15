@@ -609,6 +609,11 @@ button:hover {
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .topnav {
   border-bottom: 2px solid var(--topnav-border);
   /* Removed sticky/fixed positioning so header scrolls with page */
