@@ -1041,6 +1041,9 @@ input[type=button]:hover {
   overflow: hidden;
   margin-top: 0;
 }
+.alien-form-page__hero h1 {
+  font-family: var(--alien-font-family);
+}
 .alien-form-page__hero::before {
   content: "";
   position: absolute;
