@@ -378,6 +378,7 @@ button:focus-visible {
   background-color: var(--primary-bg);
   color: var(--light-text);
   padding-block: 3.75rem;
+  padding-inline: 1.5rem;
 }
 @supports (container-type: inline-size) {
 }
@@ -755,6 +756,7 @@ button:hover {
   -webkit-margin-after: 4rem;
   margin-block-end: 4rem;
   padding-block: 3.125rem;
+  padding-inline: 1.5rem;
 }
 .portfolio__row {
   display: grid;
@@ -804,6 +806,7 @@ button:hover {
   background-color: var(--primary-bg);
   transform: none;
   transition: none;
+  padding-inline: 1.5rem;
 }
 .topnav, .topnav__menu {
   background-color: var(--primary-bg);
