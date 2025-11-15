@@ -680,14 +680,8 @@ input[type=button]:hover {
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  padding: 0;
-  margin: 0;
-}
-
 .topnav {
   border-bottom: 2px solid var(--topnav-border);
-  /* Removed sticky/fixed positioning so header scrolls with page */
   width: 100%;
   background-color: var(--primary-bg);
   transform: none;
@@ -720,7 +714,6 @@ body {
 }
 @media (max-width: 43.74875em) {
   .topnav__overlay {
-    position: fixed;
     inset: 0;
     background-color: var(--menu-overlay);
     opacity: 0;
@@ -740,12 +733,6 @@ body {
 .topnav__open .fa-solid, .topnav__close .fa-solid {
   font-size: 1.5rem;
   display: inline-block;
-}
-@media (max-width: 43.74875em) {
-  .topnav__open, .topnav__close {
-    position: absolute;
-    top: 0.75rem;
-  }
 }
 @media (min-width: 43.75em) {
   .topnav__open, .topnav__close {
@@ -796,7 +783,6 @@ body {
   .topnav__menu {
     display: none;
     width: 100vw;
-    position: fixed;
     inset: 0 0 auto;
     padding: 12px 24px 120px;
     border-radius: 0 0 20px 20px;
