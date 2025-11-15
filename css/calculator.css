@@ -899,12 +899,12 @@ button:hover {
     font-size: 1rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     background: var(--light-bg);
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    z-index: auto;
+    position: static;
+    top: auto;
+    height: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: auto;
     display: block;
     touch-action: manipulation;
   }
