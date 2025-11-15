@@ -13,7 +13,8 @@
 @use '../F-themes' as t;
 @use '../G-vendors' as v;
 
-.alien-form-page-hero {
+// BEM: .alien-form-page__hero
+.alien-form-page__hero {
   background: linear-gradient(135deg, var(--alien-primary-bg) 0%, var(--alien-secondary-bg) 100%);
   color: var(--alien-text-light);
   padding-block: a.rem(60);
@@ -53,6 +54,7 @@
   }
 }
 
+// BEM: .alien-form-page__wrapper
 .alien-form-page__wrapper {
   position: relative;
   z-index: 1;
@@ -69,3 +71,18 @@
 }
 
 // Add any additional page-level styles here, such as layout, hero, or page-specific backgrounds.
+
+// BEM: Add form and element classes for strict compliance
+.alien-form-page__form {
+}
+.alien-form-page__form-flex {
+  display: flex;
+}
+.alien-form-page__form-left {
+}
+.alien-form-page__form-right {
+}
+.alien-form-page__detail-stuff {
+}
+.alien-form-page__abtype {
+}

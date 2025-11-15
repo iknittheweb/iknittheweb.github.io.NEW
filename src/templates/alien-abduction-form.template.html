@@ -4,48 +4,29 @@
   lang="en"
   class="no-js">
   <head>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" />
     <title>Sign Up for an Alien Abduction! | I Knit The Web</title>
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self';
-  script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com;
-  font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com;
-  img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com;
-  connect-src 'self' https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net;
-  frame-src 'self';
-  object-src 'none';
-  base-uri 'self';
-  form-action 'self' https://formspree.io;" />
+      content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <link
       rel="preload"
       as="style"
-      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
+      href="{{BASE_URL}}{{ALIEN-ABDUCTION-FORM_CSS_FILE}}"
       data-js-onload="relStylesheet" />
     <link
       rel="stylesheet"
-      href="{{BASE_URL}}{{HOME_CSS_FILE}}"
+      href="{{BASE_URL}}{{ALIEN-ABDUCTION-FORM_CSS_FILE}}"
       data-js-onload="mainCSSLoaded" />
-    <style>
-      .no-js body {
-        visibility: hidden;
-      }
-      .css-loaded body {
-        visibility: visible;
-      }
-    </style>
-    <!-- FOUC/CSS loader fix: load before any other script -->
-    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
-    <noscript
-      ><style>
+    <noscript>
+      <style>
         body {
           visibility: visible;
         }
-      </style></noscript
-    >
+      </style>
+    </noscript>
     <meta
       name="description"
       content="{{ALIEN-ABDUCTION-FORM_DESCRIPTION}}" />
@@ -91,16 +72,16 @@
     <meta
       name="twitter:image"
       content="{{ASSET_URL}}/branding/logo.png" />
-
     <style>
-      body {
+      .no-js body {
         visibility: hidden;
       }
       .css-loaded body {
         visibility: visible;
       }
     </style>
-
+    <!-- FOUC/CSS loader fix: load before any other script -->
+    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
     <link
       rel="icon"
       type="image/x-icon"
@@ -109,7 +90,9 @@
       rel="apple-touch-icon"
       sizes="180x180"
       href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
-
+    <link
+      rel="manifest"
+      href="{{BASE_URL}}/manifest.json" />
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com" />
@@ -119,19 +102,18 @@
     <link
       rel="preconnect"
       href="https://ka-p.fontawesome.com" />
-
     <link
-      href="{{ALIEN_ABDUCTION_FORM_GOOGLE_FONTS_LINK}}"
-      rel="stylesheet"
-      media="print"
-      data-js-onload="mediaAll"
-      data-js-onerror="fontsFailed" />
+      rel="preload"
+      href="{{GOOGLE_FONTS_LINK}}"
+      as="style" />
+    <link
+      href="{{GOOGLE_FONTS_LINK}}"
+      rel="stylesheet" />
     <noscript>
       <link
         href="{{ALIEN-ABDUCTION-FORM_GOOGLE_FONTS_LINK}}"
         rel="stylesheet" />
     </noscript>
-
     <script
       src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
       crossorigin="anonymous"></script>
@@ -139,18 +121,15 @@
     <script type="application/ld+json">
       {{{ALIEN-ABDUCTION-FORM_SCHEMA_JSON}}}
     </script>
-
     <script
       defer
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
-    <!-- CSS loader logic moved to fouc-fix.js for CSP compliance -->
     <script
       type="module"
       src="{{BASE_URL}}/dist/js/script.js"></script>
   </head>
-
   <body>
     <div
       id="page-data"
@@ -162,19 +141,156 @@
       style="display: none"></div>
     <!--@ Skip Link for Screen Readers -->
     <a
-      href="#main-content"
+      href="{{BASE_URL}}/#main-content"
       class="skip-link"
       aria-label="Skip to main content"
       >Skip to main content</a
     >
-    <!-- HEADER_PLACEHOLDER -->
-
+    <header class="topnav">
+      <!-- HEADER_PLACEHOLDER -->
+    </header>
     <main
       id="main-content"
       role="main">
-      <!-- page content goes here -->
+      <div class="wrapper">
+        <section>
+          <div class="alien-form-page__hero">
+            <h1>Sign Up for an Alien Abduction!</h1>
+            <p>Ready for a close encounter? Fill out the form below to book your abduction experience.</p>
+          </div>
+          <form
+            class="flex"
+            action="https://e3vwdl4bpd.execute-api.us-west-2.amazonaws.com/default/API2SES"
+            method="post">
+            <div class="flex">
+              <!-- CONTACT INFO -->
+              <div class="flex-left">
+                <input
+                  type="hidden"
+                  name="send_to"
+                  value="idlehands1969@gmail.com" />
+                <fieldset>
+                  <legend>Your contact information</legend>
+                  <label for="name">Your name </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autofocus
+                    required />
+                  <label for="phone">Phone number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Don't forget the area code!" />
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required />
+                </fieldset>
+              </div>
+              <!-- ABDUCTION INFO -->
+              <div class="flex-right">
+                <fieldset class="detailStuff">
+                  <legend>About your abduction </legend>
+                  <div class="abtype flex">
+                    <div class="flex-left">
+                      <label for="date">Requested date</label>
+                      <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        required />
+                      <label for="qty">How many people would you like abducted?</label>
+                      <input
+                        type="number"
+                        id="qty"
+                        name="qty"
+                        min="1"
+                        max="10"
+                        required />
+                      <p>What type of UFO do you prefer?</p>
+                      <label>
+                        <input
+                          type="radio"
+                          name="ufotype"
+                          value="classic"
+                          checked />
+                        Classic oval UFO
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="ufotype"
+                          value="starwars" />
+                        Star Wars-style Imperial cruiser
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="ufotype"
+                          value="galactica" />
+                        Battlestar Galactica-style Viper
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="ufotype"
+                          value="startrek" />
+                        Borg-style cube
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="ufotype"
+                          value="any" />
+                        Whatever is in the neighborhood
+                      </label>
+                    </div>
+                    <div class="flex-left">
+                      <label for="abtype">What type of abduction experience do you want?</label>
+                      <select
+                        id="abtype"
+                        name="abtype"
+                        required>
+                        <option
+                          value=""
+                          selected
+                          disabled
+                          >Select one...</option
+                        >
+                        <option value="tour">Tour of the solar system</option>
+                        <option value="dinner">Alien dinner and discussion</option>
+                        <option value="dance">Alien dance lessons</option>
+                        <option value="whales">Whale watching</option>
+                      </select>
+                      <label for="comments">Special requests:</label>
+                      <textarea
+                        id="comments"
+                        name="comments"
+                        placeholder="Tell me everything"></textarea>
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="subscribe"
+                          name="subscribe"
+                          value="subscribe" />Add me to your email list
+                      </label>
+                      <button type="submit">Order your abduction experience!</button>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
     </main>
-
-    <!-- FOOTER_PLACEHOLDER -->
+    <footer class="footer">
+      <!-- FOOTER_PLACEHOLDER -->
+    </footer>
   </body>
 </html>
