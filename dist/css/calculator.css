@@ -111,9 +111,6 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
-.nowrap {
-  white-space: nowrap;
-}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -156,8 +153,6 @@ a,
 code,
 img,
 s,
-var,
-center,
 ul,
 li,
 details,
@@ -253,7 +248,8 @@ button {
   appearance: button;
 }
 
-button:-moz-focusring {
+button:-moz-focusring,
+[type=button]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -302,6 +298,12 @@ a:active {
   --font-1: "Merriweather", "Georgia", serif;
   --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
   --alien-font-family: "Orbitron", roboto, monospace;
+}
+
+.fonts-failed {
+  --font-1: "Georgia", "Times New Roman", times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: "Courier New", courier, monospace;
 }
 
 h1,
@@ -390,6 +392,20 @@ button:focus-visible {
    ===================================== */
 
 /* Operator button styling (divide, multiply, subtract, add, equals) */
+
+.card {
+  background-color: var(--light-bg);
+  border: 2px solid var(--primary-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 25rem;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  min-height: 32rem;
+  display: flex;
+  flex-direction: column;
+}
 
 @keyframes hero-sparkle {
   0% {
