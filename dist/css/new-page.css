@@ -421,6 +421,11 @@ button:hover {
 @supports (container-type: inline-size) {
 }
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
 @keyframes fade-in-links {
   from {
     opacity: 0;
