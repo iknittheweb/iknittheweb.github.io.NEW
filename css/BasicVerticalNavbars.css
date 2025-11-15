@@ -866,7 +866,6 @@ button:hover {
 }
 .wrapper {
   width: 100%;
-  max-width: 75rem;
   margin-inline: auto;
   padding-block: 3.75rem;
   transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -874,11 +873,6 @@ button:hover {
 @media (max-width: 31.24875em) {
   .wrapper {
     padding-inline: 0.5rem;
-  }
-}
-@media (max-width: 360px) {
-  .wrapper {
-    padding-inline: 0.25rem;
   }
 }
 
