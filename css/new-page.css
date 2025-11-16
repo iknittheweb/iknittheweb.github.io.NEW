@@ -12,11 +12,12 @@
   --primary-border: #500f44;
   --primary-border-mid: #751c7d;
   --light-border: #e1dede;
-  --light-error: #c642cf;
+  --primary-bright-error-border: #c642cf;
   --dark-text: #1a1a1a;
   --light-text: #e1dede;
   --primary-text: #500f44;
   --primary-text-mid: #751c7d;
+  --primary-text-bright: #c642cf;
   --secondary-text: #0a2d08;
   --dark-text-mid: #c0c0c0;
   --dark-text-link: #1a1a1a;
