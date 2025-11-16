@@ -12,11 +12,12 @@
   --primary-border: #500f44;
   --primary-border-mid: #751c7d;
   --light-border: #e1dede;
-  --light-error: #c642cf;
+  --primary-bright-error-border: #c642cf;
   --dark-text: #1a1a1a;
   --light-text: #e1dede;
   --primary-text: #500f44;
   --primary-text-mid: #751c7d;
+  --primary-text-bright: #c642cf;
   --secondary-text: #0a2d08;
   --dark-text-mid: #c0c0c0;
   --dark-text-link: #1a1a1a;
@@ -111,6 +112,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -153,6 +157,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 details,
@@ -362,35 +368,53 @@ button:focus-visible {
   transition: outline-color 0.2s, box-shadow 0.2s;
 }
 
+.about .back-to-top-link,
+.contact .back-to-top-link,
+.footer .back-to-top-link {
+  color: var(--light-bg, #e1dede);
+  background: none;
+}
+.about .back-to-top-link:hover, .about .back-to-top-link:focus,
+.contact .back-to-top-link:hover,
+.contact .back-to-top-link:focus,
+.footer .back-to-top-link:hover,
+.footer .back-to-top-link:focus {
+  color: var(--primary-text, #500f44);
+  background: var(--light-bg, #e1dede);
+}
+
 .back-to-top-link {
-  display: inline-block;
-  float: right;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
   margin: 0 0 1rem 1rem;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--primary-gradient-light, #7b2ff2);
+  color: var(--primary-text, #500f44);
   background: none;
   border: none;
   text-decoration: underline;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.2s, background 0.2s;
+  outline: none;
+  text-align: right;
+  width: 100%;
 }
 .back-to-top-link:hover, .back-to-top-link:focus {
-  color: var(--secondary-gradient-light, #f357a8);
+  color: var(--light-bg, #e1dede);
+  background: var(--primary-bg, #500f44);
   text-decoration: none;
+  border-radius: 0.25em;
 }
 @media (max-width: 700px) {
   .back-to-top-link {
-    float: none;
-    display: block;
-    text-align: right;
     margin: 0 0 1rem 0;
   }
 }
 
 .back-to-top-link--footer {
-  display: block;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
   margin: 2rem 0 0 0;
   font-size: 1.1rem;
 }
