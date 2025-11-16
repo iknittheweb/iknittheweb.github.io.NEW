@@ -112,6 +112,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -154,6 +157,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 dl,
 dt,
 dd,
@@ -364,21 +369,6 @@ button:focus-visible {
   outline-offset: 2px;
   box-shadow: 0 0 0 2px rgba(246, 121, 182, 0.25);
   transition: outline-color 0.2s, box-shadow 0.2s;
-}
-
-.about .back-to-top-link,
-.contact .back-to-top-link,
-.footer .back-to-top-link {
-  color: var(--light-bg, #e1dede);
-  background: none;
-}
-.about .back-to-top-link:hover, .about .back-to-top-link:focus,
-.contact .back-to-top-link:hover,
-.contact .back-to-top-link:focus,
-.footer .back-to-top-link:hover,
-.footer .back-to-top-link:focus {
-  color: var(--primary-text, #500f44);
-  background: var(--light-bg, #e1dede);
 }
 
 .back-to-top-link {
