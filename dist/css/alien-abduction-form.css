@@ -112,9 +112,6 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
-.nowrap {
-  white-space: nowrap;
-}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -157,15 +154,12 @@ a,
 code,
 img,
 s,
-var,
-center,
 ul,
 li,
 fieldset,
 form,
 label,
 legend,
-table,
 details,
 footer,
 header,
@@ -312,10 +306,6 @@ details {
 
 /* Tables
    ========================================================================== */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 
 /* Hidden Elements
    ========================================================================== */
@@ -482,13 +472,6 @@ textarea:focus-visible {
     height: 2.25rem;
     font-size: 1rem;
   }
-}
-
-.back-to-top-link--footer {
-  display: flex;
-  justify-content: flex-end;
-  margin: 2rem 0 0 0;
-  font-size: 1.1rem;
 }
 
 .about {
