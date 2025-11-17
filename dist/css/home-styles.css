@@ -9,10 +9,13 @@
   --secondary-bg-light: #42c439;
   --secondary-bg-pale: #a8d4a5;
   --light-bg: #e1dede;
+  --mid-bg: #666;
+  --dark-bg: #000000;
   --primary-border: #500f44;
   --primary-border-mid: #751c7d;
   --light-border: #e1dede;
   --primary-bright-error-border: #c642cf;
+  --alt-border: #eb3b5a;
   --dark-text: #1a1a1a;
   --light-text: #e1dede;
   --primary-text: #500f44;
@@ -480,6 +483,7 @@ a:active {
   --font-1: "Merriweather", "Georgia", serif;
   --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
   --alien-font-family: "Orbitron", roboto, monospace;
+  --vertical-navbar-font: "Roboto Slab", sans-serif;
 }
 
 .fonts-failed {
@@ -3508,64 +3512,10 @@ html {
   background-size: cover;
 }
 
-body {
-  font-family: "Roboto Slab", serif;
-  font-weight: 400;
-  margin: 0 0 5em;
-  padding: 0;
-  padding: 1em 2em 0;
-  font-size: 1.2rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 1.5em 0 0.5em;
-}
-
-ol li,
-ul li {
-  padding-bottom: 0.5em;
-}
-
-p {
-  line-height: 1.3em;
-  margin-top: 0;
-}
-
-.highlight {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 1em 2em 0;
-}
-
-.button {
-  background-color: #eb3b5a;
-  padding: 0.5rem 1rem;
-  border: 1px solid #eb3b5a;
-  border-radius: 30px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  margin: 1em 0 5rem;
-}
-
-.button:hover {
-  color: #eb3b5a;
-  background-color: white;
-}
-
-/* 
-==================
-Add your CSS here
-==================
-*/
 .vertical-navbar {
-  background-color: rgba(255, 255, 255, 0.669);
-  padding: 1rem;
+  background: var(--dark-bg);
+  padding-block: 3rem;
+  font-family: var(--vertical-navbar-font), sans-serif;
 }
 
 .vertical-navbar__brand {
@@ -3587,7 +3537,6 @@ Add your CSS here
   margin: 0 auto;
   background-color: #333;
   padding: 1em;
-  border-radius: 10px;
 }
 
 .vertical-navbar__list {
@@ -3601,18 +3550,18 @@ Add your CSS here
 }
 
 .vertical-navbar__link {
-  color: white;
+  color: var(--light-text);
   text-decoration: none;
-  padding: 0.5em;
+  padding: 1em 2em;
   display: block;
-  border-bottom: 4px solid white;
+  border: 1px solid var(--light-border);
   border-radius: 15px;
   transition: background 0.2s, border-bottom 0.2s;
 }
 
 .vertical-navbar__link:hover {
-  background-color: #666;
-  border-bottom: 4px solid #eb3b5a;
+  background-color: var(--mid-bg);
+  border: 4px solid var(--alt-border);
 }
 
 .multi-level-nav {
