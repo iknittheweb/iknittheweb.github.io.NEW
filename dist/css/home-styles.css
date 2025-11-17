@@ -11,6 +11,7 @@
   --light-bg: #e1dede;
   --mid-bg: #666;
   --dark-bg: #000000;
+  --basic-vertical-navbar-title-bg-gradient: linear-gradient(to bottom, #fff, #eb3b5a, #eb3b5a, #eb3b5a);
   --primary-border: #500f44;
   --primary-border-mid: #751c7d;
   --light-border: #e1dede;
@@ -3522,8 +3523,8 @@ html {
   text-align: center;
   font-size: 3.5rem;
   margin: 0 auto 1em;
-  background-color: rgba(255, 255, 255, 0.669);
-  background: linear-gradient(to bottom, #fff, #eb3b5a, #eb3b5a, #eb3b5a);
+  background-color: var(--light-bg);
+  background: var(--basic-vertical-navbar-title-bg-gradient);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -3535,7 +3536,7 @@ html {
 .vertical-navbar__nav {
   width: 200px;
   margin: 0 auto;
-  background-color: #333;
+  background-color: var(--dark-bg);
   padding: 1em;
 }
 
@@ -3559,7 +3560,8 @@ html {
   transition: background 0.2s, border-bottom 0.2s;
 }
 
-.vertical-navbar__link:hover {
+.vertical-navbar__link:hover,
+.vertical-navbar__link:focus {
   background-color: var(--mid-bg);
   border: 4px solid var(--alt-border);
 }
