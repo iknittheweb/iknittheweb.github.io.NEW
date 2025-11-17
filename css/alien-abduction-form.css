@@ -9,10 +9,13 @@
   --secondary-bg-light: #42c439;
   --secondary-bg-pale: #a8d4a5;
   --light-bg: #e1dede;
+  --mid-bg: #666;
+  --dark-bg: #000000;
   --primary-border: #500f44;
   --primary-border-mid: #751c7d;
   --light-border: #e1dede;
   --primary-bright-error-border: #c642cf;
+  --alt-border: #eb3b5a;
   --dark-text: #1a1a1a;
   --light-text: #e1dede;
   --primary-text: #500f44;
@@ -337,6 +340,7 @@ a:active {
   --font-1: "Merriweather", "Georgia", serif;
   --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
   --alien-font-family: "Orbitron", roboto, monospace;
+  --vertical-navbar-font: "Roboto Slab", sans-serif;
 }
 
 h1,
