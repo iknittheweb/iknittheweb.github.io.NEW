@@ -14,16 +14,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Remove Cypress from devDependencies
-        run: npm pkg delete devDependencies.cypress
       - name: Install dependencies
         run: npm ci
-        env:
-          SKIP_CYPRESS_BINARY_DOWNLOAD: 1
       - name: Build site
         run: npm run build
-        env:
-          SKIP_CYPRESS_BINARY_DOWNLOAD: 1
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
