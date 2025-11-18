@@ -154,10 +154,13 @@ h1,
 h2,
 h3,
 p,
+blockquote,
 a,
+cite,
 code,
 img,
 s,
+small,
 dl,
 dt,
 dd,
@@ -207,6 +210,15 @@ ul {
 
 /* Quotes
    ========================================================================== */
+blockquote {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after {
+  content: "";
+  content: none;
+}
 
 /* Links
    ========================================================================== */
@@ -222,6 +234,10 @@ a {
 code {
   font-family: monospace;
   font-size: 1em;
+}
+
+small {
+  font-size: 80%;
 }
 
 /* Media
@@ -336,6 +352,18 @@ h2 {
 h3 {
   font-size: 1.5rem;
   line-height: 1;
+  -webkit-margin-after: 0.625rem;
+  margin-block-end: 0.625rem;
+}
+h3.large {
+  font-size: 2.25rem;
+  font-size: clamp(2.25rem, 2.02rem + 0.97vw, 2.75rem);
+}
+h3.large span {
+  display: block;
+  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 1.14rem + 0.48vw, 1.5rem);
+  text-transform: uppercase;
   -webkit-margin-after: 0.625rem;
   margin-block-end: 0.625rem;
 }
@@ -1002,4 +1030,58 @@ button:hover {
     user-select: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
   }
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+.desc-list-challenge__quote {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  border-left: 4px solid #eb3b5a;
+  background-color: #f9f9f9;
+  font-style: italic;
+}
+
+.desc-list-challenge__materials {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.desc-list-challenge__materials-term {
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.desc-list-challenge__materials-term:first-child {
+  margin-top: 0;
+}
+
+.desc-list-challenge__materials-desc {
+  margin: 0 0 0.5rem 2rem;
+  color: #666;
+}
+
+.desc-list-challenge__materials-total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-weight: bold;
+  text-align: right;
+}
+
+.desc-list-challenge__citation {
+  text-align: right;
+  font-style: italic;
+  margin-top: 2rem;
 }
