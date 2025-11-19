@@ -269,7 +269,9 @@ button {
 button {
   /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
   /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
-  appearance: button;
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
 }
 
 button:-moz-focusring,
@@ -279,7 +281,8 @@ button:-moz-focusring,
 
 ::-webkit-file-upload-button {
   /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
-  appearance: button;
+  -webkit-appearance: button;
+          appearance: button;
   font: inherit;
 }
 
@@ -337,7 +340,6 @@ h1 {
   font-size: 2.625rem;
   font-size: clamp(2.625rem, 1.77rem + 3.64vw, 4.5rem);
   line-height: 1;
-  -webkit-margin-after: 1.25rem;
   margin-block-end: 1.25rem;
 }
 
@@ -345,14 +347,12 @@ h2 {
   font-size: 2.25rem;
   font-size: clamp(2.25rem, 1.91rem + 1.45vw, 3rem);
   line-height: 1.1;
-  -webkit-margin-after: 1.25rem;
   margin-block-end: 1.25rem;
 }
 
 h3 {
   font-size: 1.5rem;
   line-height: 1;
-  -webkit-margin-after: 0.625rem;
   margin-block-end: 0.625rem;
 }
 h3.large {
@@ -364,7 +364,6 @@ h3.large span {
   font-size: 1.25rem;
   font-size: clamp(1.25rem, 1.14rem + 0.48vw, 1.5rem);
   text-transform: uppercase;
-  -webkit-margin-after: 0.625rem;
   margin-block-end: 0.625rem;
 }
 
@@ -682,7 +681,6 @@ button:hover {
 }
 
 .portfolio {
-  -webkit-margin-after: 4rem;
   margin-block-end: 4rem;
   padding-block: 3.125rem;
   padding-inline: 1.5rem;
@@ -1027,7 +1025,9 @@ button:hover {
     border: none;
     color: var(--primary-bg);
     touch-action: manipulation;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
   }
 }
