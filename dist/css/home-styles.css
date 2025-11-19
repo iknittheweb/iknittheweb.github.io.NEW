@@ -3566,7 +3566,7 @@ html {
   border: 4px solid var(--alt-border);
 }
 
-body {
+.desc-list-challenge {
   font-family: Georgia, "Times New Roman", serif;
   width: 80%;
   max-width: 800px;
