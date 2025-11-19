@@ -1,0 +1,69 @@
+name: Build CSS, upload source maps artifact, and deploy
+
+on:
+  push:
+    branches:
+      - main # change this to your deploy branch if different
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  # Adjust these if your entry file / outputs differ
+  SRC_ENTRY: src/scss/home-styles.scss
+  OUTPUT_CSS: dist/css/home-styles.css
+  ARTIFACT_DIR: artifacts
+  ARTIFACT_NAME: source-maps
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dart Sass (CLI)
+        run: npm install -g sass
+
+      - name: Build CSS for deploy (no source map)
+        run: |
+          mkdir -p $(dirname "${{ env.OUTPUT_CSS }}")
+          # Build compiled CSS for publishing; no source map is emitted here
+          sass "${{ env.SRC_ENTRY }}":"${{ env.OUTPUT_CSS }}" --no-source-map
+
+      - name: Build artifact with embedded source maps (private)
+        run: |
+          mkdir -p "${{ env.ARTIFACT_DIR }}"
+          # Produce a CSS + .map inside artifacts with sourcesContent embedded
+          sass "${{ env.SRC_ENTRY }}":"${{ env.ARTIFACT_DIR }}/home-styles.css" --source-map --embed-sources --source-map-urls=relative
+          ls -la "${{ env.ARTIFACT_DIR }}"
+
+      - name: Upload source maps as artifact (private to repo)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.ARTIFACT_DIR }}/*.map
+
+      # Optional: Upload source maps to Sentry (commented; instructions below)
+      # To enable it: set SENTRY_AUTH_TOKEN, SENTRY_ORG, and SENTRY_PROJECT in repo secrets
+      # and uncomment this step.
+      #- name: Upload source maps to Sentry (optional)
+      #  run: |
+      #    npm install -g @sentry/cli
+      #    sentry-cli --auth-token "${{ secrets.SENTRY_AUTH_TOKEN }}" upload-sourcemaps "${{ env.ARTIFACT_DIR }}" \
+      #      --url-prefix "~/dist/css" --org "${{ secrets.SENTRY_ORG }}" --project "${{ secrets.SENTRY_PROJECT }}"
+
+      - name: Deploy compiled site to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          # publish_branch: gh-pages   # uncomment and set if you want to publish to a different branch
