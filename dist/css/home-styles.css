@@ -3566,6 +3566,60 @@ html {
   border: 4px solid var(--alt-border);
 }
 
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+.desc-list-challenge__quote {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  border-left: 4px solid #eb3b5a;
+  background-color: #f9f9f9;
+  font-style: italic;
+}
+
+.desc-list-challenge__materials {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.desc-list-challenge__materials-term {
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.desc-list-challenge__materials-term:first-child {
+  margin-top: 0;
+}
+
+.desc-list-challenge__materials-desc {
+  margin: 0 0 0.5rem 2rem;
+  color: #666;
+}
+
+.desc-list-challenge__materials-total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-weight: bold;
+  text-align: right;
+}
+
+.desc-list-challenge__citation {
+  text-align: right;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
 .multi-level-nav {
   width: fit-content;
   background-color: #171821;
