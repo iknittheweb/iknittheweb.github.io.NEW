@@ -1,0 +1,15 @@
+//& THE /E-PAGES FOLDER
+//* The /E-pages folder contains styles specific to individual pages or sections of the website. These styles are often unique and not reused across other pages.
+
+//& Why It’s Important:
+//* Page-specific styles are kept separate from global styles, which helps avoid unnecessary bloat in your CSS and makes it easier to locate and modify page-specific styles.
+
+@forward 'alien-abduction-form';
+@forward 'calculator';
+@forward 'css-position-cheat-sheet';
+@forward 'basic-vertical-navbar';
+@forward 'desc-list-challenge';
+@forward 'multi-level-navbar';
+@forward 'navbar-link-filling-li';
+@forward 'new-page';
+@forward 'portfolio';

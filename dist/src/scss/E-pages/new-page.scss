@@ -1,0 +1,23 @@
+//* ------------------------------------------------------------
+//& NEW PAGE PARTIAL
+//* Entry-point SCSS for New Page
+//*
+//* Place all styles specific to the new page layout and appearance here.
+//* Use page-level selectors (e.g., .new-page, .new-page__section, etc.).
+//* Do NOT put global resets or reusable component styles here.
+//* Only styles unique to the new page belong in this file.
+//* ------------------------------------------------------------
+// Add page-specific styles below. Use page-level selectors (e.g., .new-page, .new-page__section)
+
+@use '../A-abstracts' as a;
+@use '../B-base' as b;
+@use '../C-components' as c;
+@use '../D-layout' as l;
+@use '../F-themes' as t;
+@use '../G-vendors' as v;
+
+.new-page {
+  // Example style
+  min-height: 60vh;
+  background: var(--page-bg, #fff);
+}

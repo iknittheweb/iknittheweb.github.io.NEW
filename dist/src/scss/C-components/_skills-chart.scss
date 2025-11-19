@@ -1,0 +1,486 @@
+/* =================================================================
+ * 🎯 INTERACTIVE SKILLS CHART COMPONENT
+ * =================================================================
+ * EASY REMOVAL: Search for "skills-chart" to find all related code
+ * Delete this file and remove import from _index.scss to remove completely
+ * ================================================================= */
+
+@use '../A-abstracts/functions' as f;
+@use '../A-abstracts/mixins' as m;
+
+.skills-chart {
+  // 🎯 COMPONENT IDENTIFIER: skills-chart (for easy removal)
+  width: 100%;
+  background: var(--light-bg);
+  border: 1px solid var(--light-border);
+  border-radius: f.rem(8);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+  }
+
+  &__header {
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    padding-block: f.rem(16);
+    text-align: center;
+    border-bottom: 1px solid var(--light-border);
+    border-radius: f.rem(8) f.rem(8) 0 0;
+  }
+
+  &__title {
+    font-size: f.rem(18);
+    color: var(--light-text); // #e1dede on dark background - good contrast
+    margin-bottom: f.rem(6);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  &__subtitle {
+    color: var(--light-text); // Use same light color as title for consistency
+    font-size: f.rem(15);
+    opacity: 0.85; // Slightly reduced opacity but still readable
+    font-weight: 400;
+  }
+
+  &__dropdowns {
+    display: flex;
+    flex-direction: column;
+    background: var(--light-bg);
+    border-bottom: 1px solid var(--light-border);
+    border-radius: 0 0 f.rem(8) f.rem(8);
+
+    @include m.breakpoint('700') {
+      flex-direction: row;
+    }
+  }
+
+  &__dropdown {
+    flex: 1;
+    border: 1px solid var(--light-border);
+    overflow: hidden;
+    background: var(--secondary-bg);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    }
+  }
+
+  &__icon {
+    color: inherit;
+    font-size: f.rem(16);
+    transition:
+      transform 0.3s ease,
+      color 0.6s ease;
+    margin-right: f.rem(8);
+    transform: rotate(180deg);
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: color 0.6s ease;
+    }
+  }
+  // When dropdown is open, rotate hand to point up (original position)
+  &__tab--active &__icon {
+    transform: rotate(0deg);
+  }
+
+  &__tab-text {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  &__tab {
+    background: var(--secondary-bg);
+    border: none;
+    padding: f.rem(12) f.rem(16);
+    font-family: inherit;
+    font-size: f.rem(15);
+    font-weight: 500;
+    color: var(--light-text);
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+
+    &:hover {
+      background: var(--light-bg);
+      color: var(--secondary-text);
+      opacity: 1;
+
+      // ...existing code...
+    }
+
+    &:focus {
+      outline: none;
+      background: var(--light-bg);
+      color: var(--secondary-text);
+      opacity: 1;
+      box-shadow: 0 0 0 2px var(--primary-bg-light);
+
+      // ...existing code...
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--secondary-text);
+      outline-offset: 2px;
+    }
+
+    &--active {
+      background: var(--light-bg);
+      color: var(--secondary-text);
+      font-weight: 600;
+      opacity: 1;
+
+      // ...existing code...
+
+      &:focus-visible {
+        outline: 3px solid var(--secondary-text);
+        outline-offset: 3px;
+        border-radius: f.rem(4);
+      }
+
+      // High contrast focus for better accessibility
+      @media (prefers-contrast: high) {
+        &:focus-visible {
+          outline: 4px solid #000;
+          outline-offset: 2px;
+        }
+      }
+
+      // Ensure interactive state is clear
+      &[aria-expanded='true'] {
+        background: rgb(255 255 255 / 70%);
+
+        // ...existing code...
+      }
+    }
+  }
+
+  &__content {
+    background: var(--light-bg);
+  }
+
+  &__category {
+    display: none;
+    padding: f.rem(16) f.rem(20);
+    border-top: 1px solid var(--light-border);
+    min-height: f.rem(150);
+
+    &--active {
+      display: block;
+      animation: fade-in-up 0.4s ease-out;
+
+      // Respect user's motion preferences
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+  }
+
+  &__skill-group {
+    margin-bottom: f.rem(20);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__group-title {
+    font-size: f.rem(16);
+    color: var(--dark-text);
+    margin-bottom: f.rem(16);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: f.rem(8);
+    padding-bottom: f.rem(8);
+    border-bottom: 2px solid var(--primary-bg-mid);
+  }
+
+  &__group-icon {
+    color: var(--primary-bg-mid);
+    font-size: f.rem(16);
+    margin-right: f.rem(4);
+  }
+
+  &__skills-list {
+    display: grid;
+    gap: f.rem(14);
+  }
+
+  &__skill {
+    background: rgb(255 255 255 / 60%);
+    padding: f.rem(16);
+    border-radius: f.rem(6);
+    border: 1px solid rgb(255 255 255 / 80%);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary-bg-light), var(--secondary-bg-light));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+      background: rgb(255 255 255 / 90%);
+      border-color: var(--primary-bg-mid);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: f.rem(10);
+  }
+
+  &__skill-name {
+    font-weight: 600;
+    color: var(--dark-text);
+    display: flex;
+    align-items: center;
+    gap: f.rem(8);
+    font-size: f.rem(15);
+  }
+
+  &__skill-icon {
+    color: var(--primary-bg-mid); // Medium purple for better contrast
+    width: 1.2em;
+    opacity: 0.9;
+  }
+
+  &__skill-level {
+    font-size: f.rem(13);
+    color: var(--primary-bg); // Dark purple text for better contrast
+    font-weight: 600;
+    padding: f.rem(3) f.rem(8);
+    background: var(--primary-bg-light); // Light purple background
+    border-radius: f.rem(10);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__progress-bar {
+    background: var(--secondary-bg);
+    height: f.rem(6);
+    border-radius: f.rem(3);
+    overflow: hidden;
+    margin-bottom: f.rem(10);
+    position: relative;
+
+    // Accessibility: Ensure sufficient contrast for progress bar background
+    @media (prefers-contrast: high) {
+      background: #e0e0e0;
+      border: 1px solid #666;
+    }
+
+    // Ensure screen readers can access progress information
+    &[role='progressbar'] {
+      position: relative;
+
+      &:focus-visible {
+        outline: 2px solid var(--secondary-text);
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &__progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-bg-light), var(--primary-bg-light));
+    border-radius: f.rem(3);
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0;
+    position: relative;
+
+    // Respect user's motion preferences
+    @media (prefers-reduced-motion: reduce) {
+      transition: width 0.2s ease;
+
+      &::after {
+        animation: none;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgb(255 255 255 / 30%), transparent);
+      animation: shimmer 2s infinite;
+      opacity: 0;
+
+      // Disable shimmer animation for reduced motion
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        display: none;
+      }
+    }
+  }
+
+  &__skill-description {
+    font-size: f.rem(14);
+    color: var(--secondary-text);
+    line-height: 1.4;
+    margin-left: f.rem(20); // Align with icon
+  }
+
+  &__timeline {
+    background: rgb(255 255 255 / 40%);
+    padding: f.rem(24);
+    border-radius: f.rem(8);
+    border: 1px solid rgb(255 255 255 / 60%);
+  }
+
+  &__timeline-title {
+    font-size: f.rem(16);
+    color: var(--dark-text);
+    margin-bottom: f.rem(20);
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__timeline-items {
+    position: relative;
+    padding-left: f.rem(24);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: f.rem(10);
+      top: f.rem(8);
+      bottom: f.rem(8);
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary-bg-mid), var(--secondary-bg-mid));
+    }
+  }
+
+  &__timeline-item {
+    position: relative;
+    margin-bottom: f.rem(20);
+    padding-left: f.rem(20);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: f.rem(-7);
+      top: f.rem(2);
+      width: f.rem(8);
+      height: f.rem(8);
+      background: var(--primary-bg-mid); // Medium purple for better visibility
+      border-radius: 50%;
+      border: 2px solid var(--light-bg);
+      box-shadow: 0 0 0 2px var(--primary-bg-mid);
+    }
+  }
+
+  &__timeline-date {
+    font-size: f.rem(13);
+    color: var(--primary-bg-mid); // Medium purple for better contrast
+    font-weight: 600;
+    margin-bottom: f.rem(4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__timeline-event {
+    font-size: f.rem(15);
+    color: var(--dark-text);
+    font-weight: 600;
+    margin-bottom: f.rem(4);
+  }
+
+  &__timeline-description {
+    font-size: f.rem(14);
+    color: var(--secondary-text);
+    line-height: 1.4;
+  }
+}
+
+// Elegant animations
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(f.rem(20));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .skills-chart {
+    &__skill {
+      &:hover {
+        transform: none;
+      }
+    }
+
+    &__progress-fill {
+      transition: width 0.3s ease;
+
+      &::after {
+        animation: none;
+      }
+    }
+
+    &__category {
+      &--active {
+        animation: none;
+      }
+    }
+  }
+
+  @keyframes fade-in-up {
+    from,
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
