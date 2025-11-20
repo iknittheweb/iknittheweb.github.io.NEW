@@ -911,14 +911,10 @@ textarea:focus-visible {
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-.alien-form__details .alien-form__input,
-.alien-form__details .alien-form__textarea,
-.alien-form__details .alien-form__select {
-  /* Option styling for select dropdown */
-}
 .alien-form__details .alien-form__input .alien-form__option,
 .alien-form__details .alien-form__textarea .alien-form__option,
 .alien-form__details .alien-form__select .alien-form__option {
+  /* Option styling for select dropdown */
   background: rgba(0, 0, 0, 0.95) !important;
   color: var(--alien-text-light) !important;
   padding: 0.75rem 1rem !important;
