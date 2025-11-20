@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -3172,6 +3172,12 @@ input[type=button]:hover {
   margin-right: auto;
   text-wrap: balance;
 }
+.portfolio .portfolio__link {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-bg);
+  color: var(--light-text);
+  display: block;
+}
 .portfolio__row {
   display: grid;
   gap: 1.25rem;
@@ -3975,5 +3981,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
