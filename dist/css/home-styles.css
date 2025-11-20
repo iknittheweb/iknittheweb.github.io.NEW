@@ -3179,6 +3179,7 @@ input[type=button]:hover {
   display: block;
   text-align: center;
   margin-left: auto;
+  width: fit-content;
 }
 .portfolio__row {
   display: grid;
