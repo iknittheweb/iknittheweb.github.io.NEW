@@ -116,9 +116,6 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
-.nowrap {
-  white-space: nowrap;
-}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -161,8 +158,6 @@ a,
 code,
 img,
 s,
-var,
-center,
 ul,
 li,
 details,
@@ -311,6 +306,12 @@ a:active {
   --vertical-navbar-font: "Roboto Slab", sans-serif;
 }
 
+.fonts-failed {
+  --font-1: "Georgia", "Times New Roman", times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: "Courier New", courier, monospace;
+}
+
 h1,
 h2,
 h3 {
@@ -453,6 +454,20 @@ button:focus-visible {
    ===================================== */
 
 /* Operator button styling (divide, multiply, subtract, add, equals) */
+
+.card {
+  background-color: var(--light-bg);
+  border: 2px solid var(--primary-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 25rem;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  min-height: 32rem;
+  display: flex;
+  flex-direction: column;
+}
 
 @keyframes hero-sparkle {
   0% {
@@ -683,30 +698,6 @@ button:focus-visible {
     align-items: flex-start;
   }
 }
-.footer__nav-link {
-  color: var(--light-text);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  position: relative;
-}
-.footer__nav-link:hover, .footer__nav-link:focus {
-  color: var(--primary-gradient-light);
-}
-.footer__nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--primary-gradient-light), var(--secondary-gradient-light));
-  transition: width 0.3s ease;
-}
-.footer__nav-link:hover::after, .footer__nav-link:focus::after {
-  width: 100%;
-}
 .footer__contact-text {
   font-size: 1rem;
   line-height: 1.6;
@@ -759,6 +750,31 @@ button:focus-visible {
   margin: 0;
   font-style: italic;
   opacity: 0.8;
+}
+
+a.footer__nav-link {
+  color: var(--light-text);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+a.footer__nav-link:hover, a.footer__nav-link:focus {
+  color: var(--primary-gradient-light);
+}
+a.footer__nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary-gradient-light), var(--secondary-gradient-light));
+  transition: width 0.3s ease;
+}
+a.footer__nav-link:hover::after, a.footer__nav-link:focus::after {
+  width: 100%;
 }
 
 
