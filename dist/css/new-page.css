@@ -397,6 +397,13 @@ button:focus-visible {
   }
 }
 
+.footer {
+  background: var(--primary-bg);
+  color: var(--light-text);
+  margin-top: 3.75rem;
+}
+
+
 button {
   font-family: inherit;
   font-size: 1rem;
