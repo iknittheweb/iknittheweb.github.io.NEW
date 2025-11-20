@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,6 +161,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 details,
@@ -306,12 +311,6 @@ a:active {
   --vertical-navbar-font: "Roboto Slab", sans-serif;
 }
 
-.fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
-}
-
 h1,
 h2,
 h3 {
@@ -454,20 +453,6 @@ button:focus-visible {
    ===================================== */
 
 /* Operator button styling (divide, multiply, subtract, add, equals) */
-
-.card {
-  background-color: var(--light-bg);
-  border: 2px solid var(--primary-border);
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 25rem;
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  min-height: 32rem;
-  display: flex;
-  flex-direction: column;
-}
 
 @keyframes hero-sparkle {
   0% {
@@ -627,6 +612,45 @@ button:focus-visible {
     left: -100%;
   }
 }
+
+.footer {
+  background: var(--primary-bg);
+  color: var(--light-text);
+  margin-top: 3.75rem;
+}
+.footer__content {
+  padding: 3.75rem 1.25rem 1.25rem;
+}
+@media (max-width: 43.74875em) {
+  .footer__content {
+    padding: 2.5rem 1rem 1rem;
+  }
+}
+.footer__sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 37.5em) {
+  .footer__sections {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+@media (min-width: 56.25em) {
+  .footer__sections {
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 3.75rem;
+  }
+}
+.footer__tagline {
+  font-size: 0.875rem;
+  margin: 0;
+  font-style: italic;
+  opacity: 0.8;
+}
+
 
 button {
   font-family: inherit;

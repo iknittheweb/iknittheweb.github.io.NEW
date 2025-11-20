@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -2941,19 +2941,44 @@ pre code {
   z-index: 9999 !important;
 }
 
-.home__footer {
+.footer, .home__footer {
   background: var(--primary-bg);
   color: var(--light-text);
   margin-top: 3.75rem;
 }
-.home__footer-content {
+.footer__content, .home__footer-content {
   padding: 3.75rem 1.25rem 1.25rem;
 }
 @media (max-width: 43.74875em) {
-  .home__footer-content {
+  .footer__content, .home__footer-content {
     padding: 2.5rem 1rem 1rem;
   }
 }
+.footer__sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 37.5em) {
+  .footer__sections {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+@media (min-width: 56.25em) {
+  .footer__sections {
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 3.75rem;
+  }
+}
+.footer__tagline {
+  font-size: 0.875rem;
+  margin: 0;
+  font-style: italic;
+  opacity: 0.8;
+}
+
 input,
 textarea,
 select,
@@ -3838,5 +3863,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
