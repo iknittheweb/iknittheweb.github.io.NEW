@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,6 +161,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 details,
@@ -306,12 +311,6 @@ a:active {
   --vertical-navbar-font: "Roboto Slab", sans-serif;
 }
 
-.fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
-}
-
 h1,
 h2,
 h3 {
@@ -454,20 +453,6 @@ button:focus-visible {
    ===================================== */
 
 /* Operator button styling (divide, multiply, subtract, add, equals) */
-
-.card {
-  background-color: var(--light-bg);
-  border: 2px solid var(--primary-border);
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 25rem;
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  min-height: 32rem;
-  display: flex;
-  flex-direction: column;
-}
 
 @keyframes hero-sparkle {
   0% {
@@ -1160,3 +1145,46 @@ button:hover {
 /* =====================================
 	 Calculator Page Layout
 	 ===================================== */
+:root {
+  --screen-bg: #000000;
+  --btn-bg: #d8d9db;
+  --btn-hover: #ebebeb;
+  --btn-active: #bbbcbe;
+  --fn-btn-bg: #df974c;
+  --fn-btn-hover: #dfb07e;
+  --fn-btn-active: #dd8d37;
+  --borders: #000000;
+  --text-color-1: #000000;
+  --text-color-2: #ffffff;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.calculator {
+  width: 400px;
+}
+
+/* =====================================
+    FOR MY TABLE VERSION
+====================================== */
+
+/* =====================================
+    FOR CLASS SOLUTION
+====================================== */
+.calculator {
+  background-color: var(--screen-bg);
+  color: var(--text-color-2);
+}

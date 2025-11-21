@@ -163,7 +163,6 @@ ul,
 li,
 form,
 article,
-details,
 figure,
 figcaption,
 footer,
@@ -179,7 +178,6 @@ time {
 /* HTML5 Elements
    ========================================================================== */
 article,
-details,
 figcaption,
 figure,
 footer,
@@ -279,9 +277,6 @@ button:-moz-focusring,
 
 /* Interactive Elements
    ========================================================================== */
-details {
-  display: block;
-}
 
 /* Tables
    ========================================================================== */

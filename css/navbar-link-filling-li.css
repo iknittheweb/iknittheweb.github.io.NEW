@@ -160,10 +160,8 @@ img,
 s,
 ul,
 li,
-details,
 footer,
 header,
-menu,
 nav,
 time {
   font: inherit;
@@ -173,10 +171,8 @@ time {
 /* HTML5 Elements
    ========================================================================== */
 
-details,
 footer,
 header,
-menu,
 nav,
 main {
   display: block;
@@ -266,9 +262,6 @@ button:-moz-focusring,
 
 /* Interactive Elements
    ========================================================================== */
-details {
-  display: block;
-}
 
 /* Tables
    ========================================================================== */
