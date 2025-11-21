@@ -11,7 +11,7 @@
 // ------------------------------------------------------------
 // Prettier configuration with explanatory comments
 module.exports = {
-  printWidth: 120, // Maximum line length before wrapping
+  printWidth: 80, // Maximum line length before wrapping
   tabWidth: 2, // Number of spaces per indentation level
   semi: true, // Add semicolons at the ends of statements
   singleQuote: true, // Use single quotes instead of double quotes
