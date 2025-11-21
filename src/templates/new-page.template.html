@@ -1,35 +1,23 @@
 <!doctype html>
-<!-- For template and build workflow details, see docs/DEVELOPMENT-WORKFLOW.md -->
 <html
   lang="en"
   class="no-js">
   <head>
     <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io=" />
+    <meta charset="UTF-8" />
+    <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
     <title>New Page | I Knit The Web</title>
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self';
-  script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com;
-  font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com;
-  img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com;
-  connect-src 'self' https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net;
-  frame-src 'self';
-  object-src 'none';
-  base-uri 'self';
-  form-action 'self' https://formspree.io;" />
-    <!-- CSS preload: use .css for local, .min.css for production -->
     <link
       rel="preload"
       as="style"
-      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}"
-  />
+      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}" />
     <link
       rel="stylesheet"
-      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}"
-  />
+      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}" />
     <noscript>
       <style>
         body {
@@ -88,8 +76,8 @@
         visibility: visible;
       }
     </style>
-  <!-- FOUC/CSS loader fix: load before any other script -->
-  <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
+
+    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
 
     <link
       rel="icon"
@@ -116,15 +104,10 @@
     <link
       rel="preload"
       href="{{GOOGLE_FONTS_LINK}}"
-      as="style"
-      data-js-onload="relStylesheet"
-      data-js-onerror="fontsFailed" />
+      as="style" />
     <link
       href="{{GOOGLE_FONTS_LINK}}"
-      rel="stylesheet"
-      media="print"
-      data-js-onload="mediaAll"
-      data-js-onerror="fontsFailed" />
+      rel="stylesheet" />
     <noscript>
       <link
         href="{{GOOGLE_FONTS_LINK}}"
@@ -144,28 +127,7 @@
       src="https://kit.fontawesome.com/94262366bd.js"
       crossorigin="anonymous"></script>
 
-    <script>
-      // Wait for CSS to load before showing content
-      function checkCSSLoaded() {
-        if (window.mainCSSLoaded && document.readyState !== 'loading') {
-          document.documentElement.classList.add('css-loaded');
-          // Add fonts-failed class immediately since we're using system fonts only
-          document.documentElement.classList.add('fonts-failed');
-        } else {
-          requestAnimationFrame(checkCSSLoaded);
-        }
-      }
-      checkCSSLoaded();
-
-      // // Fallback: Show content after 3 seconds even if CSS fails to load
-      // setTimeout(function () {
-      //   if (!document.documentElement.classList.contains('css-loaded')) {
-      //     console.warn('CSS loading timeout - showing content anyway');
-      //     document.documentElement.classList.add('css-loaded');
-      //     document.documentElement.classList.add('fonts-failed');
-      //   }
-      // }, 3000);
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
     <script
       type="module"
       src="{{BASE_URL}}/dist/js/script.js"></script>
@@ -180,8 +142,30 @@
       data-breadcrumb-category="{{NEW-PAGE_BREADCRUMB_CATEGORY}}"
       data-breadcrumb-category-url="{{NEW-PAGE_BREADCRUMB_CATEGORY_URL}}"
       style="display: none"></div>
-    <!--@ Skip Link for Screen Readers -->
-    <!-- CSS loader logic moved to fouc-fix.js for CSP compliance -->
+    <a
+      href="#main-content"
+      class="skip-link"
+      >Skip to main content</a
+    >
+    <header aria-label="Site header">
+      <!-- HEADER_PLACEHOLDER -->
+    </header>
+    <main
+      id="main-content"
+      class="new-page-main"
+      tabindex="-1"
+      aria-label="Main content">
+      
+
+      <!-- page content goes here -->
+
+      
+    </main>
+    <footer
+      class="footer"
+      role="contentinfo"
+      aria-label="Site footer">
+      <!-- FOOTER_PLACEHOLDER -->
     </footer>
   </body>
 </html>
