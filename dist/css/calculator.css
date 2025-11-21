@@ -1145,3 +1145,46 @@ button:hover {
 /* =====================================
 	 Calculator Page Layout
 	 ===================================== */
+:root {
+  --screen-bg: #000000;
+  --btn-bg: #d8d9db;
+  --btn-hover: #ebebeb;
+  --btn-active: #bbbcbe;
+  --fn-btn-bg: #df974c;
+  --fn-btn-hover: #dfb07e;
+  --fn-btn-active: #dd8d37;
+  --borders: #000000;
+  --text-color-1: #000000;
+  --text-color-2: #ffffff;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.calculator {
+  width: 400px;
+}
+
+/* =====================================
+    FOR MY TABLE VERSION
+====================================== */
+
+/* =====================================
+    FOR CLASS SOLUTION
+====================================== */
+.calculator {
+  background-color: var(--screen-bg);
+  color: var(--text-color-2);
+}
