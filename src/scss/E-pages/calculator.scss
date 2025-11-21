@@ -9,27 +9,151 @@
 /* =====================================
 	 Calculator Page Layout
 	 ===================================== */
-.calculator__main {
-  margin: a.rem(32) auto;
-  padding: 0 a.rem(16);
-
-  @include a.breakpoint-down('599.98') {
-    margin: a.rem(16) auto;
-    padding: 0 a.rem(8);
-  }
+:root {
+  --screen-bg: #000000;
+  --btn-bg: #d8d9db;
+  --btn-hover: #ebebeb;
+  --btn-active: #bbbcbe;
+  --fn-btn-bg: #df974c;
+  --fn-btn-hover: #dfb07e;
+  --fn-btn-active: #dd8d37;
+  --borders: #000000;
+  --text-color-1: #000000;
+  --text-color-2: #ffffff;
 }
 
-.calculator__container {
-  background-color: var(--calc-display-bg);
-  color: var(--calc-text-light);
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
+html {
+  box-sizing: border-box;
+}
 
-  @include a.breakpoint-down('599.98') {
-    width: 98%;
-    min-width: 0;
-    padding: 5px;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.calculator {
+  width: 400px;
+}
+
+/* =====================================
+    FOR MY TABLE VERSION
+====================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0;
+  border: 2px solid var(--borders);
+}
+
+.btn,
+.fn-btn {
+  width: 100%;
+  height: 60px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #e0e0e0;
+}
+
+.btn {
+  background-color: var(--btn-bg);
+  color: var(--text-color-1);
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.btn:active {
+  background-color: var(--btn-active);
+}
+
+.fn-btn {
+  background-color: var(--fn-btn-bg);
+  color: var(--text-color-2);
+}
+
+.fn-btn:hover {
+  background-color: var(--fn-btn-hover);
+}
+
+.fn-btn:active {
+  background-color: var(--fn-btn-active);
+}
+
+.calc-input {
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  text-align: right;
+  padding: 0 10px;
+  border: none;
+  background-color: var(--screen-bg);
+  color: var(--text-color-2);
+}
+
+/* =====================================
+    FOR CLASS SOLUTION
+====================================== */
+
+.calculator {
+  background-color: var(--screen-bg);
+  color: var(--text-color-2);
+}
+
+.calculator__screen {
+  text-align: right;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px 5px;
+  font-size: 40px;
+}
+
+.calculator__button-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  margin-bottom: 0.5%;
+}
+
+.calculator__button {
+  background-color: var(--btn-bg);
+  color: var(--text-color-1);
+  border: none;
+  font-size: 40px;
+  height: 100px;
+  flex-basis: 24.5%;
+}
+.calculator__button:hover {
+  background-color: var(--btn-hover);
+}
+.calculator__button:active {
+  background-color: var(--btn-active);
+}
+.calculator__button--double {
+  flex-basis: 49.7%;
+}
+.calculator__button--triple {
+  flex-basis: 74.8%;
+}
+.calculator__button-row .calculator__button:last-child {
+  background-color: var(--fn-btn-bg);
+  color: var(--text-color-2);
+}
+.calculator__button-row .calculator__button:last-child:hover {
+  background-color: var(--fn-btn-hover);
+}
+.calculator__button-row .calculator__button:last-child:active {
+  background-color: var(--fn-btn-active);
 }
