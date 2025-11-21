@@ -24,7 +24,31 @@ function getPageKey(filename) {
 
 // 4. Template for a new section
 function sectionTemplate(pageKey) {
-  return `\n# ${pageKey.toLowerCase().replace(/-/g, ' ')}\n${pageKey}_BREADCRUMB_CATEGORY_URL=\n${pageKey}_BREADCRUMB_CATEGORY=\n${pageKey}_CSS_FILE=\n${pageKey}_DESCRIPTION=\n${pageKey}_KEYWORDS=\n${pageKey}_NAV_CONFIG=\n${pageKey}_OG_DESCRIPTION=\n${pageKey}_OG_TITLE=\n${pageKey}_OG_URL=\n${pageKey}_PAGE_NAME=\n${pageKey}_SCHEMA_JSON=\n${pageKey}_SUBTITLE=\n${pageKey}_TITLE=\n${pageKey}_TWITTER_DESCRIPTION=\n${pageKey}_TWITTER_TITLE=\n`;
+  // Generate readable page name
+  const readableName = pageKey
+    .replace(/-/g, ' ')
+    .replace(/\b(\w)/g, (m) => m.toUpperCase());
+  const pageFile = pageKey.toLowerCase().replace(/-/g, '.');
+  const htmlFile = pageFile + '.html';
+  const cssFile = '/dist/css/' + pageFile + '.css';
+  const category = pageKey.includes('HOME')
+    ? 'Portfolio'
+    : pageKey.includes('CHALLENGE')
+      ? 'Reference'
+      : 'Tools';
+  const navConfig = pageKey.includes('HOME')
+    ? 'main,about,portfolio,contact'
+    : pageKey.toLowerCase();
+  const description = `Auto-generated section for ${readableName}. Customize this description for your page.`;
+  const keywords = `${readableName}, web development, tutorial, accessibility`;
+  const ogTitle = `${readableName} | I Knit The Web`;
+  const subtitle = `Visual Guide To ${readableName} | I Knit The Web`;
+  const title = `${readableName} | I Knit The Web`;
+  const twitterTitle = ogTitle;
+  const ogDescription = description;
+  const twitterDescription = description;
+  const schemaJson = `{"@context":"https://schema.org","@type":"WebPage","name":"${ogTitle}","description":"${description}","url":"/${htmlFile}"}`;
+  return `\n# ${readableName}\n${pageKey}_BREADCRUMB_CATEGORY_URL=/${pageFile}\n${pageKey}_BREADCRUMB_CATEGORY=${category}\n${pageKey}_CSS_FILE=${cssFile}\n${pageKey}_DESCRIPTION=${description}\n${pageKey}_KEYWORDS=${keywords}\n${pageKey}_NAV_CONFIG=${navConfig}\n${pageKey}_OG_DESCRIPTION=${ogDescription}\n${pageKey}_OG_TITLE=${ogTitle}\n${pageKey}_OG_URL=/${htmlFile}\n${pageKey}_PAGE_NAME=${pageKey.toLowerCase()}\n${pageKey}_SCHEMA_JSON=${schemaJson}\n${pageKey}_SUBTITLE=${subtitle}\n${pageKey}_TITLE=${title}\n${pageKey}_TWITTER_DESCRIPTION=${twitterDescription}\n${pageKey}_TWITTER_TITLE=${twitterTitle}\n`;
 }
 
 // 5. For each env file, ensure all sections exist
