@@ -1,0 +1,29 @@
+//* ------------------------------------------------------------
+//& NEW PAGE PARTIAL
+//* Entry-point SCSS for New Page
+//*
+//* Place all styles specific to the new page layout and appearance here.
+//* Use page-level selectors (e.g., .new-page, .new-page__section, etc.).
+//* Do NOT put global resets or reusable component styles here.
+//* Only styles unique to the new page belong in this file.
+//* ------------------------------------------------------------
+// Add page-specific styles below. Use page-level selectors (e.g., .new-page, .new-page__section)
+
+@use '../A-abstracts' as a;
+@use '../B-base' as b;
+@use '../C-components' as c;
+@use '../D-layout' as l;
+@use '../F-themes' as t;
+@use '../G-vendors' as v;
+
+.semantic-navbar__title-link {
+  text-decoration: none !important;
+  color: purple;
+}
+.semantic-navbar__link:hover {
+  color: teal;
+}
+.semantic-navbar__list {
+  list-style-type: none;
+  padding-left: 0;
+}
