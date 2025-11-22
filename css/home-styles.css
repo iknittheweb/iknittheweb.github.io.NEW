@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -3783,11 +3783,6 @@ td {
   background-color: var(--fn-btn-active);
 }
 
-html {
-  background: url(https://images.unsplash.com/photo-1560801619-01d71da0f70c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80) no-repeat center center fixed;
-  background-size: cover;
-}
-
 .vertical-navbar {
   background: var(--dark-bg);
   padding-block: 3rem;
@@ -4113,5 +4108,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
