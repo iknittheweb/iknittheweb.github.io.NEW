@@ -1031,6 +1031,10 @@ button:hover {
   }
 }
 
+.fa-bars {
+  color: red;
+}
+
 @keyframes fade-in-links {
   from {
     opacity: 0;
