@@ -3438,40 +3438,10 @@ input[type=button]:hover {
     transform: translateY(0);
   }
 }
-@keyframes fade-in-links {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 @keyframes fade-in-link {
   from {
     opacity: 0;
     transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fade-in-link {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fade-in-hamburger {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
   }
   to {
     opacity: 1;
