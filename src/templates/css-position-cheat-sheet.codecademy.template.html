@@ -4,24 +4,46 @@
   class="no-js">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
     <title>CSS Position Cheat Sheet | I Knit The Web</title>
     <!-- Preconnects for faster font and icon loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://ka-p.fontawesome.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com" />
+    <link
+      rel="preconnect"
+      href="https://ka-p.fontawesome.com" />
 
     <!-- Preload critical stylesheets -->
-    <link rel="preload" href="{{GOOGLE_FONTS_LINK}}" as="style" />
-    <link rel="preload" as="style" href="{{BASE_URL}}{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_CSS_FILE}}" />
+    <link
+      rel="preload"
+      href="{{GOOGLE_FONTS_LINK}}"
+      as="style" />
+    <link
+      rel="preload"
+      as="style"
+      href="{{BASE_URL}}{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_CSS_FILE}}" />
 
     <!-- Main font and site stylesheets -->
-    <link rel="stylesheet" href="{{GOOGLE_FONTS_LINK}}" />
-    <link rel="stylesheet" href="{{BASE_URL}}{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_CSS_FILE}}" />
+    <link
+      rel="stylesheet"
+      href="{{GOOGLE_FONTS_LINK}}" />
+    <link
+      rel="stylesheet"
+      href="{{BASE_URL}}{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_CSS_FILE}}" />
 
     <!-- FontAwesome CDN stylesheet for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- Fallback styles for no-JS environments -->
     <noscript>
@@ -30,29 +52,67 @@
           visibility: visible;
         }
       </style>
-      <link href="{{GOOGLE_FONTS_LINK}}" rel="stylesheet" />
+      <link
+        href="{{GOOGLE_FONTS_LINK}}"
+        rel="stylesheet" />
     </noscript>
 
     <!-- Favicons and manifest -->
-    <link rel="icon" type="image/x-icon" href="{{ASSET_URL}}/favicon_io/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
-    <link rel="manifest" href="{{BASE_URL}}/manifest.json" />
-    <link rel="canonical" href="{{BASE_URL}}{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_OG_URL}}" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+    <link
+      rel="manifest"
+      href="{{BASE_URL}}/manifest.json" />
+    <link
+      rel="canonical"
+      href="{{BASE_URL}}{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_OG_URL}}" />
 
     <!-- SEO and social meta tags -->
-    <meta name="description" content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_DESCRIPTION}}" />
-    <meta name="keywords" content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_KEYWORDS}}" />
-    <meta name="author" content="I Knit the Web" />
-    <meta name="robots" content="{{ROBOTS}}" />
-    <meta property="og:title" content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_OG_TITLE}}" />
-    <meta property="og:description" content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_OG_DESCRIPTION}}" />
-    <meta property="og:image" content="{{ASSET_URL}}/branding/logo.png" />
-    <meta property="og:url" content="{{BASE_URL}}{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_OG_URL}}" />
-    <meta property="og:type" content="{{OG_TYPE}}" />
-    <meta name="twitter:card" content="{{TWITTER_CARD}}" />
-    <meta name="twitter:title" content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_TWITTER_TITLE}}" />
-    <meta name="twitter:description" content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_TWITTER_DESCRIPTION}}" />
-    <meta name="twitter:image" content="{{ASSET_URL}}/branding/logo.png" />
+    <meta
+      name="description"
+      content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_DESCRIPTION}}" />
+    <meta
+      name="keywords"
+      content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_KEYWORDS}}" />
+    <meta
+      name="author"
+      content="I Knit the Web" />
+    <meta
+      name="robots"
+      content="{{ROBOTS}}" />
+    <meta
+      property="og:title"
+      content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_OG_TITLE}}" />
+    <meta
+      property="og:description"
+      content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_OG_DESCRIPTION}}" />
+    <meta
+      property="og:image"
+      content="{{ASSET_URL}}/branding/logo.png" />
+    <meta
+      property="og:url"
+      content="{{BASE_URL}}{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_OG_URL}}" />
+    <meta
+      property="og:type"
+      content="{{OG_TYPE}}" />
+    <meta
+      name="twitter:card"
+      content="{{TWITTER_CARD}}" />
+    <meta
+      name="twitter:title"
+      content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_TWITTER_TITLE}}" />
+    <meta
+      name="twitter:description"
+      content="{{CSS-POSITION-CHEAT-SHEET-CODECADEMY_TWITTER_DESCRIPTION}}" />
+    <meta
+      name="twitter:image"
+      content="{{ASSET_URL}}/branding/logo.png" />
 
     <!-- Fallback styles for no-JS environments -->
     <noscript>
@@ -77,7 +137,9 @@
     <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
 
     <!-- Third-party monitoring/analytics: Sentry -->
-    <script src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
+      crossorigin="anonymous"></script>
 
     <!-- Structured data for SEO -->
     <script type="application/ld+json">
@@ -88,7 +150,9 @@
     <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
 
     <!-- Main app/module script -->
-    <script type="module" src="{{BASE_URL}}/dist/js/script.js"></script>
+    <script
+      type="module"
+      src="{{BASE_URL}}/dist/js/script.js"></script>
   </head>
 
   <body>
@@ -105,75 +169,181 @@
       class="skip-link"
       >Skip to main content</a
     >
-    <header aria-label="Site header">
+    <header
+      class="topnav"
+      aria-label="Site header">
       <!-- HEADER_PLACEHOLDER -->
     </header>
     <main
       id="main-content"
-      role="main">
-
-
-      <main role="main" tabindex="-1">
-        <h1 id="cheat-sheet-title">CSS Positioning Cheat Sheet Challenge</h1>
-        <h2>A <a href="https://www.codecademy.com/career-journey/front-end-engineer">Codecademy Front End Engineer Career Path</a> Project</h2>
-        <article>
-          <table class="cheat-sheet" role="table" aria-labelledby="cheat-sheet-title">
-            <caption id="cheat-sheet-caption">CSS Positioning Cheat Sheet</caption>
-            <thead>
-              <tr role="row">
-                <th role="columnheader" scope="col">Property</th>
-                <th role="columnheader" scope="col">Value</th>
-                <th role="columnheader" scope="col">Definition</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="property-row" role="row">
-                <th class="code-property" rowspan="5" scope="row" role="rowheader">position</th>
-                <td class="code-value" role="cell">static</td>
-                <td role="cell">Default value. Element is positioned according to the normal flow of the document.</td>
-              </tr>
-              <tr role="row">
-                <td class="code-value" role="cell">relative</td>
-                <td role="cell">Element is positioned relative to its normal position. Use top, right, bottom, left to move it.</td>
-              </tr>
-              <tr role="row">
-                <td class="code-value" role="cell">absolute</td>
-                <td role="cell">Element is positioned relative to its nearest positioned ancestor (not static). Removed from normal flow.</td>
-              </tr>
-              <tr role="row">
-                <td class="code-value" role="cell">fixed</td>
-                <td role="cell">Element is positioned relative to the browser window. Stays in place when scrolling.</td>
-              </tr>
-              <tr role="row">
-                <td class="code-value" role="cell">sticky</td>
-                <td role="cell">Element toggles between relative and fixed, depending on scroll position.</td>
-              </tr>
-              <tr class="property-row" role="row">
-                <th class="code-property" rowspan="4" scope="row" role="rowheader">top, right, bottom, left</th>
-                <td class="code-value" role="cell">&lt;length&gt; | &lt;percentage&gt; | auto</td>
-                <td role="cell">Offsets the element from the respective edge of its containing block, when position is not static.</td>
-              </tr>
-              <tr role="row">
-                <td class="code-value" role="cell">auto</td>
-                <td role="cell">Default. The browser calculates the position.</td>
-              </tr>
-              <tr role="row">
-                <td class="code-value" role="cell">0, 10px, 5%, etc.</td>
-                <td role="cell">Specifies the offset distance from the edge.</td>
-              </tr>
-              <tr role="row">
-                <td class="code-value" role="cell">inherit</td>
-                <td role="cell">Inherits the value from its parent element.</td>
-              </tr>
-              <tr class="property-row" role="row">
-                <th class="code-property" scope="row" role="rowheader">z-index</th>
-                <td class="code-value" role="cell">&lt;integer&gt;</td>
-                <td role="cell">Controls the stacking order of positioned elements (those with position other than static).</td>
-              </tr>
-            </tbody>
-          </table>
-        </article>
-
+      role="main"
+      tabindex="-1">
+      <h1 id="cheat-sheet-title">CSS Positioning Cheat Sheet Challenge</h1>
+      <h2
+        >A
+        <a href="https://www.codecademy.com/career-journey/front-end-engineer"
+          >Codecademy Front End Engineer Career Path</a
+        >
+        Project</h2
+      >
+      <article>
+        <table
+          class="cheat-sheet"
+          role="table"
+          aria-labelledby="cheat-sheet-title">
+          <caption id="cheat-sheet-caption"
+            >CSS Positioning Cheat Sheet</caption
+          >
+          <thead>
+            <tr role="row">
+              <th
+                role="columnheader"
+                scope="col"
+                >Property</th
+              >
+              <th
+                role="columnheader"
+                scope="col"
+                >Value</th
+              >
+              <th
+                role="columnheader"
+                scope="col"
+                >Definition</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="property-row"
+              role="row">
+              <th
+                class="code-property"
+                rowspan="5"
+                scope="row"
+                role="rowheader"
+                >position</th
+              >
+              <td
+                class="code-value"
+                role="cell"
+                >static</td
+              >
+              <td role="cell"
+                >Default value. Element is positioned according to the normal
+                flow of the document.</td
+              >
+            </tr>
+            <tr role="row">
+              <td
+                class="code-value"
+                role="cell"
+                >relative</td
+              >
+              <td role="cell"
+                >Element is positioned relative to its normal position. Use top,
+                right, bottom, left to move it.</td
+              >
+            </tr>
+            <tr role="row">
+              <td
+                class="code-value"
+                role="cell"
+                >absolute</td
+              >
+              <td role="cell"
+                >Element is positioned relative to its nearest positioned
+                ancestor (not static). Removed from normal flow.</td
+              >
+            </tr>
+            <tr role="row">
+              <td
+                class="code-value"
+                role="cell"
+                >fixed</td
+              >
+              <td role="cell"
+                >Element is positioned relative to the browser window. Stays in
+                place when scrolling.</td
+              >
+            </tr>
+            <tr role="row">
+              <td
+                class="code-value"
+                role="cell"
+                >sticky</td
+              >
+              <td role="cell"
+                >Element toggles between relative and fixed, depending on scroll
+                position.</td
+              >
+            </tr>
+            <tr
+              class="property-row"
+              role="row">
+              <th
+                class="code-property"
+                rowspan="4"
+                scope="row"
+                role="rowheader"
+                >top, right, bottom, left</th
+              >
+              <td
+                class="code-value"
+                role="cell"
+                >&lt;length&gt; | &lt;percentage&gt; | auto</td
+              >
+              <td role="cell"
+                >Offsets the element from the respective edge of its containing
+                block, when position is not static.</td
+              >
+            </tr>
+            <tr role="row">
+              <td
+                class="code-value"
+                role="cell"
+                >auto</td
+              >
+              <td role="cell">Default. The browser calculates the position.</td>
+            </tr>
+            <tr role="row">
+              <td
+                class="code-value"
+                role="cell"
+                >0, 10px, 5%, etc.</td
+              >
+              <td role="cell">Specifies the offset distance from the edge.</td>
+            </tr>
+            <tr role="row">
+              <td
+                class="code-value"
+                role="cell"
+                >inherit</td
+              >
+              <td role="cell">Inherits the value from its parent element.</td>
+            </tr>
+            <tr
+              class="property-row"
+              role="row">
+              <th
+                class="code-property"
+                scope="row"
+                role="rowheader"
+                >z-index</th
+              >
+              <td
+                class="code-value"
+                role="cell"
+                >&lt;integer&gt;</td
+              >
+              <td role="cell"
+                >Controls the stacking order of positioned elements (those with
+                position other than static).</td
+              >
+            </tr>
+          </tbody>
+        </table>
+      </article>
     </main>
 
     <footer
