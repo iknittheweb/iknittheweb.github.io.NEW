@@ -3783,11 +3783,6 @@ td {
   background-color: var(--fn-btn-active);
 }
 
-html {
-  background: url(https://images.unsplash.com/photo-1560801619-01d71da0f70c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80) no-repeat center center fixed;
-  background-size: cover;
-}
-
 .vertical-navbar {
   background: var(--dark-bg);
   padding-block: 3rem;
