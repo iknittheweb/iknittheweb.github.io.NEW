@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -3318,21 +3318,26 @@ input[type=button]:hover {
 .topnav__open, .topnav__close {
   background: none;
 }
+@media (min-width: 43.75em) {
+  .topnav__open, .topnav__close {
+    display: none;
+  }
+}
 .topnav__open .fa-solid, .topnav__close .fa-solid {
   font-size: 1.5rem;
   display: inline-block;
 }
-.topnav, .topnav__menu {
+.topnav__menu {
   background-color: var(--primary-bg);
 }
 @media (min-width: 43.75em) {
-  .topnav, .topnav__menu {
+  .topnav__menu {
     display: block;
     position: static;
   }
 }
 @media (max-width: 43.74875em) {
-  .topnav, .topnav__menu {
+  .topnav__menu {
     display: none;
     position: fixed;
     top: 0;
@@ -3351,7 +3356,7 @@ input[type=button]:hover {
   }
 }
 @media (max-width: 43.74875em) and (prefers-reduced-motion) {
-  .topnav, .topnav__menu {
+  .topnav__menu {
     transform: translateY(0);
     opacity: 1;
     transition-property: opacity;
@@ -4030,5 +4035,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
