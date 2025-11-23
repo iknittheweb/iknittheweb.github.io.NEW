@@ -5,50 +5,7 @@
 @use '../A-abstracts/mixins' as mixins;
 @use '../A-abstracts/functions' as f;
 
-.topnav__menu {
-  @include mixins.breakpoint-down('699.98') {
-    // width: 100vw;
-    left: 0;
-    right: 0;
-    // min-width: 0;
-    // max-width: 100vw;
-    border-radius: 0;
-    padding: f.rem(12) f.rem(4);
-    font-size: f.rem(16);
-    box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
-    z-index: auto;
-    position: static;
-    top: auto;
-    height: auto;
-    overflow-y: visible;
-    -webkit-overflow-scrolling: auto;
-    touch-action: manipulation;
-  }
-}
 
-.topnav__links {
-  @include mixins.breakpoint-down('699.98') {
-    flex-direction: column;
-    gap: f.rem(4);
-    padding: 0;
-  }
-}
-
-.topnav__link {
-  @include mixins.breakpoint-down('699.98') {
-    width: 100%;
-    display: block;
-    padding: f.rem(12) f.rem(8);
-    font-size: f.rem(16);
-    text-align: left;
-    background: none;
-    border: none;
-    color: var(--primary-bg);
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-  }
-}
 //* Only navigation layout styles belong in this file.
 //* Do NOT put component, utility, or page-specific styles here.
 //* ------------------------------------------------------------
