@@ -3236,7 +3236,6 @@ input[type=button]:hover {
     transform: translateY(0);
     opacity: 1;
     padding: 0 1.5rem 0 0;
-    border-radius: 0;
   }
 }
 .topnav__toggle {
@@ -3346,7 +3345,6 @@ input[type=button]:hover {
     transition: none;
     width: auto;
     padding: 0;
-    border-radius: 0;
     box-shadow: none;
     inset: auto;
   }
@@ -3362,7 +3360,6 @@ input[type=button]:hover {
     z-index: 999;
     background: var(--primary-bg);
     padding: 0;
-    border-radius: 0;
     box-shadow: none;
     transform: translateY(-100%);
     transition: transform 350ms ease-in-out;
@@ -3459,6 +3456,19 @@ input[type=button]:hover {
   }
 }
 
+@media (max-width: 43.74875em) {
+  .topnav__item {
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--light-border);
+    border-bottom-right-radius: 5px;
+  }
+  .topnav__item:last-child {
+    border-bottom: none;
+  }
+}
+
 @keyframes fade-in-links {
   from {
     opacity: 0;
@@ -3532,19 +3542,6 @@ input[type=button]:hover {
     flex-direction: column;
     gap: 0.25rem;
     padding: 0;
-  }
-}
-
-@media (max-width: 43.74875em) {
-  .topnav__item {
-    width: 100%;
-    margin: 0;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--light-border);
-    border-bottom-right-radius: 5px;
-  }
-  .topnav__item:last-child {
-    border-bottom: none;
   }
 }
 
