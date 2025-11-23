@@ -923,12 +923,6 @@ button:hover {
     gap: 0.25rem;
   }
 }
-@media (max-width: 43.74875em) {
-  .topnav__item {
-    border-bottom: 2px solid var(--light-border);
-    border-bottom-right-radius: 15px;
-  }
-}
 .topnav__link {
   display: block;
   padding: 0.5rem 1rem;
