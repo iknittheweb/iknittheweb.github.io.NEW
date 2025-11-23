@@ -726,6 +726,43 @@
         font-size: clamp(2.25rem, 1.91rem + 1.45vw, 3rem);
       }
     </style>
+    <style>
+      :root {
+        --basic-vertical-navbar-title-bg-gradient: linear-gradient(
+          to bottom,
+          #fff,
+          #eb3b5a,
+          #eb3b5a,
+          #eb3b5a
+        );
+      }
+      h1 {
+        font-size: clamp(2.625rem, 1.77rem + 3.64vw, 4.5rem);
+      }
+      h2 {
+        font-size: clamp(2.25rem, 1.91rem + 1.45vw, 3rem);
+      }
+      .topnav {
+        border-bottom: 2px solid var(--light-border);
+      }
+      @media (max-width: 43.74875em) {
+        .topnav__open {
+          position: absolute;
+          top: 1rem;
+          z-index: 100;
+          display: block;
+        }
+      }
+      @media (max-width: 43.74875em) {
+        .topnav__close {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          z-index: 100;
+          display: none;
+        }
+      }
+    </style>
     <script src="https://iknittheweb.github.io/iknittheweb.github.io.NEW/dist/js/fouc-fix.js"></script>
     <noscript
       ><style>
@@ -1167,6 +1204,19 @@
         href="https://iknittheweb.github.io/iknittheweb.github.io.NEW/dist/css/css-position-cheat-sheet.css"
         data-js-onload="mainCSSLoaded" /></noscript
     ><noscript
+      ><link
+        href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Merriweather+Sans:400,700&amp;display=swap"
+        rel="stylesheet"
+        data-js-onload="mediaAll"
+        data-js-onerror="fontsFailed"
+    /></noscript>
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://iknittheweb.github.io/iknittheweb.github.io.NEW/dist/css/css-position-cheat-sheet.css"
+        data-js-onload="mainCSSLoaded"
+    /></noscript>
+    <noscript
       ><link
         href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Merriweather+Sans:400,700&amp;display=swap"
         rel="stylesheet"
