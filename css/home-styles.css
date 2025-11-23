@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -3235,7 +3235,7 @@ input[type=button]:hover {
     background: var(--primary-bg);
     transform: translateY(0);
     opacity: 1;
-    padding: 0;
+    padding: 0 1.5rem 0 0;
     border-radius: 0;
   }
 }
@@ -3530,7 +3530,7 @@ input[type=button]:hover {
 @media (max-width: 43.74875em) {
   .topnav__links {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
     padding: 0;
   }
 }
@@ -3541,6 +3541,7 @@ input[type=button]:hover {
     margin: 0;
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--light-border);
+    border-bottom-right-radius: 5px;
   }
   .topnav__item:last-child {
     border-bottom: none;
@@ -4102,5 +4103,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
