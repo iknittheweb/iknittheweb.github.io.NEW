@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -3209,6 +3209,18 @@ input[type=button]:hover {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
+.fa-solid .topnav__close,
+.fa-regular .topnav__close,
+.fa-light .topnav__close,
+.fa-thin .topnav__close,
+.fa-duotone .topnav__close,
+.fa-brands .topnav__close {
+  display: block;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1001;
+}
 
 @media (max-width: 43.74875em) {
   .topnav__toggle[data-menu-open=true] + .topnav__menu {
@@ -3394,7 +3406,13 @@ input[type=button]:hover {
   .topnav__links {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     opacity: 1;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    position: relative;
   }
 }
 .topnav__link {
@@ -4098,5 +4116,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
