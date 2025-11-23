@@ -824,6 +824,7 @@ button:hover {
   right: 1.5rem;
   z-index: 1001;
 }
+
 .topnav {
   border-bottom: 2px solid var(--light-border);
   width: 100%;
@@ -974,8 +975,6 @@ button:hover {
     align-items: center;
     justify-content: center;
     opacity: 1;
-    min-height: 100vh;
-    width: 100vw;
     padding: 0;
     margin: 0;
     position: relative;

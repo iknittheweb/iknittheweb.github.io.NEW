@@ -1012,6 +1012,14 @@ button:hover {
   z-index: 1001;
 }
 
+.topnav {
+  border-bottom: 2px solid var(--light-border);
+  width: 100%;
+  background-color: var(--primary-bg);
+  transform: none;
+  transition: none;
+  padding-inline: 1.5rem;
+}
 @media (max-width: 43.74875em) {
   .topnav__toggle[data-menu-open=true] + .topnav__menu {
     display: block;
@@ -1047,14 +1055,6 @@ button:hover {
 }
 .topnav__toggle[data-menu-open=true] .topnav__close {
   display: block;
-}
-.topnav {
-  border-bottom: 2px solid var(--light-border);
-  width: 100%;
-  background-color: var(--primary-bg);
-  transform: none;
-  transition: none;
-  padding-inline: 1.5rem;
 }
 .topnav, .topnav__menu {
   background-color: var(--primary-bg);
@@ -1198,8 +1198,6 @@ button:hover {
     align-items: center;
     justify-content: center;
     opacity: 1;
-    min-height: 100vh;
-    width: 100vw;
     padding: 0;
     margin: 0;
     position: relative;
