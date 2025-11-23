@@ -137,8 +137,8 @@
    CSS RESET & NORMALIZE
    Combined reset and normalize styles for cross-browser consistency
    Based on Eric Meyer's CSS Reset and Normalize.css
-   ========================================================================== */
-/* Document Root
+   ========================================================================== 
+   Document Root
    ========================================================================== */
 html {
   line-height: 1.15;
@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -1651,7 +1651,6 @@ textarea:focus-visible {
   width: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -2121,12 +2120,6 @@ pre code {
   outline-offset: 3px;
   border-radius: 0.25rem;
 }
-@media (prefers-contrast: high) {
-  .skills-chart__tab--active:focus-visible {
-    outline: 4px solid #000;
-    outline-offset: 2px;
-  }
-}
 .skills-chart__tab--active[aria-expanded=true] {
   background: rgba(255, 255, 255, 0.7);
 }
@@ -2239,12 +2232,6 @@ pre code {
   overflow: hidden;
   margin-bottom: 0.625rem;
   position: relative;
-}
-@media (prefers-contrast: high) {
-  .skills-chart__progress-bar {
-    background: #e0e0e0;
-    border: 1px solid #666;
-  }
 }
 .skills-chart__progress-bar[role=progressbar] {
   position: relative;
@@ -2863,12 +2850,6 @@ pre code {
   line-height: 1.3;
   text-wrap: balance;
 }
-@media (prefers-contrast: high) {
-  .dropdown__subtitle {
-    color: #fff;
-    font-weight: 500;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   .dropdown__subtitle {
     transition: none;
@@ -3230,7 +3211,7 @@ input[type=button]:hover {
 }
 
 .topnav {
-  border-bottom: 2px solid var(--topnav-border);
+  border-bottom: 2px solid var(--light-border);
   width: 100%;
   background-color: var(--primary-bg);
   transform: none;
@@ -3428,10 +3409,6 @@ input[type=button]:hover {
   }
 }
 
-.fa-bars {
-  color: red;
-}
-
 @keyframes fade-in-links {
   from {
     opacity: 0;
@@ -3493,14 +3470,12 @@ input[type=button]:hover {
     padding: 0.75rem 0.25rem;
     font-size: 1rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    background: var(--light-bg);
     z-index: auto;
     position: static;
     top: auto;
     height: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: auto;
-    display: block;
     touch-action: manipulation;
   }
 }
@@ -4082,5 +4057,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */

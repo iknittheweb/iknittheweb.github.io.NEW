@@ -128,8 +128,8 @@
    CSS RESET & NORMALIZE
    Combined reset and normalize styles for cross-browser consistency
    Based on Eric Meyer's CSS Reset and Normalize.css
-   ========================================================================== */
-/* Document Root
+   ========================================================================== 
+   Document Root
    ========================================================================== */
 html {
   line-height: 1.15;
@@ -480,12 +480,6 @@ button:focus-visible {
   outline-offset: 3px;
   border-radius: 0.25rem;
 }
-@media (prefers-contrast: high) {
-  .skills-chart__tab--active:focus-visible {
-    outline: 4px solid #000;
-    outline-offset: 2px;
-  }
-}
 .skills-chart__tab--active[aria-expanded=true] {
   background: rgba(255, 255, 255, 0.7);
 }
@@ -811,7 +805,7 @@ button:hover {
 }
 
 .topnav {
-  border-bottom: 2px solid var(--topnav-border);
+  border-bottom: 2px solid var(--light-border);
   width: 100%;
   background-color: var(--primary-bg);
   transform: none;
@@ -1009,10 +1003,6 @@ button:hover {
   }
 }
 
-.fa-bars {
-  color: red;
-}
-
 @keyframes fade-in-links {
   from {
     opacity: 0;
@@ -1066,14 +1056,12 @@ button:hover {
     padding: 0.75rem 0.25rem;
     font-size: 1rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    background: var(--light-bg);
     z-index: auto;
     position: static;
     top: auto;
     height: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: auto;
-    display: block;
     touch-action: manipulation;
   }
 }
