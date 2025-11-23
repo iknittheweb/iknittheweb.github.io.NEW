@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,6 +161,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 footer,
@@ -866,39 +871,29 @@ button:hover {
   z-index: 100;
 }
 @media (max-width: 43.74875em) {
-  .topnav__toggle .topnav__open {
+  .topnav__toggle .topnav__open[aria-expanded=false] {
     display: block;
     right: 1rem;
     opacity: 0;
     transform: translateY(-5px);
     animation: fade-in-hamburger 400ms ease-out 150ms forwards;
   }
-}
-@media (min-width: 43.75em) {
-  .topnav__toggle .topnav__open {
-    display: none;
-  }
-}
-@media (max-width: 43.74875em) {
   .topnav__toggle .topnav__open[aria-expanded=true] {
     display: none;
   }
-}
-@media (max-width: 43.74875em) {
   .topnav__toggle .topnav__close {
     display: none;
     right: 1.75rem;
     margin-block-end: 5.25rem;
   }
-}
-@media (min-width: 43.75em) {
-  .topnav__toggle .topnav__close {
-    display: none;
+  .topnav__toggle .topnav__open[aria-expanded=true] ~ .topnav__close {
+    display: block;
   }
 }
-@media (max-width: 43.74875em) {
-  #btnOpen[aria-expanded=true] ~ .topnav__toggle .topnav__close {
-    display: block;
+@media (min-width: 43.75em) {
+  .topnav__toggle .topnav__open,
+  .topnav__toggle .topnav__close {
+    display: none;
   }
 }
 .topnav__open, .topnav__close {
