@@ -939,6 +939,7 @@ button:hover {
 }
 .topnav__link {
   display: block;
+  padding: 0.5rem 1rem;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--light-text);
