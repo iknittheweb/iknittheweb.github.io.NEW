@@ -23,7 +23,11 @@
   }
 
   &__header {
-    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--primary-bg) 0%,
+      var(--secondary-bg) 100%
+    );
     padding-block: f.rem(16);
     text-align: center;
     border-bottom: 1px solid var(--light-border);
@@ -148,12 +152,12 @@
       }
 
       // High contrast focus for better accessibility
-      @media (prefers-contrast: high) {
-        &:focus-visible {
-          outline: 4px solid #000;
-          outline-offset: 2px;
-        }
-      }
+      // @media (prefers-contrast: high) {
+      //   &:focus-visible {
+      //     outline: 4px solid #000;
+      //     outline-offset: 2px;
+      //   }
+      // }
 
       // Ensure interactive state is clear
       &[aria-expanded='true'] {
@@ -232,7 +236,11 @@
       left: 0;
       width: 3px;
       height: 100%;
-      background: linear-gradient(180deg, var(--primary-bg-light), var(--secondary-bg-light));
+      background: linear-gradient(
+        180deg,
+        var(--primary-bg-light),
+        var(--secondary-bg-light)
+      );
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -291,10 +299,10 @@
     position: relative;
 
     // Accessibility: Ensure sufficient contrast for progress bar background
-    @media (prefers-contrast: high) {
-      background: #e0e0e0;
-      border: 1px solid #666;
-    }
+    // @media (prefers-contrast: high) {
+    //   background: #e0e0e0;
+    //   border: 1px solid #666;
+    // }
 
     // Ensure screen readers can access progress information
     &[role='progressbar'] {
@@ -309,7 +317,11 @@
 
   &__progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--secondary-bg-light), var(--primary-bg-light));
+    background: linear-gradient(
+      90deg,
+      var(--secondary-bg-light),
+      var(--primary-bg-light)
+    );
     border-radius: f.rem(3);
     transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     width: 0;
@@ -328,7 +340,12 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent, rgb(255 255 255 / 30%), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgb(255 255 255 / 30%),
+        transparent
+      );
       animation: shimmer 2s infinite;
       opacity: 0;
 
@@ -373,7 +390,11 @@
       top: f.rem(8);
       bottom: f.rem(8);
       width: 2px;
-      background: linear-gradient(180deg, var(--primary-bg-mid), var(--secondary-bg-mid));
+      background: linear-gradient(
+        180deg,
+        var(--primary-bg-mid),
+        var(--secondary-bg-mid)
+      );
     }
   }
 
