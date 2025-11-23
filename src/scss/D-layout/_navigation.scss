@@ -34,19 +34,6 @@
   }
 }
 
-.topnav__item {
-  @include mixins.breakpoint-down('699.98') {
-    width: 100%;
-    margin: 0;
-    padding: f.rem(8) 0;
-    border-bottom: 1px solid var(--light-border);
-    border-bottom-right-radius: 5px;
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-}
-
 .topnav__link {
   @include mixins.breakpoint-down('699.98') {
     width: 100%;
