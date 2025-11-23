@@ -3210,6 +3210,26 @@ input[type=button]:hover {
   -webkit-font-smoothing: antialiased;
 }
 
+.topnav__toggle {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.topnav__toggle .topnav__open {
+  display: block;
+}
+.topnav__toggle .topnav__close {
+  display: none;
+}
+.topnav__toggle[data-menu-open=true] .topnav__open {
+  display: none;
+}
+.topnav__toggle[data-menu-open=true] .topnav__close {
+  display: block;
+}
 .topnav {
   border-bottom: 2px solid var(--light-border);
   width: 100%;

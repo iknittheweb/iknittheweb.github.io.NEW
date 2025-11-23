@@ -803,7 +803,6 @@ button:hover {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-
 .topnav {
   border-bottom: 2px solid var(--light-border);
   width: 100%;
