@@ -306,9 +306,6 @@
         .footer__content {
           padding: 2.5rem 1rem 1rem;
         }
-        .topnav__wrapper {
-          position: relative;
-        }
       }
       .footer__sections {
         display: grid;
@@ -459,6 +456,20 @@
         line-height: 1;
         -webkit-font-smoothing: antialiased;
       }
+      .topnav__toggle {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+      }
+      .topnav__toggle .topnav__open {
+        display: block;
+      }
+      .topnav__toggle .topnav__close {
+        display: none;
+      }
       .topnav {
         border-bottom: 2px solid var(--light-border);
         width: 100%;
@@ -491,10 +502,19 @@
         height: 7.5rem;
       }
       @media (max-width: 43.74875em) {
+        .topnav__wrapper {
+          position: relative;
+        }
         .topnav__overlay {
           inset: 0;
           background-color: var(--menu-overlay);
           opacity: 0;
+        }
+        .topnav__open {
+          right: 1rem;
+          opacity: 0;
+          transform: translateY(-5px);
+          animation: 0.4s ease-out 150ms forwards fade-in-hamburger;
         }
       }
       .topnav__close,
@@ -516,20 +536,6 @@
         .topnav__open {
           display: none;
         }
-      }
-      @media (max-width: 43.74875em) {
-        .topnav__open {
-          opacity: 0;
-          transform: translateY(-5px);
-          animation: 0.4s ease-out 150ms forwards fade-in-hamburger;
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          z-index: 100;
-          display: block;
-        }
-      }
-      @media (min-width: 43.75em) {
         .topnav__menu {
           display: block;
           position: static;
@@ -559,11 +565,9 @@
           transform: translateY(-100%);
         }
         .topnav__close {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          z-index: 100;
-          display: none;
+          display: block;
+          right: 1.75rem;
+          margin-block-end: 84px;
         }
       }
       .topnav__links {
@@ -891,25 +895,20 @@
             <div
               id="overlay"
               class="topnav__overlay"></div>
-            <button
-              id="btnOpen"
-              class="topnav__open"
-              aria-expanded="false"
-              aria-controls="menuTopNav"
-              aria-labelledby="nav-label"
-              data-cy="nav-open">
-              <span
-                class="fa-solid fa-bars"
-                aria-hidden="true"></span>
-            </button>
             <div
-              id="menuTopNav"
-              class="topnav__menu"
-              role="dialog"
-              aria-labelledby="nav-label"
-              data-cy="mobile-menu"
-              aria-hidden="true"
-              inert>
+              class="topnav__toggle"
+              data-menu-open="false">
+              <button
+                id="btnOpen"
+                class="topnav__open"
+                aria-expanded="false"
+                aria-controls="menuTopNav"
+                aria-labelledby="nav-label"
+                data-cy="nav-open">
+                <span
+                  class="fa-solid fa-bars"
+                  aria-hidden="true"></span>
+              </button>
               <button
                 id="btnClose"
                 class="topnav__close"
@@ -919,6 +918,15 @@
                   class="fa-solid fa-xmark"
                   aria-hidden="true"></span>
               </button>
+            </div>
+            <div
+              id="menuTopNav"
+              class="topnav__menu"
+              role="dialog"
+              aria-labelledby="nav-label"
+              data-cy="mobile-menu"
+              aria-hidden="true"
+              inert>
               <ul class="topnav__links">
                 <li class="topnav__item">
                   <a
