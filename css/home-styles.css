@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -3213,8 +3213,17 @@ input[type=button]:hover {
 @media (max-width: 43.74875em) {
   .topnav__toggle[data-menu-open=true] + .topnav__menu {
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background: var(--primary-bg);
     transform: translateY(0);
     opacity: 1;
+    padding: 0;
+    border-radius: 0;
   }
 }
 .topnav__toggle {
@@ -3340,11 +3349,16 @@ input[type=button]:hover {
 @media (max-width: 43.74875em) {
   .topnav__menu {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
-    inset: 0 0 auto;
-    padding: 12px 24px 120px;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 12px 12px var(--menu-shadow);
+    height: 100vh;
+    z-index: 999;
+    background: var(--primary-bg);
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
     transform: translateY(-100%);
     transition: transform 350ms ease-in-out;
   }
@@ -4084,5 +4098,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
