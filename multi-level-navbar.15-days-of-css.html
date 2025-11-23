@@ -129,7 +129,6 @@
       img,
       li,
       nav,
-      p,
       span,
       ul {
         font: inherit;
@@ -225,12 +224,6 @@
         -webkit-margin-after: 0.625rem;
         margin-block-end: 0.625rem;
       }
-      p {
-        font-family: var(--font-2);
-        margin-top: 0;
-        font-size: 1.125rem;
-        line-height: 1.4;
-      }
       .topnav {
         font-family: var(--font-1);
       }
@@ -294,32 +287,6 @@
           font-size: 1.5rem;
         }
       }
-      .footer__description {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-        opacity: 0.9;
-      }
-      .footer__nav-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        align-items: center;
-      }
-      @media (min-width: 56.25em) {
-        .footer__nav-list {
-          align-items: flex-start;
-        }
-      }
-      .footer__contact-text {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1.25rem;
-        opacity: 0.9;
-      }
       a.footer__nav-link {
         color: var(--light-text);
         text-decoration: none;
@@ -371,7 +338,7 @@
         -webkit-font-smoothing: antialiased;
       }
       .topnav {
-        border-bottom: 2px solid var(--topnav-border);
+        border-bottom: 2px solid var(--light-border);
         width: 100%;
         background-color: var(--primary-bg);
         transform: none;
@@ -407,12 +374,6 @@
           background-color: var(--menu-overlay);
           opacity: 0;
         }
-        .topnav__open {
-          right: 1rem;
-          opacity: 0;
-          transform: translateY(-5px);
-          animation: 0.4s ease-out 150ms forwards fade-in-hamburger;
-        }
       }
       .topnav__close,
       .topnav__open {
@@ -433,6 +394,20 @@
         .topnav__open {
           display: none;
         }
+      }
+      @media (max-width: 43.74875em) {
+        .topnav__open {
+          opacity: 0;
+          transform: translateY(-5px);
+          animation: 0.4s ease-out 150ms forwards fade-in-hamburger;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          z-index: 100;
+          display: block;
+        }
+      }
+      @media (min-width: 43.75em) {
         .topnav__menu {
           display: block;
           position: static;
@@ -462,9 +437,11 @@
           transform: translateY(-100%);
         }
         .topnav__close {
-          display: block;
-          right: 1.75rem;
-          margin-block-end: 84px;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          z-index: 100;
+          display: none;
         }
       }
       .topnav__links {
@@ -512,9 +489,6 @@
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
-      }
-      .fa-bars {
-        color: red;
       }
       @keyframes fade-in-links {
         from {
@@ -567,14 +541,12 @@
           padding: 0.75rem 0.25rem;
           font-size: 1rem;
           box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-          background: var(--light-bg);
           z-index: auto;
           position: static;
           top: auto;
           height: auto;
           overflow-y: visible;
           -webkit-overflow-scrolling: auto;
-          display: block;
           touch-action: manipulation;
         }
         .topnav__links {
@@ -657,6 +629,37 @@
       }
     </style>
     <style>
+      p {
+        font: inherit;
+        vertical-align: baseline;
+      }
+      p {
+        font-family: var(--font-2);
+        margin-top: 0;
+        font-size: 1.125rem;
+        line-height: 1.4;
+      }
+      .footer__description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+      }
+      .footer__nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .footer__contact-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+        opacity: 0.9;
+      }
       .footer__cta-link {
         display: inline-block;
         background: var(--primary-bg-mid);

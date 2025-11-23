@@ -457,7 +457,7 @@
         -webkit-font-smoothing: antialiased;
       }
       .topnav {
-        border-bottom: 2px solid var(--topnav-border);
+        border-bottom: 2px solid var(--light-border);
         width: 100%;
         background-color: var(--primary-bg);
         transform: none;
@@ -493,12 +493,6 @@
           background-color: var(--menu-overlay);
           opacity: 0;
         }
-        .topnav__open {
-          right: 1rem;
-          opacity: 0;
-          transform: translateY(-5px);
-          animation: 0.4s ease-out 150ms forwards fade-in-hamburger;
-        }
       }
       .topnav__close,
       .topnav__open {
@@ -519,6 +513,20 @@
         .topnav__open {
           display: none;
         }
+      }
+      @media (max-width: 43.74875em) {
+        .topnav__open {
+          opacity: 0;
+          transform: translateY(-5px);
+          animation: 0.4s ease-out 150ms forwards fade-in-hamburger;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          z-index: 100;
+          display: block;
+        }
+      }
+      @media (min-width: 43.75em) {
         .topnav__menu {
           display: block;
           position: static;
@@ -548,9 +556,11 @@
           transform: translateY(-100%);
         }
         .topnav__close {
-          display: block;
-          right: 1.75rem;
-          margin-block-end: 84px;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          z-index: 100;
+          display: none;
         }
       }
       .topnav__links {
@@ -598,9 +608,6 @@
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
-      }
-      .fa-bars {
-        color: red;
       }
       @keyframes fade-in-links {
         from {
@@ -653,14 +660,12 @@
           padding: 0.75rem 0.25rem;
           font-size: 1rem;
           box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-          background: var(--light-bg);
           z-index: auto;
           position: static;
           top: auto;
           height: auto;
           overflow-y: visible;
           -webkit-overflow-scrolling: auto;
-          display: block;
           touch-action: manipulation;
         }
         .topnav__links {
