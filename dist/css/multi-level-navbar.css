@@ -876,6 +876,7 @@ button:hover {
   background: none;
   padding: 0;
   border: 0;
+  cursor: pointer;
 }
 .topnav__open .fa-solid, .topnav__close .fa-solid {
   font-size: 1.5rem;
