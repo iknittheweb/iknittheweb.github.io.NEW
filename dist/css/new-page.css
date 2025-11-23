@@ -116,9 +116,6 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
-.nowrap {
-  white-space: nowrap;
-}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -161,8 +158,6 @@ a,
 code,
 img,
 s,
-var,
-center,
 ul,
 li,
 footer,
@@ -878,24 +873,19 @@ button:hover {
 }
 @media (max-width: 43.74875em) {
   .topnav__open {
-    right: 1rem;
     opacity: 0;
     transform: translateY(-5px);
     animation: fade-in-hamburger 400ms ease-out 150ms forwards;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    display: block;
   }
 }
 @media (max-width: 43.74875em) {
-  .topnav__open[aria-expanded=true] + .topnav__menu {
-    display: block;
-    transform: translateY(0);
-  }
-  .topnav__open[aria-expanded=true] + .topnav__menu:hover {
-    cursor: pointer;
-  }
-}
-@media (prefers-reduced-motion) {
-  .topnav__open[aria-expanded=true] + .topnav__menu {
-    opacity: 1;
+  .topnav__open[aria-expanded=true] {
+    display: none !important;
   }
 }
 @media (min-width: 43.75em) {
@@ -935,9 +925,16 @@ button:hover {
 }
 @media (max-width: 43.74875em) {
   .topnav__close {
-    display: block;
-    right: 1.75rem;
-    margin-block-end: 84px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    display: none;
+  }
+}
+@media (max-width: 43.74875em) {
+  .topnav__menu[aria-hidden=false] .topnav__close {
+    display: block !important;
   }
 }
 .topnav__links {
