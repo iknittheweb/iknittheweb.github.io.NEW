@@ -196,9 +196,6 @@
         text-decoration: none;
         font-family: inherit;
       }
-      p > a {
-        color: var(--dark-text-link);
-      }
       a:visited {
         text-decoration: none;
         font-family: inherit;
@@ -321,6 +318,28 @@
         color: var(--dark-text);
         font-size: 0.875rem;
         line-height: 1.4;
+      }
+      .card__footer {
+        height: 3.75rem;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: var(--light-bg);
+        border-top: 1px solid var(--light-border);
+      }
+      .card__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        background: var(--primary-bg-mid);
+        color: var(--light-text);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.875rem;
+        border: none;
       }
       .hero {
         position: relative;
@@ -648,30 +667,6 @@
       .portfolio-page__intro,
       .portfolio-page__title {
         color: #fff;
-      }
-    </style>
-    <style>
-      .card__footer {
-        height: 3.75rem;
-        padding: 0.75rem 1.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        background-color: var(--light-bg);
-        border-top: 1px solid var(--light-border);
-      }
-      .card__button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
-        background: var(--primary-bg-mid);
-        color: var(--light-text);
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.875rem;
-        border: none;
       }
     </style>
     <link
