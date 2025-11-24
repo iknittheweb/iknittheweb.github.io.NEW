@@ -3209,18 +3209,6 @@ input[type=button]:hover {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-.fa-solid .topnav__close,
-.fa-regular .topnav__close,
-.fa-light .topnav__close,
-.fa-thin .topnav__close,
-.fa-duotone .topnav__close,
-.fa-brands .topnav__close {
-  display: block;
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 1001;
-}
 
 .topnav {
   width: 100%;
@@ -3240,10 +3228,8 @@ input[type=button]:hover {
   width: 7.5rem;
   height: 7.5rem;
 }
-@media (max-width: 43.74875em) {
-  .topnav__toggle[data-menu-open=true] ~ .topnav__wrapper .topnav__homelink {
-    display: none;
-  }
+.topnav__homelink.logo--hidden {
+  display: none !important;
 }
 @media (max-width: 43.74875em) {
   .topnav__toggle[data-menu-open=true] + .topnav__menu {
@@ -3251,19 +3237,6 @@ input[type=button]:hover {
     background: var(--primary-bg);
     transform: translateY(0);
     opacity: 1;
-  }
-}
-@media (max-width: 43.74875em) {
-  .topnav__overlay {
-    inset: 0;
-    background-color: var(--menu-overlay);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 400ms ease-in-out;
-  }
-  .topnav__overlay:has(+ .topnav__open[aria-expanded=true]) {
-    opacity: 1;
-    pointer-events: all;
   }
 }
 .topnav__toggle {
@@ -3290,7 +3263,7 @@ input[type=button]:hover {
     right: 1.75rem;
     margin-block-end: 5.25rem;
   }
-  .topnav__toggle .topnav__open[aria-expanded=true] ~ .topnav__close {
+  .topnav__toggle .topnav__open[aria-expanded=true] + .topnav__close {
     display: block;
   }
 }
