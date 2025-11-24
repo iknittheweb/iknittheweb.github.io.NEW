@@ -3266,6 +3266,12 @@ input[type=button]:hover {
 }
 .topnav__toggle[data-menu-open=true] .topnav__close {
   display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
 }
 @media (min-width: 43.75em) {
   .topnav__toggle .topnav__open {
