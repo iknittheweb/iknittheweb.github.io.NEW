@@ -803,13 +803,6 @@ button:hover {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-.fa-solid .topnav__close {
-  display: block;
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 1001;
-}
 
 .topnav {
   width: 100%;
@@ -828,19 +821,6 @@ button:hover {
 .topnav__logo {
   width: 7.5rem;
   height: 7.5rem;
-}
-@media (max-width: 43.74875em) {
-  .topnav__overlay {
-    inset: 0;
-    background-color: var(--menu-overlay);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 400ms ease-in-out;
-  }
-  .topnav__overlay:has(+ .topnav__open[aria-expanded=true]) {
-    opacity: 1;
-    pointer-events: all;
-  }
 }
 .topnav__open, .topnav__close {
   background: none;
