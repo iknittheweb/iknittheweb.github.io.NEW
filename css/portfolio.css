@@ -1053,7 +1053,7 @@ button:hover {
     right: 1.75rem;
     margin-block-end: 5.25rem;
   }
-  .topnav__toggle .topnav__open[aria-expanded=true] + .topnav__close {
+  .topnav__toggle[data-menu-open=true] .topnav__close {
     display: block;
   }
 }
