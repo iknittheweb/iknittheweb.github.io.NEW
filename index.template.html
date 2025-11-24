@@ -170,6 +170,7 @@
         <a
           href="{{BASE_URL}}/"
           class="topnav__homelink hover-fade">
+          <!-- JS toggles .logo--hidden on this element to hide logo when menu is open -->
           <picture>
             <source
               srcset="{{ASSET_URL}}/branding/logo.avif"
@@ -195,9 +196,6 @@
             hidden
             >Navigation</span
           >
-          <div
-            id="overlay"
-            class="topnav__overlay"></div>
           <div
             class="topnav__toggle"
             data-menu-open="false">
