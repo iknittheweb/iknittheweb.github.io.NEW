@@ -116,9 +116,6 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
-.nowrap {
-  white-space: nowrap;
-}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -161,9 +158,7 @@ a,
 code,
 img,
 s,
-var,
 i,
-center,
 ul,
 li,
 form,
@@ -651,9 +646,6 @@ card__header-link:hover, card__header-link:focus {
   outline: 3px solid var(--secondary-text);
   outline-offset: 3px;
   border-radius: 0.25rem;
-}
-.skills-chart__tab--active[aria-expanded=true] {
-  background: rgba(255, 255, 255, 0.7);
 }
 .skills-chart__category--active {
   display: block;
