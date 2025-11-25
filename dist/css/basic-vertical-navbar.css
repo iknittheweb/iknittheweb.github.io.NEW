@@ -3228,6 +3228,9 @@ input[type=button]:hover {
   width: 7.5rem;
   height: 7.5rem;
 }
+.topnav__logo.logo--hidden {
+  display: none !important;
+}
 .topnav__toggle {
   position: absolute;
   right: 1rem;
