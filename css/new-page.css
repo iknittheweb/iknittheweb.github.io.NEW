@@ -484,6 +484,9 @@ button:focus-visible {
   outline-offset: 3px;
   border-radius: 0.25rem;
 }
+.skills-chart__tab--active[aria-expanded=true] {
+  background: rgba(255, 255, 255, 0.7);
+}
 .skills-chart__category--active {
   display: block;
   animation: fade-in-up 0.4s ease-out;
@@ -822,6 +825,9 @@ button:hover {
 .topnav__logo {
   width: 7.5rem;
   height: 7.5rem;
+}
+.topnav__logo.logo--hidden {
+  display: none !important;
 }
 .topnav__toggle {
   position: absolute;
