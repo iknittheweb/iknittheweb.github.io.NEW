@@ -834,6 +834,10 @@ button:hover {
   font-size: 1.5rem;
   display: inline-block;
 }
+.topnav__open.topnav__close, .topnav__close.topnav__close {
+  z-index: 1200;
+  position: relative;
+}
 .topnav__menu {
   background-color: var(--primary-bg);
 }
