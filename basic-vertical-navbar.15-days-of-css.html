@@ -405,11 +405,11 @@
         z-index: 100;
       }
       @media (max-width: 43.74875em) {
-        .topnav__toggle .topnav__open[aria-expanded='false'] {
+        .topnav__toggle .topnav__open {
           display: block;
           right: 1rem;
-          opacity: 0;
-          transform: translateY(-5px);
+          opacity: 1;
+          transform: translateY(0);
           animation: 0.4s ease-out 150ms forwards fade-in-hamburger;
         }
         .topnav__toggle .topnav__close {
@@ -864,46 +864,30 @@
               hidden
               >Navigation</span
             >
-            <div
-              class="topnav__toggle"
-              data-menu-open="false">
+            <div class="topnav__toggle">
               <button
                 id="btnOpen"
                 class="topnav__open"
-                aria-expanded="false"
                 aria-controls="menuTopNav"
-                aria-labelledby="nav-label"
-                data-cy="nav-open">
-                <span
-                  class="fa-solid fa-bars"
-                  aria-hidden="true"></span>
+                aria-expanded="false">
+                <span class="fa-solid fa-bars"></span>
               </button>
               <button
                 id="btnClose"
                 class="topnav__close"
                 aria-controls="menuTopNav"
-                data-cy="nav-close">
-                <span
-                  class="fa-solid fa-xmark"
-                  aria-hidden="true"
-                  >X</span
-                >
+                aria-expanded="true">
+                <span class="fa-solid fa-xmark"></span>
               </button>
             </div>
             <div
               id="menuTopNav"
-              class="topnav__menu"
-              role="dialog"
-              aria-labelledby="nav-label"
-              data-cy="mobile-menu"
-              aria-hidden="true"
-              inert>
+              class="topnav__menu">
               <ul class="topnav__links">
                 <li class="topnav__item">
                   <a
                     class="topnav__link"
                     href="https://iknittheweb.github.io/iknittheweb.github.io.NEW"
-                    data-cy="nav-home"
                     >Home</a
                   >
                 </li>
@@ -911,7 +895,6 @@
                   <a
                     class="topnav__link"
                     href="https://iknittheweb.github.io/iknittheweb.github.io.NEW/#about"
-                    data-cy="nav-about"
                     >About</a
                   >
                 </li>
@@ -919,7 +902,7 @@
                   <a
                     class="topnav__link"
                     href="https://iknittheweb.github.io/iknittheweb.github.io.NEW/#portfolio"
-                    data-cy="nav-portfolio"
+                    data-cy="nav-"
                     >Portfolio</a
                   >
                 </li>
@@ -927,7 +910,6 @@
                   <a
                     class="topnav__link"
                     href="https://iknittheweb.github.io/iknittheweb.github.io.NEW/#contact"
-                    data-cy="nav-contact"
                     >Contact</a
                   >
                 </li>

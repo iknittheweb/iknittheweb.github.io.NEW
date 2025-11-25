@@ -198,22 +198,25 @@
             hidden
             >Navigation</span
           >
-          <div
-            class="topnav__toggle">
+          <div class="topnav__toggle">
             <button
               id="btnOpen"
-              class="topnav__open">
+              class="topnav__open"
+              aria-controls="menuTopNav"
+              aria-expanded="false">
               <span class="fa-solid fa-bars"></span>
             </button>
             <button
               id="btnClose"
-              class="topnav__close">
+              class="topnav__close"
+              aria-controls="menuTopNav"
+              aria-expanded="true">
               <span class="fa-solid fa-xmark"></span>
             </button>
           </div>
           <div
-              id="menuTopNav"
-              class="topnav__menu">
+            id="menuTopNav"
+            class="topnav__menu">
             <ul class="topnav__links">
               <li class="topnav__item">
                 <a
