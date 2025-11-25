@@ -885,6 +885,7 @@ button:hover {
   .topnav__menu {
     display: block;
     position: static;
+    padding-top: 0;
   }
 }
 @media (max-width: 43.74875em) {
@@ -904,6 +905,7 @@ button:hover {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     touch-action: manipulation;
+    padding-top: 5.25rem;
   }
 }
 .topnav__links {
