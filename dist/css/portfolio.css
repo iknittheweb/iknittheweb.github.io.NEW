@@ -1046,22 +1046,14 @@ button:hover {
   }
 }
 @media (min-width: 43.75em) {
-  .topnav__toggle .topnav__open {
-    display: none;
-  }
-}
-@media (min-width: 43.75em) {
-  .topnav__toggle .topnav__open {
-    display: none;
+  .topnav__toggle .topnav__open,
+  .topnav__toggle .topnav__close {
+    display: none !important;
   }
 }
 .topnav__open, .topnav__close {
   background: none;
-}
-@media (min-width: 43.75em) {
-  .topnav__open, .topnav__close {
-    display: none;
-  }
+  position: static;
 }
 .topnav__open .fa-solid, .topnav__close .fa-solid {
   font-size: 1.5rem;
@@ -1069,7 +1061,6 @@ button:hover {
 }
 .topnav__open.topnav__close, .topnav__close.topnav__close {
   z-index: 1200;
-  position: relative;
 }
 .topnav__menu {
   background-color: var(--primary-bg);
