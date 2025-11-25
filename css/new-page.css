@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,6 +161,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 footer,
@@ -816,6 +821,7 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 1rem;
 }
 @media (max-width: 43.74875em) {
   .topnav__wrapper {
@@ -825,6 +831,7 @@ button:hover {
 .topnav__logo {
   width: 7.5rem;
   height: 7.5rem;
+  vertical-align: top;
 }
 .topnav__logo.logo--hidden {
   display: none !important;
@@ -873,6 +880,8 @@ button:hover {
     display: block;
     position: static;
     padding-top: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 @media (max-width: 43.74875em) {
@@ -903,6 +912,7 @@ button:hover {
   .topnav__links {
     opacity: 0;
     animation: fade-in-links 400ms ease-in-out 200ms forwards;
+    margin-bottom: 1rem;
   }
 }
 @media (max-width: 43.74875em) {
