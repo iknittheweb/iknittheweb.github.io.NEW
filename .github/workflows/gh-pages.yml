@@ -18,7 +18,7 @@ jobs:
         run: npm ci
       - name: Run build:prod script
         shell: pwsh
-        run: npm run build:prod
+        run: npm run build:gh
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
