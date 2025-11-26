@@ -113,21 +113,21 @@ td {
   color: var(--text-color-2);
 }
 
-.calculator__screen {
+.CALCULATOR-_screen {
   text-align: right;
   font-family: 'Courier New', Courier, monospace;
   padding: 20px 5px;
   font-size: 40px;
 }
 
-.calculator__button-row {
+.CALCULATOR-_button-row {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   margin-bottom: 0.5%;
 }
 
-.calculator__button {
+.CALCULATOR-_button {
   background-color: var(--btn-bg);
   color: var(--text-color-1);
   border: none;
@@ -135,25 +135,25 @@ td {
   height: 100px;
   flex-basis: 24.5%;
 }
-.calculator__button:hover {
+.CALCULATOR-_button:hover {
   background-color: var(--btn-hover);
 }
-.calculator__button:active {
+.CALCULATOR-_button:active {
   background-color: var(--btn-active);
 }
-.calculator__button--double {
+.CALCULATOR-_button--double {
   flex-basis: 49.7%;
 }
-.calculator__button--triple {
+.CALCULATOR-_button--triple {
   flex-basis: 74.8%;
 }
-.calculator__button-row .calculator__button:last-child {
+.CALCULATOR-_button-row .CALCULATOR-_button:last-child {
   background-color: var(--fn-btn-bg);
   color: var(--text-color-2);
 }
-.calculator__button-row .calculator__button:last-child:hover {
+.CALCULATOR-_button-row .CALCULATOR-_button:last-child:hover {
   background-color: var(--fn-btn-hover);
 }
-.calculator__button-row .calculator__button:last-child:active {
+.CALCULATOR-_button-row .CALCULATOR-_button:last-child:active {
   background-color: var(--fn-btn-active);
 }
