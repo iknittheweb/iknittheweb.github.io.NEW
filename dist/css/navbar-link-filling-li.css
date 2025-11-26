@@ -164,6 +164,7 @@ footer,
 header,
 menu,
 nav,
+section,
 time {
   font: inherit;
   vertical-align: baseline;
@@ -176,6 +177,7 @@ footer,
 header,
 menu,
 nav,
+section,
 main {
   display: block;
 }
