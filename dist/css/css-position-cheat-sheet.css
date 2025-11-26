@@ -880,7 +880,6 @@ button:hover {
 }
 .topnav__links {
   display: flex;
-  gap: 2.5rem;
 }
 @media (min-width: 43.75em) {
   .topnav__links {
@@ -902,7 +901,7 @@ button:hover {
 .topnav__link {
   display: block;
   padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--light-text);
   cursor: pointer;
