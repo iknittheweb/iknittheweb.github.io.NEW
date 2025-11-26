@@ -25,20 +25,20 @@
     <!-- Preload critical stylesheets -->
     <link
       rel="preload"
-      href="{{GOOGLE_FONTS_LINK}}"
+      href="{{NEW_PAGE-GOOGLE_FONTS_LINK}}"
       as="style" />
     <link
       rel="preload"
       as="style"
-      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}" />
+      href="/{{NEW_PAGE-CSS_FILE}}" />
 
     <!-- Main font and site stylesheets -->
     <link
       rel="stylesheet"
-      href="{{GOOGLE_FONTS_LINK}}" />
+      href="{{NEW_PAGE-GOOGLE_FONTS_LINK}}" />
     <link
       rel="stylesheet"
-      href="{{BASE_URL}}{{NEW-PAGE_CSS_FILE}}" />
+      href="/{{NEW_PAGE-CSS_FILE}}" />
 
     <!-- FontAwesome CDN stylesheet for icons -->
     <link
@@ -55,7 +55,7 @@
         }
       </style>
       <link
-        href="{{GOOGLE_FONTS_LINK}}"
+        href="{{NEW_PAGE-GOOGLE_FONTS_LINK}}"
         rel="stylesheet" />
     </noscript>
 
@@ -63,25 +63,25 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
+      href="/dist/img/favicon_io/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+      href="/dist/img/favicon_io/apple-touch-icon.png" />
     <link
       rel="manifest"
-      href="{{BASE_URL}}/manifest.json" />
+      href="//manifest.json" />
     <link
       rel="canonical"
-      href="{{BASE_URL}}{{NEW-PAGE_OG_URL}}" />
+      href="/{{NEW_PAGE-OG_URL}}" />
 
     <!-- SEO and social meta tags -->
     <meta
       name="description"
-      content="{{NEW-PAGE_DESCRIPTION}}" />
+      content="{{NEW_PAGE-DESCRIPTION}}" />
     <meta
       name="keywords"
-      content="{{NEW-PAGE_KEYWORDS}}" />
+      content="{{NEW_PAGE-KEYWORDS}}" />
     <meta
       name="author"
       content="I Knit the Web" />
@@ -90,16 +90,16 @@
       content="{{ROBOTS}}" />
     <meta
       property="og:title"
-      content="{{NEW-PAGE_OG_TITLE}}" />
+      content="{{NEW_PAGE-OG_TITLE}}" />
     <meta
       property="og:description"
-      content="{{NEW-PAGE_OG_DESCRIPTION}}" />
+      content="{{NEW_PAGE-OG_DESCRIPTION}}" />
     <meta
       property="og:image"
-      content="{{ASSET_URL}}/branding/logo.png" />
+      content="/dist/img/branding/logo.png" />
     <meta
       property="og:url"
-      content="{{BASE_URL}}{{NEW-PAGE_OG_URL}}" />
+      content="/{{NEW_PAGE-OG_URL}}" />
     <meta
       property="og:type"
       content="{{OG_TYPE}}" />
@@ -108,13 +108,13 @@
       content="{{TWITTER_CARD}}" />
     <meta
       name="twitter:title"
-      content="{{NEW-PAGE_TWITTER_TITLE}}" />
+      content="{{NEW_PAGE-TWITTER_TITLE}}" />
     <meta
       name="twitter:description"
-      content="{{NEW-PAGE_TWITTER_DESCRIPTION}}" />
+      content="{{NEW_PAGE-TWITTER_DESCRIPTION}}" />
     <meta
       name="twitter:image"
-      content="{{ASSET_URL}}/branding/logo.png" />
+      content="/dist/img/branding/logo.png" />
 
     <!-- Fallback styles for no-JS environments -->
     <noscript>
@@ -136,7 +136,7 @@
     </style>
 
     <!-- Critical polyfill: FOUC fix script -->
-    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
+    <script src="//dist/js/fouc-fix.js"></script>
 
     <!-- Third-party monitoring/analytics: Sentry -->
     <script
@@ -145,7 +145,7 @@
 
     <!-- Structured data for SEO -->
     <script type="application/ld+json">
-      {{{NEW-PAGE_SCHEMA_JSON}}}
+      {{{NEW_PAGE-SCHEMA_JSON}}}
     </script>
 
     <!-- Third-party library: body-scroll-lock -->
@@ -154,17 +154,17 @@
     <!-- Main app/module script -->
     <script
       type="module"
-      src="{{BASE_URL}}/dist/js/script.js"></script>
+      src="//dist/js/script.js"></script>
   </head>
 
   <body>
     <div
       id="page-data"
-      data-page-title="{{NEW-PAGE_TITLE}}"
-      data-page-subtitle="{{NEW-PAGE_SUBTITLE}}"
-      data-nav-config="{{NEW-PAGE_NAV_CONFIG}}"
-      data-breadcrumb-category="{{NEW-PAGE_BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{NEW-PAGE_BREADCRUMB_CATEGORY_URL}}"
+      data-page-title="{{NEW_PAGE-TITLE}}"
+      data-page-subtitle="{{NEW_PAGE-SUBTITLE}}"
+      data-nav-config="{{NEW_PAGE-NAV_CONFIG}}"
+      data-breadcrumb-category="{{NEW_PAGE-BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{NEW_PAGE-BREADCRUMB_CATEGORY_URL}}"
       style="display: none"></div>
     <a
       href="#main-content"

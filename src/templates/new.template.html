@@ -26,19 +26,19 @@
     <!-- Preload critical stylesheets -->
     <link
       rel="preload"
-      href="{{GOOGLE_FONTS_LINK}}"
+      href="{{NEW-GOOGLE_FONTS_LINK}}"
       as="style" />
     <link
       rel="preload"
       as="style"
-      href="{{BASE_URL}}{{NEW_CSS_FILE}}" />
+      href="/{{NEW-CSS_FILE}}" />
     <!-- Main font and site stylesheets -->
     <link
       rel="stylesheet"
-      href="{{GOOGLE_FONTS_LINK}}" />
+      href="{{NEW-GOOGLE_FONTS_LINK}}" />
     <link
       rel="stylesheet"
-      href="{{BASE_URL}}{{NEW_CSS_FILE}}" />
+      href="/{{NEW-CSS_FILE}}" />
     <!-- FontAwesome CDN stylesheet for icons -->
     <link
       rel="stylesheet"
@@ -53,31 +53,31 @@
         }
       </style>
       <link
-        href="{{GOOGLE_FONTS_LINK}}"
+        href="{{NEW-GOOGLE_FONTS_LINK}}"
         rel="stylesheet" />
     </noscript>
     <!-- Favicons and manifest -->
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
+      href="/dist/img/favicon_io/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+      href="/dist/img/favicon_io/apple-touch-icon.png" />
     <link
       rel="manifest"
-      href="{{BASE_URL}}/manifest.json" />
+      href="//manifest.json" />
     <link
       rel="canonical"
-      href="{{BASE_URL}}{{NEW_OG_URL}}" />
+      href="/{{NEW-OG_URL}}" />
     <!-- SEO and social meta tags -->
     <meta
       name="description"
-      content="{{NEW_DESCRIPTION}}" />
+      content="{{NEW-DESCRIPTION}}" />
     <meta
       name="keywords"
-      content="{{NEW_KEYWORDS}}" />
+      content="{{NEW-KEYWORDS}}" />
     <meta
       name="author"
       content="I Knit the Web" />
@@ -86,16 +86,16 @@
       content="{{ROBOTS}}" />
     <meta
       property="og:title"
-      content="{{NEW_OG_TITLE}}" />
+      content="{{NEW-OG_TITLE}}" />
     <meta
       property="og:description"
-      content="{{NEW_OG_DESCRIPTION}}" />
+      content="{{NEW-OG_DESCRIPTION}}" />
     <meta
       property="og:image"
-      content="{{ASSET_URL}}/branding/logo.png" />
+      content="/dist/img/branding/logo.png" />
     <meta
       property="og:url"
-      content="{{BASE_URL}}{{NEW_OG_URL}}" />
+      content="/{{NEW-OG_URL}}" />
     <meta
       property="og:type"
       content="{{OG_TYPE}}" />
@@ -104,13 +104,13 @@
       content="{{TWITTER_CARD}}" />
     <meta
       name="twitter:title"
-      content="{{NEW_TWITTER_TITLE}}" />
+      content="{{NEW-TWITTER_TITLE}}" />
     <meta
       name="twitter:description"
-      content="{{NEW_TWITTER_DESCRIPTION}}" />
+      content="{{NEW-TWITTER_DESCRIPTION}}" />
     <meta
       name="twitter:image"
-      content="{{ASSET_URL}}/branding/logo.png" />
+      content="/dist/img/branding/logo.png" />
     <!-- Inline critical CSS for FOUC prevention -->
     <style>
       .no-js body {
@@ -121,31 +121,31 @@
       }
     </style>
     <!-- Critical polyfill: FOUC fix script -->
-    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
+    <script src="//dist/js/fouc-fix.js"></script>
     <!-- Third-party monitoring/analytics: Sentry -->
     <script
       src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
       crossorigin="anonymous"></script>
     <!-- Structured data for SEO -->
     <script type="application/ld+json">
-      {{{NEW_SCHEMA_JSON}}}
+      {{{NEW-SCHEMA_JSON}}}
     </script>
     <!-- Third-party library: body-scroll-lock -->
     <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
     <!-- Main app/module script -->
     <script
       type="module"
-      src="{{BASE_URL}}/dist/js/script.js"></script>
+      src="//dist/js/script.js"></script>
   </head>
 
   <body>
     <div
       id="page-data"
-      data-page-title="{{NEW_TITLE}}"
-      data-page-subtitle="{{NEW_SUBTITLE}}"
-      data-nav-config="{{NEW_NAV_CONFIG}}"
-      data-breadcrumb-category="{{NEW_BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{NEW_BREADCRUMB_CATEGORY_URL}}"
+      data-page-title="{{NEW-TITLE}}"
+      data-page-subtitle="{{NEW-SUBTITLE}}"
+      data-nav-config="{{NEW-NAV_CONFIG}}"
+      data-breadcrumb-category="{{NEW-BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{NEW-BREADCRUMB_CATEGORY_URL}}"
       style="display: none"></div>
     <a
       href="#main-content"

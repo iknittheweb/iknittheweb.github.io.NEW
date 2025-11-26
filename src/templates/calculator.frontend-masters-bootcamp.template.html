@@ -25,20 +25,20 @@
     <!-- Preload critical stylesheets -->
     <link
       rel="preload"
-      href="{{GOOGLE_FONTS_LINK}}"
+      href="{{CALCULATOR-GOOGLE_FONTS_LINK}}"
       as="style" />
     <link
       rel="preload"
       as="style"
-      href="{{BASE_URL}}{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_CSS_FILE}}" />
+      href="/{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_CSS_FILE}}" />
 
     <!-- Main font and site stylesheets -->
     <link
       rel="stylesheet"
-      href="{{GOOGLE_FONTS_LINK}}" />
+      href="{{CALCULATOR-GOOGLE_FONTS_LINK}}" />
     <link
       rel="stylesheet"
-      href="{{BASE_URL}}{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_CSS_FILE}}" />
+      href="/{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_CSS_FILE}}" />
 
     <!-- FontAwesome CDN stylesheet for icons -->
     <link
@@ -55,7 +55,7 @@
         }
       </style>
       <link
-        href="{{GOOGLE_FONTS_LINK}}"
+        href="{{CALCULATOR-GOOGLE_FONTS_LINK}}"
         rel="stylesheet" />
     </noscript>
 
@@ -63,17 +63,17 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="{{ASSET_URL}}/favicon_io/favicon.ico" />
+      href="/dist/img/favicon_io/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="{{ASSET_URL}}/favicon_io/apple-touch-icon.png" />
+      href="/dist/img/favicon_io/apple-touch-icon.png" />
     <link
       rel="manifest"
-      href="{{BASE_URL}}/manifest.json" />
+      href="//manifest.json" />
     <link
       rel="canonical"
-      href="{{BASE_URL}}{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_OG_URL}}" />
+      href="/{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_OG_URL}}" />
 
     <!-- SEO and social meta tags -->
     <meta
@@ -96,10 +96,10 @@
       content="{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_OG_DESCRIPTION}}" />
     <meta
       property="og:image"
-      content="{{ASSET_URL}}/branding/logo.png" />
+      content="/dist/img/branding/logo.png" />
     <meta
       property="og:url"
-      content="{{BASE_URL}}{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_OG_URL}}" />
+      content="/{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_OG_URL}}" />
     <meta
       property="og:type"
       content="{{OG_TYPE}}" />
@@ -114,7 +114,7 @@
       content="{{CALCULATOR-FRONTEND-MASTERS-BOOTCAMP_TWITTER_DESCRIPTION}}" />
     <meta
       name="twitter:image"
-      content="{{ASSET_URL}}/branding/logo.png" />
+      content="/dist/img/branding/logo.png" />
 
     <!-- Fallback styles for no-JS environments -->
     <noscript>
@@ -136,7 +136,7 @@
     </style>
 
     <!-- Critical polyfill: FOUC fix script -->
-    <script src="{{BASE_URL}}/dist/js/fouc-fix.js"></script>
+    <script src="//dist/js/fouc-fix.js"></script>
 
     <!-- Third-party monitoring/analytics: Sentry -->
     <script
@@ -154,10 +154,10 @@
     <!-- Main app/module script -->
     <script
       type="module"
-      src="{{BASE_URL}}/dist/js/script.js"></script>
+      src="//dist/js/script.js"></script>
     <!-- Calculator page-specific script -->
     <script
-      src="{{BASE_URL}}/dist/js/calculator.js"
+      src="//dist/js/calculator.js"
       defer></script>
   </head>
 
@@ -192,39 +192,39 @@
         Project
       </h2>
       <article class="calculator">
-        <section class="calculator__screen"> 0 </section>
+        <section class="CALCULATOR-_screen"> 0 </section>
 
-        <section class="calculator__buttons">
-          <div class="calculator__button-row">
-            <button class="calculator__button calculator__button--double"
+        <section class="CALCULATOR-_buttons">
+          <div class="CALCULATOR-_button-row">
+            <button class="CALCULATOR-_button CALCULATOR-_button--double"
               >C</button
             >
-            <button class="calculator__button">&larr;</button>
-            <button class="calculator__button">&divide;</button>
+            <button class="CALCULATOR-_button">&larr;</button>
+            <button class="CALCULATOR-_button">&divide;</button>
           </div>
-          <div class="calculator__button-row">
-            <button class="calculator__button">7</button>
-            <button class="calculator__button">8</button>
-            <button class="calculator__button">9</button>
-            <button class="calculator__button">&times;</button>
+          <div class="CALCULATOR-_button-row">
+            <button class="CALCULATOR-_button">7</button>
+            <button class="CALCULATOR-_button">8</button>
+            <button class="CALCULATOR-_button">9</button>
+            <button class="CALCULATOR-_button">&times;</button>
           </div>
-          <div class="calculator__button-row">
-            <button class="calculator__button">4</button>
-            <button class="calculator__button">5</button>
-            <button class="calculator__button">6</button>
-            <button class="calculator__button">-</button>
+          <div class="CALCULATOR-_button-row">
+            <button class="CALCULATOR-_button">4</button>
+            <button class="CALCULATOR-_button">5</button>
+            <button class="CALCULATOR-_button">6</button>
+            <button class="CALCULATOR-_button">-</button>
           </div>
-          <div class="calculator__button-row">
-            <button class="calculator__button">1</button>
-            <button class="calculator__button">2</button>
-            <button class="calculator__button">3</button>
-            <button class="calculator__button">&plus;</button>
+          <div class="CALCULATOR-_button-row">
+            <button class="CALCULATOR-_button">1</button>
+            <button class="CALCULATOR-_button">2</button>
+            <button class="CALCULATOR-_button">3</button>
+            <button class="CALCULATOR-_button">&plus;</button>
           </div>
-          <div class="calculator__button-row">
-            <button class="calculator__button calculator__button--triple"
+          <div class="CALCULATOR-_button-row">
+            <button class="CALCULATOR-_button CALCULATOR-_button--triple"
               >0</button
             >
-            <button class="calculator__button">&equals;</button>
+            <button class="CALCULATOR-_button">&equals;</button>
           </div>
         </section>
       </article>
