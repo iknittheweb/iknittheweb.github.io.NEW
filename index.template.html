@@ -1,3 +1,1490 @@
 <!doctype html>
-<html lang="en" class="no-js"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io"> <title>I Knit The Web</title> <!-- Preconnects for faster font and icon loading --> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com"> <link rel="preconnect" href="https://ka-p.fontawesome.com"> <!-- Preload critical stylesheets --> <link rel="preload" href="{{HOME-GOOGLE_FONTS_LINK}}" as="style"> <link rel="preload" as="style" href="/{{HOME-CSS_FILE}}"> <!-- Main font and site stylesheets --> <link rel="stylesheet" href="{{HOME-GOOGLE_FONTS_LINK}}"> <link rel="stylesheet" href="/{{HOME-CSS_FILE}}"> <!-- FontAwesome CDN stylesheet for icons --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"> <!-- Fallback styles for no-JS environments --> <noscript> <style> body { visibility: visible; } </style> <link href="{{HOME-GOOGLE_FONTS_LINK}}" rel="stylesheet"> </noscript> <!-- Favicons and manifest --> <link rel="icon" type="image/x-icon" href="/dist/img/favicon_io/favicon.ico"> <link rel="apple-touch-icon" sizes="180x180" href="/dist/img/favicon_io/apple-touch-icon.png"> <link rel="manifest" href="//manifest.json"> <link rel="canonical" href="/{{HOME-OG_URL}}"> <!-- SEO and social meta tags --> <meta name="description" content="{{HOME-DESCRIPTION}}"> <meta name="keywords" content="{{HOME-KEYWORDS}}"> <meta name="author" content="I Knit the Web"> <meta name="robots" content="{{ROBOTS}}"> <meta property="og:title" content="{{HOME-OG_TITLE}}"> <meta property="og:description" content="{{HOME-OG_DESCRIPTION}}"> <meta property="og:image" content="/dist/img/branding/logo.png"> <meta property="og:url" content="/{{HOME-OG_URL}}"> <meta property="og:type" content="{{OG_TYPE}}"> <meta name="twitter:card" content="{{TWITTER_CARD}}"> <meta name="twitter:title" content="{{HOME-TWITTER_TITLE}}"> <meta name="twitter:description" content="{{HOME-TWITTER_DESCRIPTION}}"> <meta name="twitter:image" content="/dist/img/branding/logo.png"> <!-- Fallback styles for no-JS environments --> <noscript> <style> body { visibility: visible; } </style> </noscript> <!-- Inline critical CSS for FOUC prevention --> <style> .no-js body { visibility: hidden; } .css-loaded body { visibility: visible; } </style> <!-- Critical polyfill: FOUC fix script --> <script src="//dist/js/fouc-fix.js"></script> <!-- Third-party monitoring/analytics: Sentry --> <script src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js" crossorigin="anonymous"></script> <!-- Structured data for SEO --> <script type="application/ld+json"> {{{HOME-SCHEMA_JSON}}} </script> <!-- Third-party library: body-scroll-lock --> <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script> <!-- Main app/module script --> <script type="module" src="//dist/js/script.js"></script> </head> <body> <div id="page-data" data-page-title="{{HOME-TITLE}}" data-page-subtitle="{{HOME-SUBTITLE}}" data-nav-config="{{HOME-NAV_CONFIG}}" data-breadcrumb-category="{{HOME-BREADCRUMB_CATEGORY}}" data-breadcrumb-category-url="{{HOME-BREADCRUMB_CATEGORY_URL}}" style="display: none"></div> <a href="//#main-content" class="skip-link" aria-label="Skip to main content"> Skip to main content </a> <header id="topNav" class="topnav" aria-label="Site header"> <h1 class="visually-hidden">I Knit The Web Header</h1> <!-- Global ARIA live region for notifications/status --> <div id="global-status" aria-live="polite" class="sr-only" tabindex="-1"></div> <div class="wrapper topnav__wrapper"> <a href="//" class="topnav__homelink hover-fade"> <!-- JS toggles .logo--hidden on this element to hide logo when menu is open --> <picture> <source srcset="/dist/img/branding/logo.avif" type="image/avif"> <source srcset="/dist/img/branding/logo.webp" type="image/webp"> <img src="/dist/img/branding/logo.png" alt="I Knit The Web Homepage" class="topnav__logo" width="250" height="250"> </picture> </a> <nav class="topnav__nav" aria-label="Main navigation" data-cy="main-nav" aria-hidden="false"> <span id="nav-label" hidden>Navigation</span> <div class="topnav__toggle"> <button id="btnOpen" class="topnav__open" aria-controls="menuTopNav" aria-expanded="false"> <span class="fa-solid fa-bars"></span> </button> <button id="btnClose" class="topnav__close" aria-controls="menuTopNav" aria-expanded="true"> <span class="fa-solid fa-xmark"></span> </button> </div> <div id="menuTopNav" class="topnav__menu"> <ul class="topnav__links"> <li class="topnav__item"> <a class="topnav__link" href="/">Home</a> </li> <li class="topnav__item"> <a class="topnav__link" href="//#about">About</a> </li> <li class="topnav__item"> <a class="topnav__link" href="//#portfolio" data-cy="nav-">Portfolio</a> </li> <li class="topnav__item"> <a class="topnav__link" href="//#contact">Contact</a> </li> </ul> </div> </nav> </div> </header> <main id="main-content" class="home"> <h1 class="home_title visually-hidden">I Knit The Web</h1> <section class="hero" aria-labelledby="main-content" id="hero" style="background-image: url('/{{HERO_BG_URL_JPG}}');"> <img src="/dist/img/pages/heading-banner-dark.svg" alt="I Knit The Web site title banner" class="hero__banner" width="1125" height="375"> <h2 class="hero__subtitle">Handcrafted Websites for Small Budgets and Big Dreams</h2> <p class="hero__intro">Time to turn your digital dreams into reality?<br> I'll help you knit them into the perfect website!</p> </section> <section id="about" class="about section-padding"> <h2>About Me</h2> <div class="about__content wrapper"> <aside class="about__profile"> <figure class="about__profile-figure"> <picture> <source srcset="/dist/img/pages/Profile.avif" type="image/avif"> <source srcset="/dist/img/pages/Profile.webp" type="image/webp"> <img src="/dist/img/pages/Profile.png" alt="Profile picture: smiling person with glasses and short hair" class="about__profile-pic" width="371" height="373" loading="lazy" decoding="async"> </picture> <figcaption class="about__profile-caption"> <p> I knit the web like a handmade sweater — structured with HTML, styled with CSS, and sprinkled with JavaScript magic for that <span class="nowrap">✨perfect fit✨</span> </p> </figcaption> </figure> </aside> <section class="about__bio"> <h3 class="HOME-_subheading about__heading">Meet Your Developer</h3> <p>Hi, I’m Marta! Collaboration is the key to building great websites; when we combine your ideas with my development skills, we can create something truly effective and unique.</p> <p>I work with HTML, CSS, JavaScript, and SCSS/Sass, using frameworks and design techniques that make your site responsive, fast, and enjoyable to use. My approach focuses on both creativity and usability.</p> <p>When I'm not coding, you'll probably find me <span class="nowrap">🧶 crafting 🧵</span> or diving into a great book. 📖 </p> <p>Take a look at my <a href="//dist/pages/portfolio.html">portfolio</a> and if you'd like to collaborate, <a href="//#contact">let's connect</a> —I'd love to help bring your ideas to life!</p> </section> </div> <section class="bonafides"> <div class="dropdown"> <div class="dropdown__title-group" role="button" tabindex="0" aria-expanded="false" aria-controls="dropdown-content" aria-describedby="dropdown-title dropdown-subtitle" id="dropdown-title-group" data-cy="dropdown-trigger"> <span class="fa-solid fa-hand-point-up dropdown__icon" aria-hidden="true"></span> <div class="dropdown__text-content"> <p class="dropdown__title" id="dropdown-title"> My Secret Stash of Code Power-Ups!</p> <p class="dropdown__subtitle" id="dropdown-subtitle" role="note" aria-label="This section contains certificates, courses and achievements">a.k.a. My Certificates, Courses & Achievements</p> </div> </div> <ul class="dropdown__content" id="dropdown-content" role="menu" aria-labelledby="dropdown-title-group" data-cy="dropdown-content" aria-hidden="true"> <li> <div class="achievement"> <span class="fa-solid fa-scroll achievement-icon" aria-hidden="true"></span> <span>Level 1 Certifications in <a href="/dist/img/certificates/CCA-Certificate-HTML-Level-1.jpg" target="_blank" rel="noopener" class="link__cert">HTML</a>, <a href="/dist/img/certificates/CCA-Certificate-CSS-Level-1.jpg" target="_blank" rel="noopener" class="link__cert">CSS</a>, and <a href="/dist/img/certificates/CCA-Certificate-Javascript-Level-1.jpg" target="_blank" rel="noopener" class="link__cert">JavaScript</a></span> </div> <div class="source">Cambridge Certification Authority</div> </li> <li> <div class="achievement"> <span class="fa-solid fa-books achievement-icon" style=" --fa-primary-color: #2e0a20; --fa-secondary-color: #b89cbf; " aria-hidden="true"></span> <span><a href="/dist/img/certificates/Sololearn-HTML-Course.jpg" target="_blank" rel="noopener" class="link__cert">HTML</a>, <a href="/dist/img/certificates/Sololearn-CSS-Course.jpg" target="_blank" rel="noopener" class="link__cert">CSS</a>, and <a href="/dist/img/certificates/Sololearn-Web-Development-course.jpg" target="_blank" rel="noopener" class="link__cert">Web Development Fundamentals</a> Courses</span> </div> <div class="source"> <a href="https://www.sololearn.com/" target="_blank" rel="noopener" class="link__site">SoloLearn</a> </div> </li> <li> <div class="achievement"> <span class="fa-solid fa-books achievement-icon" style=" --fa-primary-color: #2e0a20; --fa-secondary-color: #b89cbf; " aria-hidden="true"></span> <span><a href="/dist/img/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg" target="_blank" rel="noopener" class="link__cert">Conquering Responsive Layouts</a> Course </span> </div> <div class="source"> <a href="https://courses.kevinpowell.co/conquering-responsive-layouts" target="_blank" rel="noopener" class="link__site">Kevin Powell</a> </div> </li> <li> <div class="achievement"> <span class="fa-solid fa-scroll achievement-icon" style=" --fa-primary-color: #2e0a20; --fa-secondary-color: #b89cbf; " aria-hidden="true"></span> <span> <a href="/dist/img/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png" target="_blank" rel="noopener" class="link__cert">Responsive Web Design</a> Developer Certification </span> </div> <div class="source"> <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener" class="link__site">freeCodeCamp</a> </div> </li> <li> <div class="achievement"> <span class="fa-solid fa-scroll achievement-icon" aria-hidden="true"></span> <span><a href="/dist/img/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg" target="_blank" rel="noopener" class="link__cert">HTML Forms</a>, <a href="/dist/img/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg" target="_blank" rel="noopener" class="link__cert">Website Embeds & GitHub Pages</a>, and <a href="/dist/img/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg target="_blank" rel="noopener" class="link__cert">Calculator Project</a> Certifications </span> </div> <div class="source"> <a href="https://frontendmasters.com/bootcamp/" target="_blank" rel="noopener" class="link__site">Frontend Masters Bootcamp</a> </div> </li> </ul> </div> <!-- 🎯 SKILLS CHART COMPONENT START --> <div class="skills-chart" id="skills-chart"> <div class="skills-chart__header"> <h3 class="skills-chart__title">Interactive Skills Overview</h3> <p class="skills-chart__subtitle">Explore my technical proficiency levels and learning journey</p> </div> <div class="skills-chart__dropdowns"> <div class="skills-chart__dropdown"> <div class="skills-chart__tab" role="button" tabindex="0" aria-expanded="false" aria-controls="core-tech" aria-label="Toggle Core Technologies skills section" id="tab-core"> <span class="fa-solid fa-hand-point-up skills-chart__icon" aria-hidden="true"></span> <span class="skills-chart__tab-text">Core Technologies</span> </div> </div> <div class="skills-chart__dropdown"> <div class="skills-chart__tab" role="button" tabindex="0" aria-expanded="false" aria-controls="tools" aria-label="Toggle Tools & Workflow skills section" id="tab-tools"> <span class="fa-solid fa-hand-point-up skills-chart__icon" aria-hidden="true"></span> <span class="skills-chart__tab-text">Tools & Workflow</span> </div> </div> <div class="skills-chart__dropdown"> <div class="skills-chart__tab" role="button" tabindex="0" aria-expanded="false" aria-controls="learning" aria-label="Toggle Learning Journey skills section" id="tab-learning"> <span class="fa-solid fa-hand-point-up skills-chart__icon" aria-hidden="true"></span> <span class="skills-chart__tab-text">Learning Journey</span> </div> </div> </div> <div class="skills-chart__content"> <!-- Core Technologies Tab --> <div class="skills-chart__category" role="tabpanel" aria-labelledby="tab-core" id="core-tech"> <div class="skills-chart__skill-group"> <h4 class="skills-chart__group-title"></h4> <picture> <source srcset="/dist/img/pages/Profile.avif" type="image/avif"> <source srcset="/dist/img/pages/Profile.webp" type="image/webp"> <img src="/dist/img/pages/Profile.png" alt="Profile picture: smiling person with glasses and short hair" class="about__profile-pic" width="371" height="373" loading="lazy" decoding="async"> </picture> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"><span class="fa-brands fa-html5 skills-chart__skill-icon" aria-hidden="true"></span> HTML5 </span> <span class="skills-chart__skill-level">Advanced</span> </div> <div class="skills-chart__progress-bar" role="progressbar" aria-label="HTML5 skill level" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-valuetext="90% - Advanced level"> <div class="skills-chart__progress-fill" data-level="90"></div> </div> <p class="skills-chart__skill-description">Semantic markup, accessibility, forms, validation, structured data</p> </div> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"> <span class="fa-brands fa-css3-alt skills-chart__skill-icon" aria-hidden="true"></span> CSS3 </span><span class="skills-chart__skill-level">Advanced</span> </div> <div class="skills-chart__progress-bar" role="progressbar" aria-label="CSS3 skill level" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-valuetext="85% - Advanced level"> <div class="skills-chart__progress-fill" data-level="85"></div> </div> <p class="skills-chart__skill-description">Flexbox, Grid, animations, responsive design, custom properties</p> </div> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"><span class="fa-brands fa-sass skills-chart__skill-icon" aria-hidden="true"></span> SCSS/Sass </span> <span class="skills-chart__skill-level">Advanced</span> </div> <div class="skills-chart__progress-bar" role="progressbar" aria-label="SCSS/Sass skill level" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-valuetext="88% - Advanced level"> <div class="skills-chart__progress-fill" data-level="88"></div> </div> <p class="skills-chart__skill-description">7-1 architecture, mixins, functions, BEM methodology, component-based design</p> </div> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"><span class="fa-brands fa-square-js skills-chart__skill-icon" aria-hidden="true"></span> JavaScript </span><span class="skills-chart__skill-level">Intermediate</span> </div> <div class="skills-chart__progress-bar"> <div class="skills-chart__progress-fill" data-level="75"></div> </div> <p class="skills-chart__skill-description">ES6+, DOM manipulation, form validation, async/await, component architecture</p> </div> <h4 class="skills-chart__group-title"><span class="fa-solid fa-palette skills-chart__group-icon" aria-hidden="true"></span> Design & UX </h4> <div class="skills-chart__skills-list"> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"><span class="fa-solid fa-universal-access skills-chart__skill-icon" aria-hidden="true"></span> Accessibility (WCAG) </span> <span class="skills-chart__skill-level">Advanced</span> </div> <div class="skills-chart__progress-bar"> <div class="skills-chart__progress-fill" data-level="92"></div> </div> <p class="skills-chart__skill-description">AAA compliance, ARIA, keyboard navigation, screen reader optimization</p> </div> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"><span class="fa-solid fa-mobile-screen-button skills-chart__skill-icon" aria-hidden="true"></span> Responsive Design </span> <span class="skills-chart__skill-level">Advanced</span> </div> <div class="skills-chart__progress-bar"> <div class="skills-chart__progress-fill" data-level="90"></div> </div> <p class="skills-chart__skill-description">Mobile-first approach, breakpoint systems, fluid layouts, progressive enhancement</p> </div> </div> </div> </div> <!-- Tools & Workflow Tab --> <div class="skills-chart__category" role="tabpanel" aria-labelledby="tab-tools" id="tools"> <div class="skills-chart__skill-group"> <h4 class="skills-chart__group-title"><span class="fa-solid fa-screwdriver-wrench skills-chart__group-icon" aria-hidden="true"></span> Development Tools</h4> <div class="skills-chart__skills-list"> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"><span class="fa-brands fa-git-alt skills-chart__skill-icon" aria-hidden="true"></span> Git & GitHub </span> <span class="skills-chart__skill-level">Intermediate</span> </div> <div class="skills-chart__progress-bar"> <div class="skills-chart__progress-fill" data-level="80"></div> </div> <p class="skills-chart__skill-description">Version control, branching, pull requests, GitHub Pages deployment</p> </div> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"><span class="fa-solid fa-code skills-chart__skill-icon" aria-hidden="true"></span> VS Code </span> <span class="skills-chart__skill-level">Advanced</span> </div> <div class="skills-chart__progress-bar"> <div class="skills-chart__progress-fill" data-level="95"></div> </div> <p class="skills-chart__skill-description">Extensions, debugging, integrated terminal, customization, productivity workflows</p> </div> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"><span class="fa-brands fa-npm skills-chart__skill-icon" aria-hidden="true"></span> npm & Build Tools </span> <span class="skills-chart__skill-level">Intermediate</span> </div> <div class="skills-chart__progress-bar"> <div class="skills-chart__progress-fill" data-level="78"> </div> </div> <p class="skills-chart__skill-description"> Package management, custom build scripts, SCSS compilation, automation </p> </div> </div> </div> <div class="skills-chart__skill-group"> <h4 class="skills-chart__group-title"> <i class="fa-solid fa-clipboard-check skills-chart__group-icon" aria-hidden="true"> </i> Quality & Testing </h4> <div class="skills-chart__skills-list"> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"> <i class="fa-solid fa-check-circle skills-chart__skill-icon" aria-hidden="true"> </i> ESLint & Prettier </span> <span class="skills-chart__skill-level"> Intermediate </span> </div> <div class="skills-chart__progress-bar"> <div class="skills-chart__progress-fill" data-level="75"> </div> </div> <p class="skills-chart__skill-description"> Code linting, formatting, pre-commit hooks, code quality standards </p> </div> <div class="skills-chart__skill"> <div class="skills-chart__skill-header"> <span class="skills-chart__skill-name"> <i class="fa-solid fa-vial skills-chart__skill-icon" aria-hidden="true"> </i> Browser Testing </span> <span class="skills-chart__skill-level"> Intermediate </span> </div> <div class="skills-chart__progress-bar"> <div class="skills-chart__progress-fill" data-level="72"> </div> </div> <p class="skills-chart__skill-description"> Cross-browser compatibility, responsive testing, accessibility validation </p> </div> </div> </div> </div> <!-- Learning Journey Tab --> <div class="skills-chart__category" role="tabpanel" aria-labelledby="tab-learning" id="learning"> <div class="skills-chart__timeline"> <h4 class="skills-chart__timeline-title"> My Coding Journey Timeline </h4> <div class="skills-chart__timeline-items"> <div class="skills-chart__timeline-item"> <div class="skills-chart__timeline-date"> 2024 - Present </div> <div class="skills-chart__timeline-event"> Advanced Frontend Development </div> <div class="skills-chart__timeline-description"> Custom build systems, component architecture, accessibility best practices, performance optimization </div> </div> <div class="skills-chart__timeline-item"> <div class="skills-chart__timeline-date"> 2024 </div> <div class="skills-chart__timeline-event"> SCSS & Advanced CSS </div> <div class="skills-chart__timeline-description"> Mastered Sass preprocessing, 7-1 architecture, BEM methodology, CSS Grid and Flexbox </div> </div> <div class="skills-chart__timeline-item"> <div class="skills-chart__timeline-date"> 2023-2024 </div> <div class="skills-chart__timeline-event"> JavaScript Fundamentals </div> <div class="skills-chart__timeline-description"> ES6+ features, DOM manipulation, form validation, async programming, API integration </div> </div> <div class="skills-chart__timeline-item"> <div class="skills-chart__timeline-date"> 2023 </div> <div class="skills-chart__timeline-event"> CSS & Responsive Design </div> <div class="skills-chart__timeline-description"> Advanced CSS layouts, responsive design principles, mobile-first approach, CSS animations </div> </div> <div class="skills-chart__timeline-item"> <div class="skills-chart__timeline-date"> 2022-2023 </div> <div class="skills-chart__timeline-event"> HTML & Web Fundamentals </div> <div class="skills-chart__timeline-description"> Semantic HTML, accessibility basics, forms, web standards, browser compatibility </div> </div> </div> </div> </div> </div> </div> <!-- 🎯 SKILLS CHART COMPONENT END --> </section> <a href="#topNav" class="back-to-top-link" aria-label="Back to top"> <span class="fa-solid fa-arrow-up" aria-hidden="true"> </span> <span class="visually-hidden"> Back to top </span> </a> </section> <hr> <section id="portfolio" class="portfolio wrapper section-padding"> <h2 class="HOME-_subheading portfolio__heading"> Portfolio </h2> <p class="portfolio__intro"> Step inside my world of web development! These projects are where ideas are knit into clean, responsive, and interactive websites using HTML, CSS, SCSS, and a dash of ✨ JavaScript magic ✨. </p> <p class="portfolio__page-link"> <a href="//portfolio.html" class="portfolio__link"> View the full portfolio page &rarr; </a> </p> <!-- Technical Architecture Showcase --> <details class="code-showcase code-showcase--centered"> <summary> <span class="fa-solid fa-hand-point-right code-showcase__marker"> </span> View Site Architecture & Technical Implementation </summary> <div class="code-showcase__content"> <pre> <code class="language-javascript"> // Responsive Navigation with Accessibility function openMobileMenu() { if (!menuTopNav || !overlay) return; // Visual changes menuTopNav.classList.add('mobile-menu--open'); overlay.classList.add('overlay--visible'); // Accessibility improvements menuTopNav.removeAttribute('inert'); btnOpen.setAttribute('aria-expanded', 'true'); // Focus management for screen readers const firstNavLink = menuTopNav.querySelector('a'); if (firstNavLink) firstNavLink.focus(); // Trap focus within menu document.addEventListener('keydown', handleEscapeKey); } </code> </pre> <div class="code-showcase__explanation"> <p> <strong> This portfolio showcases: </strong> Custom build system with SCSS compilation, component-based architecture, WCAG AAA accessibility compliance, responsive design with mobile-first approach, and performance-optimized deployment. Every project demonstrates clean, maintainable code following modern web development best practices. </p> </div> <div class="code-showcase__links"> <a href="https://github.com/iknittheweb/iknittheweb.github.io.NEW"> View complete repository </a> </div> </div> </details> <div class="portfolio__row"> <article class="card"> <div class="card__header"> <a href="//alien-abduction-form.html" class="card__header__link"> <h3 class="card__title"> Alien Abduction Order Form </h3> </a> </div> <div class="card__body"> <figure class="card__figure"> <picture> <source srcset="/dist/img/cards/Alien-abduction-form-thumb.avif" type="image/avif"> <source srcset="/dist/img/cards/Alien-abduction-form-thumb.webp" type="image/webp"> <img src="/dist/img/cards/Alien-abduction-form-thumb.jpg" alt="Thumbnail preview of Alien Abduction Order Form project" class="card__image" width="345" height="259" data-js-onerror="imgErrorHandler" loading="lazy" decoding="async"> </picture> <figcaption class="card__caption"> <p> When you want an alien abduction, you want it your way. Fill out this form to get started. </p> </figcaption> </figure> <details class="code-showcase"> <summary> View Form Validation Logic </summary> <div class="code-showcase__content"> <pre> <code class="language-javascript"> // Form data collection and validation function sendData() { var urlEncodedDataPairs = []; // Collect form fields with validation urlEncodedDataPairs.push( encodeURIComponent('name') + '=' + encodeURIComponent(form.querySelector('[name="name"]').value) ); // Handle radio button selection let radio = document.getElementsByName('ufotype'); for (var i = 0; i < radio.length; i++) { if (radio[i].checked) { urlEncodedDataPairs.push( encodeURIComponent('ufotype') + '=' + encodeURIComponent(radio[i].value) ); } } } </code> </pre> <div class="code-showcase__explanation"> <p> <strong> Technical highlights: </strong> Custom form validation, data encoding for security, dynamic radio button handling, and XMLHttpRequest implementation for form submission. </p> </div> <div class="code-showcase__links"> <a href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main/dist/img/src/js/alien-abduction-form.js"> View full component </a> </div> </div> </details> </div> <div class="card__footer"> <a href="//alien-abduction-form.html" class="card__button card__button--primary card__link"> See more... </a> </div> </article> <article class="card"> <div class="card__header"> <a href="//calculator.html" class="card__header__link"> <h3 class="card__title"> Calculator </h3> </a> </div> <div class="card__body"> <figure class="card__figure"> <picture> <source srcset="/dist/img/cards/Calculator-thumb.avif" type="image/avif"> <source srcset="/dist/img/cards/Calculator-thumb.webp" type="image/webp"> <img src="/dist/img/cards/Calculator-thumb.jpg" alt="Thumbnail preview of Calculator project" class="card__image" width="356" height="268" data-js-onerror="imgErrorHandler" loading="lazy" decoding="async"> </picture> <figcaption class="card__caption"> <p> A responsive calculator with advanced operations, built with vanilla JavaScript and modern CSS Grid. </p> </figcaption> </figure> <details class="code-showcase"> <summary> View Calculator Logic </summary> <div class="code-showcase__content"> <pre> <code class="language-javascript"> // Advanced calculator operations class Calculator { constructor() { this.currentInput = '0'; this.previousInput = ''; this.operator = null; this.memory = 0; } handleOperation(op) { if (this.operator && this.previousInput) { this.calculate(); } this.operator = op; this.previousInput = this.currentInput; this.currentInput = '0'; } calculate() { const prev = parseFloat(this.previousInput); const current = parseFloat(this.currentInput); switch (this.operator) { case '+': return prev + current; case '-': return prev - current; case '*': return prev * current; case '/': return prev !== 0 ? prev / current : 'Error'; } } } </code> </pre> <div class="code-showcase__explanation"> <p> <strong> Technical highlights: </strong> Object-oriented JavaScript design, error handling for division by zero, memory functions, and CSS Grid layout for responsive button arrangement. </p> </div> <div class="code-showcase__links"> <a href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main/dist/img/src/js/calculator.js"> View full component </a> </div> </div> </details> </div> <div class="card__footer"> <a href="//calculator.html" class="card__button card__button--primary card__link"> See more... </a> </div> </article> <article class="card"> <div class="card__header"> <a href="//css-position-cheat-sheet.html" class="card__header__link"> <h3 class="card__title"> CSS Position Cheat Sheet </h3> </a> </div> <div class="card__body"> <figure class="card__figure"> <picture> <source srcset="/dist/img/cards/css-position-cheat-sheet-thumb.avif" type="image/avif"> <source srcset="/dist/img/cards/css-position-cheat-sheet-thumb.webp" type="image/webp"> <img src="/dist/img/cards/css-position-cheat-sheet-thumb.png" alt="Thumbnail preview of CSS Position Cheat Sheet project" class="card__image" width="1868" height="1401" data-js-onerror="imgErrorHandler" loading="lazy" decoding="async"> </picture> <figcaption class="card__caption"> <p> Interactive cheat sheet demonstrating CSS positioning with live examples, built using advanced SCSS architecture and responsive design patterns. </p> </figcaption> </figure> <details class="code-showcase"> <summary> View SCSS Architecture </summary> <div class="code-showcase__content"> <pre> <code class="language-scss"> // Advanced SCSS mixin for responsive breakpoints @mixin breakpoint-up($size) { @if map.has-key($breakpoints-up, $size) { @media (width>= #{map.get($breakpoints-up, $size)}) { @content; } } @else { @warn "Breakpoint '#{$size}' not found in $breakpoints-up"; } } // Component architecture example .position-demo { &__container { display: grid; gap: f.rem(24); @include breakpoint-up('700') { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } } &__card { background: var(--card__bg); border: 2px solid var(--primary-border); border-radius: f.rem(8); padding: f.rem(16); &--relative { position: relative; } &--absolute { position: absolute; } &--fixed { position: fixed; } &--sticky { position: sticky; } } } </code> </pre> <div class="code-showcase__explanation"> <p> <strong> Technical highlights: </strong> Custom SCSS function library, systematic breakpoint management, BEM methodology, CSS custom properties, and modular component architecture following 7-1 pattern. </p> </div> <div class="code-showcase__links"> <a href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/tree/main/dist/img/src/scss"> View SCSS architecture </a> </div> </div> </details> </div> <div class="card__footer"> <a href="//css-position-cheat-sheet.html" class="card__button card__button--primary card__link"> See more... </a> </div> </article> <!-- Add more projects here as needed --> </div> <a href="#topNav" class="back-to-top-link" aria-label="Back to top"> <span class="fa-solid fa-arrow-up" aria-hidden="true"> </span> <span class="visually-hidden"> Back to top </span> </a> </section> <hr> <section id="contact" class="contact contact--inverse"> <h2 class="HOME-_subheading contact__heading"> Contact Me </h2> <p class="contact__intro"> Got a web project that needs the personal touch? I specialize in handcrafted websites that fit your budget and exceed your expectations. Let's connect and start telling your digital story! </p> <form class="contact__form" action="https://formspree.io/f/mpwyyeaa" autocomplete="on" novalidate data-cy="contact-form"> <fieldset class="contact__fieldset"> <legend class="contact__legend"> Ready to Connect the Threads? </legend> <div class="contact__group"> <label class="contact__label" for="name"> Let's start with introductions <span aria-hidden="true" class="contact__label--required"> * required </span> </label> <input class="contact__input" type="text" id="name" name="name" placeholder="Your name here..." required autocomplete="name" aria-describedby="name-error" data-cy="contact-name"> <div id="name-error" class="contact__error" aria-live="polite"> </div> </div> <div class="contact__group"> <label class="contact__label" for="email"> Where can I reach you? <span aria-hidden="true" class="contact__label--required"> * required </span> </label> <input class="contact__input" type="email" id="email" name="email" placeholder="your.email@example.com" required autocomplete="email" aria-describedby="email-error" data-cy="contact-email"> <div id="email-error" class="contact__error" aria-live="polite"> </div> </div> <div class="contact__group"> <label class="contact__label" for="message"> Share your vision <span aria-hidden="true" class="contact__label--required"> * required </span> </label> <textarea class="contact__input" id="message" name="message" rows="5" placeholder="Tell me about your project ideas, goals, budget, timeline, or any questions you have. I'd love to hear what you're envisioning!" required aria-describedby="message-error" data-cy="contact-message"> </textarea> <div id="message-error" class="contact__error" aria-live="polite"> </div> </div> <button type="submit" class="contact__submit" data-sparkles="true" data-cy="contact-submit"> <span class="contact__submit-text"> Start the Conversation </span> <span class="contact__sparkle contact__sparkle--main" aria-hidden="true"> ✨ </span> <span class="contact__sparkle contact__sparkle--left" aria-hidden="true"> ✨ </span> <span class="contact__sparkle contact__sparkle--top" aria-hidden="true"> ✨ </span> <span class="contact__sparkle contact__sparkle--bottom" aria-hidden="true"> ✨ </span> </button> </fieldset> </form> <a href="#topNav" class="back-to-top-link" aria-label="Back to top"> <span class="fa-solid fa-arrow-up" aria-hidden="true"> </span> <span class="visually-hidden"> Back to top </span> </a> </section> </main> <footer class="footer" role="contentinfo" aria-label="Site footer"> <div class="footer__content wrapper"> <div class="footer__sections"> <!-- About Section --> <div class="footer__section footer__about"> <h2 class="footer__heading"> I Knit The Web </h2> <p class="footer__description"> Crafting handmade websites with care, creativity, and code. Bringing your digital dreams to life, one thread at a time. </p> </div> <!-- Quick Links Section --> <div class="footer__section footer__links"> <h3 class="footer__heading"> Quick Links </h3> <nav class="footer__nav"> <ul class="footer__nav-list"> <li> <a href="//#main-content" class="footer__nav-link"> Home </a> </li> <li> <a href="//#about" class="footer__nav-link"> About </a> </li> <li> <a href="//#portfolio" class="footer__nav-link"> Portfolio </a> </li> <li> <a href="//#contact" class="footer__nav-link"> Contact </a> </li> </ul> </nav> </div> <!-- Contact Section --> <div class="footer__section footer__contact"> <h3 class="footer__heading"> Let's Connect </h3> <p class="footer__contact-text"> Ready to start your project? I'd love to hear about your ideas and help bring them to life. </p> <a href="//#contact" class="footer__cta-link"> Get In Touch </a> </div> </div> <!-- Bottom Bar --> <div class="footer__bottom"> <div class="footer__bottom-content"> <p class="footer__copyright"> &copy; 2025 I Knit The Web. All rights reserved. </p> <p class="footer__tagline"> Handcrafted with 💜 and lots of ☕ </p> </div> </div> <a href="#topNav" class="back-to-top-link" aria-label="Back to top"> <span class="fa-solid fa-arrow-up" aria-hidden="true"> </span> <span class="visually-hidden"> Back to top </span> </a> </div> </footer> </body>
+<html
+  lang="en"
+  class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
+    <title>I Knit The Web</title>
+    <!-- Preconnects for faster font and icon loading -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com" />
+    <link
+      rel="preconnect"
+      href="https://ka-p.fontawesome.com" />
+    <!-- Preload critical stylesheets -->
+    <link
+      rel="preload"
+      href="{{HOME-GOOGLE_FONTS_LINK}}"
+      as="style" />
+    <link
+      rel="preload"
+      as="style"
+      href="/{{HOME-CSS_FILE}}" />
+    <!-- Main font and site stylesheets -->
+    <link
+      rel="stylesheet"
+      href="{{HOME-GOOGLE_FONTS_LINK}}" />
+    <link
+      rel="stylesheet"
+      href="/{{HOME-CSS_FILE}}" />
+    <!-- FontAwesome CDN stylesheet for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <!-- Fallback styles for no-JS environments -->
+    <noscript>
+      <style>
+        body {
+          visibility: visible;
+        }
+      </style>
+      <link
+        href="{{HOME-GOOGLE_FONTS_LINK}}"
+        rel="stylesheet" />
+    </noscript>
+    <!-- Favicons and manifest -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/dist/img/favicon_io/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/dist/img/favicon_io/apple-touch-icon.png" />
+    <link
+      rel="manifest"
+      href="//manifest.json" />
+    <link
+      rel="canonical"
+      href="/{{HOME-OG_URL}}" />
+    <!-- SEO and social meta tags -->
+    <meta
+      name="description"
+      content="{{HOME-DESCRIPTION}}" />
+    <meta
+      name="keywords"
+      content="{{HOME-KEYWORDS}}" />
+    <meta
+      name="author"
+      content="I Knit the Web" />
+    <meta
+      name="robots"
+      content="{{ROBOTS}}" />
+    <meta
+      property="og:title"
+      content="{{HOME-OG_TITLE}}" />
+    <meta
+      property="og:description"
+      content="{{HOME-OG_DESCRIPTION}}" />
+    <meta
+      property="og:image"
+      content="/dist/img/branding/logo.png" />
+    <meta
+      property="og:url"
+      content="/{{HOME-OG_URL}}" />
+    <meta
+      property="og:type"
+      content="{{OG_TYPE}}" />
+    <meta
+      name="twitter:card"
+      content="{{TWITTER_CARD}}" />
+    <meta
+      name="twitter:title"
+      content="{{HOME-TWITTER_TITLE}}" />
+    <meta
+      name="twitter:description"
+      content="{{HOME-TWITTER_DESCRIPTION}}" />
+    <meta
+      name="twitter:image"
+      content="/dist/img/branding/logo.png" />
+    <!-- Fallback styles for no-JS environments -->
+    <noscript>
+      <style>
+        body {
+          visibility: visible;
+        }
+      </style>
+    </noscript>
+    <!-- Inline critical CSS for FOUC prevention -->
+    <style>
+      .no-js body {
+        visibility: hidden;
+      }
+      .css-loaded body {
+        visibility: visible;
+      }
+    </style>
+    <!-- Critical polyfill: FOUC fix script -->
+    <script src="//dist/js/fouc-fix.js"></script>
+    <!-- Third-party monitoring/analytics: Sentry -->
+    <script
+      src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
+      crossorigin="anonymous"></script>
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+      {{{HOME-SCHEMA_JSON}}}
+    </script>
+    <!-- Third-party library: body-scroll-lock -->
+    <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
+    <!-- Main app/module script -->
+    <script
+      type="module"
+      src="//dist/js/script.js"></script>
+  </head>
+  <body>
+    ...existing code...
+    <div
+      id="page-data"
+      data-page-title="{{HOME-TITLE}}"
+      data-page-subtitle="{{HOME-SUBTITLE}}"
+      data-nav-config="{{HOME-NAV_CONFIG}}"
+      data-breadcrumb-category="{{HOME-BREADCRUMB_CATEGORY}}"
+      data-breadcrumb-category-url="{{HOME-BREADCRUMB_CATEGORY_URL}}"
+      style="display: none"></div>
+    <a
+      href="//#main-content"
+      class="skip-link"
+      aria-label="Skip to main content">
+      Skip to main content
+    </a>
+    <header
+      id="topNav"
+      class="topnav"
+      aria-label="Site header">
+      <h1 class="visually-hidden">I Knit The Web Header</h1>
+      <!-- Global ARIA live region for notifications/status -->
+      <div
+        id="global-status"
+        aria-live="polite"
+        class="sr-only"
+        tabindex="-1"></div>
+      <div class="wrapper topnav__wrapper">
+        <a
+          href="//"
+          class="topnav__homelink hover-fade">
+          <!-- JS toggles .logo--hidden on this element to hide logo when menu is open -->
+          <picture>
+            <source
+              srcset="/dist/img/branding/logo.avif"
+              type="image/avif" />
+            <source
+              srcset="/dist/img/branding/logo.webp"
+              type="image/webp" />
+            <img
+              src="/dist/img/branding/logo.png"
+              alt="I Knit The Web Homepage"
+              class="topnav__logo"
+              width="250"
+              height="250" />
+          </picture>
+        </a>
+        <nav
+          class="topnav__nav"
+          aria-label="Main navigation"
+          data-cy="main-nav"
+          aria-hidden="false">
+          <span
+            id="nav-label"
+            hidden
+            >Navigation</span
+          >
+          <div class="topnav__toggle">
+            <button
+              id="btnOpen"
+              class="topnav__open"
+              aria-controls="menuTopNav"
+              aria-expanded="false">
+              <span class="fa-solid fa-bars"></span>
+            </button>
+            <button
+              id="btnClose"
+              class="topnav__close"
+              aria-controls="menuTopNav"
+              aria-expanded="true">
+              <span class="fa-solid fa-xmark"></span>
+            </button>
+          </div>
+          <div
+            id="menuTopNav"
+            class="topnav__menu">
+            <ul class="topnav__links">
+              <li class="topnav__item">
+                <a
+                  class="topnav__link"
+                  href="/"
+                  >Home</a
+                >
+              </li>
+              <li class="topnav__item">
+                <a
+                  class="topnav__link"
+                  href="//#about"
+                  >About</a
+                >
+              </li>
+              <li class="topnav__item">
+                <a
+                  class="topnav__link"
+                  href="//#portfolio"
+                  data-cy="nav-"
+                  >Portfolio</a
+                >
+              </li>
+              <li class="topnav__item">
+                <a
+                  class="topnav__link"
+                  href="//#contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main
+      id="main-content"
+      class="home">
+      <h1 class="home_title visually-hidden">I Knit The Web</h1>
+      <section
+        class="hero"
+        aria-labelledby="main-content"
+        id="hero"
+        style="background-image: url('/{{HERO_BG_URL_JPG}}');">
+        <img
+          src="/dist/img/pages/heading-banner-dark.svg"
+          alt="I Knit The Web site title banner"
+          class="hero__banner"
+          width="1125"
+          height="375" />
+        <h2 class="hero__subtitle"
+          >Handcrafted Websites for Small Budgets and Big Dreams</h2
+        >
+        <p class="hero__intro"
+          >Time to turn your digital dreams into reality?<br />
+          I'll help you knit them into the perfect website!</p
+        >
+      </section>
+      <section
+        id="about"
+        class="about section-padding">
+        <h2>About Me</h2>
+        <div class="about__content wrapper">
+          <aside class="about__profile">
+            <figure class="about__profile-figure">
+              <picture>
+                <source
+                  srcset="/dist/img/pages/Profile.avif"
+                  type="image/avif" />
+                <source
+                  srcset="/dist/img/pages/Profile.webp"
+                  type="image/webp" />
+                <img
+                  src="/dist/img/pages/Profile.png"
+                  alt="Profile picture: smiling person with glasses and short hair"
+                  class="about__profile-pic"
+                  width="371"
+                  height="373"
+                  loading="lazy"
+                  decoding="async" />
+              </picture>
+              <figcaption class="about__profile-caption">
+                <p>
+                  I knit the web like a handmade sweater — structured with HTML,
+                  styled with CSS, and sprinkled with JavaScript magic for that
+                  <span class="nowrap">✨perfect fit✨</span>
+                </p>
+              </figcaption>
+            </figure>
+          </aside>
+          <section class="about__bio">
+            <h3 class="HOME-_subheading about__heading">Meet Your Developer</h3>
+            <p
+              >Hi, I’m Marta! Collaboration is the key to building great
+              websites; when we combine your ideas with my development skills,
+              we can create something truly effective and unique.</p
+            >
+            <p
+              >I work with HTML, CSS, JavaScript, and SCSS/Sass, using
+              frameworks and design techniques that make your site responsive,
+              fast, and enjoyable to use. My approach focuses on both creativity
+              and usability.</p
+            >
+            <p
+              >When I'm not coding, you'll probably find me
+              <span class="nowrap">🧶 crafting 🧵</span> or diving into a great
+              book. 📖
+            </p>
+            <p
+              >Take a look at my
+              <a href="//dist/pages/portfolio.html">portfolio</a> and if you'd
+              like to collaborate, <a href="//#contact">let's connect</a> —I'd
+              love to help bring your ideas to life!</p
+            >
+          </section>
+        </div>
+        <section class="bonafides">
+          <div class="dropdown">
+            <div
+              class="dropdown__title-group"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+              aria-controls="dropdown-content"
+              aria-describedby="dropdown-title dropdown-subtitle"
+              id="dropdown-title-group"
+              data-cy="dropdown-trigger">
+              <span
+                class="fa-solid fa-hand-point-up dropdown__icon"
+                aria-hidden="true"></span>
+              <div class="dropdown__text-content">
+                <p
+                  class="dropdown__title"
+                  id="dropdown-title">
+                  My Secret Stash of Code Power-Ups!</p
+                >
+                <p
+                  class="dropdown__subtitle"
+                  id="dropdown-subtitle"
+                  role="note"
+                  aria-label="This section contains certificates, courses and achievements"
+                  >a.k.a. My Certificates, Courses & Achievements</p
+                >
+              </div>
+            </div>
+            <ul
+              class="dropdown__content"
+              id="dropdown-content"
+              role="menu"
+              aria-labelledby="dropdown-title-group"
+              data-cy="dropdown-content"
+              aria-hidden="true">
+              <li>
+                <div class="achievement">
+                  <span
+                    class="fa-solid fa-scroll achievement-icon"
+                    aria-hidden="true"></span>
+                  <span
+                    >Level 1 Certifications in
+                    <a
+                      href="/dist/img/certificates/CCA-Certificate-HTML-Level-1.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >HTML</a
+                    >,
+                    <a
+                      href="/dist/img/certificates/CCA-Certificate-CSS-Level-1.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >CSS</a
+                    >, and
+                    <a
+                      href="/dist/img/certificates/CCA-Certificate-Javascript-Level-1.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >JavaScript</a
+                    ></span
+                  >
+                </div>
+                <div class="source">Cambridge Certification Authority</div>
+              </li>
+              <li>
+                <div class="achievement">
+                  <span
+                    class="fa-solid fa-books achievement-icon"
+                    style="
+                      --fa-primary-color: #2e0a20;
+                      --fa-secondary-color: #b89cbf;
+                    "
+                    aria-hidden="true"></span>
+                  <span
+                    ><a
+                      href="/dist/img/certificates/Sololearn-HTML-Course.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >HTML</a
+                    >,
+                    <a
+                      href="/dist/img/certificates/Sololearn-CSS-Course.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >CSS</a
+                    >, and
+                    <a
+                      href="/dist/img/certificates/Sololearn-Web-Development-course.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >Web Development Fundamentals</a
+                    >
+                    Courses</span
+                  >
+                </div>
+                <div class="source">
+                  <a
+                    href="https://www.sololearn.com/"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__site"
+                    >SoloLearn</a
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="achievement">
+                  <span
+                    class="fa-solid fa-books achievement-icon"
+                    style="
+                      --fa-primary-color: #2e0a20;
+                      --fa-secondary-color: #b89cbf;
+                    "
+                    aria-hidden="true"></span>
+                  <span
+                    ><a
+                      href="/dist/img/certificates/Kevin-Powell-Certificate-Conquering-Responsive-Layouts.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >Conquering Responsive Layouts</a
+                    >
+                    Course
+                  </span>
+                </div>
+                <div class="source">
+                  <a
+                    href="https://courses.kevinpowell.co/conquering-responsive-layouts"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__site"
+                    >Kevin Powell</a
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="achievement">
+                  <span
+                    class="fa-solid fa-scroll achievement-icon"
+                    style="
+                      --fa-primary-color: #2e0a20;
+                      --fa-secondary-color: #b89cbf;
+                    "
+                    aria-hidden="true"></span>
+                  <span>
+                    <a
+                      href="/dist/img/certificates/freeCodeCamp-Responsive-Web-Design-Certificate.png"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >Responsive Web Design</a
+                    >
+                    Developer Certification
+                  </span>
+                </div>
+                <div class="source">
+                  <a
+                    href="https://www.freecodecamp.org/"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__site"
+                    >freeCodeCamp</a
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="achievement">
+                  <span
+                    class="fa-solid fa-scroll achievement-icon"
+                    aria-hidden="true"></span>
+                  <span>
+                    <a
+                      href="/dist/img/certificates/Frontend-Masters-Certificate-HTML-Forms.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >HTML Forms</a
+                    >,
+                    <a
+                      href="/dist/img/certificates/Frontend-Masters-Certificate-Website-Embeds-GitHub-Pages.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >Website Embeds &amp; GitHub Pages</a
+                    >, and
+                    <a
+                      href="/dist/img/certificates/Frontend-Masters-Certificate-Calculator-Project-HTML-CSS.jpg"
+                      target="_blank"
+                      rel="noopener"
+                      class="link__cert"
+                      >Calculator Project</a
+                    >
+                    Certifications
+                  </span>
+                </div>
+                <div class="source">
+                  <a
+                    href="https://frontendmasters.com/bootcamp/"
+                    target="_blank"
+                    rel="noopener"
+                    class="link__site"
+                    >Frontend Masters Bootcamp</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- 🎯 SKILLS CHART COMPONENT START -->
+          <div
+            class="skills-chart"
+            id="skills-chart">
+            <div class="skills-chart__header">
+              <h3 class="skills-chart__title">Interactive Skills Overview</h3>
+              <p class="skills-chart__subtitle"
+                >Explore my technical proficiency levels and learning journey</p
+              >
+            </div>
+            <div class="skills-chart__dropdowns">
+              <div class="skills-chart__dropdown">
+                <div
+                  class="skills-chart__tab"
+                  role="button"
+                  tabindex="0"
+                  aria-expanded="false"
+                  aria-controls="core-tech"
+                  aria-label="Toggle Core Technologies skills section"
+                  id="tab-core">
+                  <span
+                    class="fa-solid fa-hand-point-up skills-chart__icon"
+                    aria-hidden="true"></span>
+                  <span class="skills-chart__tab-text">Core Technologies</span>
+                </div>
+              </div>
+              <div class="skills-chart__dropdown">
+                <div
+                  class="skills-chart__tab"
+                  role="button"
+                  tabindex="0"
+                  aria-expanded="false"
+                  aria-controls="tools"
+                  aria-label="Toggle Tools & Workflow skills section"
+                  id="tab-tools">
+                  <span
+                    class="fa-solid fa-hand-point-up skills-chart__icon"
+                    aria-hidden="true"></span>
+                  <span class="skills-chart__tab-text">Tools & Workflow</span>
+                </div>
+              </div>
+              <div class="skills-chart__dropdown">
+                <div
+                  class="skills-chart__tab"
+                  role="button"
+                  tabindex="0"
+                  aria-expanded="false"
+                  aria-controls="learning"
+                  aria-label="Toggle Learning Journey skills section"
+                  id="tab-learning">
+                  <span
+                    class="fa-solid fa-hand-point-up skills-chart__icon"
+                    aria-hidden="true"></span>
+                  <span class="skills-chart__tab-text">Learning Journey</span>
+                </div>
+              </div>
+            </div>
+            <div class="skills-chart__content">
+              <!-- Core Technologies Tab -->
+              <div
+                class="skills-chart__category"
+                role="tabpanel"
+                aria-labelledby="tab-core"
+                id="core-tech">
+                <div class="skills-chart__skill-group">
+                  <h4 class="skills-chart__group-title"></h4>
+                  <picture>
+                    <source
+                      srcset="/dist/img/pages/Profile.avif"
+                      type="image/avif" />
+                    <source
+                      srcset="/dist/img/pages/Profile.webp"
+                      type="image/webp" />
+                    <img
+                      src="/dist/img/pages/Profile.png"
+                      alt="Profile picture: smiling person with glasses and short hair"
+                      class="about__profile-pic"
+                      width="371"
+                      height="373"
+                      loading="lazy"
+                      decoding="async" />
+                  </picture>
+                  <div class="skills-chart__skill">
+                    <div class="skills-chart__skill-header">
+                      <span class="skills-chart__skill-name"
+                        ><span
+                          class="fa-brands fa-html5 skills-chart__skill-icon"
+                          aria-hidden="true"></span>
+                        HTML5
+                      </span>
+                      <span class="skills-chart__skill-level">Advanced</span>
+                    </div>
+                    <div
+                      class="skills-chart__progress-bar"
+                      role="progressbar"
+                      aria-label="HTML5 skill level"
+                      aria-valuenow="90"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-valuetext="90% - Advanced level">
+                      <div
+                        class="skills-chart__progress-fill"
+                        data-level="90"></div>
+                    </div>
+                    <p class="skills-chart__skill-description"
+                      >Semantic markup, accessibility, forms, validation,
+                      structured data</p
+                    >
+                  </div>
+                  <div class="skills-chart__skill">
+                    <div class="skills-chart__skill-header">
+                      <span class="skills-chart__skill-name">
+                        <span
+                          class="fa-brands fa-css3-alt skills-chart__skill-icon"
+                          aria-hidden="true"></span>
+                        CSS3 </span
+                      ><span class="skills-chart__skill-level">Advanced</span>
+                    </div>
+                    <div
+                      class="skills-chart__progress-bar"
+                      role="progressbar"
+                      aria-label="CSS3 skill level"
+                      aria-valuenow="85"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-valuetext="85% - Advanced level">
+                      <div
+                        class="skills-chart__progress-fill"
+                        data-level="85"></div>
+                    </div>
+                    <p class="skills-chart__skill-description"
+                      >Flexbox, Grid, animations, responsive design, custom
+                      properties</p
+                    >
+                  </div>
+                  <div class="skills-chart__skill">
+                    <div class="skills-chart__skill-header">
+                      <span class="skills-chart__skill-name"
+                        ><span
+                          class="fa-brands fa-sass skills-chart__skill-icon"
+                          aria-hidden="true"></span>
+                        SCSS/Sass
+                      </span>
+                      <span class="skills-chart__skill-level">Advanced</span>
+                    </div>
+                    <div
+                      class="skills-chart__progress-bar"
+                      role="progressbar"
+                      aria-label="SCSS/Sass skill level"
+                      aria-valuenow="88"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-valuetext="88% - Advanced level">
+                      <div
+                        class="skills-chart__progress-fill"
+                        data-level="88"></div>
+                    </div>
+                    <p class="skills-chart__skill-description"
+                      >7-1 architecture, mixins, functions, BEM methodology,
+                      component-based design</p
+                    >
+                  </div>
+                  <div class="skills-chart__skill">
+                    <div class="skills-chart__skill-header">
+                      <span class="skills-chart__skill-name"
+                        ><span
+                          class="fa-brands fa-square-js skills-chart__skill-icon"
+                          aria-hidden="true"></span>
+                        JavaScript </span
+                      ><span class="skills-chart__skill-level"
+                        >Intermediate</span
+                      >
+                    </div>
+                    <div class="skills-chart__progress-bar">
+                      <div
+                        class="skills-chart__progress-fill"
+                        data-level="75"></div>
+                    </div>
+                    <p class="skills-chart__skill-description"
+                      >ES6+, DOM manipulation, form validation, async/await,
+                      component architecture</p
+                    >
+                  </div>
+                  <h4 class="skills-chart__group-title"
+                    ><span
+                      class="fa-solid fa-palette skills-chart__group-icon"
+                      aria-hidden="true"></span>
+                    Design & UX
+                  </h4>
+                  <div class="skills-chart__skills-list">
+                    <div class="skills-chart__skill">
+                      <div class="skills-chart__skill-header">
+                        <span class="skills-chart__skill-name"
+                          ><span
+                            class="fa-solid fa-universal-access skills-chart__skill-icon"
+                            aria-hidden="true"></span>
+                          Accessibility (WCAG)
+                        </span>
+                        <span class="skills-chart__skill-level">Advanced</span>
+                      </div>
+                      <div class="skills-chart__progress-bar">
+                        <div
+                          class="skills-chart__progress-fill"
+                          data-level="92"></div>
+                      </div>
+                      <p class="skills-chart__skill-description"
+                        >AAA compliance, ARIA, keyboard navigation, screen
+                        reader optimization</p
+                      >
+                    </div>
+                    <div class="skills-chart__skill">
+                      <div class="skills-chart__skill-header">
+                        <span class="skills-chart__skill-name"
+                          ><span
+                            class="fa-solid fa-mobile-screen-button skills-chart__skill-icon"
+                            aria-hidden="true"></span>
+                          Responsive Design
+                        </span>
+                        <span class="skills-chart__skill-level">Advanced</span>
+                      </div>
+                      <div class="skills-chart__progress-bar">
+                        <div
+                          class="skills-chart__progress-fill"
+                          data-level="90"></div>
+                      </div>
+                      <p class="skills-chart__skill-description"
+                        >Mobile-first approach, breakpoint systems, fluid
+                        layouts, progressive enhancement</p
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Tools & Workflow Tab -->
+              <div
+                class="skills-chart__category"
+                role="tabpanel"
+                aria-labelledby="tab-tools"
+                id="tools">
+                <div class="skills-chart__skill-group">
+                  <h4 class="skills-chart__group-title"
+                    ><span
+                      class="fa-solid fa-screwdriver-wrench skills-chart__group-icon"
+                      aria-hidden="true"></span>
+                    Development Tools</h4
+                  >
+                  <div class="skills-chart__skills-list">
+                    <div class="skills-chart__skill">
+                      <div class="skills-chart__skill-header">
+                        <span class="skills-chart__skill-name"
+                          ><span
+                            class="fa-brands fa-git-alt skills-chart__skill-icon"
+                            aria-hidden="true"></span>
+                          Git & GitHub
+                        </span>
+                        <span class="skills-chart__skill-level"
+                          >Intermediate</span
+                        >
+                      </div>
+                      <div class="skills-chart__progress-bar">
+                        <div
+                          class="skills-chart__progress-fill"
+                          data-level="80"></div>
+                      </div>
+                      <p class="skills-chart__skill-description"
+                        >Version control, branching, pull requests, GitHub Pages
+                        deployment</p
+                      >
+                    </div>
+                    <div class="skills-chart__skill">
+                      <div class="skills-chart__skill-header">
+                        <span class="skills-chart__skill-name"
+                          ><span
+                            class="fa-solid fa-code skills-chart__skill-icon"
+                            aria-hidden="true"></span>
+                          VS Code
+                        </span>
+                        <span class="skills-chart__skill-level">Advanced</span>
+                      </div>
+                      <div class="skills-chart__progress-bar">
+                        <div
+                          class="skills-chart__progress-fill"
+                          data-level="95"></div>
+                      </div>
+                      <p class="skills-chart__skill-description"
+                        >Extensions, debugging, integrated terminal,
+                        customization, productivity workflows</p
+                      >
+                    </div>
+                    <div class="skills-chart__skill">
+                      <div class="skills-chart__skill-header">
+                        <span class="skills-chart__skill-name"
+                          ><span
+                            class="fa-brands fa-npm skills-chart__skill-icon"
+                            aria-hidden="true"></span>
+                          npm & Build Tools
+                        </span>
+                        <span class="skills-chart__skill-level"
+                          >Intermediate</span
+                        >
+                      </div>
+                      <div class="skills-chart__progress-bar">
+                        <div
+                          class="skills-chart__progress-fill"
+                          data-level="78">
+                        </div>
+                      </div>
+                      <p class="skills-chart__skill-description">
+                        Package management, custom build scripts, SCSS
+                        compilation, automation
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="skills-chart__skill-group">
+                  <h4 class="skills-chart__group-title">
+                    <i
+                      class="fa-solid fa-clipboard-check skills-chart__group-icon"
+                      aria-hidden="true">
+                    </i>
+                    Quality & Testing
+                  </h4>
+                  <div class="skills-chart__skills-list">
+                    <div class="skills-chart__skill">
+                      <div class="skills-chart__skill-header">
+                        <span class="skills-chart__skill-name">
+                          <i
+                            class="fa-solid fa-check-circle skills-chart__skill-icon"
+                            aria-hidden="true">
+                          </i>
+                          ESLint & Prettier
+                        </span>
+                        <span class="skills-chart__skill-level">
+                          Intermediate
+                        </span>
+                      </div>
+                      <div class="skills-chart__progress-bar">
+                        <div
+                          class="skills-chart__progress-fill"
+                          data-level="75">
+                        </div>
+                      </div>
+                      <p class="skills-chart__skill-description">
+                        Code linting, formatting, pre-commit hooks, code quality
+                        standards
+                      </p>
+                    </div>
+                    <div class="skills-chart__skill">
+                      <div class="skills-chart__skill-header">
+                        <span class="skills-chart__skill-name">
+                          <i
+                            class="fa-solid fa-vial skills-chart__skill-icon"
+                            aria-hidden="true">
+                          </i>
+                          Browser Testing
+                        </span>
+                        <span class="skills-chart__skill-level">
+                          Intermediate
+                        </span>
+                      </div>
+                      <div class="skills-chart__progress-bar">
+                        <div
+                          class="skills-chart__progress-fill"
+                          data-level="72">
+                        </div>
+                      </div>
+                      <p class="skills-chart__skill-description">
+                        Cross-browser compatibility, responsive testing,
+                        accessibility validation
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Learning Journey Tab -->
+              <div
+                class="skills-chart__category"
+                role="tabpanel"
+                aria-labelledby="tab-learning"
+                id="learning">
+                <div class="skills-chart__timeline">
+                  <h4 class="skills-chart__timeline-title">
+                    My Coding Journey Timeline
+                  </h4>
+                  <div class="skills-chart__timeline-items">
+                    <div class="skills-chart__timeline-item">
+                      <div class="skills-chart__timeline-date">
+                        2024 - Present
+                      </div>
+                      <div class="skills-chart__timeline-event">
+                        Advanced Frontend Development
+                      </div>
+                      <div class="skills-chart__timeline-description">
+                        Custom build systems, component architecture,
+                        accessibility best practices, performance optimization
+                      </div>
+                    </div>
+                    <div class="skills-chart__timeline-item">
+                      <div class="skills-chart__timeline-date"> 2024 </div>
+                      <div class="skills-chart__timeline-event">
+                        SCSS & Advanced CSS
+                      </div>
+                      <div class="skills-chart__timeline-description">
+                        Mastered Sass preprocessing, 7-1 architecture, BEM
+                        methodology, CSS Grid and Flexbox
+                      </div>
+                    </div>
+                    <div class="skills-chart__timeline-item">
+                      <div class="skills-chart__timeline-date"> 2023-2024 </div>
+                      <div class="skills-chart__timeline-event">
+                        JavaScript Fundamentals
+                      </div>
+                      <div class="skills-chart__timeline-description">
+                        ES6+ features, DOM manipulation, form validation, async
+                        programming, API integration
+                      </div>
+                    </div>
+                    <div class="skills-chart__timeline-item">
+                      <div class="skills-chart__timeline-date"> 2023 </div>
+                      <div class="skills-chart__timeline-event">
+                        CSS & Responsive Design
+                      </div>
+                      <div class="skills-chart__timeline-description">
+                        Advanced CSS layouts, responsive design principles,
+                        mobile-first approach, CSS animations
+                      </div>
+                    </div>
+                    <div class="skills-chart__timeline-item">
+                      <div class="skills-chart__timeline-date"> 2022-2023 </div>
+                      <div class="skills-chart__timeline-event">
+                        HTML & Web Fundamentals
+                      </div>
+                      <div class="skills-chart__timeline-description">
+                        Semantic HTML, accessibility basics, forms, web
+                        standards, browser compatibility
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 🎯 SKILLS CHART COMPONENT END -->
+        </section>
+        <a
+          href="#topNav"
+          class="back-to-top-link"
+          aria-label="Back to top">
+          <span
+            class="fa-solid fa-arrow-up"
+            aria-hidden="true">
+          </span>
+          <span class="visually-hidden"> Back to top </span>
+        </a>
+      </section>
+      <hr />
+      <section
+        id="portfolio"
+        class="portfolio wrapper section-padding">
+        <h2 class="HOME-_subheading portfolio__heading"> Portfolio </h2>
+        <p class="portfolio__intro">
+          Step inside my world of web development! These projects are where
+          ideas are knit into clean, responsive, and interactive websites using
+          HTML, CSS, SCSS, and a dash of ✨ JavaScript magic ✨.
+        </p>
+        <p class="portfolio__page-link">
+          <a
+            href="//portfolio.html"
+            class="portfolio__link">
+            View the full portfolio page &rarr;
+          </a>
+        </p>
+        <!-- Technical Architecture Showcase -->
+        <details class="code-showcase code-showcase--centered">
+          <summary>
+            <span class="fa-solid fa-hand-point-right code-showcase__marker">
+            </span>
+            View Site Architecture & Technical Implementation
+          </summary>
+          <div class="code-showcase__content">
+            <pre>
+<code class="language-javascript"> // Responsive Navigation with Accessibility function openMobileMenu() { if (!menuTopNav || !overlay) return; // Visual changes menuTopNav.classList.add('mobile-menu--open'); overlay.classList.add('overlay--visible'); // Accessibility improvements menuTopNav.removeAttribute('inert'); btnOpen.setAttribute('aria-expanded', 'true'); // Focus management for screen readers const firstNavLink = menuTopNav.querySelector('a'); if (firstNavLink) firstNavLink.focus(); // Trap focus within menu document.addEventListener('keydown', handleEscapeKey); } </code>
+</pre>
+            <div class="code-showcase__explanation">
+              <p>
+                <strong> This portfolio showcases: </strong> Custom build system
+                with SCSS compilation, component-based architecture, WCAG AAA
+                accessibility compliance, responsive design with mobile-first
+                approach, and performance-optimized deployment. Every project
+                demonstrates clean, maintainable code following modern web
+                development best practices.
+              </p>
+            </div>
+            <div class="code-showcase__links">
+              <a
+                href="https://github.com/iknittheweb/iknittheweb.github.io.NEW">
+                View complete repository
+              </a>
+            </div>
+          </div>
+        </details>
+        <div class="portfolio__row">
+          <article class="card">
+            <div class="card__header">
+              <a
+                href="//alien-abduction-form.html"
+                class="card__header__link">
+                <h3 class="card__title"> Alien Abduction Order Form </h3>
+              </a>
+            </div>
+            <div class="card__body">
+              <figure class="card__figure">
+                <picture>
+                  <source
+                    srcset="/dist/img/cards/Alien-abduction-form-thumb.avif"
+                    type="image/avif" />
+                  <source
+                    srcset="/dist/img/cards/Alien-abduction-form-thumb.webp"
+                    type="image/webp" />
+                  <img
+                    src="/dist/img/cards/Alien-abduction-form-thumb.jpg"
+                    alt="Thumbnail preview of Alien Abduction Order Form project"
+                    class="card__image"
+                    width="345"
+                    height="259"
+                    data-js-onerror="imgErrorHandler"
+                    loading="lazy"
+                    decoding="async" />
+                </picture>
+                <figcaption class="card__caption">
+                  <p>
+                    When you want an alien abduction, you want it your way. Fill
+                    out this form to get started.
+                  </p>
+                </figcaption>
+              </figure>
+              <details class="code-showcase">
+                <summary> View Form Validation Logic </summary>
+                <div class="code-showcase__content">
+                  <pre>
+<code class="language-javascript"> // Form data collection and validation function sendData() { var urlEncodedDataPairs = []; // Collect form fields with validation urlEncodedDataPairs.push( encodeURIComponent('name') + '=' + encodeURIComponent(form.querySelector('[name="name"]').value) ); // Handle radio button selection let radio = document.getElementsByName('ufotype'); for (var i = 0; i < radio.length; i++) { if (radio[i].checked) { urlEncodedDataPairs.push( encodeURIComponent('ufotype') + '=' + encodeURIComponent(radio[i].value) ); } } } </code>
+</pre>
+                  <div class="code-showcase__explanation">
+                    <p>
+                      <strong> Technical highlights: </strong> Custom form
+                      validation, data encoding for security, dynamic radio
+                      button handling, and XMLHttpRequest implementation for
+                      form submission.
+                    </p>
+                  </div>
+                  <div class="code-showcase__links">
+                    <a
+                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main/dist/img/src/js/alien-abduction-form.js">
+                      View full component
+                    </a>
+                  </div>
+                </div>
+              </details>
+            </div>
+            <div class="card__footer">
+              <a
+                href="//alien-abduction-form.html"
+                class="card__button card__button--primary card__link">
+                See more...
+              </a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__header">
+              <a
+                href="//calculator.html"
+                class="card__header__link">
+                <h3 class="card__title"> Calculator </h3>
+              </a>
+            </div>
+            <div class="card__body">
+              <figure class="card__figure">
+                <picture>
+                  <source
+                    srcset="/dist/img/cards/Calculator-thumb.avif"
+                    type="image/avif" />
+                  <source
+                    srcset="/dist/img/cards/Calculator-thumb.webp"
+                    type="image/webp" />
+                  <img
+                    src="/dist/img/cards/Calculator-thumb.jpg"
+                    alt="Thumbnail preview of Calculator project"
+                    class="card__image"
+                    width="356"
+                    height="268"
+                    data-js-onerror="imgErrorHandler"
+                    loading="lazy"
+                    decoding="async" />
+                </picture>
+                <figcaption class="card__caption">
+                  <p>
+                    A responsive calculator with advanced operations, built with
+                    vanilla JavaScript and modern CSS Grid.
+                  </p>
+                </figcaption>
+              </figure>
+              <details class="code-showcase">
+                <summary> View Calculator Logic </summary>
+                <div class="code-showcase__content">
+                  <pre>
+<code class="language-javascript"> // Advanced calculator operations class Calculator { constructor() { this.currentInput = '0'; this.previousInput = ''; this.operator = null; this.memory = 0; } handleOperation(op) { if (this.operator && this.previousInput) { this.calculate(); } this.operator = op; this.previousInput = this.currentInput; this.currentInput = '0'; } calculate() { const prev = parseFloat(this.previousInput); const current = parseFloat(this.currentInput); switch (this.operator) { case '+': return prev + current; case '-': return prev - current; case '*': return prev * current; case '/': return prev !== 0 ? prev / current : 'Error'; } } } </code>
+</pre>
+                  <div class="code-showcase__explanation">
+                    <p>
+                      <strong> Technical highlights: </strong> Object-oriented
+                      JavaScript design, error handling for division by zero,
+                      memory functions, and CSS Grid layout for responsive
+                      button arrangement.
+                    </p>
+                  </div>
+                  <div class="code-showcase__links">
+                    <a
+                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/blob/main/dist/img/src/js/calculator.js">
+                      View full component
+                    </a>
+                  </div>
+                </div>
+              </details>
+            </div>
+            <div class="card__footer">
+              <a
+                href="//calculator.html"
+                class="card__button card__button--primary card__link">
+                See more...
+              </a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__header">
+              <a
+                href="//css-position-cheat-sheet.html"
+                class="card__header__link">
+                <h3 class="card__title"> CSS Position Cheat Sheet </h3>
+              </a>
+            </div>
+            <div class="card__body">
+              <figure class="card__figure">
+                <picture>
+                  <source
+                    srcset="/dist/img/cards/css-position-cheat-sheet-thumb.avif"
+                    type="image/avif" />
+                  <source
+                    srcset="/dist/img/cards/css-position-cheat-sheet-thumb.webp"
+                    type="image/webp" />
+                  <img
+                    src="/dist/img/cards/css-position-cheat-sheet-thumb.png"
+                    alt="Thumbnail preview of CSS Position Cheat Sheet project"
+                    class="card__image"
+                    width="1868"
+                    height="1401"
+                    data-js-onerror="imgErrorHandler"
+                    loading="lazy"
+                    decoding="async" />
+                </picture>
+                <figcaption class="card__caption">
+                  <p>
+                    Interactive cheat sheet demonstrating CSS positioning with
+                    live examples, built using advanced SCSS architecture and
+                    responsive design patterns.
+                  </p>
+                </figcaption>
+              </figure>
+              <details class="code-showcase">
+                <summary> View SCSS Architecture </summary>
+                <div class="code-showcase__content">
+                  <pre>
+<code class="language-scss"> // Advanced SCSS mixin for responsive breakpoints @mixin breakpoint-up($size) { @if map.has-key($breakpoints-up, $size) { @media (width>= #{map.get($breakpoints-up, $size)}) { @content; } } @else { @warn "Breakpoint '#{$size}' not found in $breakpoints-up"; } } // Component architecture example .position-demo { &__container { display: grid; gap: f.rem(24); @include breakpoint-up('700') { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } } &__card { background: var(--card__bg); border: 2px solid var(--primary-border); border-radius: f.rem(8); padding: f.rem(16); &--relative { position: relative; } &--absolute { position: absolute; } &--fixed { position: fixed; } &--sticky { position: sticky; } } } </code>
+</pre>
+                  <div class="code-showcase__explanation">
+                    <p>
+                      <strong> Technical highlights: </strong> Custom SCSS
+                      function library, systematic breakpoint management, BEM
+                      methodology, CSS custom properties, and modular component
+                      architecture following 7-1 pattern.
+                    </p>
+                  </div>
+                  <div class="code-showcase__links">
+                    <a
+                      href="https://github.com/iknittheweb/iknittheweb.github.io.NEW/tree/main/dist/img/src/scss">
+                      View SCSS architecture
+                    </a>
+                  </div>
+                </div>
+              </details>
+            </div>
+            <div class="card__footer">
+              <a
+                href="//css-position-cheat-sheet.html"
+                class="card__button card__button--primary card__link">
+                See more...
+              </a>
+            </div>
+          </article>
+          <!-- Add more projects here as needed -->
+        </div>
+        <a
+          href="#topNav"
+          class="back-to-top-link"
+          aria-label="Back to top">
+          <span
+            class="fa-solid fa-arrow-up"
+            aria-hidden="true">
+          </span>
+          <span class="visually-hidden"> Back to top </span>
+        </a>
+      </section>
+      <hr />
+      <section
+        id="contact"
+        class="contact contact--inverse">
+        <h2 class="HOME-_subheading contact__heading"> Contact Me </h2>
+        <p class="contact__intro">
+          Got a web project that needs the personal touch? I specialize in
+          handcrafted websites that fit your budget and exceed your
+          expectations. Let's connect and start telling your digital story!
+        </p>
+        <form
+          class="contact__form"
+          action="https://formspree.io/f/mpwyyeaa"
+          autocomplete="on"
+          novalidate
+          data-cy="contact-form">
+          <fieldset class="contact__fieldset">
+            <legend class="contact__legend">
+              Ready to Connect the Threads?
+            </legend>
+            <div class="contact__group">
+              <label
+                class="contact__label"
+                for="name">
+                Let's start with introductions
+                <span
+                  aria-hidden="true"
+                  class="contact__label--required">
+                  * required
+                </span>
+              </label>
+              <input
+                class="contact__input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name here..."
+                required
+                autocomplete="name"
+                aria-describedby="name-error"
+                data-cy="contact-name" />
+              <div
+                id="name-error"
+                class="contact__error"
+                aria-live="polite">
+              </div>
+            </div>
+            <div class="contact__group">
+              <label
+                class="contact__label"
+                for="email">
+                Where can I reach you?
+                <span
+                  aria-hidden="true"
+                  class="contact__label--required">
+                  * required
+                </span>
+              </label>
+              <input
+                class="contact__input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your.email@example.com"
+                required
+                autocomplete="email"
+                aria-describedby="email-error"
+                data-cy="contact-email" />
+              <div
+                id="email-error"
+                class="contact__error"
+                aria-live="polite">
+              </div>
+            </div>
+            <div class="contact__group">
+              <label
+                class="contact__label"
+                for="message">
+                Share your vision
+                <span
+                  aria-hidden="true"
+                  class="contact__label--required">
+                  * required
+                </span>
+              </label>
+              <textarea
+                class="contact__input"
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tell me about your project ideas, goals, budget, timeline, or any questions you have. I'd love to hear what you're envisioning!"
+                required
+                aria-describedby="message-error"
+                data-cy="contact-message"></textarea>
+              <div
+                id="message-error"
+                class="contact__error"
+                aria-live="polite">
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="contact__submit"
+              data-sparkles="true"
+              data-cy="contact-submit">
+              <span class="contact__submit-text"> Start the Conversation </span>
+              <span
+                class="contact__sparkle contact__sparkle--main"
+                aria-hidden="true">
+                ✨
+              </span>
+              <span
+                class="contact__sparkle contact__sparkle--left"
+                aria-hidden="true">
+                ✨
+              </span>
+              <span
+                class="contact__sparkle contact__sparkle--top"
+                aria-hidden="true">
+                ✨
+              </span>
+              <span
+                class="contact__sparkle contact__sparkle--bottom"
+                aria-hidden="true">
+                ✨
+              </span>
+            </button>
+          </fieldset>
+        </form>
+        <a
+          href="#topNav"
+          class="back-to-top-link"
+          aria-label="Back to top">
+          <span
+            class="fa-solid fa-arrow-up"
+            aria-hidden="true">
+          </span>
+          <span class="visually-hidden"> Back to top </span>
+        </a>
+      </section>
+    </main>
+    <footer
+      class="footer"
+      role="contentinfo"
+      aria-label="Site footer">
+      <div class="footer__content wrapper">
+        <div class="footer__sections">
+          <!-- About Section -->
+          <div class="footer__section footer__about">
+            <h2 class="footer__heading"> I Knit The Web </h2>
+            <p class="footer__description">
+              Crafting handmade websites with care, creativity, and code.
+              Bringing your digital dreams to life, one thread at a time.
+            </p>
+          </div>
+          <!-- Quick Links Section -->
+          <div class="footer__section footer__links">
+            <h3 class="footer__heading"> Quick Links </h3>
+            <nav class="footer__nav">
+              <ul class="footer__nav-list">
+                <li>
+                  <a
+                    href="//#main-content"
+                    class="footer__nav-link">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="//#about"
+                    class="footer__nav-link">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="//#portfolio"
+                    class="footer__nav-link">
+                    Portfolio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="//#contact"
+                    class="footer__nav-link">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Contact Section -->
+          <div class="footer__section footer__contact">
+            <h3 class="footer__heading"> Let's Connect </h3>
+            <p class="footer__contact-text">
+              Ready to start your project? I'd love to hear about your ideas and
+              help bring them to life.
+            </p>
+            <a
+              href="//#contact"
+              class="footer__cta-link">
+              Get In Touch
+            </a>
+          </div>
+        </div>
+        <!-- Bottom Bar -->
+        <div class="footer__bottom">
+          <div class="footer__bottom-content">
+            <p class="footer__copyright">
+              &copy; 2025 I Knit The Web. All rights reserved.
+            </p>
+            <p class="footer__tagline"> Handcrafted with 💜 and lots of ☕ </p>
+          </div>
+        </div>
+        <a
+          href="#topNav"
+          class="back-to-top-link"
+          aria-label="Back to top">
+          <span
+            class="fa-solid fa-arrow-up"
+            aria-hidden="true">
+          </span>
+          <span class="visually-hidden"> Back to top </span>
+        </a>
+      </div>
+    </footer>
+  </body>
 </html>
