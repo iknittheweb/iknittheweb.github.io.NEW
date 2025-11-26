@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -3276,9 +3276,6 @@ input[type=button]:hover {
   .topnav__menu {
     display: block;
     position: static;
-    padding-top: 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
   }
 }
 @media (max-width: 43.74875em) {
@@ -3336,8 +3333,6 @@ input[type=button]:hover {
 }
 @media (max-width: 43.74875em) {
   .topnav__link {
-    display: block;
-    font-size: 1.5rem;
     text-align: left;
     touch-action: manipulation;
     user-select: none;
@@ -3349,7 +3344,6 @@ input[type=button]:hover {
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 300ms ease-out, transform 300ms ease-out;
-    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -3418,7 +3412,7 @@ input[type=button]:hover {
 .wrapper {
   width: 100%;
   margin-inline: auto;
-  padding-block: 3.75rem;
+  padding: 1rem;
   transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media (max-width: 31.24875em) {
@@ -3974,5 +3968,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
