@@ -1,6 +1,6 @@
 // Cypress E2E test for multi-level navbar best practices
 
-/// <reference types="cypress" />
+// <reference types="cypress" />
 import 'cypress-plugin-tab';
 
 describe('Multi-Level Navbar', () => {
