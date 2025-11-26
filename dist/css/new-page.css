@@ -940,6 +940,7 @@ button:hover {
 }
 @media (min-width: 43.75em) {
   .topnav__link {
+    font-size: 1rem;
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 300ms ease-out, transform 300ms ease-out;
