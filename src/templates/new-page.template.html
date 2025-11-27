@@ -9,8 +9,9 @@
       content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
+      content="{{CSP_META}}" />
     <title>New Page | I Knit The Web</title>
+
     <!-- Preconnects for faster font and icon loading -->
     <link
       rel="preconnect"
@@ -25,20 +26,20 @@
     <!-- Preload critical stylesheets -->
     <link
       rel="preload"
-      href="{{NEW_PAGE-GOOGLE_FONTS_LINK}}"
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       as="style" />
     <link
       rel="preload"
       as="style"
-      href="/{{NEW_PAGE-CSS_FILE}}" />
+      href="/dist/css/new-page.css" />
 
     <!-- Main font and site stylesheets -->
     <link
       rel="stylesheet"
-      href="{{NEW_PAGE-GOOGLE_FONTS_LINK}}" />
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" />
     <link
       rel="stylesheet"
-      href="/{{NEW_PAGE-CSS_FILE}}" />
+      href="/dist/css/new-page.css" />
 
     <!-- FontAwesome CDN stylesheet for icons -->
     <link
@@ -46,18 +47,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
-
-    <!-- Fallback styles for no-JS environments -->
-    <noscript>
-      <style>
-        body {
-          visibility: visible;
-        }
-      </style>
-      <link
-        href="{{NEW_PAGE-GOOGLE_FONTS_LINK}}"
-        rel="stylesheet" />
-    </noscript>
 
     <!-- Favicons and manifest -->
     <link
@@ -73,59 +62,59 @@
       href="/manifest.json" />
     <link
       rel="canonical"
-      href="/{{NEW_PAGE-OG_URL}}" />
+      href="/" />
 
     <!-- SEO and social meta tags -->
     <meta
       name="description"
-      content="{{NEW_PAGE-DESCRIPTION}}" />
+      content="Explore new page features and layout ideas. Includes code samples, accessibility tips, and best practices for web development." />
     <meta
       name="keywords"
-      content="{{NEW_PAGE-KEYWORDS}}" />
+      content="web development, new page, layout, accessibility, code examples, tutorial" />
     <meta
       name="author"
       content="I Knit the Web" />
     <meta
       name="robots"
-      content="{{ROBOTS}}" />
+      content="index,follow" />
     <meta
       property="og:title"
-      content="{{NEW_PAGE-OG_TITLE}}" />
+      content="New Page | I Knit The Web" />
     <meta
       property="og:description"
-      content="{{NEW_PAGE-OG_DESCRIPTION}}" />
+      content="Step-by-step tutorial for new page features. Improve your site with modern layouts and accessible design." />
     <meta
       property="og:image"
       content="/dist/img/branding/logo.png" />
     <meta
       property="og:url"
-      content="/{{NEW_PAGE-OG_URL}}" />
+      content="/new-page.html" />
     <meta
       property="og:type"
-      content="{{OG_TYPE}}" />
+      content="website" />
     <meta
       name="twitter:card"
-      content="{{TWITTER_CARD}}" />
+      content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="{{NEW_PAGE-TWITTER_TITLE}}" />
+      content="New Page | I Knit The Web" />
     <meta
       name="twitter:description"
-      content="{{NEW_PAGE-TWITTER_DESCRIPTION}}" />
+      content="Discover new page features for modern web development. Visual examples, code snippets, and best practices." />
     <meta
       name="twitter:image"
       content="/dist/img/branding/logo.png" />
 
-    <!-- Fallback styles for no-JS environments -->
-    <noscript>
-      <style>
-        body {
-          visibility: visible;
-        }
-      </style>
-    </noscript>
-
-    <!-- Inline critical CSS for FOUC prevention -->
+      <!-- Fallback styles for no-JS environments -->
+      <noscript>
+        <style>
+          body {
+            visibility: visible;
+          }
+        </style>
+      </noscript>
+  
+      <!-- Inline critical CSS for FOUC prevention -->
     <style>
       .no-js body {
         visibility: hidden;
@@ -145,7 +134,19 @@
 
     <!-- Structured data for SEO -->
     <script type="application/ld+json">
-      {{{NEW_PAGE-SCHEMA_JSON}}}
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "New Page | I Knit The Web",
+        "description": "Explore new page features and layout ideas. Includes code samples, accessibility tips, and best practices for web development.",
+        "url": "/new-page.html",
+        "author": {
+          "@type": "Person",
+          "name": "Marta",
+          "url": "/",
+          "sameAs": ["https://github.com/iknittheweb"]
+        }
+      }
     </script>
 
     <!-- Third-party library: body-scroll-lock -->
@@ -160,24 +161,27 @@
   <body>
     <div
       id="page-data"
-      data-page-title="{{NEW_PAGE-TITLE}}"
-      data-page-subtitle="{{NEW_PAGE-SUBTITLE}}"
-      data-nav-config="{{NEW_PAGE-NAV_CONFIG}}"
-      data-breadcrumb-category="{{NEW_PAGE-BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{NEW_PAGE-BREADCRUMB_CATEGORY_URL}}"
+      data-page-title="New Page | I Knit The Web"
+      data-page-subtitle="Visual Guide To New Page Features | I Knit The Web"
+      data-nav-config="new-page"
+      data-breadcrumb-category="Reference"
+      data-breadcrumb-category-url="/reference/new-page"
       style="display: none"></div>
+
     <a
-      href="#main-content"
+      href="#new-page_main-content"
       class="skip-link"
       >Skip to main content</a
     >
+
     <header
       class="topnav"
       aria-label="Site header">
       <!-- HEADER_PLACEHOLDER -->
     </header>
+
     <main
-      id="main-content"
+      id="new-page_main-content"
       class="new-page-main"
       tabindex="-1"
       aria-label="Main content">

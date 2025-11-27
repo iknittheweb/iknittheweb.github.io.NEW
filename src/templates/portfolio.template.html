@@ -3,16 +3,15 @@
   lang="en"
   class="no-js">
   <head>
-    <!-- Charset and viewport -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-    <!-- Content Security Policy -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
-    <title>New Page | I Knit The Web</title>
+      content="{{CSP_META}}" />
+    <title>Portfolio | I Knit The Web</title>
+
     <!-- Preconnects for faster font and icon loading -->
     <link
       rel="preconnect"
@@ -23,39 +22,32 @@
     <link
       rel="preconnect"
       href="https://ka-p.fontawesome.com" />
+
     <!-- Preload critical stylesheets -->
     <link
       rel="preload"
-      href="{{PORTFOLIO-GOOGLE_FONTS_LINK}}"
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
       as="style" />
     <link
       rel="preload"
       as="style"
-      href="/{{PORTFOLIO-CSS_FILE}}" />
+      href="/dist/css/portfolio.css" />
+
     <!-- Main font and site stylesheets -->
     <link
       rel="stylesheet"
-      href="{{PORTFOLIO-GOOGLE_FONTS_LINK}}" />
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" />
     <link
       rel="stylesheet"
-      href="/{{PORTFOLIO-CSS_FILE}}" />
+      href="/dist/css/portfolio.css" />
+
     <!-- FontAwesome CDN stylesheet for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
-    <!-- Fallback styles for no-JS environments -->
-    <noscript>
-      <style>
-        body {
-          visibility: visible;
-        }
-      </style>
-      <link
-        href="{{PORTFOLIO-GOOGLE_FONTS_LINK}}"
-        rel="stylesheet" />
-    </noscript>
+
     <!-- Favicons and manifest -->
     <link
       rel="icon"
@@ -70,47 +62,58 @@
       href="/manifest.json" />
     <link
       rel="canonical"
-      href="/{{PORTFOLIO-OG_URL}}" />
+      href="/" />
+
     <!-- SEO and social meta tags -->
     <meta
       name="description"
-      content="{{PORTFOLIO-DESCRIPTION}}" />
+      content="Explore a curated portfolio of web development projects, creative coding, and design work by I Knit The Web." />
     <meta
       name="keywords"
-      content="{{PORTFOLIO-KEYWORDS}}" />
+      content="portfolio, web development, creative coding, design, accessibility, showcase, I Knit The Web" />
     <meta
       name="author"
       content="I Knit the Web" />
     <meta
       name="robots"
-      content="{{ROBOTS}}" />
+      content="index,follow" />
     <meta
       property="og:title"
-      content="{{PORTFOLIO-OG_TITLE}}" />
+      content="Portfolio | I Knit The Web" />
     <meta
       property="og:description"
-      content="{{PORTFOLIO-OG_DESCRIPTION}}" />
+      content="Discover web projects and creative work in the I Knit The Web portfolio. Modern code, accessibility, and playful design." />
     <meta
       property="og:image"
       content="/dist/img/branding/logo.png" />
     <meta
       property="og:url"
-      content="/{{PORTFOLIO-OG_URL}}" />
+      content="/portfolio.html" />
     <meta
       property="og:type"
-      content="{{OG_TYPE}}" />
+      content="website" />
     <meta
       name="twitter:card"
-      content="{{TWITTER_CARD}}" />
+      content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="{{PORTFOLIO-TWITTER_TITLE}}" />
+      content="Portfolio | I Knit The Web" />
     <meta
       name="twitter:description"
-      content="{{PORTFOLIO-TWITTER_DESCRIPTION}}" />
+      content="See the latest web projects and creative work by I Knit The Web. Portfolio, code samples, and design inspiration." />
     <meta
       name="twitter:image"
       content="/dist/img/branding/logo.png" />
+
+    <!-- Fallback styles for no-JS environments -->
+    <noscript>
+      <style>
+        body {
+          visibility: visible;
+        }
+      </style>
+    </noscript>
+
     <!-- Inline critical CSS for FOUC prevention -->
     <style>
       .no-js body {
@@ -120,18 +123,35 @@
         visibility: visible;
       }
     </style>
+
     <!-- Critical polyfill: FOUC fix script -->
     <script src="/dist/js/fouc-fix.js"></script>
+
     <!-- Third-party monitoring/analytics: Sentry -->
     <script
       src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
       crossorigin="anonymous"></script>
+
     <!-- Structured data for SEO -->
     <script type="application/ld+json">
-      {{{PORTFOLIO-SCHEMA_JSON}}}
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Portfolio | I Knit The Web",
+        "description": "Explore a curated portfolio of web development projects, creative coding, and design work by I Knit The Web.",
+        "url": "/portfolio.html"
+        "author": {
+          "@type": "Person",
+          "name": "Marta",
+          "url": "/",
+          "sameAs": ["https://github.com/iknittheweb"]
+        }
+      }
     </script>
+
     <!-- Third-party library: body-scroll-lock -->
     <script src="https://cdn.jsdelivr.net/npm/body-scroll-lock@4.0.0-beta.0/lib/bodyScrollLock.min.js"></script>
+
     <!-- Main app/module script -->
     <script
       type="module"
@@ -141,24 +161,27 @@
   <body>
     <div
       id="page-data"
-      data-page-title="{{PORTFOLIO-TITLE}}"
-      data-page-subtitle="{{PORTFOLIO-SUBTITLE}}"
-      data-nav-config="{{PORTFOLIO-NAV_CONFIG}}"
-      data-breadcrumb-category="{{PORTFOLIO-BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{PORTFOLIO-BREADCRUMB_CATEGORY_URL}}"
+      data-page-title="Portfolio | I Knit The Web"
+      data-page-subtitle="Showcase Of Web Projects And Creative Work | I Knit The Web"
+      data-nav-config="main,about,portfolio,contact"
+      data-breadcrumb-category="Portfolio"
+      data-breadcrumb-category-url="/category/portfolio"
       style="display: none"></div>
+
     <a
-      href="#main-content"
+      href="#portfolio_main-content"
       class="skip-link"
       >Skip to main content</a
     >
+
     <header
       class="topnav"
       aria-label="Site header">
       <!-- HEADER_PLACEHOLDER -->
     </header>
+
     <main
-      id="main-content"
+      id="portfolio_main-content"
       class="portfolio-main"
       tabindex="-1"
       aria-label="Main content">
@@ -166,7 +189,7 @@
         class="hero"
         aria-labelledby="main-content"
         id="hero"
-        style="background-image: url('/{{HERO_BG_URL_JPG}}');">
+        style="background-image: url('/dist/img/pages/open-laptops.jpg')">
         <img
           src="/dist/img/pages/heading-banner-dark.svg"
           alt=""
@@ -535,7 +558,7 @@
           <p class="portfolio-back__text">
             Ready to work together?
             <a
-              href="/#contact"
+              href="#contact"
               class="portfolio-back__link"
               >Let's connect</a
             >! Or you can

@@ -9,8 +9,9 @@
       content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-eval' https://browser.sentry-cdn.com https://kit.fontawesome.com https://cdn.jsdelivr.net https://ka-p.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com https://cdnjs.cloudflare.com; img-src 'self' data: https://github.com https://fonts.gstatic.com https://kit.fontawesome.com https://ka-p.fontawesome.com; connect-src 'self' https://formspree.io/f/mpwyyeaa https://formspree.io https://sentry.io https://fonts.googleapis.com https://fonts.gstatic.com https://ka-p.fontawesome.com https://kit-upload.fontawesome.com https://kit.fontawesome.com https://cdn.jsdelivr.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
+      content="{{CSP_META}}" />
     <title>Alien Abduction Form | I Knit The Web</title>
+
     <!-- Preconnects for faster font and icon loading -->
     <link
       rel="preconnect"
@@ -25,20 +26,27 @@
     <!-- Preload critical stylesheets -->
     <link
       rel="preload"
-      href="{{ALIEN_ABDUCTION-GOOGLE_FONTS_LINK}}"
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      as="style" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
       as="style" />
     <link
       rel="preload"
       as="style"
-      href="/{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_CSS_FILE}}" />
+      href="/dist/css/alien-abduction-form.css" />
 
     <!-- Main font and site stylesheets -->
     <link
       rel="stylesheet"
-      href="{{ALIEN_ABDUCTION-GOOGLE_FONTS_LINK}}" />
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" />
     <link
       rel="stylesheet"
-      href="/{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_CSS_FILE}}" />
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" />
+    <link
+      rel="stylesheet"
+      href="/dist/css/alien-abduction-form.css" />
 
     <!-- FontAwesome CDN stylesheet for icons -->
     <link
@@ -46,18 +54,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
-
-    <!-- Fallback styles for no-JS environments -->
-    <noscript>
-      <style>
-        body {
-          visibility: visible;
-        }
-      </style>
-      <link
-        href="{{ALIEN_ABDUCTION-GOOGLE_FONTS_LINK}}"
-        rel="stylesheet" />
-    </noscript>
 
     <!-- Favicons and manifest -->
     <link
@@ -73,45 +69,45 @@
       href="/manifest.json" />
     <link
       rel="canonical"
-      href="/{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_OG_URL}}" />
+      href="/" />
 
     <!-- SEO and social meta tags -->
     <meta
       name="description"
-      content="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_DESCRIPTION}}" />
+      content="Ready for a close encounter? Fill out the Alien Abduction Form and sign up for an out-of-this-world experience—no probing required!" />
     <meta
       name="keywords"
-      content="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_KEYWORDS}}" />
+      content="alien abduction, signup form, extraterrestrial, UFO, fun web project, creative coding, I Knit The Web, space adventure, interactive form, web development" />
     <meta
       name="author"
       content="I Knit the Web" />
     <meta
       name="robots"
-      content="{{ROBOTS}}" />
+      content="index,follow" />
     <meta
       property="og:title"
-      content="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_OG_TITLE}}" />
+      content="Alien Abduction Form | I Knit The Web" />
     <meta
       property="og:description"
-      content="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_OG_DESCRIPTION}}" />
+      content="Sign up for your alien adventure! Fill out the form for a fun, interactive experience—no probing required. Join the intergalactic fun at I Knit The Web." />
     <meta
       property="og:image"
       content="/dist/img/branding/logo.png" />
     <meta
       property="og:url"
-      content="/{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_OG_URL}}" />
+      content="/alien-abduction-form.html" />
     <meta
       property="og:type"
-      content="{{OG_TYPE}}" />
+      content="website" />
     <meta
       name="twitter:card"
-      content="{{TWITTER_CARD}}" />
+      content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_TWITTER_TITLE}}" />
+      content="Alien Abduction Form | I Knit The Web" />
     <meta
       name="twitter:description"
-      content="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_TWITTER_DESCRIPTION}}" />
+      content="Want to be abducted by aliens? Complete the form and join the intergalactic fun at I Knit The Web!" />
     <meta
       name="twitter:image"
       content="/dist/img/branding/logo.png" />
@@ -145,7 +141,19 @@
 
     <!-- Structured data for SEO -->
     <script type="application/ld+json">
-      {{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_SCHEMA_JSON}}}
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Alien Abduction Form | I Knit The Web",
+        "url": "/alien-abduction-form.html",
+        "description": "Ready for a close encounter? Fill out the Alien Abduction Form and sign up for an out-of-this-world experience—no probing required!",
+        "author": {
+          "@type": "Person",
+          "name": "Marta",
+          "url": "/",
+          "sameAs": ["https://github.com/iknittheweb"]
+        }
+      }
     </script>
 
     <!-- Third-party library: body-scroll-lock -->
@@ -160,26 +168,29 @@
   <body>
     <div
       id="page-data"
-      data-page-title="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_TITLE}}"
-      data-page-subtitle="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_SUBTITLE}}"
-      data-nav-config="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_NAV_CONFIG}}"
-      data-breadcrumb-category="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_BREADCRUMB_CATEGORY}}"
-      data-breadcrumb-category-url="{{ALIEN-ABDUCTION-FORM-FRONTEND-MASTERS-BOOTCAMP_BREADCRUMB_CATEGORY_URL}}"
+      data-page-title="Alien Abduction Form | I Knit The Web"
+      data-page-subtitle="Sign Up For Your Alien Adventure! | I Knit The Web"
+      data-nav-config="main,about,portfolio,contact,alien-abduction-form"
+      data-breadcrumb-category="Fun Forms"
+      data-breadcrumb-category-url="/category/fun-forms"
       style="display: none"></div>
+
     <a
       href="#main-content"
       class="skip-link"
       >Skip to main content</a
     >
+
     <header
-      class="topnav"
+      class="alien_main"
       aria-label="Site header">
       <!-- HEADER_PLACEHOLDER -->
     </header>
+
     <main
-      id="main-content"
+      id="alien_main-content"
       role="main"
-      style="background-image: url('/{{ALIEN_FORM_BG_URL_JPG}}');">
+      style="background-image: url('/dist/img/pages/galaxy.jpg');">
       <article class="wrapper">
         <div class="alien-form-page__hero">
           <h1>Sign Up for an Alien Abduction!</h1>
