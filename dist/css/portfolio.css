@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,7 +161,9 @@ a,
 code,
 img,
 s,
+var,
 i,
+center,
 ul,
 li,
 form,
@@ -579,7 +584,7 @@ card__header-link:hover, card__header-link:focus {
   min-height: 340px;
   padding: 5rem 0 3rem;
   text-align: center;
-  background-image: url("/iknittheweb.github.io.NEW/dist/img/pages/open-laptops.jpg");
+  background-image: image-set(url("/iknittheweb.github.io.NEW/dist/img/open-laptops.avif") type("image/avif"), url("/iknittheweb.github.io.NEW/dist/img/open-laptops.webp") type("image/webp"), url("/iknittheweb.github.io.NEW/dist/img/open-laptops.jpg") type("image/jpeg"));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
