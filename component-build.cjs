@@ -35,6 +35,7 @@ console.log(`[component-build.cjs] BASE_URL: ${process.env.BASE_URL}`);
 
 const srcDir = path.join(__dirname, 'src', 'templates');
 const outDir = __dirname;
+const indexTemplatePath = path.join(srcDir, 'index.template.html');
 const indexHtmlPath = path.join(__dirname, 'index.html');
 
 const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
@@ -71,7 +72,10 @@ fs.readdirSync(srcDir).forEach((file) => {
       /<!--\s*IMPORTANT: This is a TEMPLATE file![\s\S]*?DO NOT edit the generated \*\.html file directly[\s\S]*?-->/g,
       ''
     );
-    html = html.replace(/<!--\s*-{2,}\s*BEGINNER-FRIENDLY EXPLANATORY COMMENTS[\s\S]*?-{2,}\s*-->/g, '');
+    html = html.replace(
+      /<!--\s*-{2,}\s*BEGINNER-FRIENDLY EXPLANATORY COMMENTS[\s\S]*?-{2,}\s*-->/g,
+      ''
+    );
     html = html.replace(
       /<!--\s*Build System Workflow \(2025\):[\s\S]*?DO NOT edit the generated \*\.html file directly[\s\S]*?-->/g,
       ''
@@ -84,7 +88,10 @@ fs.readdirSync(srcDir).forEach((file) => {
     // Warn if unreplaced placeholders remain
     const unreplaced = html.match(/{{[A-Z0-9_]+}}/g);
     if (unreplaced && unreplaced.length > 0) {
-      console.warn(`⚠️ Unreplaced placeholders found in ${file.replace('.template.html', '.html')}:`, unreplaced);
+      console.warn(
+        `⚠️ Unreplaced placeholders found in ${file.replace('.template.html', '.html')}:`,
+        unreplaced
+      );
     }
 
     const outFile = path.join(outDir, file.replace('.template.html', '.html'));
