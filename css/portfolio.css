@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,7 +161,9 @@ a,
 code,
 img,
 s,
+var,
 i,
+center,
 ul,
 li,
 form,
@@ -504,6 +509,11 @@ button:focus-visible {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+.card__figure picture {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 .card__figure img {
   width: 100%;

@@ -481,16 +481,16 @@ a:active {
 }
 
 :root {
-  --font-1: "Merriweather", "Georgia", serif;
-  --font-2: "Merriweather Sans", "Segoe UI", sans-serif;
-  --alien-font-family: "Orbitron", roboto, monospace;
-  --vertical-navbar-font: "Roboto Slab", sans-serif;
+  --font-1: 'Merriweather', 'Georgia', serif;
+  --font-2: 'Merriweather Sans', 'Segoe UI', sans-serif;
+  --alien-font-family: 'Orbitron', roboto, monospace;
+  --vertical-navbar-font: 'Roboto Slab', sans-serif;
 }
 
 .fonts-failed {
-  --font-1: "Georgia", "Times New Roman", times, serif;
-  --font-2: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --alien-font-family: "Courier New", courier, monospace;
+  --font-1: 'Georgia', 'Times New Roman', times, serif;
+  --font-2: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
+  --alien-font-family: 'Courier New', courier, monospace;
 }
 
 h1,
@@ -1667,6 +1667,11 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
 }
+.card__figure picture {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 .card__figure img {
   width: 100%;
   height: 12.5rem;
@@ -1939,7 +1944,7 @@ pre code {
   min-height: 340px;
   padding: 5rem 0 3rem;
   text-align: center;
-  background-image: image-set(url("/iknittheweb.github.io.NEW/dist/img/open-laptops.avif") type("image/avif"), url("/iknittheweb.github.io.NEW/dist/img/open-laptops.webp") type("image/webp"), url("/iknittheweb.github.io.NEW/dist/img/open-laptops.jpg") type("image/jpeg"));
+  background-image: image-set(url("/iknittheweb.github.io.NEW/dist/img/open-laptops.avif") type('image/avif'), url("/iknittheweb.github.io.NEW/dist/img/open-laptops.webp") type('image/webp'), url("/iknittheweb.github.io.NEW/dist/img/open-laptops.jpg") type('image/jpeg'));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -3972,5 +3977,3 @@ section.portfolio__intro > * {
 .portfolio-page__intro {
   color: #fff;
 }
-
-/*# sourceMappingURL=home-styles.css.map */
