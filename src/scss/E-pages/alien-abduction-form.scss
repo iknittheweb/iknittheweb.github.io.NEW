@@ -13,6 +13,10 @@
 @use '../F-themes' as t;
 @use '../G-vendors' as v;
 
+#alien_main-content {
+  background-image: url('/iknittheweb.github.io.NEW/dist/img/pages/galaxy.jpg');
+}
+
 // BEM: .alien-form-page__hero
 .alien-form-page__hero {
   background: linear-gradient(135deg, var(--alien-primary-bg) 0%, var(--alien-secondary-bg) 100%);
@@ -47,15 +51,6 @@
   }
 }
 
-@keyframes starfield {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(30px, 30px);
-  }
-}
 
 // BEM: .alien-form-page__wrapper
 .alien-form-page__wrapper {
@@ -67,7 +62,7 @@
   background: rgb(var(--alien-primary-bg), 0.85);
   border-radius: a.rem(16);
   box-shadow: 0 8px 32px rgb(0 255 65 / 10%);
-
+  
   @include a.breakpoint-down('699.98') {
     padding: a.rem(32) a.rem(12);
   }
@@ -89,3 +84,12 @@
 }
 .alien-form-page__abtype {
 }
+  @keyframes starfield {
+    0% {
+      transform: translate(0, 0);
+    }
+  
+    100% {
+      transform: translate(30px, 30px);
+    }
+  }
