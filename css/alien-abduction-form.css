@@ -1939,7 +1939,7 @@ pre code {
   min-height: 340px;
   padding: 5rem 0 3rem;
   text-align: center;
-  background-image: url("/dist/img/pages/open-laptops.jpg");
+  background-image: url("/iknittheweb.github.io.NEW/dist/img/pages/open-laptops.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -3429,6 +3429,10 @@ input[type=button]:hover {
   padding-block: 0;
 }
 
+#alien_main-content {
+  background-image: url("/iknittheweb.github.io.NEW/dist/img/pages/galaxy.jpg");
+}
+
 .alien-form-page__hero {
   background: linear-gradient(135deg, var(--alien-primary-bg) 0%, var(--alien-secondary-bg) 100%);
   color: var(--alien-text-light);
@@ -3457,14 +3461,6 @@ input[type=button]:hover {
   }
 }
 
-@keyframes starfield {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(30px, 30px);
-  }
-}
 .alien-form-page__wrapper {
   position: relative;
   z-index: 1;
@@ -3483,6 +3479,15 @@ input[type=button]:hover {
 
 .alien-form-page__form-flex {
   display: flex;
+}
+
+@keyframes starfield {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30px, 30px);
+  }
 }
 
 /*# sourceMappingURL=alien-abduction-form.css.map */
