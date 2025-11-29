@@ -811,15 +811,12 @@ button:hover {
 }
 
 .cheat-sheet-table {
-  width: 90%;
   border-collapse: separate;
   border-spacing: 0;
   box-shadow: 0 4px 24px rgba(80, 15, 68, 0.08);
-  border-radius: 1rem;
   overflow: hidden;
   font-family: "Merriweather Sans", "Segoe UI", Arial, sans-serif;
   margin: 2rem auto;
-  border: 0;
 }
 .cheat-sheet-table__caption {
   padding: 1rem;
@@ -833,25 +830,26 @@ button:hover {
   padding: 1rem 1.5rem;
   text-align: left;
   font-size: 1rem;
-  border-bottom: 2px solid var(--primary-border-mid);
+  border: 2px solid var(--primary-border-mid);
+  border-radius: 0.5rem;
+}
+.cheat-sheet-table__row th {
+  background: var(--primary-bg);
 }
 .cheat-sheet-table__header {
-  background: var(--primary-bg);
   color: var(--light-text);
   font-weight: 700;
   letter-spacing: 0.05em;
-  border-bottom: 2px solid var(--primary-border-mid);
 }
 .cheat-sheet-table__property {
   font-family: "Fira Mono", "Consolas", monospace;
-  color: var(--primary-text);
+  color: var(--light-text);
   font-weight: 600;
 }
 .cheat-sheet-table__value {
-  color: #1a3317;
+  color: var(--primary-text);
   font-family: "Fira Mono", "Consolas", monospace;
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
   font-weight: 500;
 }
 .cheat-sheet-table__definition {
@@ -1077,6 +1075,11 @@ button:hover {
   }
 }
 
+#css-position_main-content article {
+  width: 90%;
+  margin-inline: auto;
+}
+
 #cheat-sheet-title {
   font-size: 2.625rem;
   margin-top: 1.25rem;
@@ -1084,5 +1087,10 @@ button:hover {
 
 #cheat-sheet-subtitle {
   font-size: 2.25rem;
+}
+
+#cheat-sheet-title,
+#cheat-sheet-subtitle {
+  padding: 1.25rem;
   text-align: center;
 }
