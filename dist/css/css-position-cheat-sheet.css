@@ -116,9 +116,6 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
-.nowrap {
-  white-space: nowrap;
-}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -161,8 +158,6 @@ a,
 code,
 img,
 s,
-var,
-center,
 ul,
 li,
 table,
@@ -815,7 +810,7 @@ button:hover {
 @supports (container-type: inline-size) {
 }
 
-.cheat-sheet {
+.cheat-sheet-table {
   width: 90%;
   border-collapse: separate;
   border-spacing: 0;
@@ -827,34 +822,52 @@ button:hover {
   margin: 2rem auto;
   border: 1px solid var(--primary-border);
 }
-.cheat-sheet #cheat-sheet-caption {
+.cheat-sheet-table__caption {
   padding: 1rem;
   font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--primary-text);
+  background: var(--primary-bg-light);
 }
-.cheat-sheet th, .cheat-sheet td {
+.cheat-sheet-table__head {
+  background: var(--primary-bg);
+}
+.cheat-sheet-table__row th,
+.cheat-sheet-table__row td {
   padding: 1rem 1.5rem;
   text-align: left;
   font-size: 1rem;
   border-bottom: 2px solid var(--primary-border-mid);
 }
-.cheat-sheet th {
+.cheat-sheet-table__row--property {
+  background: var(--primary-bg-light);
+}
+.cheat-sheet-table__header {
   background: var(--primary-bg);
   color: var(--light-text);
-}
-.cheat-sheet {
   font-weight: 700;
   letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--primary-border-mid);
 }
-
-.code-property {
+.cheat-sheet-table__property {
   font-family: "Fira Mono", "Consolas", monospace;
+  background: var(--primary-bg-light);
+  color: var(--primary-text);
+  font-weight: 600;
 }
-
-.code-value {
+.cheat-sheet-table__value {
   color: #1a3317;
   font-family: "Fira Mono", "Consolas", monospace;
   background: linear-gradient(90deg, #a8d4a5 0%, #e1dede 100%);
   padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+.cheat-sheet-table__definition {
+  color: var(--primary-text);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .fa-solid {
