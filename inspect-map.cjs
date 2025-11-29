@@ -1,11 +1,11 @@
 // inspect-map.js
-// Usage: node inspect-map.js path/to/home-styles.css.map
+// Usage: node inspect-map.js path/to/styles.css.map
 const fs = require('fs');
 const path = require('path');
 
 const p = process.argv[2];
 if (!p) {
-  console.error('Usage: node inspect-map.js path/to/home-styles.css.map');
+  console.error('Usage: node inspect-map.js path/to/styles.css.map');
   process.exit(2);
 }
 
@@ -21,7 +21,9 @@ try {
     sourceRoot: m.sourceRoot === '' ? '(empty string)' : m.sourceRoot,
     sourcesCount: (m.sources || []).length,
     hasSourcesContent: !!m.sourcesContent,
-    sourcesWithDotDot: (m.sources || []).filter((s) => s.startsWith('../') || s.includes('/../')).slice(0, 20),
+    sourcesWithDotDot: (m.sources || [])
+      .filter((s) => s.startsWith('../') || s.includes('/../'))
+      .slice(0, 20),
   };
   console.log(JSON.stringify(summary, null, 2));
   console.log('');

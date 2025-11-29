@@ -32,14 +32,19 @@ fs.mkdirSync(cssDir, { recursive: true });
 
 // This function purges a CSS file using PurgeCSS CLI, then renames the purged file to overwrite the original for deployment.
 async function purgeAndReplace(file) {
-  let base = file.endsWith('.min.css') ? path.basename(file, '.min.css') : path.basename(file, '.css');
+  let base = file.endsWith('.min.css')
+    ? path.basename(file, '.min.css')
+    : path.basename(file, '.css');
   let htmlFiles;
   if (base === 'styles') {
     // Only use index.html for styles.css
     htmlFiles = [path.join(__dirname, 'index.html')];
   } else {
-    // Use only the matching HTML file for other CSS files
-    htmlFiles = [path.join(__dirname, `${base}.html`)];
+    // Match all HTML files in the project root with the pattern base.*.html
+    const allFiles = fs.readdirSync(__dirname);
+    htmlFiles = allFiles
+      .filter((f) => f.startsWith(base + '.') && f.endsWith('.html'))
+      .map((f) => path.join(__dirname, f));
   }
   const purged = path.join(cssDir, `purged-${base}.css`);
 
@@ -58,7 +63,9 @@ async function purgeAndReplace(file) {
     const minFile = file.replace(/\.css$/, '.min.css');
     fs.writeFileSync(minFile, minified.css);
   } else {
-    console.warn(`Skipping ${file}: No matching HTML file(s) (${htmlFiles.join(', ')}) found.`);
+    console.warn(
+      `Skipping ${file}: No matching HTML file(s) (${htmlFiles.join(', ')}) found.`
+    );
   }
 }
 
@@ -68,12 +75,18 @@ async function run() {
     const files = fs.readdirSync(cssDir);
     for (const file of files) {
       // Only process .css files, skip .min.css and purged-*.css
-      if (file.endsWith('.css') && !file.endsWith('.min.css') && !file.startsWith('purged-')) {
+      if (
+        file.endsWith('.css') &&
+        !file.endsWith('.min.css') &&
+        !file.startsWith('purged-')
+      ) {
         await purgeAndReplace(path.join(cssDir, file));
       }
     }
   } else {
-    console.warn('Warning: dist/css directory does not exist. Skipping CSS purging.');
+    console.warn(
+      'Warning: dist/css directory does not exist. Skipping CSS purging.'
+    );
   }
 }
 run();

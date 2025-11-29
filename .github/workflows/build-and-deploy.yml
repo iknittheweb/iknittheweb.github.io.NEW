@@ -12,8 +12,8 @@ permissions:
 
 env:
   # Adjust these if your entry file / outputs differ
-  SRC_ENTRY: src/scss/home-styles.scss
-  OUTPUT_CSS: dist/css/home-styles.css
+  SRC_ENTRY: src/scss/styles.scss
+  OUTPUT_CSS: dist/css/styles.css
   ARTIFACT_DIR: artifacts
   ARTIFACT_NAME: source-maps
 
@@ -43,7 +43,7 @@ jobs:
         run: |
           mkdir -p "${{ env.ARTIFACT_DIR }}"
           # Produce a CSS + .map inside artifacts with sourcesContent embedded
-          sass "${{ env.SRC_ENTRY }}":"${{ env.ARTIFACT_DIR }}/home-styles.css" --source-map --embed-sources --source-map-urls=relative
+          sass "${{ env.SRC_ENTRY }}":"${{ env.ARTIFACT_DIR }}/styles.css" --source-map --embed-sources --source-map-urls=relative
           ls -la "${{ env.ARTIFACT_DIR }}"
 
       - name: Upload source maps as artifact (private to repo)
