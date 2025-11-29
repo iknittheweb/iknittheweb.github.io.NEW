@@ -116,7 +116,6 @@
         }
       </style>
     </noscript>
-
     <!-- Inline critical CSS for FOUC prevention -->
     <style>
       .no-js body {
@@ -126,15 +125,12 @@
         visibility: visible;
       }
     </style>
-
     <!-- Critical polyfill: FOUC fix script -->
     <script src="/iknittheweb.github.io.NEW/dist/js/fouc-fix.js"></script>
-
     <!-- Third-party monitoring/analytics: Sentry -->
     <script
       src="https://browser.sentry-cdn.com/7.100.1/bundle.min.js"
       crossorigin="anonymous"></script>
-
     <!-- Structured data for SEO -->
     <script type="application/ld+json">
       {
@@ -186,165 +182,212 @@
       id="css-position_main-content"
       role="main"
       tabindex="-1">
-      <h1 id="cheat-sheet-title">CSS Positioning Cheat Sheet Challenge</h1>
-      <h2
-        >A
-        <a href="https://www.codecademy.com/career-journey/front-end-engineer"
-          >Codecademy Front End Engineer Career Path</a
-        >
-        Project</h2
-      >
       <article>
+        <h1 id="cheat-sheet-title">CSS Positioning Cheat Sheet Challenge</h1>
+        <h2
+          >A
+          <a href="https://www.codecademy.com/career-journey/front-end-engineer"
+            >Codecademy Front End Engineer Career Path</a
+          >
+          Project</h2
+        >
         <table
-          class="cheat-sheet"
+          class="cheat-sheet-table"
           role="table"
           aria-labelledby="cheat-sheet-title">
-          <caption id="cheat-sheet-caption"
-            >CSS Positioning Cheat Sheet</caption
-          >
-          <thead>
-            <tr role="row">
+          <caption
+            id="cheat-sheet-caption"
+            class="cheat-sheet-table__caption">
+            CSS Positioning Cheat Sheet
+          </caption>
+          <thead class="cheat-sheet-table__head">
+            <tr
+              class="cheat-sheet-table__row"
+              role="row">
               <th
+                class="cheat-sheet-table__header"
                 role="columnheader"
                 scope="col"
                 >Property</th
               >
               <th
+                class="cheat-sheet-table__header"
                 role="columnheader"
                 scope="col"
                 >Value</th
               >
               <th
+                class="cheat-sheet-table__header"
                 role="columnheader"
                 scope="col"
                 >Definition</th
               >
             </tr>
           </thead>
-          <tbody>
+          <tbody class="cheat-sheet-table__body">
             <tr
-              class="property-row"
+              class="cheat-sheet-table__row cheat-sheet-table__row--property"
               role="row">
               <th
-                class="code-property"
+                class="cheat-sheet-table__property"
                 rowspan="5"
                 scope="row"
                 role="rowheader"
                 >position</th
               >
               <td
-                class="code-value"
+                class="cheat-sheet-table__value"
                 role="cell"
                 >static</td
               >
-              <td role="cell"
+              <td
+                class="cheat-sheet-table__definition"
+                role="cell"
                 >Default value. Element is positioned according to the normal
                 flow of the document.</td
               >
             </tr>
-            <tr role="row">
+            <tr
+              class="cheat-sheet-table__row"
+              role="row">
               <td
-                class="code-value"
+                class="cheat-sheet-table__value"
                 role="cell"
                 >relative</td
               >
-              <td role="cell"
+              <td
+                class="cheat-sheet-table__definition"
+                role="cell"
                 >Element is positioned relative to its normal position. Use top,
                 right, bottom, left to move it.</td
               >
             </tr>
-            <tr role="row">
+            <tr
+              class="cheat-sheet-table__row"
+              role="row">
               <td
-                class="code-value"
+                class="cheat-sheet-table__value"
                 role="cell"
                 >absolute</td
               >
-              <td role="cell"
+              <td
+                class="cheat-sheet-table__definition"
+                role="cell"
                 >Element is positioned relative to its nearest positioned
                 ancestor (not static). Removed from normal flow.</td
               >
             </tr>
-            <tr role="row">
+            <tr
+              class="cheat-sheet-table__row"
+              role="row">
               <td
-                class="code-value"
+                class="cheat-sheet-table__value"
                 role="cell"
                 >fixed</td
               >
-              <td role="cell"
+              <td
+                class="cheat-sheet-table__definition"
+                role="cell"
                 >Element is positioned relative to the browser window. Stays in
                 place when scrolling.</td
               >
             </tr>
-            <tr role="row">
+            <tr
+              class="cheat-sheet-table__row"
+              role="row">
               <td
-                class="code-value"
+                class="cheat-sheet-table__value"
                 role="cell"
                 >sticky</td
               >
-              <td role="cell"
+              <td
+                class="cheat-sheet-table__definition"
+                role="cell"
                 >Element toggles between relative and fixed, depending on scroll
                 position.</td
               >
             </tr>
             <tr
-              class="property-row"
+              class="cheat-sheet-table__row cheat-sheet-table__row--property"
               role="row">
               <th
-                class="code-property"
+                class="cheat-sheet-table__property"
                 rowspan="4"
                 scope="row"
                 role="rowheader"
                 >top, right, bottom, left</th
               >
               <td
-                class="code-value"
+                class="cheat-sheet-table__value"
                 role="cell"
                 >&lt;length&gt; | &lt;percentage&gt; | auto</td
               >
-              <td role="cell"
+              <td
+                class="cheat-sheet-table__definition"
+                role="cell"
                 >Offsets the element from the respective edge of its containing
                 block, when position is not static.</td
               >
             </tr>
-            <tr role="row">
+            <tr
+              class="cheat-sheet-table__row"
+              role="row">
               <td
-                class="code-value"
+                class="cheat-sheet-table__value"
                 role="cell"
                 >auto</td
               >
-              <td role="cell">Default. The browser calculates the position.</td>
-            </tr>
-            <tr role="row">
               <td
-                class="code-value"
+                class="cheat-sheet-table__definition"
+                role="cell"
+                >Default. The browser calculates the position.</td
+              >
+            </tr>
+            <tr
+              class="cheat-sheet-table__row"
+              role="row">
+              <td
+                class="cheat-sheet-table__value"
                 role="cell"
                 >0, 10px, 5%, etc.</td
               >
-              <td role="cell">Specifies the offset distance from the edge.</td>
-            </tr>
-            <tr role="row">
               <td
-                class="code-value"
+                class="cheat-sheet-table__definition"
+                role="cell"
+                >Specifies the offset distance from the edge.</td
+              >
+            </tr>
+            <tr
+              class="cheat-sheet-table__row"
+              role="row">
+              <td
+                class="cheat-sheet-table__value"
                 role="cell"
                 >inherit</td
               >
-              <td role="cell">Inherits the value from its parent element.</td>
+              <td
+                class="cheat-sheet-table__definition"
+                role="cell"
+                >Inherits the value from its parent element.</td
+              >
             </tr>
             <tr
-              class="property-row"
+              class="cheat-sheet-table__row cheat-sheet-table__row--property"
               role="row">
               <th
-                class="code-property"
+                class="cheat-sheet-table__property"
                 scope="row"
                 role="rowheader"
                 >z-index</th
               >
               <td
-                class="code-value"
+                class="cheat-sheet-table__value"
                 role="cell"
                 >&lt;integer&gt;</td
               >
-              <td role="cell"
+              <td
+                class="cheat-sheet-table__definition"
+                role="cell"
                 >Controls the stacking order of positioned elements (those with
                 position other than static).</td
               >
