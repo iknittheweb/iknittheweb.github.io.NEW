@@ -1,3 +1,4 @@
+@use '../A-abstracts/functions' as f;
 //* ------------------------------------------------------------
 //* CSS POSITION CHEAT SHEET PAGE PARTIAL
 //*
@@ -13,3 +14,12 @@
 @use '../D-layout' as l;
 @use '../F-themes' as t;
 @use '../G-vendors' as v;
+
+#cheat-sheet-title {
+  font-size: f.rem(42);
+  text-align: center;
+}
+#cheat-sheet-subtitle {
+  font-size: f.rem(36);
+  text-align: center;
+}
