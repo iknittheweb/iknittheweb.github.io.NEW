@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,12 +161,15 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 fieldset,
 form,
 label,
 legend,
+table,
 article,
 footer,
 header,
@@ -304,6 +310,10 @@ textarea {
 
 /* Tables
    ========================================================================== */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 /* Hidden Elements
    ========================================================================== */

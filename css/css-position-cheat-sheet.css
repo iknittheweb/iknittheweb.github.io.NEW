@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,6 +161,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 table,
@@ -811,7 +816,6 @@ button:hover {
 }
 
 .cheat-sheet-table {
-  width: 90%;
   border-collapse: separate;
   border-spacing: 0;
   box-shadow: 0 4px 24px rgba(80, 15, 68, 0.08);
@@ -844,11 +848,11 @@ button:hover {
 }
 .cheat-sheet-table__property {
   font-family: "Fira Mono", "Consolas", monospace;
-  color: var(--primary-text);
+  color: var(--light-text);
   font-weight: 600;
 }
 .cheat-sheet-table__value {
-  color: #1a3317;
+  color: var(--primary-text);
   font-family: "Fira Mono", "Consolas", monospace;
   padding: 0.5rem 1rem;
   font-weight: 500;
@@ -1076,12 +1080,21 @@ button:hover {
   }
 }
 
+#css-position_main-content article {
+  width: 90%;
+  margin-inline: auto;
+}
+
 #cheat-sheet-title {
   font-size: 2.625rem;
-  text-align: center;
 }
 
 #cheat-sheet-subtitle {
   font-size: 2.25rem;
+}
+
+#cheat-sheet-title,
+#cheat-sheet-subtitle {
+  padding: 1.25rem;
   text-align: center;
 }
