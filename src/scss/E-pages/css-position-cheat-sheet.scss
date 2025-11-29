@@ -15,11 +15,23 @@
 @use '../F-themes' as t;
 @use '../G-vendors' as v;
 
+#css-position_main-content article {
+  width: 90%;
+  margin-inline: auto;
+}
+
 #cheat-sheet-title {
   font-size: f.rem(42);
-  text-align: center;
 }
+
 #cheat-sheet-subtitle {
   font-size: f.rem(36);
+}
+
+#cheat-sheet-title,
+#cheat-sheet-subtitle {
+  padding: f.rem(20);
   text-align: center;
 }
+
+
