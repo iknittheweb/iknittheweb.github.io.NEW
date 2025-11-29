@@ -1297,7 +1297,7 @@
                       }
 
                       function backspace() {
-                        if (!waitingForOperand && current.length > 1) {
+                        if (!waitingForOperand && current.length &gt; 1) {
                           current = current.slice(0, -1);
                         } else {
                           current = '0';
@@ -1356,21 +1356,21 @@
                       screen.setAttribute('tabindex', '0');
 
                       // Button event listeners
-                      buttons.forEach((button) => {
+                      buttons.forEach((button) =&gt; {
                         button.setAttribute('tabindex', '0');
                         button.setAttribute('role', 'button');
                         button.setAttribute('aria-pressed', 'false');
-                        button.addEventListener('click', () => {
+                        button.addEventListener('click', () =&gt; {
                           handleButton(button);
                           button.setAttribute('aria-pressed', 'true');
-                          setTimeout(() => button.setAttribute('aria-pressed', 'false'), 150);
+                          setTimeout(() =&gt; button.setAttribute('aria-pressed', 'false'), 150);
                         });
-                        button.addEventListener('keydown', (e) => {
+                        button.addEventListener('keydown', (e) =&gt; {
                           if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
                             handleButton(button);
                             button.setAttribute('aria-pressed', 'true');
-                            setTimeout(() => button.setAttribute('aria-pressed', 'false'), 150);
+                            setTimeout(() =&gt; button.setAttribute('aria-pressed', 'false'), 150);
                           }
                         });
                       });
