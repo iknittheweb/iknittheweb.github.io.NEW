@@ -116,9 +116,6 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
-.nowrap {
-  white-space: nowrap;
-}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -161,9 +158,7 @@ a,
 code,
 img,
 s,
-var,
 i,
-center,
 ul,
 li,
 form,
