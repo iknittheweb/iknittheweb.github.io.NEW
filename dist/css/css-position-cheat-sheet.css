@@ -116,6 +116,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,6 +161,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 table,
@@ -814,7 +819,6 @@ button:hover {
   width: 90%;
   border-collapse: separate;
   border-spacing: 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
   box-shadow: 0 4px 24px rgba(80, 15, 68, 0.08);
   border-radius: 1rem;
   overflow: hidden;
@@ -828,10 +832,6 @@ button:hover {
   font-weight: 700;
   letter-spacing: 0.03em;
   color: var(--primary-text);
-  background: var(--primary-bg-light);
-}
-.cheat-sheet-table__head {
-  background: var(--primary-bg);
 }
 .cheat-sheet-table__row th,
 .cheat-sheet-table__row td {
@@ -839,9 +839,6 @@ button:hover {
   text-align: left;
   font-size: 1rem;
   border-bottom: 2px solid var(--primary-border-mid);
-}
-.cheat-sheet-table__row--property {
-  background: var(--primary-bg-light);
 }
 .cheat-sheet-table__header {
   background: var(--primary-bg);
@@ -852,14 +849,12 @@ button:hover {
 }
 .cheat-sheet-table__property {
   font-family: "Fira Mono", "Consolas", monospace;
-  background: var(--primary-bg-light);
   color: var(--primary-text);
   font-weight: 600;
 }
 .cheat-sheet-table__value {
   color: #1a3317;
   font-family: "Fira Mono", "Consolas", monospace;
-  background: linear-gradient(90deg, #a8d4a5 0%, #e1dede 100%);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 500;
@@ -1085,4 +1080,9 @@ button:hover {
   .wrapper {
     padding-inline: 0.5rem;
   }
+}
+
+#cheat-sheet-title {
+  font-size: 2.625rem;
+  text-align: center;
 }
