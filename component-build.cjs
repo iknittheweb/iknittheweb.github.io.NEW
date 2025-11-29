@@ -62,11 +62,6 @@ fs.readdirSync(srcDir).forEach((file) => {
 
     let html = template(context);
 
-    // Add a comment at the top reminding developers to check page-specific replacements
-    html =
-      `<!--\n  ⚠️ AUTO-GENERATED: Check page-specific placeholder replacements (TITLE, DESCRIPTION, KEYWORDS, OG_IMAGE, PAGE_NAME) before deploying!\n  Edit src/templates/${file} to set real values.\n--->\n` +
-      html;
-
     // Remove template warning and workflow comments from the output
     html = html.replace(
       /<!--\s*IMPORTANT: This is a TEMPLATE file![\s\S]*?DO NOT edit the generated \*\.html file directly[\s\S]*?-->/g,
@@ -74,10 +69,6 @@ fs.readdirSync(srcDir).forEach((file) => {
     );
     html = html.replace(
       /<!--\s*-{2,}\s*BEGINNER-FRIENDLY EXPLANATORY COMMENTS[\s\S]*?-{2,}\s*-->/g,
-      ''
-    );
-    html = html.replace(
-      /<!--\s*Build System Workflow \(2025\):[\s\S]*?DO NOT edit the generated \*\.html file directly[\s\S]*?-->/g,
       ''
     );
 
