@@ -1678,6 +1678,7 @@ textarea:focus-visible {
   object-fit: cover;
   display: block;
   padding: 0.375rem;
+  background-color: var(--primary-bg-mid);
 }
 .card__figure figcaption {
   padding: 1rem 1.25rem;
