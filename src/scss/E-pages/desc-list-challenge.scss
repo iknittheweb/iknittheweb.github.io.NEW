@@ -24,46 +24,46 @@
   line-height: 1.6;
 }
 
-.DESC_LIST-_quote {
+.desc-list-challenge__quote {
   margin: 2rem 0;
   padding: 1rem 2rem;
-  border-left: 4px solid #eb3b5a;
-  background-color: #f9f9f9;
+  border-left: 4px solid var(--desc-list-border);
+  background-color: var(--desc-list-bg);
   font-style: italic;
 }
 
-.DESC_LIST-_materials {
+.desc-list-challenge__materials {
   margin: 2rem 0;
   padding: 1rem;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: var(--desc-list-materials-bg);
+  border: 1px solid var(--desc-list-materials-border);
   border-radius: 8px;
 }
 
-.DESC_LIST-_materials-term {
+.desc-list-challenge__materials-term {
   font-weight: bold;
-  color: #333;
+  color: var(--desc-list-materials-term);
   margin-top: 0.5rem;
 }
 
-.DESC_LIST-_materials-term:first-child {
+.desc-list-challenge__materials-term:first-child {
   margin-top: 0;
 }
 
-.DESC_LIST-_materials-desc {
+.desc-list-challenge__materials-desc {
   margin: 0 0 0.5rem 2rem;
-  color: #666;
+  color: var(--desc-list-materials-desc);
 }
 
-.DESC_LIST-_materials-total {
+.desc-list-challenge__materials-total {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--desc-list-materials-border);
   font-weight: bold;
   text-align: right;
 }
 
-.DESC_LIST-_citation {
+.desc-list-challenge__citation {
   text-align: right;
   font-style: italic;
   margin-top: 2rem;
