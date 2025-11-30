@@ -14,12 +14,16 @@
 @use '../G-vendors' as v;
 
 #alien_main-content {
-  background-image: url('/iknittheweb.github.io.NEW/dist/img/pages/galaxy.jpg');
+  background-image: url('/dist/img/pages/galaxy.jpg');
 }
 
 // BEM: .alien-form-page__hero
 .alien-form-page__hero {
-  background: linear-gradient(135deg, var(--alien-primary-bg) 0%, var(--alien-secondary-bg) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--alien-primary-bg) 0%,
+    var(--alien-secondary-bg) 100%
+  );
   color: var(--alien-text-light);
   padding-block: a.rem(60);
   text-align: center;
@@ -37,8 +41,16 @@
     position: absolute;
     inset: 0;
     background-image:
-      radial-gradient(circle at 20% 20%, var(--alien-accent) 1px, transparent 1px),
-      radial-gradient(circle at 80% 80%, var(--alien-accent-secondary) 1px, transparent 1px);
+      radial-gradient(
+        circle at 20% 20%,
+        var(--alien-accent) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        var(--alien-accent-secondary) 1px,
+        transparent 1px
+      );
     background-size:
       50px 50px,
       30px 30px;
@@ -51,7 +63,6 @@
   }
 }
 
-
 // BEM: .alien-form-page__wrapper
 .alien-form-page__wrapper {
   position: relative;
@@ -62,7 +73,7 @@
   background: rgb(var(--alien-primary-bg), 0.85);
   border-radius: a.rem(16);
   box-shadow: 0 8px 32px rgb(0 255 65 / 10%);
-  
+
   @include a.breakpoint-down('699.98') {
     padding: a.rem(32) a.rem(12);
   }
@@ -84,12 +95,12 @@
 }
 .alien-form-page__abtype {
 }
-  @keyframes starfield {
-    0% {
-      transform: translate(0, 0);
-    }
-  
-    100% {
-      transform: translate(30px, 30px);
-    }
+@keyframes starfield {
+  0% {
+    transform: translate(0, 0);
   }
+
+  100% {
+    transform: translate(30px, 30px);
+  }
+}
