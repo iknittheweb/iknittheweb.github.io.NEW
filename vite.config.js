@@ -28,5 +28,5 @@ export default defineConfig({
       },
     },
   },
-  base: '/iknittheweb.github.io.NEW/',
+  base: '/',
 });
