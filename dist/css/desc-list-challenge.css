@@ -1,5 +1,11 @@
 @charset "UTF-8";
 :root {
+  --desc-list-bg: #f9f9f9;
+  --desc-list-border: #eb3b5a;
+  --desc-list-materials-bg: #fff;
+  --desc-list-materials-border: #ddd;
+  --desc-list-materials-term: #333;
+  --desc-list-materials-desc: #666;
   --primary-bg: #500f44;
   --primary-bg-mid: #751c7d;
   --primary-bg-light: #c642cf;
@@ -11,7 +17,13 @@
   --light-bg: #e1dede;
   --mid-bg: #666;
   --dark-bg: #000000;
-  --basic-vertical-navbar-title-bg-gradient: linear-gradient(to bottom, #fff, #eb3b5a, #eb3b5a, #eb3b5a);
+  --basic-vertical-navbar-title-bg-gradient: linear-gradient(
+    to bottom,
+    #fff,
+    #eb3b5a,
+    #eb3b5a,
+    #eb3b5a
+  );
   --primary-border: #500f44;
   --primary-border-mid: #751c7d;
   --light-border: #e1dede;
@@ -28,7 +40,9 @@
   --fa-primary-color: #500f44;
   --fa-secondary-color: #b89cbf;
   --light-overlay: hsl(0deg 0% 42% / 50%);
-  --menu-overlay: hsl(0deg 0% 0% / 70%);
+  --menu-overlay: hsl(
+    0deg 0% 0% / 70%
+  );
   --primary-gradient-light: #c642cf;
   --secondary-gradient-light: #42c439;
   --primary-underline-light: #c642cf;
@@ -46,7 +60,9 @@
   --alien-text-dim: #d04949;
   --alien-accent: #000;
   --primary-glow: #c642cf;
-  --skills-tab-inactive-bg: rgb(255 255 255 / 5%);
+  --skills-tab-inactive-bg: rgb(
+    255 255 255 / 5%
+  );
   --skills-tab-inactive-text-opacity: 0.7;
   --skills-tab-hover-opacity: 0.9;
 }
@@ -116,6 +132,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -161,6 +180,8 @@ code,
 img,
 s,
 small,
+var,
+center,
 dl,
 dt,
 dd,
@@ -1059,4 +1080,49 @@ button:hover {
   margin: 0 auto;
   padding: 1rem;
   line-height: 1.6;
+}
+
+.desc-list-challenge__quote {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  border-left: 4px solid var(--desc-list-border);
+  background-color: var(--desc-list-bg);
+  font-style: italic;
+}
+
+.desc-list-challenge__materials {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: var(--desc-list-materials-bg);
+  border: 1px solid var(--desc-list-materials-border);
+  border-radius: 8px;
+}
+
+.desc-list-challenge__materials-term {
+  font-weight: bold;
+  color: var(--desc-list-materials-term);
+  margin-top: 0.5rem;
+}
+
+.desc-list-challenge__materials-term:first-child {
+  margin-top: 0;
+}
+
+.desc-list-challenge__materials-desc {
+  margin: 0 0 0.5rem 2rem;
+  color: var(--desc-list-materials-desc);
+}
+
+.desc-list-challenge__materials-total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--desc-list-materials-border);
+  font-weight: bold;
+  text-align: right;
+}
+
+.desc-list-challenge__citation {
+  text-align: right;
+  font-style: italic;
+  margin-top: 2rem;
 }

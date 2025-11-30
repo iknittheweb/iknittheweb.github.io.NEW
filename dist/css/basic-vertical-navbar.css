@@ -1,5 +1,11 @@
 @charset "UTF-8";
 :root {
+  --desc-list-bg: #f9f9f9;
+  --desc-list-border: #eb3b5a;
+  --desc-list-materials-bg: #fff;
+  --desc-list-materials-border: #ddd;
+  --desc-list-materials-term: #333;
+  --desc-list-materials-desc: #666;
   --primary-bg: #500f44;
   --primary-bg-mid: #751c7d;
   --primary-bg-light: #c642cf;
@@ -11,7 +17,13 @@
   --light-bg: #e1dede;
   --mid-bg: #666;
   --dark-bg: #000000;
-  --basic-vertical-navbar-title-bg-gradient: linear-gradient(to bottom, #fff, #eb3b5a, #eb3b5a, #eb3b5a);
+  --basic-vertical-navbar-title-bg-gradient: linear-gradient(
+    to bottom,
+    #fff,
+    #eb3b5a,
+    #eb3b5a,
+    #eb3b5a
+  );
   --primary-border: #500f44;
   --primary-border-mid: #751c7d;
   --light-border: #e1dede;
@@ -28,7 +40,9 @@
   --fa-primary-color: #500f44;
   --fa-secondary-color: #b89cbf;
   --light-overlay: hsl(0deg 0% 42% / 50%);
-  --menu-overlay: hsl(0deg 0% 0% / 70%);
+  --menu-overlay: hsl(
+    0deg 0% 0% / 70%
+  );
   --primary-gradient-light: #c642cf;
   --secondary-gradient-light: #42c439;
   --primary-underline-light: #c642cf;
@@ -46,7 +60,9 @@
   --alien-text-dim: #d04949;
   --alien-accent: #000;
   --primary-glow: #c642cf;
-  --skills-tab-inactive-bg: rgb(255 255 255 / 5%);
+  --skills-tab-inactive-bg: rgb(
+    255 255 255 / 5%
+  );
   --skills-tab-inactive-text-opacity: 0.7;
   --skills-tab-hover-opacity: 0.9;
 }
@@ -116,6 +132,9 @@
 /* =========================
   Layout: keep defined group of words together so a line break doesn't divide them
   ========================= */
+.nowrap {
+  white-space: nowrap;
+}
 
 /* =========================
   Styling for inline FontAwesome icon svgs
@@ -158,6 +177,8 @@ a,
 code,
 img,
 s,
+var,
+center,
 ul,
 li,
 article,
